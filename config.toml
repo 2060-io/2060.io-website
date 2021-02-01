@@ -54,25 +54,25 @@ id = "UA-00000000-0"
 [languages]
 [languages.en]
 title = "2060"
-description = "A Docsy example site"
+description = "SSI for the masses"
 languageName ="English"
 # Weight used for sorting.
 weight = 1
-[languages.no]
+[languages.es]
 title = "2060"
-description = "Docsy er operativsystem for skyen"
-languageName ="Norsk"
-contentDir = "content/no"
+description = "SSI para todos"
+languageName ="Español"
+contentDir = "content/es"
 time_format_default = "02.01.2006"
 time_format_blog = "02.01.2006"
 
-[languages.fa]
-title = "اسناد گلدی"
-description = "یک نمونه برای پوسته داکسی"
-languageName ="فارسی"
-contentDir = "content/fa"
-time_format_default = "2006.01.02"
-time_format_blog = "2006.01.02"
+[languages.fr]
+title = "2060"
+description = "SSI pour tous"
+languageName ="Français"
+contentDir = "content/fr"
+time_format_default = "02.01.2006"
+time_format_blog = "02.01.2006"
 
 [markup]
   [markup.goldmark]
