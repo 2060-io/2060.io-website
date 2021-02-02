@@ -91,7 +91,7 @@ time_format_blog = "02.01.2006"
 section = ["HTML", "print"]
 
 [params]
-copyright = "The Docsy Authors"
+copyright = "The 2060 project"
 privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
@@ -113,12 +113,12 @@ version = "0.0"
 
 # A link to latest version of the docs. Used in the "version-banner" partial to
 # point people to the main doc site.
-url_latest_version = "https://example.com"
+url_latest_version = "https://2060.io/docs"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/google/docsy-example"
+github_repo = "https://github.com/2060io/2060.io-website"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/google/docsy"
+github_project_repo = "https://github.com/2060-io"
 
 # Specify a value here if your content directory is not in your repo's root directory
 # github_subdir = ""
@@ -184,7 +184,7 @@ enable = false
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
 [[params.links.developer]]
 	name = "GitHub"
-	url = "https://github.com/google/docsy"
+	url = "https://github.com/2060-io"
 	icon = "fab fa-github"
         desc = "Development takes place here!"
 [[params.links.developer]]
