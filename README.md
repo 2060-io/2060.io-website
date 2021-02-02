@@ -1,23 +1,10 @@
-# Docsy Example
+# 2060.io-website
 
-[Docsy](https://github.com/google/docsy) is a Hugo theme for technical documentation sites, providing easy site navigation, structure, and more. This **Docsy Example Project** uses the Docsy theme, as well as providing a skeleton documentation structure for you to use. You can either copy this project and edit it with your own content, or use the theme in your projects like any other [Hugo theme](https://gohugo.io/themes/installing-and-using-themes/).
+[2060.io](https://github.com/2060-io/2060.io-website) is the 2060.io website based on Docsy, an Hugo theme for technical documentation sites, providing easy site navigation, structure, and more. This **2060.io-website** uses the Docsy theme
 
-The theme is included in this project as a Git submodule:
+## Using the 2060.io website as a template
 
-```bash
-▶ git submodule
- a053131a4ebf6a59e4e8834a42368e248d98c01d themes/docsy (heads/master)
-```
-
-This Docsy Example Project is hosted at [https://example.docsy.dev/](https://example.docsy.dev/).
-
-You can find detailed theme instructions in the Docsy user guide: https://docsy.dev/docs/
-
-This is not an officially supported Google product. This project is currently maintained.
-
-## Using the Docsy Example Project as a template
-
-A simple way to get started is to use this project as a template, which gives you a site project that is set up and ready to use. To do this: 
+You can use this project as a template, which gives you a site project that is set up and ready to use. To do this: 
 
 1. Click **Use this template**.
 
