@@ -47,7 +47,7 @@ anchor = "smart"
 [services]
 [services.googleAnalytics]
 # Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
-id = "UA-00000000-0"
+id = "UA-188669802-1"
 
 # Language configuration
 
@@ -91,7 +91,7 @@ time_format_blog = "02.01.2006"
 section = ["HTML", "print"]
 
 [params]
-copyright = "The 2060 project"
+copyright = "The 2060 Project."
 privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
