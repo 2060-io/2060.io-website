@@ -12,6 +12,7 @@ El democracía esta en peligro.
 El planeta en peligro. 
 
 **La democracía esta en peligro**
+
 El poder se esta concentrando cada vez más entre mega-entidades: empresas grandes y gobiernos.
  
 - Empresas digitales quienes controlan absolutamente todo de nuestra vida y no permiten que pueda seguir la idea inicial de la web: un espacio abierto interoperable donde todo el mundo puede participar, inovar, ofrecer servicios.
@@ -34,6 +35,7 @@ Esa gestión centralizada del internet por algunas entidades hace que si no hace
 
 
 **El planeta esta en peligro**
+
 Podemos hacer un paralelo con el tema de la destrucción de los ecosistemas: la actividad húmana esta deteriorando el planeta a una velocidad increible.
 
 Una vez más, el problema es que el poder esta concentrado entre unas pocas entidades a quienes no les importa la huella ecologíca. Ademas, el consumidor final no puede escoger nada, ya que todo esta ocultado con el proposito de aumentar las ganancias. Solamente se les está presentando al consumidor un producto o servicio con una imagen atractiva generalmente muy lejos de la realidad.
