@@ -3,7 +3,7 @@ title: "¿Para quien es 2060?"
 linkTitle: "¿Para quien es 2060?"
 weight: 1
 description: >
-  Aqui se explica para quien es 2060.
+  Descubre los casos de uso básicos de 2060.
 ---
 
 2060 es un punto de entrada a un Internet Desentralizado.
