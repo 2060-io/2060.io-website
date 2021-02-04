@@ -61,6 +61,7 @@ La App 2060 permitira utilizar y contribuir a un nuevo Internet de confianza dec
 - consumir bienes y/o servicios en base al impacto social, ecologico, en base a la reputación verificable de una entidad, y asi eliminar del negocio las empresas que mienten, esconden sus malas practicas.
 
 **La marca 2060 tiene que vehicular este mundo optimista y de confianza que queremos.**
+
 **Lo que usarán 2060 son los que quieren este mundo optimista y de confianza.**
 
 
