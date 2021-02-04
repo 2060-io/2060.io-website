@@ -6,6 +6,8 @@ description: >
   Aqui se explica para quien es 2060.
 ---
 
+2060 es un punto de entrada a un Internet Desentralizado.
+
 2060 es para:
 
 - el Usuario de internet en general, quien desea acceder al nuevo internet decentralizado
