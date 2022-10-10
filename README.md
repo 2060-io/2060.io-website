@@ -1,5 +1,5 @@
 # 2060.io-website
-
+a
 [2060.io](https://github.com/2060-io/2060.io-website) is the 2060.io website based on Docsy, an Hugo theme for technical documentation sites, providing easy site navigation, structure, and more.
 
 ## Using the 2060.io website as a template
