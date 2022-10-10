@@ -22,6 +22,31 @@ nav{
 #nav-border{
     top: 20px;
 }
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-nav{
+    margin-top: 10%;
+    margin-left: 0%;
+}
+.navbar-collapse{
+    background-color: #0C0C12;
+    
+}
+
+@media (min-width: 600px) {
+    .navbar-nav{
+        margin-top: 0%;
+        margin-left: 33%;
+    }
+    .navbar-collapse{
+        background-color: unset;
+    }
+}
 
 .nav-link{
     color: rgb(100, 100, 100) !important;
@@ -154,6 +179,55 @@ nav{
     border-radius: 30px;
     background-color: #61C4E8;
 
+}
+
+.right-standards {
+    display: grid;
+    width: 100%;
+    margin-top: 10%;
+}
+
+@media (min-width: 600px) {
+    .right-standards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.right-standards-card {
+    background-color: #0c0c12;
+    /* padding: 1rem 18% 1rem 18%; */
+    /* height: 40rem; */
+    border: 1px solid #0c0c12;
+    border-radius: 0%;
+}
+
+.right-standards-card h2 {
+    line-height: 52px;
+    font-weight: 700;
+    text-align: left;
+    /* padding: 0% 20% 10% 0%; */
+    padding: 1rem 20% 10% 10%;
+    color: white;
+}
+
+.right-standards-card p {
+    padding: 0 0% 0% 10%;
+    max-width: 490px; 
+    line-height: 32px;
+    font-weight: 500;
+    text-align: left;
+    color: white;
+}
+
+@media (min-width: 600px) {
+    .right-standards-card h2 {
+        padding: 1rem 20% 10% 18%;
+    }
+    
+    .right-standards-card p {
+        max-width: unset; 
+        padding: 0 0% 0% 18%;
+    }
 }
 
 .your-privacy {

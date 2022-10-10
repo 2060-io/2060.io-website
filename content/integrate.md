@@ -39,8 +39,8 @@ Let Users generate content with your web3 Apps and seamlessly store data to dece
 
 </div>
 </div>
-<div class="cards">
-    <div class="card">
+<div class="right-standards">
+    <div class="right-standards-card">
 
 ## For dApps
 Embed 2060 wallet SDK and build a new generation of dApps.
@@ -52,8 +52,9 @@ Store User generated Content on Secure Data Storage services
 Get storage access token from User 2060 Wallet and store user-generated content to decentralized ciphered data storage.
 
 </div>
-    <div class="card">
+    <div class="right-standards-card">
+    <img src="/img/integrate-dapps.png" width="100%" height="100%">
 
-![Dapps](/img/integrate-dapps.png)
+<!-- ![Dapps](/img/integrate-dapps.png) -->
 </div>
 </div>
