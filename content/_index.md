@@ -16,9 +16,9 @@ url: "/"
 </div>
 <div class="discover-text">
 
-2060 is a decentralized and open network that provides all the decentralized services needed by any Web3 application: identity, storage, signalling and communication channels, like cloud services provided by existing large players.
+2060 is a decentralized and open network that provides all the decentralized services needed by any Web5 application: identity, storage, signalling and communication channels, like cloud services provided by existing large players.
 
-2060 aims to dramatically encourage adoption of Web3, Self-Sovereign Identity and Verifiable Credentials.
+2060 aims to dramatically encourage adoption of Web5, Self-Sovereign Identity and Verifiable Credentials.
 <button><b>Discover our technology....</b></button>
 
 </div>
@@ -48,7 +48,7 @@ DIDComm ARIES SSI
 
 It is possible to assign a contactability profile for each connection, in order to select what kind of communication (chat, call, video call) is permitted.
 
-Wallet is available as a SDK for easy integration into Web3 Apps. Some Apps are already being built, such as an experimental 2060 client for the end user.
+Wallet is available as a SDK for easy integration into Web5 Apps. Some Apps are already being built, such as an experimental 2060 client for the end user.
 
 </div>
 </div>
