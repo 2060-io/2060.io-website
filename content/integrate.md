@@ -8,7 +8,7 @@ summary: integrate
     <div class="cover-card">
 
 ## Privacy by Design, Designed for openness.
-Over 2 years of R&D, we nurtured a vision where Web3 and dApps could seamlessly interact with 2060 decentralized services.
+Over 2 years of R&D, we nurtured a vision where Web5 and dApps could seamlessly interact with 2060 decentralized services.
 
 </div>
     <div class="cover-banner-card">
@@ -35,7 +35,7 @@ Provide custom services based on verified user claims
 Use verified connections to provide custom services to your Users: chat bot and call center services, access to user-owned personal resources through Mobile or Web App, payment requests, cash-out on ATMs, access to specific rooms or objects…
 
 Store User Content on Secure Data Storage services
-Let Users generate content with your web3 Apps and seamlessly store data to decentralized ciphered data storage.
+Let Users generate content with your web5 Apps and seamlessly store data to decentralized ciphered data storage.
 
 </div>
 </div>
