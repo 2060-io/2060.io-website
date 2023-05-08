@@ -1,0 +1,20 @@
+.img-fuild-left{
+    width: 81px;
+    height: 70pxpx;
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+.scan-link{
+    border: 1px solid #E0E0E0 ;
+    background-color: #E0E0E0;
+    padding: 15px;
+    color: #073B4C;
+    border-radius: 18px;
+
+}
+.scan-link:hover{
+    color: #073B4C;
+}
+.right-arrow{
+    padding-left: 5px;
+}

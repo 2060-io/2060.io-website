@@ -1,0 +1,249 @@
+<section class="section usecase py-5">
+    <div class="container usecase-container-carou">
+        <div class="title-usecase-carou">
+            {{ with .title }}
+              <h3 class="fs-1 text-primary pb-3 title-uc-carou" style="color: #3EBDB6 !important; " >{{ . }}</h3>
+            {{ end }}
+        </div>
+
+
+          <div class="slide-container">
+
+            <!-- Main Container For the Slide -->
+            <div class="swiper mySwiper flip-card-3D-wrapper">
+
+              <!-- Global Container containe front and back  -->
+              <div class="swiper-wrapper flip-card">
+
+                {{ range .content.usecases }}
+                  <!--Back Slide -->
+
+                  <!-- End Back -->
+                  <!-- From Card -->
+                  <div class="swiper-slide flip-card-front">
+                    <div class="swiper-slide-recto">
+                      <div class="d-flex imgSlide-1">
+                        {{ with .image }}
+                        <img src="{{ . }}">   
+                        {{ end }}
+                      </div>
+                      <div class="text-content-slide">
+                          {{ with .title }}
+                          <h2 class="title-slide">{{ . }}</h2>
+                          {{ end }}
+                            <p class="para-slide">
+                              {{ .para }}
+                              <span class="bold-carou-txt">{{ .bold_txt_carou }}</span>
+                              {{ .para2 }}
+                              <span class="bold-carou-txt">{{ .bold_txt_carou2 }}</span>
+                              {{ .para3 }}
+                            </p>
+                          <div class="div-btn-scan-me"> 
+                            <button id="button-flip-back" class="text-decoration-none me-1 scan-link scan-btn-uc" id="btn-scan">Scan me
+                              <i class="fas fa-arrow-right right-arrow"></i>
+                              <span class="qr-scan-uc-btn">{{ partial "icons/usecases_icons/qr_btn.html" }}</span>
+                            </button>                      
+                            <!-- <button >Scan Me <span class="ms-2">{{ partial "icons/arrow-right.html" }} <img src="/images/usecases/carou_img/qr_scan.png" alt=""></span></button>                           -->
+                          </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide-verso">
+                        {{ with .title }}
+                          <h2 class="title-slide text-center">{{ . }}</h2>
+                        {{ end }}
+    
+                      <div class="d-flex justify-content-center imgSlide-1-qr">
+                        {{ with .imageQR }}
+                        <img src="{{ . }}">   
+                        {{ end }}
+                      </div>
+                      <div class="text-content-slide-qr">
+                          {{ with .paraqr }}
+                            <p class="para-slide">{{ . }}</p>
+                          {{ end }}
+                          <div class="buttons-carousel">
+                            <div class="div-btn-scan-me2">                       
+                              <button id="button-flip-back">
+                                <i class="fas fa-arrow-left left-arrow"></i>
+                               Back</button>                          
+                            </div>
+                            <div class="btn-scan-me3"> 
+                              <a href="{{ .btn_lm_uc_c }}#{{ .id }}" class="link-lean-more">
+                                <button id="button-flip-back">Learn more
+                                  <span class="ms-2">
+                                    <a href="{{ . }}" class="link-lean-more"></a><i class="fas fa-arrow-right right-arrow"></i>
+                                  </span>             
+                                </button>
+                              </a>
+                              
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Front Card Div -->
+                  {{ end }}
+              </div>
+
+              <!-- End Swiper Wrapper -->
+             
+              
+            </div>
+            <!-- End Main Container For the Slide -->
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        
+
+</section>
+
+<style>
+  .scan-link{
+    width: auto;
+    font-family:'EuclidCircularA-Bold' ;
+    font-size: 1rem;
+  }
+  .div-btn-scan-me button{
+    width: auto;
+  }
+  .right-arrow{
+    color: #3EBDB6;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+   var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 10,
+      loop: true,
+      centerSlide: 'true',
+      fade: 'true',
+      grabCursor: 'true',
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+        
+      },
+      
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      breakpoints:{
+        0: {
+            slidesPerView: 1,
+        },
+        520: {
+            slidesPerView: 2,
+        },
+        950: {
+            slidesPerView: 3,
+        },
+    },
+
+    });
+
+   
+  (function(){
+    var elements  = document.querySelectorAll('.swiper-slide')
+    var traitement = function(element){
+        element.addEventListener('mouseenter', function(){
+          this.style.transition= "0.5s all";
+          this.style.background = "#073B4C"
+          this.children[0].children[0].style.background = "none"
+          this.children[0].children[0].children[0].style.marginTop = "-86px"
+          this.children[0].children[1].children[1].style.color = "#DBDBF4"
+          this.children[0].children[1].children[0].style.color = "#3EBDB6"
+          this.children[0].children[1].children[2].children[0].style.backgroundColor = "#FFF"
+        })
+        element.addEventListener('mouseleave', function(){
+          
+            this.style.background = "#FFF"
+            this.children[0].children[0].style.background = "url('/images/usecases/carou_img/usecase_bg.png') no-repeat"
+            this.children[0].children[0].children[0].style.marginTop = "0"
+            this.children[0].children[1].children[1].style.color = "#073B4C"
+            this.children[0].children[1].children[0].style.color = "#3EBDB6"
+            this.children[0].children[1].children[2].children[0].style.backgroundColor = "rgba(7, 59, 76, 0.05)"
+       })
+    }
+    
+    for(var i=0; i<elements.length; i++){
+           traitement(elements[i]);
+    }
+
+    var bouttons  = document.querySelectorAll('.div-btn-scan-me')
+    var flip = function(element){
+        element.addEventListener('click', function(){          
+            this.parentNode.parentNode.style.marginTop = "-500px"
+        })
+
+    }
+
+  
+    for(var i=0; i<bouttons.length; i++){
+           flip(bouttons[i]);
+    }
+    var bouttons2  = document.querySelectorAll('.div-btn-scan-me2')
+    var flip = function(element){
+        element.addEventListener('click', function(){
+            this.parentNode.parentNode.parentNode.parentNode.children[0].style.marginTop = "0px"
+        })
+
+    }
+
+  
+    for(var i=0; i<bouttons2.length; i++){
+           flip(bouttons2[i]);
+    }
+
+    var btn_learn_more = document.querySelectorAll(".link-lean-more")
+    
+
+})()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+document.addEventListener('DOMContentLoaded', function(event) {
+
+document.getElementById('flip-card-btn-turn-to-back').style.visibility = 'visible';
+
+document.getElementById('flip-card-btn-turn-to-back').onclick = function() {
+document.getElementById('flip-card').classList.toggle('do-flip');
+};
+
+document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
+document.getElementById('flip-card').classList.toggle('do-flip');
+};
+
+});*/
+
+
+
+</script>
+

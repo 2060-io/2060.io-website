@@ -1,0 +1,37 @@
+.ul{
+    
+    list-style-type:none ;
+}
+
+.li{
+
+    font-size: 20px;
+    text-align: justify;
+}
+.h4{
+    padding-top: 20px;
+    font-size: 50px !important;
+    color: #073B4C;
+}
+
+.buttons-s-c{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.clear-button{
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #FFFFFF !important;
+    color: #073B4C !important;
+    border: 1px solid #073B4C !important;
+    margin-right: 15px;
+}
+.submit-button{
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #0893FF !important;
+    color: #FFFFFF !important;
+}

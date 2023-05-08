@@ -1,0 +1,15 @@
+enable : true 
+id : "contact"
+
+
+title: "Get in touch with our team to:"
+actionForm : ""
+content:
+  listRule:
+    - list: "Integrate: "
+      desc: "For your own, or your clients’, services."
+    - list: "Collaborate: "
+      desc: "Join forces with us to promote Web5."
+    - list: "Inquire: "
+      desc: "For any other questions and information"
+

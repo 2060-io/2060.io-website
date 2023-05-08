@@ -1,0 +1,9 @@
+enable : true 
+id : "under_header"
+
+
+
+content:
+  smallTitle: "Use Cases"
+  text : "Promote Web5 adoption through enabling trusted interactions between entities and individuals."
+  smText : "How chatbot-based customisable interactions can be utilised to provision services while maintaining integrity and control of data and resources."

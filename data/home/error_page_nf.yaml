@@ -1,0 +1,5 @@
+enable : true 
+id : "error_page_nf"
+
+img : "/images/404_error/error_img.png"
+para: "Sorry, we couldn’t find the page you were looking for. Please check the URL and try again. You can also visit our homepage or contact us for assistance."

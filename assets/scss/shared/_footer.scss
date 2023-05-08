@@ -1,0 +1,138 @@
+footer{
+    padding-top: 3rem !important;
+
+
+}
+
+.shared.footer{
+    background: url("/images/footer-img/bg_footer.jpg") no-repeat top center;
+    background-size: cover !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+}
+
+
+.title-footer{
+    color: #FFFFFF !important;
+
+}
+
+.text-footer{
+    color: #3EBDB6 !important;
+    font-size: 0.9rem !important;
+}
+.para-cr{
+    color: #FFFFFF !important;
+}
+.con-footer{
+    color: #FFFFFF !important;
+    font-family: 'EuclidCircularA-Medium';
+}
+
+.geo-color{
+    color: #FFFFFF !important;
+}
+.text-about{
+    color: #FFFFFF !important;
+}
+
+.copyright{
+    height: 70px;
+    background-color: #084357;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+}
+.copyright p{
+    line-height: 70px;
+    margin: 0;
+    font-family: 'EuclidCircularA-Medium';
+}
+.footer-logo :first-child{
+    width: 35%;
+}
+.footer-logo p{
+    font-size: 1rem;
+}
+.footer-logo svg{
+    width:85% !important;
+}
+.footer-logo li{
+    width:auto !important;
+}
+.bg-icon-footer{
+    background-color: rgba(220, 240, 255, 0.25);
+}
+.text-about {
+    color: #FFFFFF !important;
+    line-height: 35px;
+    font-size: .9rem;
+    font-family: 'EuclidCircularA-Medium';
+  }
+
+.justify-content-xl-start {
+    justify-content: flex-start !important;
+    color: #FFFFFF !important;
+    margin: 15px 0;
+    font-size: 1rem;
+}
+
+.con-footer {
+    color: #FFFFFF !important;
+    line-height: 40px;
+    font-size: .9rem;
+  }
+   
+.text-footer {
+    color: #3EBDB6 !important;
+    font-size: 1rem;
+    font-family: 'EuclidCircularA-Bold';
+}
+.text-loc{
+    padding-left: 1rem !important;
+    color: #FFFFFF !important;
+    font-size: .9rem;
+    font-family: 'EuclidCircularA-Medium';
+}
+.footer-content{
+    padding-top: 40px;
+    
+}
+
+.footer-content ul li{
+    width: 70%;
+    
+}
+
+@media only screen and (max-width:768px){
+    .footer-content ul li{
+        width: 100%;
+    }
+    .list-location li{
+        width: 70% !important;
+        margin-left: 50px;
+    }
+    .logo-gh-li-tw-footer{
+        margin: 0 auto;
+        width: 33%;
+    }
+    .geo-color {
+        display: none !important ;
+      }  
+}
+
+@media only screen and (min-width : 768px) and (max-width:1300px) {
+    .logo-gh-li-tw-footer{
+        margin-left: 26rem !important;
+    }
+    .list-unstyled {
+        margin-left: 13.5rem;
+      }
+
+    .list-location {
+        margin-left: 20.5rem;
+      }    
+    
+}

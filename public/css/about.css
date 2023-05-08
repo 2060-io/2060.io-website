@@ -1,0 +1,31 @@
+.text-abt{
+    font-size: 20px;
+    color:#073B4C ;
+}
+.title-abt{
+    font-size: 40px;
+    padding-bottom: 30px;
+    color: #3EBDB6;
+}
+.txt-team{
+    font-size: 25px;
+}
+
+.dsc-team{
+    color: #FFFFFF;
+    background-color: #7678ED;
+    border-radius: 3px;
+    font-size: 20px;
+    font-family: "Comic Sans MS";
+}
+
+.role-team{
+    font-size: 13px;
+    color: #3EBDB6;
+}
+.git-li{
+    color: #3EBDB6;
+}
+.li-li{
+    color: #3EBDB6;
+}

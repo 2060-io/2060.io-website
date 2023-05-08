@@ -1,0 +1,16 @@
+<section class="section privacy mt-5 mb-10">
+    <div class="container">
+       <p class="text-privacy container">This privacy policy describes how we collect, use, and protect your personal information on our website.</p> 
+        {{ range .content }}
+            <div class="mb-2 container">
+                {{ with .title }}
+                    <h4 class="title-privacy">{{ . }}</h4>
+                {{ end }}
+                {{ with .description }}
+                    <p class="pb-5 txt-privacy">{{ . }}</p>
+                {{ end }}
+            </div>
+        {{ end }}
+    </div>
+</section>
+

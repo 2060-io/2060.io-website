@@ -1,0 +1,18 @@
+<section class="section error_pnt">
+    <div class="container error-container">
+        <div class=" d-flex flex-row justify-content-center  img-404-error">
+            <div class="img d-flex flex-column justify-content-center container-img-para-error">
+
+                {{ with .img }}
+                    <img src="{{ . }}" />
+                {{ end }}
+
+                {{ with .para }}
+                    <p class="para-error text-center">{{ . }}</p>
+                {{ end }}
+            </div>
+           
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,5 @@
+{{ define "main" }}
+    {{ with .Site.Data.home.under_header }}{{ partial "shared/under_header.html" . }}{{ end }}
+    {{ with .Site.Data.home.usecases }}{{ partial "usecases.html" . }}{{ end }}
+    {{ with .Site.Data.home.contact }}{{ partial "sections/contact.html" . }}{{ end }}
+{{ end }}

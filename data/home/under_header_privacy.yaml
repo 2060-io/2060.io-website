@@ -1,0 +1,9 @@
+enable : true 
+id : "underheader_privacy"
+
+
+
+content:
+  smallTitle: "Privacy Policy"
+  text : "How do we handle the personal information that you provide on our website and applications."
+  smText : "Contact us for more information."

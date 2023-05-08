@@ -1,0 +1,12 @@
+.title-privacy{
+    margin-top: 10px;
+    font-weight: normal !important;
+    font-size: 30px;
+    color: #073B4C;
+}
+.txt-privacy{
+    font-size: 15px;
+    opacity: 0.8;
+    max-width:800px ;
+    color: #073B4C;
+}

@@ -1,0 +1,9 @@
+enable : true 
+id : "under_header_about"
+
+
+
+content:
+  smallTitle: "About"
+  text : "Empowering Web5 users to control their data, while offering open solutions for institutions to build decentralised, trustable, and secure services."
+  smText : "Learn more about the rationale behind our 2060 and the team behind it."

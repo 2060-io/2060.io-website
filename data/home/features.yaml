@@ -1,0 +1,38 @@
+enabled: true
+id: "features"
+
+
+
+content:
+  title: "Features"
+  text_feat : "Create anonymous, decentralised, sophisticated and interoperable chat connections between Users and Services."
+  cards:
+    - image: "icons/features_icons/build_img_feat.html"
+      title: "Build"
+      text: "Our open-source SDK is based on established, proven standards and allows you to rapidly build chatbots or apps around your products and services, at no cost."
+      url : "#"
+      
+    - image: "icons/features_icons/issue_img.html"
+      title: "Issue"
+      text: "Deliver various types of credentials to end-users, including identity cards, banking cards, graduation certificates, and many other types of credentials."
+      url: "#"
+
+    - image: "icons/features_icons/verity.html"
+      title: "Verify"
+      text: "Verify trusted credentials, issued by your organisation or your partners, to secure the authenticate of connections to your products and services."
+      url: "#"
+  cards2:
+    - image: "icons/features_icons/chat.html"
+      title: "Chat"
+      text: "Similar to your favourite messaging apps, chat with friends, family and chatbots, while having total control over who can contact you, and what to share with them."
+      url: "#"
+
+    - image: "icons/features_icons/acceess.html"
+      title: "Access"
+      text: "Add Verifiable Credentials connections from validated organisations, to access products and services."
+      url: "#"
+
+    - image: "icons/features_icons/control.html"
+      title: "Control"
+      text: "Manage how your personal information is shared when a request is made. Generate zero-knowledge proofs to only disclose necessary credential data."
+      

@@ -1,0 +1,22 @@
+.title-privacy{
+    font-weight: normal !important;
+    font-size: 1.4rem;
+    color: #073B4C;
+}
+
+.txt-privacy{
+    font-size: 1.1rem;
+    opacity: 0.8;
+    color: #073B4C;
+    width: 80%;
+}
+.text-privacy{
+    font-size:1.3rem ;
+    margin:2rem 0 ;    
+}
+
+@media only screen and (max-width:768px) {
+    .txt-privacy{
+        width: 100%;
+    }    
+}

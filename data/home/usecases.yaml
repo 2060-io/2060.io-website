@@ -1,0 +1,76 @@
+enabled: true
+id: "usecases"
+
+# para_uc_top : "To run the examples, please make sure you downloaded the 2060 client."
+content:
+  - image: "/images/usecases/p2p.png"
+    qr_scan_uc_img : "icons/usecases_icons/qr_p2p2.html"
+    img:  "/images/usecases/img-p2p.png"
+    title: "P2P secure invitation"
+    text: "Peer-to-Peer secure invitations provide a secure and efficient way to invite and onboard new users to platforms, services, or networks, using time-bound unique invitation codes."
+    id : "p2p"
+    buttons: 
+      - label: "Scan me"
+        
+    # imgScan : "/images/usecases/img6.png"
+
+  - image: "/images/usecases/id-card.png"
+    qr_scan_uc_img : "icons/usecases_icons/id_card_insurance.html"
+    img:  "/images/usecases/img-idcard-issuance.png"
+    title: "Id card issuance"
+    id : 'idcard'
+    text: "Issuing ID cards through a chatbot-based system that utilises the user’s handset biometrics and allows for customisable instructions."
+
+    buttons: 
+      - label: "Scan me"
+        
+    # imgScan : "/images/usecases/img6.png"
+
+  - image: "/images/usecases/credit-card.png"
+    qr_scan_uc_img : "icons/usecases_icons/id_card_insurance.html"
+    img:  "/images/usecases/img-cci.png"
+    title: "Credit card issuance"
+    id : 'creditcard'
+    text: "Authentication of credit cards ordering and submission processes using Verifiable Credentials based interactions via chatbots and secure connections with banking infrastructure."
+
+    buttons: 
+      - label: "Scan me"
+       
+    # imgScan: "/images/usecases/img9.png"
+
+
+  - image: "/images/usecases/scan-to-pay.png"
+    qr_scan_uc_img : "icons/usecases_icons/id_card_insurance.html"
+    img: "/images/usecases/img-stp.png" 
+    title: "Scan to pay"
+    id : 'scantopay'
+    text : "Facilitate payment processing between users and merchants by ensuring non-repudiation of transactions without the need of 3D Secure."
+    
+    buttons:
+      - label: "Scan me"
+        
+    # imgScan: "/images/usecases/img12.png"
+
+  - image: "/images/usecases/api-aceess-token.png"
+    qr_scan_uc_img : "icons/usecases_icons/id_card_insurance.html"
+    img: "/images/usecases/img-aat.png" 
+    title: "API Access Token Issuance"
+    id : 'userbased'
+    text : "Issuing API access tokens through Verifiable Credentials can provide a secure and efficient way to grant access to authorised parties while maintaining control over data and resources."
+
+    buttons:
+      - label: "Scan me"
+        
+    # imgScan: "/images/usecases/img9.png"
+
+  - image: "/images/usecases/tpa.png"
+    qr_scan_uc_img : "icons/usecases_icons/id_card_insurance.html"
+    img: "/images/usecases/img-tpa.png" 
+    title: "Third party account creation and login"
+    id : "thirdparty"
+    text : "Employing bots to generate and access authorised third-party accounts and services can streamline processes and increase efficiency in various industries, without a compromise on security."
+    
+    buttons:
+      - label: "Scan me"
+       
+    # imgScan: "/images/usecases/img12.png"

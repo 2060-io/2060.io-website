@@ -1,0 +1,12 @@
+{{ define "main" }}
+  {{ with .Site.Data.home.hero }}{{ partial "sections/hero.html" . }}{{ end }}
+  <!-- {{ with .Site.Data.home.brands }}{{ partial "sections/brands.html" . }}{{ end }} -->
+  <!-- {{ with .Site.Data.home.portfolio }}{{ partial "sections/portfolio.html" . }}{{ end }} -->
+  {{ with .Site.Data.home.features }}{{ partial "sections/features.html" . }}{{ end }}
+  {{ with .Site.Data.home.download }}{{ partial "sections/download.html" . }}{{ end }}
+  <!-- {{ with .Site.Data.home.services }}{{ partial "sections/services.html" . }}{{ end }} -->
+  {{ with .Site.Data.home.useCase_carou }}{{ partial "sections/useCase_carou.html" . }}{{ end }}
+  {{ with .Site.Data.home.contact }}{{ partial "sections/contact.html" . }}{{ end }}
+  <!-- {{ with .Site.Data.home.testimonials }}{{ partial "sections/testimonials.html" . }}{{ end }} -->
+  <!-- {{ with .Site.Data.home.cta }}{{ partial "sections/cta.html" . }}{{ end }} -->
+{{ end }}

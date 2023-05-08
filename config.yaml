@@ -1,0 +1,89 @@
+baseURL : ""
+theme: "up-business-theme"
+languageCode: "en-us"
+ignoreErrors : ["error-remote-getjson"]
+title: "2060 Web5 Accelerator"
+
+# googleAnalytics: ""
+
+summaryLength: 20
+
+params:
+  title: ""
+  description: "The Web5 Accelerator"
+  images: 
+    - "images/footer-img/logo-footer.png"
+
+  logo: "arrow-up.png"
+
+  favicons:
+    themeColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF"
+    faviconColor: "#000000"
+
+  social:
+    github: "https://github.com/2060-io"
+    linkedin: "#"
+    twitter: "#"
+
+  location:
+    - "Cra 13A #86A-42, Bogotá DC, Colombia"
+    - "Paseo de Recoletos 27-41 Madrid, 28004, Spain"
+
+  contact:
+    - "hello@2060.io"
+    - "+00 123 456 789"
+
+  copyright: " © 2023 - 2060.io | All Rights Reserved "
+
+menus:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+
+    - name: "Use Cases"
+      url: "/2060-usecases"
+      weight: 2
+
+    - name: "About"
+      url: "/2060-about"
+      weight: 3
+
+    - name: "Contact"
+      url: "/2060-contact/"
+      weight: 4
+
+    # - name: "Blog"
+    #   url: "/blog"
+    #   weight: 5
+
+  buttons:
+    - name: "Download"
+      url: "/#"
+      weight: 5
+      pre: "btn btn-primary text-light"
+
+  # buttons:
+  #   - name: "Github"
+  #     url: "/#"
+  #     weight: 5
+  #     pre: "btn btn-primary text-light"
+  footer:
+    - name: "Our Vision"
+      url: "#"
+      weight: 1
+
+    - name: "The Team"
+      url: "#"
+      weight: 2
+
+    - name: "Privacy Policy"
+      url: "/#"
+      weight: 3
+
+    
+
+taxonomies:
+  series: "series"
+  tags: "tags"

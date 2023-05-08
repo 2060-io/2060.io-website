@@ -1,0 +1,6 @@
+{{ define "main" }}
+  {{ with .Site.Data.home.under_header_contact }}{{ partial "shared/under_header_contact.html" . }}{{ end }}
+  {{ with .Site.Data.home.contact }}{{ partial "contact.html" . }}{{ end }}
+  <!-- {{ with .Site.Data.home.testimonials }}{{ partial "sections/testimonials.html" . }}{{ end }} -->
+  <!-- {{ with .Site.Data.home.cta }}{{ partial "sections/cta.html" . }}{{ end }} -->
+{{ end }}

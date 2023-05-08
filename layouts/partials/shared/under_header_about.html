@@ -1,0 +1,23 @@
+<section class="section un_header py-5" >
+    <div class="container un_head_cont">
+        <div class="col-12 col-xl-12 d-flex flex-column un_container">
+          {{ with .content.smallTitle }}
+            <h6 class="sm-title">{{ . | markdownify}}</h6>
+          {{ end }}
+
+          <!-- {{ with .content.title }}
+            <h3 class="hero-title fw-bold display-1 text-primary text-center text-xl-start pb-4" style="color: #073B4C !important;" >{{ . | markdownify }}</h3>
+          {{ end }} -->
+          {{ with .content.text }}
+            <p class="para-txt">{{ . | markdownify }}</p>
+          {{ end }}
+        
+          {{ with .content.smText }}
+            <p class="small-text">{{ . | markdownify }}</p>
+          {{ end }}
+
+        </div>
+      </div>
+    </div>
+  </section>
+  

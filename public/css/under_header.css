@@ -1,0 +1,21 @@
+.section.un_header{
+    background-image: url("/images/under_header/background_uh.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.sm-title{
+    color: #3EBDB6;
+}
+
+.para-txt{
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: bold;
+}
+.small-text{
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: bold;
+}
