@@ -1,93 +1,95 @@
-<section class="section hero py-5" >
+<section class="section hero py-5">
     <div class="container">
 
         <div class=" contaiter title-about-for-mobile">
             <h3 class="title-abt">{{ .title_about_md }}</h3>
         </div>
 
-      <div class="row flex-column flex-xl-row-reverse">
-          <div class="col-6 d-flex justify-content-center img-about-container">
+        <div class="row flex-column flex-xl-row-reverse">
+            <div class="col-6 d-flex justify-content-center img-about-container">
                 <img src="/images/download_images/2060-download.png" />
             </div>
-            <div class="col-md-6 col-sm-12 d-flex flex-column container-content-about ">             
-                <h3 class="title-abt">{{ .title_about_md }}</h3>
+            <div class="col-md-6 col-sm-12 d-flex flex-column justify-content-center container-content-about ">
+                <h3 class="title-abt fs-1 fw-semibold">{{ .title_about_md }}</h3>
 
-                    <p class="text-abt">
-                        {{ .para1 }}
-                        <span class="bold-txt-about">{{ .bold_txt }}</span>
-                        {{ .para2 }}
-                        <span class="bold-txt-about">{{ .bold_txt_2 }}</span>
-                        {{ .para3 }}
-                        <span class="bold-txt-about">{{ .bold_txt_3 }}</span>
-                        {{ .para3 }}
-                        <span class="bold-txt-about">{{ .bold_txt_4 }}</span>
-                        {{ .para4 }}
-                        <span class="bold-txt-about">{{ .bold_txt_5 }}</span>
-                        {{ .para5 }}
-                    </p>                                
+                <p class="text-abt">
+                    {{ .para1 }}
+                    <span class="bold-txt-about">{{ .bold_txt }}</span>
+                    {{ .para2 }}
+                    <span class="bold-txt-about">{{ .bold_txt_2 }}</span>
+                    {{ .para3 }}
+                    <span class="bold-txt-about">{{ .bold_txt_3 }}</span>
+                    {{ .para3 }}
+                    <span class="bold-txt-about">{{ .bold_txt_4 }}</span>
+                    {{ .para4 }}
+                    <span class="bold-txt-about">{{ .bold_txt_5 }}</span>
+                    {{ .para5 }}
+                </p>
 
-                
+
                 <p class="text-abt">
                     {{ .para6 }}
                     <span class="bold-txt-about">{{ .bold_txt_6 }}</span>
                     {{ .para7 }}
                     <span class="bold-txt-about"> {{ .bold_txt_7 }} </span>
 
-                </p>                 
-                
-               
+                </p>
+
+
             </div>
         </div>
-      </div>
     </div>
-  </section>
+    </div>
+</section>
 
-  <section class="section features py-5">
+<section class="section features py-5">
     <div class="container">
-      
+
         <div class="col-12 col-xl-6">
             {{ with .content.title }}
-            <h3 class="fs-1 fw-bold  text-primary pb-3 title-team" style="font-weight: normal !important;">{{ . }}</h3>
+            <h3 class="fs-1 fw-semibold text-primary pb-3 title-team">{{ . }}
+            </h3>
             {{ end }}
         </div>
 
         <div class="row justify-content-center d-flex">
             {{ range .content.cards }}
-            <div class="col-12 col-xl-6 mb-3">          
-                <div class="d-flex card-about-team"> 
+            <div class="col-12 col-xl-6 mb-3">
+                <div class="d-flex card-about-team">
                     <div class="card col-6 p-3 class-team-about">
                         {{with .image}}
-                            <img src="{{ . }}" class="photo-team">
+                        <img src="{{ . }}" class="photo-team">
                         {{ end }}
-                        {{ with .title }}<h4 class="card-title text-primary pt-3" style="color: #073B4C !important;">{{ . }}</h4>{{ end }}
+                        {{ with .title }}<h4 class="card-title text-primary pt-3" style="color: #073B4C !important;">{{
+                            . }}</h4>{{ end }}
                         {{ with .text }}<p class="card-text role-team pb-3">{{ . }}</p>{{ end }}
 
                         <ul class="d-flex justify-content-center justify-content-xl-start list-unstyled">
-                            {{ with .twitter }}<a class="d-flex align-items-center justify-content-center" href="{{ . }}">{{ partial "icons/about_icons/twitter.html" . }}</a></li>{{ end }}
-                            {{ with .linkedin }}<a class="d-flex align-items-center justify-content-center" href="{{ . }}">{{ partial "icons/about_icons/linkedin.html" . }}</a></li>{{ end }}
+                            {{ with .twitter }}<a class="d-flex align-items-center justify-content-center"
+                                href="{{ . }}">{{ partial "icons/about_icons/twitter.html" . }}</a></li>{{ end }}
+                            {{ with .linkedin }}<a class="d-flex align-items-center justify-content-center"
+                                href="{{ . }}">{{ partial "icons/about_icons/linkedin.html" . }}</a></li>{{ end }}
                         </ul>
                     </div>
                     <div class="col-6 p-3 d-flex flex-column dsc-team">
-                        <img src="/images/about/coats_left.png" width="30px" height="30px"/>
-                       {{ with .description }}
-                            <p class="text-center p-2 txt-desc">{{ . }}</p>
-                       {{ end }}
-                       <div class="d-flex justify-content-end">
-                           <img src="/images/about/coats_right.png" width="30px" height="30px" class="me-0" />
-                       </div>
-                       <div class="d-flex justify-content-center qr-img-container-about">
-                           {{ with .qrscan }}
-                                <img src="{{ . }}" class="img-qr-about" />
-                           {{ end }}
-                       </div>
+                        <img src="/images/about/coats_left.png" width="30px" height="30px" />
+                        {{ with .description }}
+                        <p class="text-center p-2 txt-desc">{{ . }}</p>
+                        {{ end }}
+                        <div class="d-flex justify-content-end">
+                            <img src="/images/about/coats_right.png" width="30px" height="30px" class="me-0" />
+                        </div>
+                        <div class="d-flex justify-content-center qr-img-container-about">
+                            {{ with .qrscan }}
+                            <img src="{{ . }}" class="img-qr-about" />
+                            {{ end }}
+                        </div>
                     </div>
-                </div> 
-                
+                </div>
+
             </div>
             {{ end }}
         </div>
     </div>
-    
-  </section>
-  
-  
+
+</section>

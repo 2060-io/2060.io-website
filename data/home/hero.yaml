@@ -4,13 +4,12 @@ id: "home"
 content:
   title: "The Web5 Accelerator"
   text: "Open-source tools that enable building rich decentralised chat-powered services, combiningtext, pictures, videos and voice based on "
-  color_txt : "Verifiable Credentials."
+  color_txt: "Verifiable Credentials."
   buttonPrimary:
-    icon : "/images/icons/dwn.png"
+    icon: "/images/icons/icone-download.svg"
     label: "Download"
     url: "#"
 
-  buttonSecondary:   
+  buttonSecondary:
     label: "Use Cases"
-    url: ""
-
+    url: "/usecases"

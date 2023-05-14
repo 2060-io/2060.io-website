@@ -14,10 +14,23 @@
     color: #073B4C;
 }
 
+#message {
+    width: 100%;
+    height: 14rem;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    resize: none;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+  }
+
 .buttons-s-c{
     display: flex;
     justify-content: flex-end;
     
+}
+.contact_form{
+    margin-bottom: 4rem;
 }
 .clear-button{
     width: 150px;
@@ -35,3 +48,95 @@
     background-color: #0893FF !important;
     color: #FFFFFF !important;
 }
+
+.desc-form{
+    font-size: 12px;
+    margin-top: 3px !important; 
+    font-size: 1.1rem;
+    color: #073B4C;
+}
+
+.form-contact{
+    width: 90%;
+    font-family: "EuclidCircularA-Regular";
+}
+.title-contact-rt{
+    padding-left: 3rem ;
+}
+.contact-text ul{
+    padding-left: 3rem;
+}
+.contact-text ul li {
+ display: flex;
+ justify-content: left;
+}
+.contact-text .img-check{
+    width: 10%;
+}
+.img-sl{
+    width: 15px !important;
+}
+.contact-text .title-contact-rt{
+    font-size: 2.2rem !important;
+    margin-bottom: 40px !important;
+}
+.form-contact textarea{
+resize: none !important;
+width: 100%;
+height: 200px;
+padding: 10px 15px;
+border-radius: 3px;
+border-top-color: rgba(52, 52, 52, 0.18);
+border-right-color: rgba(52, 52, 52, 0.18);
+border-bottom-color: rgba(52, 52, 52, 0.18);
+border-left-color: rgba(52, 52, 52, 0.18);
+}
+.contact-text ul li h4{
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.title-contact h4 img{
+    vertical-align: baseline;
+}
+
+
+
+
+/* Phone with 768px */
+
+@media only screen and (max-width : 768px) {
+
+    .section.contact_form{
+        padding: 1rem;
+        
+    }
+
+    .title-contact-rt{
+        padding-left: 0 !important ;
+    }
+    .contact-text ul{
+        padding-left: 0 !important;
+    }
+    .contact-conatiner-form-and-desc{
+        flex-direction: column-reverse;
+    }
+    .form-contact{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 30px;
+    }
+    .buttons-s-c{
+        display: flex;
+        justify-content: center;
+    }
+    .shred-nl-cnt{
+        padding: 1rem !important;
+    }
+    
+}
+
+
+
+/************************************************/

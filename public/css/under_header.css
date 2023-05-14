@@ -1,5 +1,5 @@
 .section.un_header{
-    background-image: url("/images/under_header/background_uh.png");
+    background-image: url("/images/under_header/background_uh.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -7,15 +7,34 @@
 
 .sm-title{
     color: #3EBDB6;
+    margin-bottom: 0.6rem !important;
+    font-size: 1.4rem;
+    /* font-family: 'EuclidCircularA-SemiBold'; */
+}
+.un_container{
+    margin: 2rem auto 2rem auto ;
 }
 
 .para-txt{
     color: #FFFFFF;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 2.1rem ;
+    margin-bottom: 1rem !important;
+    font-weight: 600;
+    text-align: left !important;
+    width: 75%;
+   
 }
 .small-text{
     color: #FFFFFF;
-    font-size: 10px;
-    font-weight: bold;
+    font-size: .9rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+}
+
+
+@media only screen and (max-width : 768px) {
+    .para-txt{
+        width: 100%;
+        font-size:1.9rem ;
+    }
 }

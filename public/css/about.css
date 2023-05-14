@@ -1,27 +1,49 @@
 .text-abt{
-    font-size: 20px;
+    font-size: 1.6rem;
     color:#073B4C ;
+    width: 91%;  
+    line-height: 2rem;
+    margin-bottom: 1.6rem ;  
+    line-height: 3rem;
+    font-weight: 300;
 }
+.bold-txt-about{
+    font-weight: bold;
+}
+
 .title-abt{
     font-size: 40px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     color: #3EBDB6;
+ 
 }
 .txt-team{
     font-size: 25px;
 }
 
 .dsc-team{
+    display: flex;
+    flex-direction: column;
+    padding-left: 23px !important;
+    padding-top: 40px !important;
     color: #FFFFFF;
     background-color: #7678ED;
     border-radius: 3px;
-    font-size: 20px;
-    font-family: "Comic Sans MS";
+    font-size: 1.4rem;
+    font-family: "EuclidCircularA-Regular";
+}
+.txt-desc{
+    padding: 5rem;
 }
 
 .role-team{
-    font-size: 13px;
+    font-size: 0.9rem;
     color: #3EBDB6;
+    font-family: 'EuclidCircularA-SemiBold';
+    
+}
+.text-center.p-2.txt-desc{
+    font-family: 'EuclidCircularA-LightItalic';
 }
 .git-li{
     color: #3EBDB6;
@@ -29,3 +51,96 @@
 .li-li{
     color: #3EBDB6;
 }
+
+.list-unstyled a svg {
+    width: 80%;
+}
+.img-qr-about{
+    width: 200px;
+    height: 200px;
+    margin-top: 2rem;
+}
+.photo-team{
+    padding: 1rem;
+}
+
+
+.img-about-container img{
+    height: auto;
+    width: 100%;
+    margin-top: 1.4rem !important;
+    padding: 2rem;
+
+}
+.title-about-for-mobile h3{
+    display: none !important;
+}
+
+
+@media only screen and (max-width :768px)  {
+
+    .img-about-container {
+       
+       margin: 0 auto ;
+    }
+    .title-about-for-mobile h3{
+        display: block !important;
+        text-align: center;
+        padding-bottom: 0 !important;
+
+    }
+    .card-about-team{
+        flex-direction: column;
+    }
+    .card-about-team .class-team-about{
+        width: 100%;
+    }
+    .card-about-team .dsc-team{
+        width: 100%;
+        margin-bottom: 5rem ;
+    }
+    .container-content-about h3{
+        display: none ; 
+    }
+    .img-about-container img{
+        height: 440px;
+        width: 350px;
+    }
+    .container-content-about{
+        margin: 0 auto;
+    }
+    .text-abt{
+        font-size: 1.2rem;
+    }
+    .title-abt{
+        font-size: 1.4rem;  
+    }
+    .class-team-about{
+        display: flex;
+        flex-direction:column ;
+        justify-content: center;
+        border-top-left-radius: 0.25rem !important;
+        border-bottom-left-radius: 0.25rem !important;
+
+    }
+    .card{
+        border-radius: 0px !important;
+    }
+    .qr-img-container-about{
+        margin-top: 1rem !important;
+    }
+ 
+    
+}
+@media only screen and (min-width : 768px) and (max-width:1300px) {
+  
+    .img-about-container {
+        width: 60% !important;
+    }
+
+    .row.flex-column.flex-xl-row-reverse{
+        justify-content: center;
+        align-content: center;
+    }
+}
+

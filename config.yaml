@@ -1,7 +1,7 @@
-baseURL : ""
+baseURL: ""
 theme: "up-business-theme"
 languageCode: "en-us"
-ignoreErrors : ["error-remote-getjson"]
+ignoreErrors: ["error-remote-getjson"]
 title: "2060 Web5 Accelerator"
 
 # googleAnalytics: ""
@@ -11,8 +11,8 @@ summaryLength: 20
 params:
   title: ""
   description: "The Web5 Accelerator"
-  images: 
-    - "images/footer-img/logo-footer.png"
+  images:
+    - "images/footer-img/logo-white.svg"
 
   logo: "arrow-up.png"
 
@@ -43,32 +43,29 @@ menus:
       weight: 1
 
     - name: "Use Cases"
-      url: "/2060-usecases"
+      url: "/usecases"
       weight: 2
 
     - name: "About"
-      url: "/2060-about"
+      url: "/about"
       weight: 3
 
     - name: "Contact"
-      url: "/2060-contact/"
+      url: "/contact/"
       weight: 4
 
-    # - name: "Blog"
-    #   url: "/blog"
-    #   weight: 5
+  externals:
+    - name: "Github"
+      url: "https://github.com/2060-io"
+      weight: 5
+      pre: "github-header mx-2 mb-4 mb-md-0"
 
   buttons:
     - name: "Download"
-      url: "/#"
-      weight: 5
-      pre: "btn btn-primary text-light"
+      url: "/"
+      weight: 6
+      pre: "btn btn-green-soft btn-header-download px-4 py-2 text-light d-flex align-items-center"
 
-  # buttons:
-  #   - name: "Github"
-  #     url: "/#"
-  #     weight: 5
-  #     pre: "btn btn-primary text-light"
   footer:
     - name: "Our Vision"
       url: "#"
@@ -79,10 +76,8 @@ menus:
       weight: 2
 
     - name: "Privacy Policy"
-      url: "/#"
+      url: "/privacy"
       weight: 3
-
-    
 
 taxonomies:
   series: "series"

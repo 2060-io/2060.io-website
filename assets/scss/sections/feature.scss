@@ -1,0 +1,109 @@
+.features {
+    background-color: rgba($color: #7678ED, $alpha: 0.1);
+
+    .title-feat-container {
+        justify-content: center;
+        align-items: center;
+
+        .title-feat {
+            font-size: 1.4rem;
+            line-height: 30px;
+            height: 20px;
+        }
+
+        .text-feat {
+            text-align: center;
+            width: 70%;
+        }
+    }
+
+    .bar-separation {
+        text-align: center;
+    }
+
+    #tabs {
+        border: none !important;
+        background-color: transparent !important;
+
+        .ul-container-tab {
+            background-color: transparent !important;
+            border: none !important;
+            margin-bottom: 2rem !important;
+            margin-top: 1rem !important;
+            display: flex;
+            padding: 0;
+
+            li {
+                width: 50%;
+                border: 1px solid #C0C1F7 !important;
+                border-radius: 6px;
+                background-color: rgba(255, 255, 255, 0.54);
+                margin: 0 !important;
+                padding: 0 !important;
+                opacity: .45;
+
+                a {
+                    width: 100%;
+                    text-align: center;
+                    color: #7678ED !important;
+                }
+
+                .link_tab {
+                    justify-content: center;
+                    align-items: center;
+                }
+
+            }
+
+            .ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab.ui-tabs-active.ui-state-active {
+                background-color: rgba(118, 120, 237, 0.1) !important;
+                border: 1px solid #7678ED !important;
+                opacity: 1;
+            }
+        }
+
+        .cards_container {
+            background-color: transparent !important;
+            padding: 1em 0;
+        }
+
+        .feature-card {
+            box-shadow: 0 0 10px rgba($color: #7678ED, $alpha: 0.13);
+            border-radius: 6px;
+            transition: .4s all;
+            width: 100%;
+
+            .img-feature {
+                background: url("/images/features/bg-feature.png") no-repeat center center;
+                padding: 30px 0;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+                padding: 1.5rem;
+            }
+
+            &:hover {
+                box-shadow: 0 0 0 rgba($color: #7678ED, $alpha: 0);
+                background-color: #7678ED;
+
+                .img-feature {
+                    background: url("/images/features/bg-feature-hover.png") no-repeat center center;
+
+                    svg path {
+                        stroke: white;
+                    }
+                }
+
+                .card-title {
+                    color: white !important;
+                }
+
+                p {
+                    color: white !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+/* @font-face{
+    font-family:  'EuclidCircularA-BoldItalic';
+    src: url('/fonts/EuclidCircularA-BoldItalic.ttf');
+}
+@font-face{
+    font-family:  'EuclidCircularA-Italic';
+    src: url('/fonts/EuclidCircularA-Italic.ttf');
+}
+@font-face{
+    font-family:  'EuclidCircularA-Light';
+    src: url('/fonts/EuclidCircularA-Light.ttf');
+}
+@font-face{
+    font-family:  'EuclidCircularA-LightItalic';
+    src: url('/fonts/EuclidCircularA-LightItalic.ttf');
+}
+@font-face{
+    font-family:  'EuclidCircularA-Medium';
+    src: url('/fonts/EuclidCircularA-Medium.ttf');
+}
+@font-face{
+    font-family:  'EuclidCircularA-Regular';
+    src: url('/fonts/EuclidCircularA-Regular.ttf');
+}
+@font-face{
+    font-family:  'EuclidCircularA-SemiBold';
+    src: url('/fonts/EuclidCircularA-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'EuclidCircularA-Bold';
+    src: url('/fonts/EuclidCircularA-Bold.ttf');
+        }
+
+        p{
+            font-family: "EuclidCircularA-Light" ;
+        }
+        h1, h2, h3,h4{
+                font-family: 'EuclidCircularA-SemiBold';
+        }
+
+        h3{
+            font-size: 48px !important;
+            line-height: 96px !important;
+        } */

@@ -20,6 +20,8 @@
     padding-top: 1rem;
     padding-left: 0.5rem;
     resize: none;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
   }
 
 .buttons-s-c{

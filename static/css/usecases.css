@@ -5,21 +5,18 @@
 .usecase-container-carou{
     position: relative;
     height: 100%;
-    /* background: #eee; */
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     margin: 0;
     padding: 0;
 
 }
 .bold-carou-txt{
-  font-family: 'EuclidCircularA-Bold';
+  font-weight: 700;
 }
 .link-lean-more{
   text-decoration: none;
   color: #073B4C;
   font-size: 1rem;
-  font-family: 'EuclidCircularA-Bold';
 }
 .link-lean-more:hover{
   color: #073B4C;
@@ -27,7 +24,7 @@
 #button-flip-back{
   color: #073B4C;
   font-size: 1rem;
-  font-family: 'EuclidCircularA-Bold';
+  font-weight: 700;
 }
 
 .slide-container{
@@ -127,7 +124,9 @@ border-radius: 51px;
 
   /* use case css page style  */
   .imgSlide-1{
-    background: url('/images/usecases/carou_img/usecase_bg.png') no-repeat;
+    background-image: url('/images/usecases/carou_img/usecase_bg.png');
+    background-repeat: no-repeat ;
+    background-size: contain;
      /* width: 120px; */
     height: 85px; 
     overflow:hidden;
@@ -275,4 +274,8 @@ border-radius: 51px;
     position: absolute;
     top: 40%;
     width: 100%;
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    top: -2.5rem !important;
   }

@@ -1,114 +1,151 @@
-<section class="section hero py-5" >
+<section class="section hero py-5">
   <div class="container">
-    
-    <div class="container txt-hero-for-mobile">
-      {{ with .content.title }}
-      <h3 class="hero-title fw-bold display-1 text-primary text-center text-xl-start pb-4 h3-title-home-mobile" style="color: #073B4C !important;" >{{ . | markdownify }}</h3>
-      {{ end }}
-    </div>
 
-    <div class=" home-top-container ">
-      <!-- {{ partial "utilities/image-fluid"  "images/background_header.png" }} -->
-      <div class="cube-wrap col-md-6 hero-image ">
+    <!-- <div class="txt-hero-for-mobile">
+      {{ with .content.title }}
+      <h3 class="hero-title fw-bold display-1 text-green-hard text-left text-xl-start pb-4 h3-title-home-mobile">{{ .
+        |
+        markdownify }}</h3>
+      {{ end }}
+    </div> -->
+    <div class="row flex-column flex-xl-row-reverse justify-content-xl-between">
+      <div class="col-12 col-xl-6 hero-image cube-wrap">
         <div class="cube">
-          <img src="images/header/dashbord-app-2060.png" class="img-top"/>
-          <img src="images/header/phone-app-2060.png" class="img-phone"/>
+          <img src="images/header/dashbord-app-2060.png" class="img-top" />
+          <img src="images/header/phone-app-2060.png" class="img-phone" />
           <img src="images/header/aries.png" class="img-aries">
           <img src="images/header/logo-didcomm.png" class="img-logo-didcomm">
         </div>
       </div>
+      <div class="col-12 col-xl-5 d-flex flex-column justify-content-center py-4">
+        {{ with .content.title }}
+        <h1 class="hero-title fw-semibold display-1 text-green-hard text-center text-xl-start pb-3 h3-title-home">{{ .
+          |
+          markdownify }}</h1>
+        {{ end }}
+        {{ with .content }}
+        <p class="text-center text-black-80 text-xl-start pb-4 txt-hero me-xl-4">{{ .text | markdownify }}
+          {{ with .color_txt }}
+          <span class="color-text fw-semibold">{{ . }}</span>
+          {{ end }}
+        </p>
+        {{ end }}
+        <div class="d-flex flex-column flex-xl-row mt-1">
+          {{ with .content.buttonPrimary }}
+          <a class="btn btn-green-soft p-2 text-light px-4 my-1 btn-dwn-home d-flex align-items-center justify-content-center"
+            href="{{ .url }}">
+            {{ with .icon }}
+            <img src="{{ . }}" width="20px" height="15px" class="me-2">
+            {{ end }}
+            {{ .label }}
+          </a>
+          {{ end }}
+          {{ with .content.buttonSecondary }}
+          <a class="btn btn-outline-green-soft p-2 px-4 my-1 ms-xl-2 btn-uc-hm-main-div" href="{{ .url }}">{{ .label
+            }}</span></a>
+          {{ end }}
+        </div>
+      </div>
 
-      <div class="col-md-6 ">
-        <div class="home-head-content">
-          {{ with .content.title }}
-            <h3 class="hero-title fw-bold display-1 text-primary text-center text-xl-start pb-4 h3-title-home" style="color: #073B4C !important;" >{{ . | markdownify }}</h3>
-          {{ end }}
-          {{ with .content }}
-            <p class="text-center text-black-61 text-xl-start pb-4 txt-hero">{{ .text | markdownify }} 
+
+      <!-- <div class="home-top-container">
+        <div class="cube-wrap col-12 col-md-6 hero-image ">
+          <div class="cube">
+            <img src="images/header/dashbord-app-2060.png" class="img-top" />
+            <img src="images/header/phone-app-2060.png" class="img-phone" />
+            <img src="images/header/aries.png" class="img-aries">
+            <img src="images/header/logo-didcomm.png" class="img-logo-didcomm">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 ">
+          <div class="home-head-content">
+            {{ with .content.title }}
+            <h3 class="hero-title fw-semibold display-1 text-green-hard text-center text-xl-start pb-4 h3-title-home">{{
+              .
+              |
+              markdownify }}</h3>
+            {{ end }}
+            {{ with .content }}
+            <p class="text-center text-green-hard text-xl-start pb-4 txt-hero">{{ .text | markdownify }}
               {{ with .color_txt }}
-                <span class="color-text">{{ . }}</span> 
-              {{ end }} 
+              <span class="color-text">{{ . }}</span>
+              {{ end }}
             </p>
-          {{ end }}
-          <div class="d-flex flex-column flex-xl-row btns-conatiner-home">
-            {{ with .content.buttonPrimary }}
-              <a class="btn btn-primary p-2 text-light px-4 my-1 btn-dwn-home" href="{{ .url }}">
+            {{ end }}
+            <div class="d-flex flex-column flex-xl-row mt-1">
+              {{ with .content.buttonPrimary }}
+              <a class="btn btn-green-soft p-2 text-light px-4 my-1 btn-dwn-home d-flex align-items-center"
+                href="{{ .url }}">
                 {{ with .icon }}
-                  <img src="{{ . }}" width="20px" height="15px" class="me-2" >
+                <img src="{{ . }}" width="20px" height="15px" class="me-2">
                 {{ end }}
                 {{ .label }}
               </a>
-            {{ end }}
-            {{ with .content.buttonSecondary }}
-              <a class="btn btn-outline-primary p-2 px-4 my-1 ms-xl-4 btn-uc-hm-main-div" href="{{ .url }}">{{ .label }}</span></a>
-            {{ end }}
-        </div>
-        </div>
-      </div>
+              {{ end }}
+              {{ with .content.buttonSecondary }}
+              <a class="btn btn-outline-green-soft p-2 px-4 my-1 ms-xl-2 btn-uc-hm-main-div" href="{{ .url }}">{{ .label
+                }}</span></a>
+              {{ end }}
+            </div> -->
     </div>
+  </div>
+  </div>
   </div>
 </section>
 
 
-<script>
-    (function(){
-        var elements = document.querySelectorAll('.btns-conatiner-home')
-        var traitement = function(element){
-          element.addEventListener('mouseenter',function(){
-            this.style.transition= "0.5s all"
-            this.style.background = "#073B4C"
-            this.style.color ='#FFF'
-          })   
-        }
+<!-- <script>
+  (function () {
+    var elements = document.querySelectorAll('.btns-conatiner-home')
+    var traitement = function (element) {
+      element.addEventListener('mouseenter', function () {
+        this.style.transition = "0.5s all"
+        this.style.background = "#073B4C"
+        this.style.color = '#FFF'
+      })
+    }
+  })
+</script> -->
 
+<script>
+  (function () {
+    var element = document.querySelector(".cube-wrap")
+
+    var position = (element.offsetWidth) / 2
+    var cube = element.getBoundingClientRect().left
+
+    element.addEventListener('mousemove', function (e) {
+      var mousePOsition = e.pageX;
+      if (mousePOsition > (cube + position)) {
+        var transform = "scale3d(1,1,1) rotateX(0deg) rotateY(2deg) rotateZ(0deg)"
+        element.children[0].style.transform = transform
+
+      }
+      else {
+        var transform = "scale3d(1,1,1) rotateX(0deg) rotateY(-2deg) rotateZ(0deg)"
+        element.children[0].style.transform = transform
+      }
+    })
+    element.addEventListener('mouseenter', function () {
+      var transform = "scale3d(1.1,1.1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
+      var transform2 = "scale3d(1.1,1.1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
+      element.children[0].children[0].style.transform = transform
+      element.children[0].children[1].style.transform = transform2
+      element.children[0].children[2].style.transform = transform2
+      element.children[0].children[3].style.transform = transform2
 
 
     })
+    element.addEventListener('mouseleave', function () {
 
+      var transform = "scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
+      var transform2 = "scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
+      element.children[0].children[0].style.transform = transform
+      element.children[0].children[1].style.transform = transform2
+      element.children[0].children[2].style.transform = transform2
+      element.children[0].children[3].style.transform = transform2
 
-</script>
-
-<script>
-      (function(){
-        var element = document.querySelector(".cube-wrap")
-
-        var position = (element.offsetWidth)/2
-        var cube = element.getBoundingClientRect().left
-
-        element.addEventListener('mousemove', function(e){
-          var mousePOsition = e.pageX;
-          if(mousePOsition > (cube+position)){
-            var transform = "scale3d(1,1,1) rotateX(0deg) rotateY(2deg) rotateZ(0deg)"
-            element.children[0].style.transform = transform
-
-          }
-          else{
-            var transform = "scale3d(1,1,1) rotateX(0deg) rotateY(-2deg) rotateZ(0deg)"
-            element.children[0].style.transform = transform
-          }
-        })
-      element.addEventListener('mouseenter', function(){
-           var transform = "scale3d(1.1,1.1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
-           var transform2 = "scale3d(1.15,1.15,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
-            element.children[0].children[0].style.transform = transform
-            element.children[0].children[1].style.transform = transform2
-            element.children[0].children[2].style.transform = transform2
-            element.children[0].children[3].style.transform = transform2
-          
-
-        })
-      element.addEventListener('mouseleave', function(){
-          
-        var transform = "scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
-           var transform2 = "scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
-            element.children[0].children[0].style.transform = transform
-            element.children[0].children[1].style.transform = transform2
-            element.children[0].children[2].style.transform = transform2
-            element.children[0].children[3].style.transform = transform2
-
-      })
-  
-    
-
-})()
+    })
+  })()
 </script>

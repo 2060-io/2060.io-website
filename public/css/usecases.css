@@ -1,18 +1,31 @@
 .section.usecase{
     max-width: none;
-    background-color: #C6FDFA;
+    background-color: rgba(62 ,189, 182, 0.1);
 }
 .usecase-container-carou{
     position: relative;
     height: 100%;
-    /* background: #eee; */
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     margin: 0;
     padding: 0;
 
 }
-
+.bold-carou-txt{
+  font-weight: 700;
+}
+.link-lean-more{
+  text-decoration: none;
+  color: #073B4C;
+  font-size: 1rem;
+}
+.link-lean-more:hover{
+  color: #073B4C;
+}
+#button-flip-back{
+  color: #073B4C;
+  font-size: 1rem;
+  font-weight: 700;
+}
 
 .slide-container{
     position: relative;
@@ -20,63 +33,73 @@
 }
 
 
-.swiper {
+/* .swiper {
     width: 100%;
     height: 100%;
+    perspective: 1000px;
   }
-  .swiper-wrapper{
+  */
+  /* .swiper-wrapper{
    width: 100%;
-   height: 100%;
-   height:780px ;
-  }
+   height:650px ;
+   
+  }  */
 
   .swiper-slide {
-    padding-left: 30px ;
-    padding-top: 30px ;
     font-size: 18px;
     background: #fff;
-
-    min-height: 370px;
+    height: 500px !important;
     border-radius: 7px;
+    overflow: hidden;
+    
   }
 
+  .swiper-slide-recto{
+    transition: 1s all;
+    padding: 40px ;
+    height: 500px;
+  }
+  .swiper-slide-verso{
+    height: 500px;
+    padding: 40px ;
+    background-color: #fff;
+  }
+  
 
 
-.img-slide{
-    margin-bottom: 30px;
-}
-.text-content-slide{
-    padding: 10px;
-}
 .title-slide{
-    font-size:15px ;
-    margin-bottom: 20px;
+    line-height: 25px;
+    font-size:1.3rem ;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
     color: #3EBDB6;
 }
 .para-slide{
     font-size: 15px;
     color: #073B4C;
-}
-.div-btn-scan-me{
-    margin-top: 50px;
-    margin-bottom: 30px;
-    width: 150px;
-    height: 50px;
-    text-decoration: none;
-    background-color: #E1F8FF;
-    padding: 12px;
-    border-radius: 30px;
+    line-height: 28px;
+    height: 60px;
 }
 
+.div-btn-scan-me button{
+  border: none;
+width: 171px;
+height: 47px;
+background-color: rgba(215,215,215,0.5);
+color: #073B4C;
+border-radius: 51px;
+}
+.div-btn-scan-me span img{
+    padding-left: 7px;
+}
 .btn-scan-me{
     text-decoration: none;
     color: #073B4C;
 }
 
 .usecase-container-carou .swiper-slide {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: block;
+
   }
 
 
@@ -90,4 +113,169 @@
     z-index: 1;
     display: block;
     min-height: 450px;
+  
+    
+  }
+
+  .div-btn-scan-me {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  /* use case css page style  */
+  .imgSlide-1{
+    background-image: url('/images/usecases/carou_img/usecase_bg.png');
+    background-repeat: no-repeat ;
+    background-size: contain;
+     /* width: 120px; */
+    height: 85px; 
+    overflow:hidden;
+    margin-top: 1rem 
+   
+  }
+  .imgSlide-1 img{
+    width: 100px;
+    height: 170px;
+    
+  }
+  /* */
+.buttons-carousel{
+  display: flex;
+  gap: 15px;
+  
+}
+.buttons-carousel button{
+  border: none;
+  width: 171px;
+  height: 47px;
+  background-color: rgba(215,215,215,0.5);
+  color: #073B4C;
+  border-radius: 51px;
+}
+
+.imgSlide-1-qr{
+  width: 100%;
+  height: 150px;
+}
+
+.text-content-slide-qr{
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.swiper-slide-verso .title-slide{
+  height: 50px;
+  margin-top: 0;
+  
+}
+
+.swiper-slide-recto .title-slide{
+  margin-top: 2rem;
+  line-height: 25px;
+  height: 50px;
+}
+
+.swiper-slide-verso .para-slide {
+  margin: 1.5rem;
+}
+
+
+#button-flip-back{
+  background-color: rgba(7, 59, 76, 0.05);
+  margin-top: 4rem;
+}
+.container.usecase-container-carou {
+  height: 700px;
+}
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-bullets-dynamic {
+  bottom: 8rem;
+}
+
+
+
+
+  .flip-card-3D-wrapper {
+    width: 100%;
+    height: 80%;
+    /* max-width: 300px; */
+    /* max-height: 500px; */
+    position: relative;
+    -o-perspective: 900px;
+    -webkit-perspective: 900px;
+    -ms-perspective: 900px;
+    perspective: 900px;
+    margin: 0 auto;
+  }
+  #flip-card {
+    width: 100%;
+    height: 100%;
+    /* text-align: center; */
+    margin: 50px auto;
+    position: absolute;
+    -o-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    -o-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  .do-flip {
+    -o-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+  #flip-card-btn-turn-to-back, #flip-card-btn-turn-to-front {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    cursor: pointer;
+    visibility: hidden;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: .7em;
+    padding: 0;
+    color: grey;
+    border: 1px solid grey;
+  }
+  #flip-card .flip-card-front, #flip-card .flip-card-back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -o-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 2;
+    -webkit-box-shadow: 5px 6px 32px 2px rgba(133,133,133,0.71);
+    -moz-box-shadow: 5px 6px 32px 2px rgba(133,133,133,0.71);
+    box-shadow: 5px 6px 32px 2px rgba(133,133,133,0.71);
+  }
+  #flip-card .flip-card-front {
+      background: lightgreen;
+      border:1px solid grey;
+  }
+  #flip-card .flip-card-back {
+      background: lightblue;
+      border: 1px solid grey;
+      -o-transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+  }
+  #flip-card .flip-card-front p, #flip-card .flip-card-back p {
+    /* color: grey; */
+    display: block;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    top: -2.5rem !important;
   }

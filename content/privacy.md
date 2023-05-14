@@ -1,7 +1,6 @@
 ---
 title: "Privacy"
 layout: privacy
-url : "/2060-privacy/"
+url: "/privacy/"
 draft: false
 ---
-

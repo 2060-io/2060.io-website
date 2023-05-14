@@ -9,9 +9,7 @@
     color: #3EBDB6;
     margin-bottom: 0.6rem !important;
     font-size: 1.4rem;
-    font-family: 'EuclidCircularA-SemiBold';
-     
-
+    /* font-family: 'EuclidCircularA-SemiBold'; */
 }
 .un_container{
     margin: 2rem auto 2rem auto ;
@@ -21,7 +19,7 @@
     color: #FFFFFF;
     font-size: 2.1rem ;
     margin-bottom: 1rem !important;
-    font-family: "EuclidCircularA-SemiBold";
+    font-weight: 600;
     text-align: left !important;
     width: 75%;
    
@@ -29,7 +27,8 @@
 .small-text{
     color: #FFFFFF;
     font-size: .9rem;
-    font-weight: bold;
+    line-height: 1.6rem;
+    font-weight: 400;
 }
 
 

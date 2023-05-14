@@ -55,7 +55,7 @@
 .anc-btn-uc-sm{
     text-decoration: none;
     font-size: 1rem !important;
-    font-family: 'EuclidCircularA-Bold' !important;
+    /* font-family: 'EuclidCircularA-Bold' !important; */
     /* font-weight: 700; */
 }
 .cls-btn-uc-container{

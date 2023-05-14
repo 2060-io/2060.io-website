@@ -1,158 +1,147 @@
 <section class="section features py-5">
-    <div class="container">
-      
-        <div class="col-12 col-xl-12 title-feat-container d-flex flex-column">
-            {{ with .content.title }}
-            <h3 class=" features-title " style="font-size: 40px; color: #7678ED;">{{ . }}</h3>
-            {{ end }}
-            {{ with .content.text_feat }}
-              <p class="text-feat"> {{ . }}</p>
-            {{ end }}
-        </div>
-        <div class="bar-separation">
-          <img src="images/features/bar_separation.png" />
-        </div>
-        <div id="tabs" class="tab_container">
-            <ul class="ul-container-tab">
-              <li>
-                <a href="#tabs-1" class="link_tab d-flex ">
-                  <div class="img-div-feat-container">
-                    <span class="img-feat-tab" > {{ partial "icons/features_icons/fci.html" }} </span>
-                  </div>
-                  <div>
-                    <span class="opt-feat-tab">For companies and institutions</span> 
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#tabs-2" class="link_tab d-flex">
-                <div class="img-div-feat-container">
-                    <span class="img-feat-tab" >
-                      {{ partial "icons/features_icons/feu.html" }}
-                    </span> 
-                </div>
-                <div>
-                  <span class="opt-feat-tab">For end-users</span> 
-                </div>
-              </a>
-              </li>
-            </ul>
-            <div id="tabs-1" class="cards_container" >
-              <div class="d-flex">
-                {{ range .content.cards }}
-                <div class="col-12 col-xl-4">                  
-                  <div class="card h-100 border-0 border-radius-40 p-4 feature-card">
-                    <div class="d-flex justify-content-center img-feature2">
-                      <!-- {{ with .image }}{{ partial "utilities/image-fluid.html" . }}{{ end }} -->
-                        {{ partial .image }}
-                    </div> 
-                    <div class="card-body text-center">
-                      {{ with .title }}<h4 class="card-title text-center  pb-4 title-feat">{{ . }}</h4>{{ end }}
-                      {{ with .text }}<p class="card-text text-black-61 pb-4">{{ . }}</p>{{ end }}
-                    </div>
-                  </div>
-                </div>
-                {{ end }}
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-xl-12 title-feat-container d-flex flex-column">
+        {{ with .content.title }}
+        <h3 class="text-primary fs-1 fw-semibold mb-3">{{ . }}</h3>
+        {{ end }}
+        {{ with .content.text_feat }}
+        <p class="text-feat fs-5"> {{ . }}</p>
+        {{ end }}
+      </div>
+      <div class="bar-separation">
+        <img src="images/features/bar_separation.png" />
+      </div>
+      <div id="tabs" class="tab_container">
+        <ul class="ul-container-tab">
+          <li style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+            <a href="#tabs-1" class="link_tab d-flex gap-2 ">
+              <div class="img-div-feat-container">
+                <span class="img-feat-tab"> {{ partial "icons/features_icons/fci.html" }} </span>
               </div>
-             
+              <span class="text-uppercase fw-bold">For companies and institutions</span>
+            </a>
+          </li>
+          <li style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+            <a href="#tabs-2" class="link_tab d-flex gap-2">
+              <div class="img-div-feat-container">
+                <span class="img-feat-tab">
+                  {{ partial "icons/features_icons/feu.html" }}
+                </span>
+              </div>
+              <span class="text-uppercase fw-bold">For end-users</span>
+            </a>
+          </li>
+        </ul>
+        <div id="tabs-1" class="cards_container">
+          <div class="d-flex flex-column flex-xl-row gap-4">
+            {{ range .content.cards }}
+            <div class="card p-4 py-5 feature-card">
+              <div class="d-flex justify-content-center img-feature">
+                <!-- {{ with .image }}{{ partial "utilities/image-fluid.html" . }}{{ end }} -->
+                {{ partial .image }}
+              </div>
+              <div class="card-body text-center">
+                {{ with .title }}<h4 class="card-title fw-semibold text-primary text-center pb-2 title-feat">{{ . }}
+                </h4>{{ end }}
+                {{ with .text }}<p class="card-text fw-light text-black-80 pb-2">{{ . }}
+                  {{ end }}
+                  {{ with .text_bold }}<span class="fw-bold">{{ . }}
+                    {{ end }}</span>
+                </p>
+              </div>
             </div>
-            <div id="tabs-2" >
-              <div class="d-flex">
-                {{ range .content.cards2 }}
-                <div class="col-12 col-xl-4">
-                  
-                      <div class="card h-100 border-0 border-radius-40 p-4 feature-card">
-                         <div class="d-flex justify-content-center img-feature2">
-                             <!-- {{ with .image }}{{ partial "utilities/image-fluid.html" . }}{{ end }} -->
-                             {{ partial .image }}
-                         </div> 
-                        <div class="card-body text-center">
-                          {{ with .title }}<h4 class="card-title text-center  pb-4 title-feat">{{ . }}</h4>{{ end }}
-                          {{ with .text }}<p class="card-text text-black-61 pb-4">{{ . }}</p>{{ end }}
-                        </div>
-                      </div> 
-                </div>
-              {{ end }}
-              </div>              
-            </div>
-
+            {{ end }}
           </div>
+        </div>
+        <div id="tabs-2" class="cards_container">
+          <div class="d-flex flex-column flex-xl-row gap-4">
+            {{ range .content.cards2 }}
+            <div class="card p-4 py-5 feature-card">
+              <div class="d-flex justify-content-center img-feature">
+                <!-- {{ with .image }}{{ partial "utilities/image-fluid.html" . }}{{ end }} -->
+                {{ partial .image }}
+              </div>
+              <div class="card-body text-center">
+                {{ with .title }}<h4 class="card-title fw-semibold text-primary text-center pb-2 title-feat">{{ . }}
+                </h4>{{ end }}
+                {{ with .text }}<p class="card-text fw-light text-black-80 pb-2">{{ . }}</p>{{ end }}
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
 </section>
 
 <script>
-  (function(){
-      var elements  = document.querySelectorAll('.feature-card')
-      var traitement = function(element){
-          element.addEventListener('mouseenter', function(){
-              
-            this.style.background = "#7678ED"
-              this.children[1].children[1].style.color = "#FFFFFF"
-              this.children[0].style.background = "url('/images/features/bg-feature-hover.png') no-repeat center center"
-              this.children[0].style.height="104px"
-              this.children[0].style.lineHeight="30px"
+  // (function () {
+  //   var elements = document.querySelectorAll('.feature-card')
+  //   var traitement = function (element) {
+  //     element.addEventListener('mouseenter', function () {
 
-              // this.children[0].children[0].style.marginTop = '-104px'
-              var svg = this.children[0].querySelector("svg")
-              if(svg){
-                svg.style.marginTop ="23px"
-                var path = svg.querySelector("path")
-                if(path){
-                  path.setAttribute("stroke","#FFF")
-                }
-              } 
-              this.children[1].children[0].style.color = "#FFFFFF"
-          })
-          element.addEventListener('mouseleave', function(){
-              
-            this.style.background = "#FFF"
-            this.children[1].children[1].style.color = "#073B4C"
-            this.children[0].style.background = "url('/images/features/bg-feature.png') no-repeat center center"
-            // this.children[0].children[0].style.marginTop = '0'
-            var svg = this.children[0].querySelector("svg")
-              if(svg){
-                var path = svg.querySelector("path")
-                if(path){
-                  path.setAttribute("stroke","#7678ED")
-                }
-              } 
-            this.children[1].children[0].style.color = "#7678ED"
-        })
-      }
-        
-      for(var i=0; i<elements.length; i++){
-          traitement(elements[i]);
-      }
+  //       this.style.background = "#7678ED"
+  //       this.children[1].children[1].style.color = "#FFFFFF"
+  //       this.children[0].style.background = "url('/images/features/bg-feature-hover.png') no-repeat center center"
+  //       this.children[0].style.height = "104px"
+  //       this.children[0].style.lineHeight = "30px"
+
+  //       // this.children[0].children[0].style.marginTop = '-104px'
+  //       var svg = this.children[0].querySelector("svg")
+  //       if (svg) {
+  //         svg.style.marginTop = "23px"
+  //         var path = svg.querySelector("path")
+  //         if (path) {
+  //           path.setAttribute("stroke", "#FFF")
+  //         }
+  //       }
+  //       this.children[1].children[0].style.color = "#FFFFFF"
+  //     })
+  //     element.addEventListener('mouseleave', function () {
+
+  //       this.style.background = "#FFF"
+  //       this.children[1].children[1].style.color = "#073B4C"
+  //       this.children[0].style.background = "url('/images/features/bg-feature.png') no-repeat center center"
+  //       // this.children[0].children[0].style.marginTop = '0'
+  //       var svg = this.children[0].querySelector("svg")
+  //       if (svg) {
+  //         var path = svg.querySelector("path")
+  //         if (path) {
+  //           path.setAttribute("stroke", "#7678ED")
+  //         }
+  //       }
+  //       this.children[1].children[0].style.color = "#7678ED"
+  //     })
+  //   }
+
+  //   for (var i = 0; i < elements.length; i++) {
+  //     traitement(elements[i]);
+  //   }
+  // })()
+
+</script>
+
+<script>
+  (function () {
+    var elements = document.querySelectorAll('.link_tab')
+    var traitements = function (elemenet) {
+      elemenet.addEventListener("click", function () {
+        this.style.color = "#FFF"
+      })
+    }
+
+    for (var i = 0; i < elements.length; i++) {
+      traitements(elements[i])
+    }
   })()
 
 </script>
-  
 
-
-  
-
-  <script>
-    (function(){
-      var elements = document.querySelectorAll('.link_tab')
-      var traitements = function(elemenet){
-        elemenet.addEventListener("click",function(){
-          this.style.color = "#FFF"
-        })
-
-
-      }
-
-      for(var i = 0;i<elements.length;i++){
-        traitements(elements[i])
-      }
-    })()
-
-  </script>
-
-  <script>
-    $( function() {
-      $( "#tabs" ).tabs();
-    } );
-  </script>
-
+<script>
+  $(function () {
+    $("#tabs").tabs();
+  });
+</script>

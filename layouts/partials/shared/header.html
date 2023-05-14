@@ -2,30 +2,40 @@
   <div class="container">
     <div class="logo-header">
       <a class="navbar-brand d-flex align-items-center" href="/">
-        {{ partial "utilities/image.html" "images/header/bg_header.png" }}
+        <!-- {{ partial "utilities/image.html" "images/header/bg_header.png" }} -->
+        <img src="/images/header/logo-2060.svg" alt="logo 2060" />
       </a>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav nav-menu  mb-2 mb-xl-0">
+      <ul class="navbar-nav nav-menu mb-2 mb-xl-0 me-0 me-md-5 ms-auto">
         {{ range .Site.Menus.main }}
-          <li class="nav-item text-center">
-            <a class="nav-link text-primary px-4 col-navbar" href="{{ .URL }}">{{ .Name }}</a>
-          </li>
+        <li class=" nav-item text-center">
+          <a class="nav-link px-4 col-navbar" href="{{ .URL }}">{{ .Name }}</a>
+        </li>
         {{ end }}
       </ul>
-      <ul class="navbar-nav  mb-2 mb-xl-0">
-        <a href="https://github.com/2060-io" target="_blank" class="github-header">{{ partial "utilities/image-fluid" "images/github_icon.png" }}</a>
-      </ul>
-      <ul class="navbar-nav ms-xl-3 mb-2 mb-xl-0">
+      <div class="d-flex flex-column flex-md-row align-items-center">
+        {{ range .Site.Menus.externals }}
+        <a href="{{ .URL }}" target="_blank" class="{{ .Pre }}">
+          <img src="/images/header/github.svg" alt="{{ .Name }}" />
+        </a>
+        {{ end }}
         {{ range .Site.Menus.buttons }}
-          <li class="nav-item">
-            <a class="nav-link btn btn-primary text-light px-4 btn-header-download" href="{{ .URL }}"><img src="/images/icons/dwn.png" class="dwn-style"> {{ .Name }}</a>
-          </li>
+        <a class="{{ .Pre }}" href="{{ .URL }}"><img src="/images/icons/icone-download.svg" class="dwn-style me-2"> {{
+          .Name
+          }}</a>
         {{ end }}
-      </ul>
+      </div>
+      <!-- <ul class="navbar-nav mb-2 mb-xl-0">
+        <a href="https://github.com/2060-io" target="_blank" class="github-header">
+          {{ partial "utilities/image-fluid" "images/github_icon.png" }}
+          <img src="/images/header/github.svg" alt="logo 2060" />
+        </a>
+      </ul> -->
     </div>
   </div>
 </nav>
