@@ -1,12 +1,12 @@
-<section class="section features py-5">
+<section class="section features">
   <div class="container">
     <div class="row">
       <div class="col-12 col-xl-12 title-feat-container d-flex flex-column">
         {{ with .content.title }}
-        <h3 class="text-primary fs-1 fw-semibold mb-3">{{ . }}</h3>
+        <h3 class="text-primary fs-big fw-semibold mb-3">{{ . }}</h3>
         {{ end }}
         {{ with .content.text_feat }}
-        <p class="text-feat fs-5"> {{ . }}</p>
+        <p class="text-feat fw-light text-black-80 fs-small"> {{ . }}</p>
         {{ end }}
       </div>
       <div class="bar-separation">
@@ -36,7 +36,7 @@
         <div id="tabs-1" class="cards_container">
           <div class="d-flex flex-column flex-xl-row gap-4">
             {{ range .content.cards }}
-            <div class="card p-4 py-5 feature-card">
+            <div class="card p-4 feature-card">
               <div class="d-flex justify-content-center img-feature">
                 <!-- {{ with .image }}{{ partial "utilities/image-fluid.html" . }}{{ end }} -->
                 {{ partial .image }}

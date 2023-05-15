@@ -1,6 +1,7 @@
 .download {
     background: url("images/download_images/bg_dl_img.png") no-repeat center center;
     background-size: cover;
+    padding: 7rem 0;
 }
 
 .bold-dwn-txt {
@@ -36,13 +37,6 @@
     background-color: #0893FF !important;
     color: #FFF !important;
     transition: 0.3s all !important;
-}
-
-
-.download .title-dwn {
-    // color: #0893FF;
-    font-size: 48px;
-
 }
 
 .download .txt-dwn {
@@ -94,7 +88,9 @@
 
 
 
-
+.img-dwn {
+    width: 100%;
+}
 
 .img-dwn-user1 {
     position: absolute;

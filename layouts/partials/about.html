@@ -2,17 +2,17 @@
     <div class="container">
 
         <div class=" contaiter title-about-for-mobile">
-            <h3 class="title-abt">{{ .title_about_md }}</h3>
+            <h3 class="fs-big fw-semibold pb-5 title-abt">{{ .title_about_md }}</h3>
         </div>
 
         <div class="row flex-column flex-xl-row-reverse">
             <div class="col-6 d-flex justify-content-center img-about-container">
-                <img src="/images/download_images/2060-download.png" />
+                <img src="/images/about/about-img.png" />
             </div>
             <div class="col-md-6 col-sm-12 d-flex flex-column justify-content-center container-content-about ">
-                <h3 class="title-abt fs-1 fw-semibold">{{ .title_about_md }}</h3>
+                <h3 class="title-abt fs-big fw-semibold pb-5">{{ .title_about_md }}</h3>
 
-                <p class="text-abt">
+                <p class="text-abt fs-small">
                     {{ .para1 }}
                     <span class="bold-txt-about">{{ .bold_txt }}</span>
                     {{ .para2 }}
@@ -27,7 +27,7 @@
                 </p>
 
 
-                <p class="text-abt">
+                <p class="text-abt fs-small">
                     {{ .para6 }}
                     <span class="bold-txt-about">{{ .bold_txt_6 }}</span>
                     {{ .para7 }}
@@ -47,7 +47,7 @@
 
         <div class="col-12 col-xl-6">
             {{ with .content.title }}
-            <h3 class="fs-1 fw-semibold text-primary pb-3 title-team">{{ . }}
+            <h3 class="fs-big fw-semibold text-primary pb-5 title-team">{{ . }}
             </h3>
             {{ end }}
         </div>
@@ -60,30 +60,30 @@
                         {{with .image}}
                         <img src="{{ . }}" class="photo-team">
                         {{ end }}
-                        {{ with .title }}<h4 class="card-title text-primary pt-3" style="color: #073B4C !important;">{{
+                        {{ with .title }}<h4 class="card-title text-green-hard fw-semibold pt-3 ps-3">{{
                             . }}</h4>{{ end }}
-                        {{ with .text }}<p class="card-text role-team pb-3">{{ . }}</p>{{ end }}
+                        {{ with .text }}<p class="card-text role-team pb-1 ps-3">{{ . }}</p>{{ end }}
 
-                        <ul class="d-flex justify-content-center justify-content-xl-start list-unstyled">
-                            {{ with .twitter }}<a class="d-flex align-items-center justify-content-center"
+                        <ul class="d-flex justify-content-center justify-content-xl-start list-unstyled ps-3">
+                            {{ with .twitter }}<a class="d-flex align-items-center justify-content-center rs"
                                 href="{{ . }}">{{ partial "icons/about_icons/twitter.html" . }}</a></li>{{ end }}
-                            {{ with .linkedin }}<a class="d-flex align-items-center justify-content-center"
+                            {{ with .linkedin }}<a class="d-flex align-items-center justify-content-center rs"
                                 href="{{ . }}">{{ partial "icons/about_icons/linkedin.html" . }}</a></li>{{ end }}
                         </ul>
                     </div>
                     <div class="col-6 p-3 d-flex flex-column dsc-team">
                         <img src="/images/about/coats_left.png" width="30px" height="30px" />
                         {{ with .description }}
-                        <p class="text-center p-2 txt-desc">{{ . }}</p>
+                        <p class="text-center py-2 px-5 txt-desc">{{ . }}</p>
                         {{ end }}
                         <div class="d-flex justify-content-end">
                             <img src="/images/about/coats_right.png" width="30px" height="30px" class="me-0" />
                         </div>
-                        <div class="d-flex justify-content-center qr-img-container-about">
+                        <!-- <div class="d-flex justify-content-center qr-img-container-about">
                             {{ with .qrscan }}
                             <img src="{{ . }}" class="img-qr-about" />
                             {{ end }}
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

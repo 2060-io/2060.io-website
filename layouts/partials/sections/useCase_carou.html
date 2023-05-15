@@ -1,8 +1,8 @@
-<section class="section usecase py-5">
+<section class="section usecase">
   <div class="container usecase-container-carou">
     <div class="title-usecase-carou">
       {{ with .title }}
-      <h3 class="fs-1 text-green-soft pb-3 title-uc-carou">{{ . }}</h3>
+      <h3 class="fs-big text-green-soft pb-3 title-uc-carou">{{ . }}</h3>
       {{ end }}
     </div>
 
@@ -29,15 +29,16 @@
               </div>
               <div class="text-content-slide">
                 {{ with .title }}
-                <h2 class="title-slide">{{ . }}</h2>
+                <h2 class="title-slide fw-semibold">{{ . }}</h2>
                 {{ end }}
-                <p class="para-slide">
+                <p class="para-slide fw-light">
                   {{ .para }}
                   <span class="bold-carou-txt">{{ .bold_txt_carou }}</span>
                   {{ .para2 }}
                   <span class="bold-carou-txt">{{ .bold_txt_carou2 }}</span>
                   {{ .para3 }}
                 </p>
+                {{ with .btn }}
                 <div class="div-btn-scan-me">
                   <button id="button-flip-back" class="text-decoration-none me-1 scan-link scan-btn-uc"
                     id="btn-scan">Scan me
@@ -46,6 +47,7 @@
                   </button>
                   <!-- <button >Scan Me <span class="ms-2">{{ partial "icons/arrow-right.html" }} <img src="/images/usecases/carou_img/qr_scan.png" alt=""></span></button>                           -->
                 </div>
+                {{ end }}
               </div>
             </div>
             <div class="swiper-slide-verso">
@@ -96,7 +98,7 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div>
     </div>
-
+  </div>
 
 </section>
 
@@ -120,7 +122,7 @@
   var swiper = new Swiper(".mySwiper", {
     slidesPerView: 3,
     spaceBetween: 10,
-    loop: true,
+    // loop: true,
     centerSlide: 'true',
     fade: 'true',
     grabCursor: 'true',

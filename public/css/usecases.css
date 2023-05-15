@@ -10,6 +10,9 @@
     padding: 0;
 
 }
+.title-uc-carou {
+  padding-top: 4.5rem;
+}
 .bold-carou-txt{
   font-weight: 700;
 }
@@ -70,7 +73,7 @@
 .title-slide{
     line-height: 25px;
     font-size:1.3rem ;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     margin-top: 3rem;
     color: #3EBDB6;
 }
@@ -83,11 +86,11 @@
 
 .div-btn-scan-me button{
   border: none;
-width: 171px;
-height: 47px;
-background-color: rgba(215,215,215,0.5);
-color: #073B4C;
-border-radius: 51px;
+  /* width: 171px; */
+  height: 47px;
+  background-color: rgba(215,215,215,0.5);
+  color: #073B4C;
+  border-radius: 51px;
 }
 .div-btn-scan-me span img{
     padding-left: 7px;
@@ -95,6 +98,7 @@ border-radius: 51px;
 .btn-scan-me{
     text-decoration: none;
     color: #073B4C;
+    display: flex;
 }
 
 .usecase-container-carou .swiper-slide {
@@ -170,7 +174,7 @@ border-radius: 51px;
 }
 
 .swiper-slide-recto .title-slide{
-  margin-top: 2rem;
+  margin-top: 3rem;
   line-height: 25px;
   height: 50px;
 }
@@ -185,10 +189,10 @@ border-radius: 51px;
   margin-top: 4rem;
 }
 .container.usecase-container-carou {
-  height: 700px;
+  height: 750px;
 }
 .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-bullets-dynamic {
-  bottom: 8rem;
+  bottom: 12rem;
 }
 
 

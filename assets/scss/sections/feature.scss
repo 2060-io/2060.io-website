@@ -1,5 +1,7 @@
 .features {
     background-color: rgba($color: #7678ED, $alpha: 0.1);
+    padding: 7rem 0;
+    ;
 
     .title-feat-container {
         justify-content: center;
@@ -72,6 +74,8 @@
             border-radius: 6px;
             transition: .4s all;
             width: 100%;
+            padding-top: 2.5rem !important;
+            padding-bottom: 1.5rem !important;
 
             .img-feature {
                 background: url("/images/features/bg-feature.png") no-repeat center center;
@@ -80,8 +84,9 @@
             }
 
             p {
-                font-size: 1.1rem;
-                padding: 1.5rem;
+                font-size: 1.3rem;
+                line-height: 1.8rem;
+                padding: 1rem;
             }
 
             &:hover {
@@ -106,4 +111,8 @@
             }
         }
     }
+}
+
+.ui-widget {
+    font-family: "EuclidCircularA", Arial, Helvetica, sans-serif;
 }

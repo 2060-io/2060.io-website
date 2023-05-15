@@ -9,26 +9,29 @@
     color: #3EBDB6;
     margin-bottom: 0.6rem !important;
     font-size: 1.4rem;
+    font-weight: 600;
     /* font-family: 'EuclidCircularA-SemiBold'; */
 }
-.un_container{
+/* .un_container{
     margin: 2rem auto 2rem auto ;
-}
+} */
 
 .para-txt{
     color: #FFFFFF;
-    font-size: 2.1rem ;
+    font-size: 2.8rem;
+    line-height: 3.5rem;
     margin-bottom: 1rem !important;
     font-weight: 600;
     text-align: left !important;
-    width: 75%;
+    width: 68%;
    
 }
 .small-text{
     color: #FFFFFF;
-    font-size: .9rem;
-    line-height: 1.6rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
     font-weight: 400;
+    width: 70%;
 }
 
 

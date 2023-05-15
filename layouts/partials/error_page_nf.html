@@ -4,15 +4,14 @@
             <div class="img d-flex flex-column justify-content-center container-img-para-error">
 
                 {{ with .img }}
-                    <img src="{{ . }}" />
+                <img src="{{ . }}" />
                 {{ end }}
 
                 {{ with .para }}
-                    <p class="para-error text-center">{{ . }}</p>
+                <p class="para-error text-center text-green-hard fs-4">{{ . }}</p>
                 {{ end }}
             </div>
-           
+
         </div>
     </div>
 </section>
-

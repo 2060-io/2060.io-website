@@ -1,10 +1,11 @@
 .section.hero {
   background: url("images/header/background_header.png") no-repeat center center;
   background-size: cover;
+  padding: 7rem 0 !important;
 
   .h3-title-home {
-    line-height: 4rem !important;
-    font-size: 3.5rem !important;
+    line-height: 4.5rem !important;
+    font-size: 4rem !important;
   }
 
   .txt-hero {
@@ -50,7 +51,8 @@
       transform: scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
       transition: 1.5s all !important;
       position: absolute;
-      width: 85%;
+      // width: 85%;
+      width: 100%;
       top: 0;
     }
 

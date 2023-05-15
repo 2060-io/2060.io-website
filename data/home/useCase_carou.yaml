@@ -1,4 +1,4 @@
-enable : true 
+enable: true
 id: "useCase"
 
 title: "Use Cases"
@@ -9,72 +9,86 @@ title: "Use Cases"
 # btn_scan_qr: "#"
 content:
   usecases:
-    - image: "images/usecases/carou_img/img1.png"
-      id : "thirdparty"
-      title: "Third-Party Accounts"
-      para: "Employing bots to generate and access authorised "
-      bold_txt_carou : "third-party accounts and services "
-      para2 : "can streamline processes and increase efficiency in various industries, without a compromise on security."
-      # scan me : 
-      imageQR : "/images/usecases/qr_code_uc.png"
-      btn_lm_uc_c: "/2060-usecases"
-      paraqr : "After downloading the 2060 app, scan this QR-Code to test this use case"
-      
+    # - image: "images/usecases/carou_img/img1.png"
+    #   id : "thirdparty"
+    #   title: "Third-Party Accounts"
+    #   para: "Employing bots to generate and access authorised "
+    #   bold_txt_carou : "third-party accounts and services "
+    #   para2 : "can streamline processes and increase efficiency in various industries, without a compromise on security."
+    #   # scan me :
+    #   imageQR : "/images/usecases/qr_code_uc.png"
+    #   btn_lm_uc_c: "/2060-usecases"
+    #   paraqr : "After downloading the 2060 app, scan this QR-Code to test this use case"
+
     - image: "images/usecases/carou_img/img2.png"
-      id : "p2p"
+      id: "p2p"
       title: "P2P Secure Invitation"
       para: "Peer-to-Peer secure invitations provide a secure and efficient way to invite and onboard new users to platforms, services, or networks, using "
-      bold_txt_carou : "time-bound unique invitation codes."
+      bold_txt_carou: "time-bound unique invitation codes."
       ## scan me :
-      imageQR : "/images/usecases/qr_code_uc.png"
-      btn_lm_uc_c: "/2060-usecases"
-      paraqr : "After downloading the 2060 app, scan this QR-Code to test this use case"
-
+      imageQR: "/images/usecases/qr_code_uc.png"
+      btn_lm_uc_c: "/usecases"
+      paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
+      btn: false
 
     - image: "images/usecases/carou_img/img3.png"
-      id : 'idcard'
+      id: "idcard"
       title: "ID Card Issuance"
       para: "Issuing ID cards through a "
-      bold_txt_carou : "chatbot-based system "
-      para2 : "that utilises the user’s handset biometrics and allows for "
-      bold_txt_carou2 : "customisable instructions."
+      bold_txt_carou: "chatbot-based system "
+      para2: "that utilises the user’s handset biometrics and allows for "
+      bold_txt_carou2: "customisable instructions."
       ## scan me :
-      imageQR : "/images/usecases/qr_code_uc.png"
-      btn_lm_uc_c: "/2060-usecases"
-      paraqr : "After downloading the 2060 app, scan this QR-Code to test this use case"
+      imageQR: "/images/usecases/qr_code_uc.png"
+      btn_lm_uc_c: "/usecases"
+      paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
+      btn: true
 
     - image: "images/usecases/carou_img/img4.png"
-      id : 'creditcard'
+      id: "creditcard"
       title: "Credit Card Issuance"
       para: "Authentication of "
-      bold_txt_carou : "credit cards ordering and submission processes "
+      bold_txt_carou: "credit cards ordering and submission processes "
       para2: "using Verifiable Credentials based interactions via chatbots and secure connections with banking infrastructure."
       ## scan me :
-      imageQR : "/images/usecases/qr_code_uc.png"
-      btn_lm_uc_c: "/2060-usecases"
-      paraqr : "After downloading the 2060 app, scan this QR-Code to test this use case"
+      imageQR: "/images/usecases/qr_code_uc.png"
+      btn_lm_uc_c: "/usecases"
+      paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
+      btn: true
 
-    - image: "images/usecases/carou_img/img5.png"
-      id : 'scantopay'
-      title: "Scan to Pay"
-      para: "Facilitate payment processing between users and merchants by "
-      bold_txt_carou : "ensuring non-repudiation of transactions "
-      para2 : "without the need of 3D Secure."
+    - image: "images/usecases/carou_img/img7.png"
+      id: "emailverification"
+      title: "Email Verification Service"
+      para: "Ensure the validity of your recipient’s email address and the  "
+      bold_txt_carou: "authenticity of the content to safeguard the information exchanged "
+      para2: "during email communications."
       ## scan me :
-      imageQR : "/images/usecases/qr_code_uc.png"
-      btn_lm_uc_c: "/2060-usecases"
-      paraqr : "After downloading the 2060 app, scan this QR-Code to test this use case"
+      imageQR: "/images/usecases/qr_code_uc.png"
+      btn_lm_uc_c: "/usecases"
+      paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
+      btn: true
 
-    - image: "images/usecases/carou_img/img6.png"
-      id : 'userbased'
-      title: "API Access Token Issuance"
-      para: "Issuing API access tokens through Verifiable Credentials can provide a secure and efficient way to "
-      bold_txt_carou : "grant access"
-      para2 : "to authorised parties while "
-      bold_txt_carou2 : "maintaining control over data "
-      para3 : "and resources."
-      ## scan me :
-      imageQR : "/images/usecases/qr_code_uc.png"
-      btn_lm_uc_c: "/2060-usecases"
-      paraqr : "After downloading the 2060 app, scan this QR-Code to test this use case"
-      
+    # - image: "images/usecases/carou_img/img5.png"
+    #   id: "scantopay"
+    #   title: "Scan to Pay"
+    #   para: "Facilitate payment processing between users and merchants by "
+    #   bold_txt_carou: "ensuring non-repudiation of transactions "
+    #   para2: "without the need of 3D Secure."
+    #   ## scan me :
+    #   imageQR: "/images/usecases/qr_code_uc.png"
+    #   btn_lm_uc_c: "/usecases"
+    #   paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
+    #   btn: true
+
+    # - image: "images/usecases/carou_img/img6.png"
+    #   id: "userbased"
+    #   title: "API Access Token Issuance"
+    #   para: "Issuing API access tokens through Verifiable Credentials can provide a secure and efficient way to "
+    #   bold_txt_carou: "grant access"
+    #   para2: "to authorised parties while "
+    #   bold_txt_carou2: "maintaining control over data "
+    #   para3: "and resources."
+    #   ## scan me :
+    #   imageQR: "/images/usecases/qr_code_uc.png"
+    #   btn_lm_uc_c: "/2060-usecases"
+    #   paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"

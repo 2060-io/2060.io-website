@@ -1,4 +1,4 @@
-<section class="section hero py-5">
+<section class="section hero">
   <div class="container">
 
     <!-- <div class="txt-hero-for-mobile">
@@ -9,12 +9,13 @@
       {{ end }}
     </div> -->
     <div class="row flex-column flex-xl-row-reverse justify-content-xl-between">
-      <div class="col-12 col-xl-6 hero-image cube-wrap">
+      <div class="col-12 col-xl-7 hero-image cube-wrap">
         <div class="cube">
-          <img src="images/header/dashbord-app-2060.png" class="img-top" />
+          <img src="images/header/home-hero.png" class="img-top" />
+          <!-- <img src="images/header/dashbord-app-2060.png" class="img-top" />
           <img src="images/header/phone-app-2060.png" class="img-phone" />
           <img src="images/header/aries.png" class="img-aries">
-          <img src="images/header/logo-didcomm.png" class="img-logo-didcomm">
+          <img src="images/header/logo-didcomm.png" class="img-logo-didcomm"> -->
         </div>
       </div>
       <div class="col-12 col-xl-5 d-flex flex-column justify-content-center py-4">
@@ -32,7 +33,7 @@
         {{ end }}
         <div class="d-flex flex-column flex-xl-row mt-1">
           {{ with .content.buttonPrimary }}
-          <a class="btn btn-green-soft p-2 text-light px-4 my-1 btn-dwn-home d-flex align-items-center justify-content-center"
+          <a class="btn btn-green-soft p-2 text-light px-4 my-1 btn-dwn-home d-flex align-items-center fw-medium justify-content-center"
             href="{{ .url }}">
             {{ with .icon }}
             <img src="{{ . }}" width="20px" height="15px" class="me-2">
@@ -41,7 +42,8 @@
           </a>
           {{ end }}
           {{ with .content.buttonSecondary }}
-          <a class="btn btn-outline-green-soft p-2 px-4 my-1 ms-xl-2 btn-uc-hm-main-div" href="{{ .url }}">{{ .label
+          <a class="btn btn-outline-green-soft p-2 px-4 my-1 ms-xl-2 fw-medium btn-uc-hm-main-div" href="{{ .url }}">{{
+            .label
             }}</span></a>
           {{ end }}
         </div>

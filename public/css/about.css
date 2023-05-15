@@ -1,7 +1,7 @@
 .text-abt{
     font-size: 1.6rem;
     color:#073B4C ;
-    width: 91%;  
+    width: 80%;  
     line-height: 2rem;
     margin-bottom: 1.6rem ;  
     line-height: 3rem;
@@ -30,7 +30,7 @@
     background-color: #7678ED;
     border-radius: 3px;
     font-size: 1.4rem;
-    font-family: "EuclidCircularA-Regular";
+    /* font-family: "EuclidCircularA-Regular"; */
 }
 .txt-desc{
     padding: 5rem;
@@ -39,11 +39,14 @@
 .role-team{
     font-size: 0.9rem;
     color: #3EBDB6;
-    font-family: 'EuclidCircularA-SemiBold';
+    /* font-family: 'EuclidCircularA-SemiBold'; */
+    font-weight: 600;
     
 }
 .text-center.p-2.txt-desc{
-    font-family: 'EuclidCircularA-LightItalic';
+    /* font-family: 'EuclidCircularA-LightItalic'; */
+    font-weight: 300;
+    font-style: italic;
 }
 .git-li{
     color: #3EBDB6;
@@ -74,6 +77,11 @@
 }
 .title-about-for-mobile h3{
     display: none !important;
+}
+
+.rs:hover > svg path { 
+    fill: #7678ED;
+    transition: .2s all;
 }
 
 

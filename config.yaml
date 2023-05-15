@@ -64,7 +64,7 @@ menus:
     - name: "Download"
       url: "/"
       weight: 6
-      pre: "btn btn-green-soft btn-header-download px-4 py-2 text-light d-flex align-items-center"
+      pre: "btn btn-green-soft btn-header-download fw-medium px-4 py-2 text-light d-flex align-items-center"
 
   footer:
     - name: "Our Vision"

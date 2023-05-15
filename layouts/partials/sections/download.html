@@ -8,9 +8,9 @@
 
   <div class="container download_container">
     <div class="container-dwn-home">
-      <div class="cube-wrap-dwn col-md-6 img-dwn-container">
+      <div class="cube-wrap-dwn col-12 col-xl-7 img-dwn-container">
         <div class="cube-dwn">
-          <img src="/images/download_images/phone.png" class="img-dwn-home" />
+          <!-- <img src="/images/download_images/phone.png" class="img-dwn-home" />
           <img src="/images/download_images/user-1.png" class="img-dwn-user1" />
           <img src="/images/download_images/user-2.png" class="img-dwn-user2" />
           <img src="/images/download_images/add-service.png" class="img-dwn-service" />
@@ -18,13 +18,15 @@
           <img src="/images/download_images/bulle-chat-user-1.png" class="img-dwn-chat2" />
           <img src="/images/download_images/fieand-chat.png" class="img-dwn-fienad" />
           <img src="/images/download_images/id-card.png" class="img-dwn-card" />
-          <img src="/images/download_images/scan-service.png" class="img-dwn-scan" />
+          <img src="/images/download_images/scan-service.png" class="img-dwn-scan" /> -->
+          <img src="/images/download_images/download-img.png" class="img-dwn" />
 
         </div>
       </div>
-      <div class="col-md-6 d-flex flex-column justify-content-center py-5 dwn-desc-content">
+      <div class="col-12 col-xl-5 d-flex flex-column justify-content-center py-5 dwn-desc-content">
         {{ with .content.title }}
-        <h3 class="text-center text-xl-start mb-5 text-secondary fw-semibold fs-1 title-dwn">{{ . | markdownify }}</h3>
+        <h3 class="text-center text-xl-start mb-5 text-secondary fw-semibold fs-big title-dwn">{{ . | markdownify }}
+        </h3>
         {{ end }}
         {{ with .content }}
         <p class="text-xl-start pb-4 txt-dwn">

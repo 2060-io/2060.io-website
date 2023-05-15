@@ -10,11 +10,16 @@
     padding: 10px 30px;
     color: #073B4C;
     border-radius: 50px;
-    
-
+}
+.uc-image {
+    width: auto !important;
+    height: 700px !important;
+}
+.reminder {
+    width: 350px;
 }
 .desc-usecase{
-    min-height: 700px;
+    /* min-height: 700px; */
   }
 
 .back-btn{
@@ -37,7 +42,9 @@
     display: none;
     align-self: center;
     margin: 0 auto ;
-    width: 80%;
+    /* width: 80%; */
+    height: 500px;
+    margin: 100px 0;
 }
 
 .qr-code-scan-replace-img svg {
@@ -59,7 +66,7 @@
     /* font-weight: 700; */
 }
 .cls-btn-uc-container{
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 .para-uc-container{
     line-height: 40px;
