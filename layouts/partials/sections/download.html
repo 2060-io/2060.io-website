@@ -1,8 +1,10 @@
-<section class="section download py-5">\
+<section class="section download py-5">
 
   <div class="container dowmload-mobile-container">
     {{ with .content.title }}
-    <h3 class="text-center text-xl-start title-dwn">{{ . | markdownify }}</h3>
+    <h3 class="text-center text-xl-start mb-5 text-secondary fw-semibold fs-big title-dwn title-dwn">{{ . | markdownify
+      }}
+    </h3>
     {{ end }}
   </div>
 
@@ -23,7 +25,7 @@
 
         </div>
       </div>
-      <div class="col-12 col-xl-5 d-flex flex-column justify-content-center py-5 dwn-desc-content">
+      <div class="col-12 col-xl-5 d-flex flex-column justify-content-center py-2 py-md-5 dwn-desc-content">
         {{ with .content.title }}
         <h3 class="text-center text-xl-start mb-5 text-secondary fw-semibold fs-big title-dwn">{{ . | markdownify }}
         </h3>
@@ -44,7 +46,8 @@
         {{ end }}
         <div class="d-flex flex-column flex-xl-row ">
           {{ with .content.buttonplay }}
-          <a class="btn btn-outline-primary px-4 my-1 d-flex align-items-center dwn-btns const-btn" href="{{ .url }}">
+          <a class="btn btn-outline-primary px-4 my-1 d-flex align-items-center justify-content-center dwn-btns const-btn"
+            href="{{ .url }}">
             <span class="me-3 ">
               {{ partial "icons/download_icons/icon_play_store.html" }}
             </span>
@@ -52,7 +55,8 @@
           </a>
           {{ end }}
           {{ with .content.buttonapp }}
-          <a class="btn btn-outline-primary px-4 my-1 d-flex align-items-center dwn-btns const-btn" href="{{ .url }}">
+          <a class="btn btn-outline-primary px-4 my-1 d-flex align-items-center justify-content-center dwn-btns const-btn"
+            href="{{ .url }}">
             <span class="me-3 appstore_icon"> <svg class="icon_dwn" xmlns="http://www.w3.org/2000/svg" width="20pt"
                 height="18pt" viewBox="0 0 496.255 608.728">
                 <path

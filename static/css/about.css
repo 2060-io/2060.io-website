@@ -110,10 +110,10 @@
     .container-content-about h3{
         display: none ; 
     }
-    .img-about-container img{
+    /* .img-about-container img{
         height: 440px;
         width: 350px;
-    }
+    } */
     .container-content-about{
         margin: 0 auto;
     }

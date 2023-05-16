@@ -19,7 +19,8 @@
               <div class="img-div-feat-container">
                 <span class="img-feat-tab"> {{ partial "icons/features_icons/fci.html" }} </span>
               </div>
-              <span class="text-uppercase fw-bold">For companies and institutions</span>
+              <span class="text-uppercase fw-bold d-none d-md-block">For companies and institutions</span>
+              <span class="text-uppercase fw-bold d-block d-md-none">Pro</span>
             </a>
           </li>
           <li style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
@@ -29,14 +30,15 @@
                   {{ partial "icons/features_icons/feu.html" }}
                 </span>
               </div>
-              <span class="text-uppercase fw-bold">For end-users</span>
+              <span class="text-uppercase fw-bold d-none d-md-block">For end-users</span>
+              <span class="text-uppercase fw-bold d-block d-md-none">Users</span>
             </a>
           </li>
         </ul>
         <div id="tabs-1" class="cards_container">
           <div class="d-flex flex-column flex-xl-row gap-4">
             {{ range .content.cards }}
-            <div class="card p-4 feature-card">
+            <div class="card p-2 p-md-4 feature-card">
               <div class="d-flex justify-content-center img-feature">
                 <!-- {{ with .image }}{{ partial "utilities/image-fluid.html" . }}{{ end }} -->
                 {{ partial .image }}

@@ -58,7 +58,7 @@ menus:
     - name: "Github"
       url: "https://github.com/2060-io"
       weight: 5
-      pre: "github-header mx-2 mb-4 mb-md-0"
+      pre: "github-header mx-2 my-3 my-md-0"
 
   buttons:
     - name: "Download"

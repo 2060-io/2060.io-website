@@ -6,10 +6,10 @@
         </div>
 
         <div class="row flex-column flex-xl-row-reverse">
-            <div class="col-6 d-flex justify-content-center img-about-container">
+            <div class="col-12 col-md-6 d-flex justify-content-center img-about-container">
                 <img src="/images/about/about-img.png" />
             </div>
-            <div class="col-md-6 col-sm-12 d-flex flex-column justify-content-center container-content-about ">
+            <div class="col-12 col-md-6 d-flex flex-column justify-content-center container-content-about ">
                 <h3 class="title-abt fs-big fw-semibold pb-5">{{ .title_about_md }}</h3>
 
                 <p class="text-abt fs-small">
@@ -47,7 +47,7 @@
 
         <div class="col-12 col-xl-6">
             {{ with .content.title }}
-            <h3 class="fs-big fw-semibold text-primary pb-5 title-team">{{ . }}
+            <h3 class="fs-big fw-semibold text-primary pb-2 pb-md-5 title-team">{{ . }}
             </h3>
             {{ end }}
         </div>
