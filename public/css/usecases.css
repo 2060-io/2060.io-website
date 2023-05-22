@@ -1,6 +1,7 @@
 .section.usecase{
     max-width: none;
     background-color: rgba(62 ,189, 182, 0.1);
+    padding: 7rem 0 2rem;
 }
 .usecase-container-carou{
     position: relative;
@@ -11,7 +12,8 @@
 
 }
 .title-uc-carou {
-  padding-top: 4.5rem;
+  /* padding-top: 4.5rem; */
+  padding-bottom: 4rem;
 }
 .bold-carou-txt{
   font-weight: 700;
@@ -72,15 +74,15 @@
 
 .title-slide{
     line-height: 25px;
-    font-size:1.3rem ;
+    font-size: 1.5rem ;
     margin-bottom: 0rem;
     margin-top: 3rem;
     color: #3EBDB6;
 }
 .para-slide{
-    font-size: 15px;
+    font-size: 1.1rem;
     color: #073B4C;
-    line-height: 28px;
+    line-height: 1.7rem;
     height: 60px;
 }
 
@@ -281,5 +283,5 @@
   }
 
   .swiper-button-next, .swiper-button-prev {
-    top: -2.5rem !important;
+    top: -6rem !important;
   }

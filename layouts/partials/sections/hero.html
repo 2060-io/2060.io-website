@@ -1,15 +1,7 @@
 <section class="section hero">
   <div class="container">
-
-    <!-- <div class="txt-hero-for-mobile">
-      {{ with .content.title }}
-      <h3 class="hero-title fw-bold display-1 text-green-hard text-left text-xl-start pb-4 h3-title-home-mobile">{{ .
-        |
-        markdownify }}</h3>
-      {{ end }}
-    </div> -->
-    <div class="row flex-column flex-xl-row-reverse justify-content-xl-between">
-      <div class="col-12 col-xl-7 hero-image cube-wrap">
+    <div class="row flex-column flex-lg-row-reverse justify-content-lg-between">
+      <div class="col-12 col-lg-7 hero-image cube-wrap">
         <div class="cube">
           <img src="images/header/home-hero.png" class="img-top" />
           <!-- <img src="images/header/dashbord-app-2060.png" class="img-top" />
@@ -18,20 +10,20 @@
           <img src="images/header/logo-didcomm.png" class="img-logo-didcomm"> -->
         </div>
       </div>
-      <div class="col-12 col-xl-5 d-flex flex-column justify-content-center py-md-4">
+      <div class="col-12 col-lg-5 d-flex flex-column justify-content-center">
         {{ with .content.title }}
-        <h1 class="hero-title fw-semibold display-1 text-green-hard text-center text-xl-start pb-3 h3-title-home">{{ .
+        <h1 class="hero-title fw-semibold display-1 text-green-hard text-center text-lg-start pb-3 h3-title-home">{{ .
           |
           markdownify }}</h1>
         {{ end }}
         {{ with .content }}
-        <p class="text-center text-black-80 text-xl-start pb-4 txt-hero me-xl-4">{{ .text | markdownify }}
+        <p class="text-center text-black-80 text-lg-start pb-4 txt-hero me-lg-4">{{ .text | markdownify }}
           {{ with .color_txt }}
           <span class="color-text fw-semibold">{{ . }}</span>
           {{ end }}
         </p>
         {{ end }}
-        <div class="d-flex flex-column flex-xl-row mt-1">
+        <div class="d-flex flex-column flex-lg-row mt-1">
           {{ with .content.buttonPrimary }}
           <a class="btn btn-green-soft p-2 text-light px-4 my-1 btn-dwn-home d-flex align-items-center fw-medium justify-content-center"
             href="{{ .url }}">
@@ -42,73 +34,17 @@
           </a>
           {{ end }}
           {{ with .content.buttonSecondary }}
-          <a class="btn btn-outline-green-soft p-2 px-4 my-1 ms-xl-2 fw-medium btn-uc-hm-main-div" href="{{ .url }}">{{
+          <a class="btn btn-outline-green-soft p-2 px-4 my-1 ms-lg-2 fw-medium btn-uc-hm-main-div" href="{{ .url }}">{{
             .label
             }}</span></a>
           {{ end }}
         </div>
       </div>
-
-
-      <!-- <div class="home-top-container">
-        <div class="cube-wrap col-12 col-md-6 hero-image ">
-          <div class="cube">
-            <img src="images/header/dashbord-app-2060.png" class="img-top" />
-            <img src="images/header/phone-app-2060.png" class="img-phone" />
-            <img src="images/header/aries.png" class="img-aries">
-            <img src="images/header/logo-didcomm.png" class="img-logo-didcomm">
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 ">
-          <div class="home-head-content">
-            {{ with .content.title }}
-            <h3 class="hero-title fw-semibold display-1 text-green-hard text-center text-xl-start pb-4 h3-title-home">{{
-              .
-              |
-              markdownify }}</h3>
-            {{ end }}
-            {{ with .content }}
-            <p class="text-center text-green-hard text-xl-start pb-4 txt-hero">{{ .text | markdownify }}
-              {{ with .color_txt }}
-              <span class="color-text">{{ . }}</span>
-              {{ end }}
-            </p>
-            {{ end }}
-            <div class="d-flex flex-column flex-xl-row mt-1">
-              {{ with .content.buttonPrimary }}
-              <a class="btn btn-green-soft p-2 text-light px-4 my-1 btn-dwn-home d-flex align-items-center"
-                href="{{ .url }}">
-                {{ with .icon }}
-                <img src="{{ . }}" width="20px" height="15px" class="me-2">
-                {{ end }}
-                {{ .label }}
-              </a>
-              {{ end }}
-              {{ with .content.buttonSecondary }}
-              <a class="btn btn-outline-green-soft p-2 px-4 my-1 ms-xl-2 btn-uc-hm-main-div" href="{{ .url }}">{{ .label
-                }}</span></a>
-              {{ end }}
-            </div> -->
     </div>
   </div>
   </div>
   </div>
 </section>
-
-
-<!-- <script>
-  (function () {
-    var elements = document.querySelectorAll('.btns-conatiner-home')
-    var traitement = function (element) {
-      element.addEventListener('mouseenter', function () {
-        this.style.transition = "0.5s all"
-        this.style.background = "#073B4C"
-        this.style.color = '#FFF'
-      })
-    }
-  })
-</script> -->
 
 <script>
   (function () {
@@ -131,22 +67,22 @@
     })
     element.addEventListener('mouseenter', function () {
       var transform = "scale3d(1.02,1.02,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
-      var transform2 = "scale3d(1.02,1.02,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
+      // var transform2 = "scale3d(1.02,1.02,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
       element.children[0].children[0].style.transform = transform
-      element.children[0].children[1].style.transform = transform2
-      element.children[0].children[2].style.transform = transform2
-      element.children[0].children[3].style.transform = transform2
+      // element.children[0].children[1].style.transform = transform2
+      // element.children[0].children[2].style.transform = transform2
+      // element.children[0].children[3].style.transform = transform2
 
 
     })
     element.addEventListener('mouseleave', function () {
 
       var transform = "scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
-      var transform2 = "scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
+      // var transform2 = "scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)"
       element.children[0].children[0].style.transform = transform
-      element.children[0].children[1].style.transform = transform2
-      element.children[0].children[2].style.transform = transform2
-      element.children[0].children[3].style.transform = transform2
+      // element.children[0].children[1].style.transform = transform2
+      // element.children[0].children[2].style.transform = transform2
+      // element.children[0].children[3].style.transform = transform2
 
     })
   })()

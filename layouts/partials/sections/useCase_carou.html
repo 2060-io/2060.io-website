@@ -2,7 +2,7 @@
   <div class="container usecase-container-carou">
     <div class="title-usecase-carou">
       {{ with .title }}
-      <h3 class="fs-big text-green-soft pb-3 title-uc-carou">{{ . }}</h3>
+      <h3 class="fs-big fw-semibold text-green-soft title-uc-carou">{{ . }}</h3>
       {{ end }}
     </div>
 
@@ -186,9 +186,7 @@
       element.addEventListener('click', function () {
         this.parentNode.parentNode.style.marginTop = "-500px"
       })
-
     }
-
 
     for (var i = 0; i < bouttons.length; i++) {
       flip(bouttons[i]);
@@ -198,9 +196,7 @@
       element.addEventListener('click', function () {
         this.parentNode.parentNode.parentNode.parentNode.children[0].style.marginTop = "0px"
       })
-
     }
-
 
     for (var i = 0; i < bouttons2.length; i++) {
       flip(bouttons2[i]);
@@ -210,44 +206,5 @@
 
 
   })()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*
-  document.addEventListener('DOMContentLoaded', function(event) {
-  
-  document.getElementById('flip-card-btn-turn-to-back').style.visibility = 'visible';
-  
-  document.getElementById('flip-card-btn-turn-to-back').onclick = function() {
-  document.getElementById('flip-card').classList.toggle('do-flip');
-  };
-  
-  document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
-  document.getElementById('flip-card').classList.toggle('do-flip');
-  };
-  
-  });*/
-
-
 
 </script>

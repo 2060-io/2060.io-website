@@ -1,5 +1,5 @@
 ---
-title: "Usecases"
+title: "Use Cases"
 layout: usecases
-url: "/usecases/"
+url: "/use-cases/"
 ---

@@ -1,17 +1,14 @@
-<section class="section hero py-5">
+<section id="vision" class="section about">
     <div class="container">
-
         <div class=" contaiter title-about-for-mobile">
             <h3 class="fs-big fw-semibold pb-5 title-abt">{{ .title_about_md }}</h3>
         </div>
-
-        <div class="row flex-column flex-xl-row-reverse">
-            <div class="col-12 col-md-6 d-flex justify-content-center img-about-container">
+        <div class="row flex-column flex-lg-row-reverse">
+            <div class="col-12 col-lg-6 d-flex justify-content-center img-about-container">
                 <img src="/images/about/about-img.png" />
             </div>
-            <div class="col-12 col-md-6 d-flex flex-column justify-content-center container-content-about ">
+            <div class="col-12 col-lg-6 d-flex flex-column justify-content-center container-content-about ">
                 <h3 class="title-abt fs-big fw-semibold pb-5">{{ .title_about_md }}</h3>
-
                 <p class="text-abt fs-small">
                     {{ .para1 }}
                     <span class="bold-txt-about">{{ .bold_txt }}</span>
@@ -25,36 +22,28 @@
                     <span class="bold-txt-about">{{ .bold_txt_5 }}</span>
                     {{ .para5 }}
                 </p>
-
-
                 <p class="text-abt fs-small">
                     {{ .para6 }}
                     <span class="bold-txt-about">{{ .bold_txt_6 }}</span>
                     {{ .para7 }}
                     <span class="bold-txt-about"> {{ .bold_txt_7 }} </span>
-
                 </p>
-
-
             </div>
         </div>
     </div>
-    </div>
 </section>
 
-<section class="section features py-5">
+<section id="team" class="section features py-5">
     <div class="container">
-
-        <div class="col-12 col-xl-6">
+        <div class="col-12 col-lg-6">
             {{ with .content.title }}
             <h3 class="fs-big fw-semibold text-primary pb-2 pb-md-5 title-team">{{ . }}
             </h3>
             {{ end }}
         </div>
-
         <div class="row justify-content-center d-flex">
             {{ range .content.cards }}
-            <div class="col-12 col-xl-6 mb-3">
+            <div class="col-12 col-lg-6 mb-3">
                 <div class="d-flex card-about-team">
                     <div class="card col-6 p-3 class-team-about">
                         {{with .image}}
@@ -63,8 +52,7 @@
                         {{ with .title }}<h4 class="card-title text-green-hard fw-semibold pt-3 ps-3">{{
                             . }}</h4>{{ end }}
                         {{ with .text }}<p class="card-text role-team pb-1 ps-3">{{ . }}</p>{{ end }}
-
-                        <ul class="d-flex justify-content-center justify-content-xl-start list-unstyled ps-3">
+                        <ul class="d-flex justify-content-center justify-content-lg-start list-unstyled ps-3">
                             {{ with .twitter }}<a class="d-flex align-items-center justify-content-center rs"
                                 href="{{ . }}">{{ partial "icons/about_icons/twitter.html" . }}</a></li>{{ end }}
                             {{ with .linkedin }}<a class="d-flex align-items-center justify-content-center rs"
@@ -74,7 +62,7 @@
                     <div class="col-6 p-3 d-flex flex-column dsc-team">
                         <img src="/images/about/coats_left.png" width="30px" height="30px" />
                         {{ with .description }}
-                        <p class="text-center py-2 px-5 txt-desc">{{ . }}</p>
+                        <p class="text-center py-2 px-lg-0 px-xl-5 px-5 txt-desc">{{ . }}</p>
                         {{ end }}
                         <div class="d-flex justify-content-end">
                             <img src="/images/about/coats_right.png" width="30px" height="30px" class="me-0" />
@@ -86,10 +74,8 @@
                         </div> -->
                     </div>
                 </div>
-
             </div>
             {{ end }}
         </div>
     </div>
-
 </section>

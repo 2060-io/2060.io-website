@@ -1,6 +1,6 @@
 ---
-title: "Privacy"
+title: "Privacy Policy"
 layout: privacy
-url: "/privacy/"
+url: "/privacy-policy/"
 draft: false
 ---

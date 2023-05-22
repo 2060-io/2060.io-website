@@ -18,7 +18,7 @@ content:
 
     - image: "icons/features_icons/verity.html"
       title: "Verify"
-      text: "Verify trusted credentials, issued by your organisation or your partners, to secure the authenticate of connections to your products and services."
+      text: "Verify trusted credentials issued by your organisation or your partners, to secure the authentication of connections to your products and services."
       url: "#"
   cards2:
     - image: "icons/features_icons/chat.html"

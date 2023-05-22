@@ -1,5 +1,5 @@
 ---
-title: "contact"
+title: "Contact Us"
 layout: contact
-url: "/contact/"
+url: "/contact-us/"
 ---

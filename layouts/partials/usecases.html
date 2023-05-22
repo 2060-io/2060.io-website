@@ -9,14 +9,14 @@
     {{ with .id }}
     <div class="row portfolio-feature" id="{{ . }}">
       {{ end }}
-      <div class="portfolio-feature-container align-items-center py-4 py-md-0">
+      <div class="portfolio-feature-container align-items-center py-4 py-lg-0">
 
         <div class="container desc-usecase-for-mobile">
           {{ with .title }}
           <h3 class="fs-1 fw-semibold text-primary pb-3" style="color: #3EBDB6 !important;">{{ . }}</h3>
           {{ end }}
         </div>
-        <div class="col-12 col-xl-6 d-flex justify-content-center mt-5 img-container-uc ">
+        <div class="col-12 col-md-6 d-flex justify-content-center mt-5 img-container-uc ">
           {{ with .image }}
           <img src="{{ . }}" alt="img-sign" class="img-fuild uc-image" id="image">
           {{ end }}
@@ -28,7 +28,7 @@
           </div>
 
         </div>
-        <div class="col-12 col-xl-6 d-flex flex-column desc-usecase">
+        <div class="col-12 col-md-6 d-flex flex-column desc-usecase">
 
           {{ with .img }}
           <img src="{{ . }}" alt="img-sign" class="img-fuild-left">
@@ -59,7 +59,7 @@
               <span class="qr-scan-uc-btn">{{ partial "icons/usecases_icons/qr_btn.html" }}</span>
             </button>
 
-            <button class="text-decoration-none me-1 back-btn">
+            <button class="text-decoration-none me-1 fw-bold back-btn">
               <i class="fas fa-arrow-left left-arrow"></i>
               Back
             </button>

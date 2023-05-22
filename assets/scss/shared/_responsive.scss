@@ -1,6 +1,6 @@
-@media screen and (max-width : 768px) {
+@media screen and (max-width : 992px) {
     .section.hero {
-        padding: 2rem 0 !important;
+        padding: 3rem 0 !important;
 
         .h3-title-home {
             line-height: 3rem !important;
@@ -15,7 +15,7 @@
     }
 
     .features {
-        padding: 2rem 0 !important;
+        padding: 3rem 0 !important;
 
         .title-feat-container .text-feat {
             width: 90%;
@@ -27,7 +27,6 @@
             .img-feature {
                 background-size: auto 80px;
                 padding: 25px 0;
-                margin-bottom: 0;
 
                 svg {
                     height: 35px;
@@ -41,9 +40,21 @@
             }
 
             .card-body {
-                padding: 0;
+                padding: 10px;
             }
         }
+    }
+
+    .download {
+        padding: 3rem 0 !important;
+    }
+
+    .usecase {
+        padding: 0 !important;
+    }
+
+    .about {
+        padding: 3rem 0 !important;
     }
 
     .container-dwn-home {
@@ -166,5 +177,232 @@
                 line-height: 1.5rem;
             }
         }
+    }
+
+    .para-slide {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    .imgSlide-1 {
+        height: 70px;
+
+        img {
+            width: 80px;
+            height: 136px;
+        }
+    }
+
+    .swiper-slide-recto .title-slide {
+        margin-top: 2rem;
+    }
+
+    #button-flip-back {
+        margin-top: 5rem;
+    }
+}
+
+@media screen and (min-width : 993px) and (max-width : 1200px) {
+    .section.hero {
+        padding: 5rem 0 !important;
+
+        .h3-title-home {
+            line-height: 3.5rem !important;
+            font-size: 3rem !important;
+        }
+
+        .txt-hero {
+            font-size: 1.2rem !important;
+            line-height: 1.7rem !important;
+            margin-bottom: 0;
+        }
+    }
+
+    .features {
+        padding: 5rem 0 !important;
+
+        .title-feat-container .text-feat {
+            width: 90%;
+        }
+
+        #tabs .feature-card {
+            padding-top: 2rem !important;
+
+            .img-feature {
+                background-size: auto 80px;
+                padding: 25px 0;
+
+                svg {
+                    height: 35px;
+                }
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.5rem;
+                padding: 0;
+            }
+
+            .card-body {
+                padding: 10px;
+            }
+        }
+    }
+
+    .download {
+        padding: 3rem 0 !important;
+    }
+
+    .download .txt-dwn {
+        font-size: 1.2rem !important;
+        line-height: 1.7rem;
+    }
+
+    .usecase {
+        padding: 0 !important;
+    }
+
+    .about {
+        padding: 3rem 0 !important;
+    }
+
+    .cube-dwn {
+        position: relative;
+    }
+
+    .title-uc-carou {
+        padding-top: 3rem;
+    }
+
+    .buttons-carousel button {
+        width: 100px;
+    }
+
+    .btn-scan-me3 .link-lean-more button {
+        width: 155px
+    }
+
+    .container.usecase-container-carou {
+        height: 740px;
+    }
+
+    .email-input {
+        width: 100%;
+    }
+
+    .para-policy {
+        text-align: center;
+    }
+
+    .fs-big {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
+    .fs-small {
+        font-size: 1.1rem;
+        line-height: 1.6rem;
+    }
+
+    .cube-wrap .cube .img-top {
+        margin-left: -5%;
+    }
+
+    .footer .footer-content {
+        padding-top: 2rem;
+    }
+
+    .sm-title {
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+    }
+
+    .para-txt {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .small-text {
+        font-size: 1.1rem;
+        line-height: 1.6rem;
+        width: 100%;
+    }
+
+    .uc-image {
+        height: 500px !important;
+    }
+
+    .section.portfolio .text-content p {
+        width: 100%;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    .desc-usecase-for-mobile h3,
+    .desc-usecase-for-mobile .h3 {
+        padding-bottom: 1.5rem !important;
+    }
+
+    .reminder {
+        width: 100%;
+    }
+
+    .qr-code-scan-replace-img {
+        height: 300px !important;
+    }
+
+    .qr-code-scan-replace-img img {
+        height: 300px !important;
+        width: 300px !important;
+    }
+
+    .para-txt,
+    .small-text,
+    .text-abt {
+        width: 100% !important;
+    }
+
+    .dsc-team {
+        font-size: 1.2rem;
+    }
+
+    .contact-text {
+        .title-contact-rt {
+            font-size: 1.5rem !important;
+            line-height: 2rem;
+        }
+
+        ul li {
+            h4 {
+                font-size: 1.2rem;
+            }
+
+            .desc-form {
+                font-size: 1rem;
+                line-height: 1.5rem;
+            }
+        }
+    }
+
+    .para-slide {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    .imgSlide-1 {
+        height: 70px;
+
+        img {
+            width: 80px;
+            height: 136px;
+        }
+    }
+
+    .swiper-slide-recto .title-slide {
+        margin-top: 2rem;
+    }
+
+    #button-flip-back {
+        margin-top: 5rem;
     }
 }

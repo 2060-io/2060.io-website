@@ -14,6 +14,11 @@ $light: #FFFFFF;
 $green-soft: #3EBDB6;
 $green-hard: #073B4C;
 
+body,
+html {
+    overflow-x: clip;
+}
+
 // scss-docs-start import-stack
 // Configuration
 @import "../../bootstrap/scss/functions";

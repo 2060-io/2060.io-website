@@ -1,8 +1,8 @@
-<section class="section download py-5">
+<section id="download" class="section download">
 
-  <div class="container dowmload-mobile-container">
+  <div class="container download-mobile-container">
     {{ with .content.title }}
-    <h3 class="text-center text-xl-start mb-5 text-secondary fw-semibold fs-big title-dwn title-dwn">{{ . | markdownify
+    <h3 class="text-center text-lg-start mb-5 text-secondary fw-semibold fs-big title-dwn title-dwn">{{ . | markdownify
       }}
     </h3>
     {{ end }}
@@ -10,7 +10,7 @@
 
   <div class="container download_container">
     <div class="container-dwn-home">
-      <div class="cube-wrap-dwn col-12 col-xl-7 img-dwn-container">
+      <div class="cube-wrap-dwn col-12 col-lg-7 img-dwn-container">
         <div class="cube-dwn">
           <!-- <img src="/images/download_images/phone.png" class="img-dwn-home" />
           <img src="/images/download_images/user-1.png" class="img-dwn-user1" />
@@ -25,26 +25,26 @@
 
         </div>
       </div>
-      <div class="col-12 col-xl-5 d-flex flex-column justify-content-center py-2 py-md-5 dwn-desc-content">
+      <div class="col-12 col-lg-5 d-flex flex-column justify-content-center py-2 py-md-5 dwn-desc-content">
         {{ with .content.title }}
-        <h3 class="text-center text-xl-start mb-5 text-secondary fw-semibold fs-big title-dwn">{{ . | markdownify }}
+        <h3 class="text-center text-lg-start mb-5 text-secondary fw-semibold fs-big title-dwn">{{ . | markdownify }}
         </h3>
         {{ end }}
         {{ with .content }}
-        <p class="text-xl-start pb-4 txt-dwn">
+        <p class="text-lg-start pb-4 txt-dwn">
           {{ .text | markdownify}}
           <span class="bold-dwn-txt">{{ .bold_txt }}</span>
           {{ .txt2 | markdownify }}
         </p>
         {{ end }}
         {{ with .content }}
-        <p class="text-xl-start pb-4 txt-dwn">
+        <p class="text-lg-start pb-4 txt-dwn">
           {{ .text3 | markdownify }}
           <span class="color-txt">{{ .col_txt_dwn }}</span>
           {{ .txt4 | markdownify }}
         </p>
         {{ end }}
-        <div class="d-flex flex-column flex-xl-row ">
+        <div class="d-flex flex-column flex-lg-row ">
           {{ with .content.buttonplay }}
           <a class="btn btn-outline-primary px-4 my-1 d-flex align-items-center justify-content-center dwn-btns const-btn"
             href="{{ .url }}">

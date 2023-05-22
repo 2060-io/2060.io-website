@@ -1,11 +1,11 @@
 <footer class="shared footer bg-blue-light ">
   <div class="container">
     <div class="row pb-5">
-      <div class="col-12 col-xl-4 text-center text-xl-start footer-logo">
+      <div class="col-12 col-lg-4 text-center text-lg-start footer-logo">
         {{ partial "utilities/image-fluid" "images/footer-img/logo-footer.png" }}
         <p class="small pt-2">{{ .Site.Params.description }}</p>
         {{ with .Site.Params.social }}
-        <ul class="d-flex justify-content-center justify-content-xl-start list-unstyled logo-gh-li-tw-footer">
+        <ul class="d-flex justify-content-center justify-content-lg-start list-unstyled logo-gh-li-tw-footer">
           {{ with .github }}<li class="rounded-circle bg-icon-footer me-2 p-2"><a
               class="d-flex align-items-center justify-content-center size-16 col-a" style="color: #FFFFFF !important;"
               href="{{ . }}">{{ partial "icons/icon_footer/github.html" }}</a></li>{{ end }}
@@ -19,7 +19,7 @@
         </ul>
         {{ end }}
       </div>
-      <div class="col-12 col-xl-2 text-center text-xl-start footer-content pb-2 pb-md-4">
+      <div class="col-12 col-lg-2 text-center text-lg-start footer-content pb-2 pb-lg-4">
         <h5 class=" fw-semibold text-primary text-footer">About us</h5>
         <ul class="list-unstyled">
           {{ range .Site.Menus.footer }}
@@ -29,18 +29,28 @@
           {{ end }}
         </ul>
       </div>
-      <div class="col-12 col-xl-3 text-center text-xl-start footer-content pb-2 pb-md-4">
+      <div class="col-12 col-lg-3 text-center text-lg-start footer-content pb-2 pb-lg-4">
         <h5 class=" fw-semibold text-primary text-footer">Location</h5>
         <ul class="list-unstyled list-location">
-          {{ range .Site.Params.location }}
-          <li class="d-flex justify-content-center justify-content-xl-start mb-2">
+          <!-- {{ range .Site.Params.location }}
+          <li class="d-flex justify-content-center justify-content-lg-start mb-2 w-75">
             <div class="d-flex align-items-center text-primary geo-color">{{ partial "icons/geo-alt.html" }}</div>
             <p class="small text-loc m-0 ps-2">{{ . }}</p>
           </li>
-          {{ end }}
+          {{ end }} -->
+          <li class="d-flex justify-content-center justify-content-lg-start mb-2">
+            <div class="d-flex align-items-center text-primary geo-color">{{ partial "icons/geo-alt.html" }}</div>
+            <p class="small text-loc m-0 ps-2">Cra. 13A #86A—42 <br>
+              Bogotá DC, Colombia</p>
+          </li>
+          <li class="d-flex justify-content-center justify-content-lg-start mb-2">
+            <div class="d-flex align-items-center text-primary geo-color">{{ partial "icons/geo-alt.html" }}</div>
+            <p class="small text-loc m-0 ps-2">Paseo de Recoletos 27-41<br>
+              Madrid, 28004, Spain</p>
+          </li>
         </ul>
       </div>
-      <div class="col-12 col-xl-3 text-center text-xl-start footer-content pb-2 pb-md-4">
+      <div class="col-12 col-lg-3 text-center text-lg-start footer-content pb-2 pb-lg-4">
         <h5 class=" fw-semibold text-primary text-footer">Contact us</h5>
         {{ range .Site.Params.contact }}
         <p class="small mb-1 con-footer">{{ . }}</p>

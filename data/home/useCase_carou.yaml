@@ -40,7 +40,7 @@ content:
       bold_txt_carou2: "customisable instructions."
       ## scan me :
       imageQR: "/images/usecases/qr_code_uc.png"
-      btn_lm_uc_c: "/usecases"
+      btn_lm_uc_c: "/use-cases/"
       paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
       btn: true
 
@@ -52,7 +52,7 @@ content:
       para2: "using Verifiable Credentials based interactions via chatbots and secure connections with banking infrastructure."
       ## scan me :
       imageQR: "/images/usecases/qr_code_uc.png"
-      btn_lm_uc_c: "/usecases"
+      btn_lm_uc_c: "/use-cases/"
       paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
       btn: true
 
@@ -64,7 +64,7 @@ content:
       para2: "during email communications."
       ## scan me :
       imageQR: "/images/usecases/qr_code_uc.png"
-      btn_lm_uc_c: "/usecases"
+      btn_lm_uc_c: "/use-cases/"
       paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
       btn: true
 

@@ -8,8 +8,8 @@ content:
   buttonPrimary:
     icon: "/images/icons/icone-download.svg"
     label: "Download"
-    url: "#"
+    url: "#download"
 
   buttonSecondary:
     label: "Use Cases"
-    url: "/usecases"
+    url: "/use-cases/"

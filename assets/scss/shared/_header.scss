@@ -43,7 +43,6 @@
       transition: .2s background-color;
     }
   }
-
 }
 
 .navbar-collapse .nav-menu li {
@@ -69,12 +68,6 @@
   height: 15px;
 }
 
-/* Mobile Version ...  */
-
-
-// @media screen and (max-width : 768px) {
-//   .github-header {
-//     width: 50px;
-//     height: 40px;
-//   }
-// }
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}

@@ -1,7 +1,7 @@
 <section class="section contact_form py-5">
   <div class="container">
     <div class="row portfolio-feature contact-conatiner-form-and-desc ">
-      <div class="col-12 col-xl-6 d-flex flex-column ">
+      <div class="col-12 col-lg-6 d-flex flex-column ">
         {{ with .actionForm }}
         <form action="{{ . }}" method="POST" class="form-contact">
           {{ end }}
@@ -23,13 +23,13 @@
             <textarea name="message" id="message" placeholder="Edit..."></textarea>
           </div>
           <div class="buttons-s-c">
-            <input type="reset" value="Clear" class="btn  clear-button">
-            <button type="submit" class="btn submit-button">Submit</button>
+            <input type="reset" value="Clear" class="btn fw-semibold clear-button">
+            <button type="submit" class="btn fw-semibold submit-button">Submit</button>
           </div>
 
         </form>
       </div>
-      <div class="col-12 col-xl-6 d-flex flex-column contact-text">
+      <div class="col-12 col-lg-6 d-flex flex-column contact-text">
         {{ with .title }}
         <h4 class="h4 ml-4 mb-4 title-contact-rt">{{ . }}</h4>
         {{ end }}

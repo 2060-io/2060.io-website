@@ -32,7 +32,7 @@ content:
     # imgScan : "/images/usecases/img6.png"
 
   - image: "/images/usecases/credit.png"
-    qr_scan_uc_img: "https://gaia-id.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
+    qr_scan_uc_img: "https://cc.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-cci.png"
     title: "Credit Card Issuance"
     id: "creditcard"

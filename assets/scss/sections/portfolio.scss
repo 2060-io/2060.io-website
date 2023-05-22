@@ -3,16 +3,11 @@
     @media (min-width: 1200px) {
       flex-direction: row-reverse;
     }
-
-    // @media(max-width:768px){
-    //   flex-direction: column;
-    // }
   }
 
   .portfolio-feature:nth-child(even) {
     background-color: rgba($color: #3EBDB6, $alpha: 0.1);
     max-width: none;
-    // padding: 40px;
 
     .uc-image {
       margin-left: -70px;
@@ -25,15 +20,8 @@
         margin-left: 80px;
       }
 
-      .para-uc-container {
-        // line-height: 40px;
-        // margin-top: 2rem !important;
-      }
+      .para-uc-container {}
     }
-
-    // @media (max-width:768px) {
-    //   flex-direction: column;
-    // }
   }
 
   .portfolio-feature-container {
@@ -45,13 +33,6 @@
 
   }
 
-  .desc-usecase {
-    // margin-top: 1.2rem;
-  }
-
-  // .col-12.col-xl-6.d-flex.flex-column.justify-content-center {
-  //   margin-right: 68px;
-  // }
   .scan-link {
     display: inline;
   }
@@ -63,7 +44,6 @@
 
   .img-fuild-left {
     padding-top: 0rem;
-    // margin-top: 2rem;
     width: 18%;
     vertical-align: middle;
     margin-bottom: 2.2rem;
@@ -84,8 +64,6 @@
     display: none;
     line-height: 0 !important;
   }
-
-
 }
 
 .qr-scan-uc-btn svg {
@@ -105,7 +83,6 @@
 
   .img-container-uc {
     width: 100%;
-    // padding-top: 1.2rem;
     margin-top: 0 !important;
   }
 
@@ -113,8 +90,6 @@
     padding-bottom: 0 !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    // text-align: center;
-    // padding-right: 2rem;
   }
 
   .cls-btn-uc-container {
@@ -124,8 +99,6 @@
 
   .desc-usecase {
     width: 100%;
-    // padding: 1.2rem;
-    // margin-left: 1rem;
     padding: 0 2rem;
     margin-top: 0rem !important;
     margin-bottom: 1rem !important;
@@ -164,18 +137,10 @@
 
   .desc-usecase-for-mobile h3 {
     width: 100%;
-    // margin: 0 auto !important;
     text-align: center;
     line-height: 35px !important;
     margin-top: 2rem !important;
     padding: 0 !important;
     margin-bottom: 0 !important;
   }
-
-  // .anc-btn-uc-sm{
-  //   // text-align: center ;
-  //   margin-top: 0 !important;
-  //   padding: 0 !important;
-  //   margin-bottom: 2rem !important;
-  // }
 }

@@ -9,7 +9,6 @@
 }
 
 .img-dwn-container {
-    // width: 50%;
     position: relative;
 }
 
@@ -51,7 +50,7 @@
     padding: 0.7rem;
 }
 
-.dowmload-mobile-container h3 {
+.download-mobile-container h3 {
     display: none;
 }
 
@@ -63,19 +62,14 @@
     justify-content: space-between;
 }
 
-
-//   .dwn-btns:hover{
-//     background-color: #0893FF !important;
-//     color: #FFF !important;
-//   }
-
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:992px) {
     .dwn-desc-content .title-dwn {
         display: none;
     }
 
-    .dowmload-mobile-container h3 {
+    .download-mobile-container h3 {
         display: block;
+        margin-bottom: 1rem !important;
     }
 
     .download .txt-dwn {

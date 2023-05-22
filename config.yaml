@@ -2,7 +2,7 @@ baseURL: ""
 theme: "up-business-theme"
 languageCode: "en-us"
 ignoreErrors: ["error-remote-getjson"]
-title: "2060 Web5 Accelerator"
+title: "2060 | The Web5 Accelerator"
 
 # googleAnalytics: ""
 
@@ -27,7 +27,7 @@ params:
     twitter: "#"
 
   location:
-    - "Cra 13A #86A-42, Bogotá DC, Colombia"
+    - "Cra 13A #86A-42 Bogotá DC, Colombia"
     - "Paseo de Recoletos 27-41 Madrid, 28004, Spain"
 
   contact:
@@ -43,42 +43,41 @@ menus:
       weight: 1
 
     - name: "Use Cases"
-      url: "/usecases"
+      url: "/use-cases/"
       weight: 2
 
     - name: "About"
-      url: "/about"
+      url: "/about-us/"
       weight: 3
 
     - name: "Contact"
-      url: "/contact/"
+      url: "/contact-us/"
       weight: 4
 
   externals:
     - name: "Github"
-      url: "https://github.com/2060-io"
+      url: "https://github.com/2060-io/"
       weight: 5
-      pre: "github-header mx-2 my-3 my-md-0"
+      pre: "github-header mx-2 my-3 my-lg-0"
 
   buttons:
     - name: "Download"
-      url: "/"
+      url: "/#download"
       weight: 6
       pre: "btn btn-green-soft btn-header-download fw-medium px-4 py-2 text-light d-flex align-items-center"
 
   footer:
     - name: "Our Vision"
-      url: "#"
+      url: "/about-us/#vision"
       weight: 1
 
     - name: "The Team"
-      url: "#"
+      url: "/about-us/#team"
       weight: 2
 
     - name: "Privacy Policy"
-      url: "/privacy"
+      url: "/privacy-policy/"
       weight: 3
-
-taxonomies:
-  series: "series"
-  tags: "tags"
+# taxonomies:
+#   series: "series"
+#   tags: "tags"

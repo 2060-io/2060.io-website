@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl navbar-light bg-light py-4 header-nav-sticky">
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 py-lg-4 header-nav-sticky">
   <div class="container">
     <div class="logo-header">
       <a class="navbar-brand d-flex align-items-center" href="/">
@@ -11,18 +11,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav nav-menu my-2 my-xl-0 me-0 me-md-5 ms-auto">
+      <ul class="navbar-nav nav-menu my-2 my-lg-0 me-0 me-lg-5 ms-auto">
         {{ range .Site.Menus.main }}
         <li class=" nav-item text-center">
           <a class="nav-link px-4 col-navbar" href="{{ .URL }}">{{ .Name }}</a>
         </li>
         {{ end }}
       </ul>
-      <div class="d-flex flex-column flex-md-row align-items-center">
+      <div class="d-flex flex-column flex-lg-row align-items-center">
         {{ range .Site.Menus.externals }}
         <a href="{{ .URL }}" target="_blank" class="{{ .Pre }}">
-          <img src="/images/header/github.svg" alt="{{ .Name }}" class="d-none d-md-block" />
-          <img src="/images/header/github-big.svg" alt="{{ .Name }}" class="d-block d-md-none"
+          <img src="/images/header/github.svg" alt="{{ .Name }}" class="d-none d-lg-block" />
+          <img src="/images/header/github-big.svg" alt="{{ .Name }}" class="d-block d-lg-none"
             style="height: 42px; width: auto;" />
         </a>
         {{ end }}
@@ -32,7 +32,7 @@
           }}</a>
         {{ end }}
       </div>
-      <!-- <ul class="navbar-nav mb-2 mb-xl-0">
+      <!-- <ul class="navbar-nav mb-2 mb-lg-0">
         <a href="https://github.com/2060-io" target="_blank" class="github-header">
           {{ partial "utilities/image-fluid" "images/github_icon.png" }}
           <img src="/images/header/github.svg" alt="logo 2060" />
@@ -41,3 +41,4 @@
     </div>
   </div>
 </nav>
+<div class="marge-header"></div>
