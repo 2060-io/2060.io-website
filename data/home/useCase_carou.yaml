@@ -39,7 +39,7 @@ content:
       para2: "that utilises the user’s handset biometrics and allows for "
       bold_txt_carou2: "customisable instructions."
       ## scan me :
-      imageQR: "/images/usecases/qr_code_uc.png"
+      imageQR: "https://gaia-id.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
       btn_lm_uc_c: "/use-cases/"
       paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
       btn: true
@@ -51,7 +51,7 @@ content:
       bold_txt_carou: "credit cards ordering and submission processes "
       para2: "using Verifiable Credentials based interactions via chatbots and secure connections with banking infrastructure."
       ## scan me :
-      imageQR: "/images/usecases/qr_code_uc.png"
+      imageQR: "https://cc.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
       btn_lm_uc_c: "/use-cases/"
       paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
       btn: true
@@ -63,7 +63,7 @@ content:
       bold_txt_carou: "authenticity of the content to safeguard the information exchanged "
       para2: "during email communications."
       ## scan me :
-      imageQR: "/images/usecases/qr_code_uc.png"
+      imageQR: "https://em-vs.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
       btn_lm_uc_c: "/use-cases/"
       paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
       btn: true
