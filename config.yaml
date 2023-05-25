@@ -23,16 +23,16 @@ params:
 
   social:
     github: "https://github.com/2060-io"
-    linkedin: "#"
+    linkedin: "https://www.linkedin.com/company/2060-io/"
     twitter: "#"
 
   location:
-    - "Cra 13A #86A-42 Bogotá DC, Colombia"
+    - "Cra 13A #86A-54 Bogotá DC, Colombia"
     - "Paseo de Recoletos 27-41 Madrid, 28004, Spain"
 
   contact:
-    - "hello@2060.io"
-    - "+00 123 456 789"
+    - "r@2060.io"
+    - "+573006571576"
 
   copyright: " © 2023 - 2060.io | All Rights Reserved "
 
