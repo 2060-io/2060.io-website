@@ -1,9 +1,8 @@
-enable : true 
-id : "contact"
-
+enable: true
+id: "contact"
 
 title: "Get in touch with our team to:"
-actionForm : ""
+actionForm: "/send_email.php"
 content:
   listRule:
     - list: "Integrate: "
@@ -12,4 +11,3 @@ content:
       desc: "Join forces with us to promote Web5."
     - list: "Inquire: "
       desc: "For any other questions and information"
-
