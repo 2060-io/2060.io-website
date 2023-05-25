@@ -12,9 +12,9 @@
       </div>
       <div class="col-12 col-lg-5 d-flex flex-column justify-content-center">
         {{ with .content.title }}
-        <h1 class="hero-title fw-semibold display-1 text-green-hard text-center text-lg-start pb-3 h3-title-home">{{ .
-          |
-          markdownify }}</h1>
+        <h1 class="hero-title fw-semibold display-1 text-green-hard text-center text-lg-start pb-3 h3-title-home">{{ . | markdownify }}
+          
+        </h1>
         {{ end }}
         {{ with .content }}
         <p class="text-center text-black-80 text-lg-start pb-4 txt-hero me-lg-4">{{ .text | markdownify }}
