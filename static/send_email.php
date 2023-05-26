@@ -5,7 +5,7 @@ if (isset($_POST['email'])) {
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
 
-    $mailFrom = "From: " . $email . " Name: " . $name;
+    $mailFrom = "From: " . $name . "<" . $email . ">";
 
     $mailTo = "otmanine.salim@gmail.com";
 
@@ -17,9 +17,9 @@ if (isset($_POST['email'])) {
         Message: " . $message;
 
     if (mail($mailTo, $mailSubject, $mailBody, $mailFrom)) {
-        echo "Message has been sent successfully";
+        echo json_encode(['success' => true]);
     } else {
-        echo "Mailer Error";
+        echo json_encode(['success' => false]);
     }
 }
 ?>
