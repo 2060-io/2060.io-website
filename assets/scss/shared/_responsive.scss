@@ -212,6 +212,15 @@
             }
         }
     }
+
+    #send-fail,
+    #send-success {
+        p {
+            font-size: 0.9rem;
+        }
+    }
+
+
 }
 
 @media screen and (min-width : 993px) and (max-width : 1200px) {
