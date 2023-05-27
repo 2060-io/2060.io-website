@@ -78,7 +78,10 @@
             padding-bottom: 1.5rem !important;
 
             .img-feature {
-                background: url("/images/features/bg-feature.png") no-repeat center center;
+                background-image: url("/images/features/bg-feature.png");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
                 padding: 30px 0;
                 margin-bottom: 1rem;
             }
@@ -94,7 +97,7 @@
                 background-color: #7678ED;
 
                 .img-feature {
-                    background: url("/images/features/bg-feature-hover.png") no-repeat center center;
+                    background-image: url("/images/features/bg-feature-hover.png");
 
                     svg path {
                         stroke: white;

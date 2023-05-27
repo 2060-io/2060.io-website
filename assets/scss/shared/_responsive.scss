@@ -200,6 +200,18 @@
     #button-flip-back {
         margin-top: 5rem;
     }
+
+    .swiper-slide {
+        &:hover {
+            .swiper-slide-recto {
+                .imgSlide-1 {
+                    img {
+                        margin-top: -68px;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (min-width : 993px) and (max-width : 1200px) {
@@ -404,5 +416,17 @@
 
     #button-flip-back {
         margin-top: 5rem;
+    }
+
+    .swiper-slide {
+        &:hover {
+            .swiper-slide-recto {
+                .imgSlide-1 {
+                    img {
+                        margin-top: -68px;
+                    }
+                }
+            }
+        }
     }
 }

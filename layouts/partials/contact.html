@@ -2,32 +2,42 @@
   <div class="container">
     <div class="row portfolio-feature contact-conatiner-form-and-desc ">
       <div class="col-12 col-lg-6 d-flex flex-column ">
-        {{ with .actionForm }}
-        <form action="{{ . }}" method="POST" class="form-contact">
-          {{ end }}
+        <form id="form" method="POST" class="form-contact">
 
           <div class="mb-3 mt-3">
             <label for="name" class="form-label">Name</label>
-            <input type="name" class="form-control" id="name" placeholder="Enter your full name" name="name">
+            <input type="name" class="form-control" id="name" placeholder="Enter your full name" name="name" required>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email address" name="email">
+            <input type="email" class="form-control" id="email" placeholder="Enter your email address" name="email"
+              required>
           </div>
           <div class="mb-3">
             <label for="phone" class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" id="phone" placeholder="+xx xxx xxxx xxxxx" name="phone">
+            <input type="tel" class="form-control" id="phone" placeholder="+xx xxx xxxx xxxxx" name="phone" required>
           </div>
           <div class="mb-3">
             <label for="message" class="form-check-label mb-2">Message</label><br>
-            <textarea name="message" id="message" placeholder="Edit..."></textarea>
+            <textarea name="message" id="message" placeholder="Edit..." required></textarea>
           </div>
           <div class="buttons-s-c">
             <input type="reset" value="Clear" class="btn fw-semibold clear-button">
             <button type="submit" class="btn fw-semibold submit-button">Submit</button>
           </div>
-
         </form>
+        <div class="mt-4">
+          <div id="send-success">
+            <p>
+              Message has been sent successfully
+            </p>
+          </div>
+          <div id="send-fail">
+            <p>
+              There was an error sending the email, please refresh the page and try again
+            </p>
+          </div>
+        </div>
       </div>
       <div class="col-12 col-lg-6 d-flex flex-column contact-text">
         {{ with .title }}
@@ -56,3 +66,33 @@
     </div>
   </div>
 </section>
+
+<script>
+  $(document).ready(function (e) {
+    $('#form').on('submit', function (e) {
+      e.preventDefault();
+      const form = document.getElementById('form');
+      const data = new FormData(form);
+      $.ajax({
+        type: 'post',
+        url: '/send_email.php',
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+          $('#send-success').show();
+          form.reset();
+          return
+        },
+        error: function (xhr, status, error) {
+          console.log({ xhr });
+          console.log({ status });
+          console.log({ error });
+          $('#send-fail').show();
+          return
+        }
+      });
+    });
+  });
+</script>

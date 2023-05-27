@@ -137,3 +137,15 @@
   font-size: 1.5rem;
   line-height: 2rem;
 }
+
+.swiper-slide {
+  &:hover {
+    .swiper-slide-recto {
+      .imgSlide-1 {
+        img {
+          margin-top: -86px;
+        }
+      }
+    }
+  }
+}

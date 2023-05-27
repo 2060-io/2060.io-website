@@ -24,11 +24,13 @@
 
         <h5 class="h5 fw-bold">Subscribe to our Newsletter</h5>
         <p class="para-contact">Leave us your email address and we will reach out to you with the latest<br> updates on
-          how we plan to accelerate Web5</p>
-        <form method="POST">
+          how we plan to accelerate Web5
+        </p>
+        <form id="newsletter" method="POST">
           <div class="row">
             <div class=" col-12 col-md-7">
-              <input type="email" class="form-control email-input" placeholder="Your email address" name="email">
+              <input type="email" class="form-control email-input" placeholder="Your email address" name="email"
+                required>
             </div>
 
             <div class="col-12 col-md-3">
@@ -36,6 +38,18 @@
             </div>
           </div>
         </form>
+        <div class="mt-4">
+          <div id="send-success">
+            <p>
+              Inscription has been sent successfully
+            </p>
+          </div>
+          <div id="send-fail">
+            <p>
+              There was an error in your inscription, please refresh the page and try again
+            </p>
+          </div>
+        </div>
       </div>
     </div>
     <p class="para-policy"> Check our <a href="/privacy-policy/" class="privacy-contact">Privacy Policy</a> to see how
@@ -43,3 +57,32 @@
       handle your data.</p>
   </div>
 </section>
+<script>
+  $(document).ready(function (e) {
+    $('#newsletter').on('submit', function (e) {
+      e.preventDefault();
+      const form = document.getElementById('newsletter');
+      const data = new FormData(form);
+      $.ajax({
+        type: 'post',
+        url: '/newsletter.php',
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+          $('#send-success').show();
+          form.reset();
+          return
+        },
+        error: function (xhr, status, error) {
+          console.log({ xhr });
+          console.log({ status });
+          console.log({ error });
+          $('#send-fail').show();
+          return
+        }
+      });
+    });
+  });
+</script>
