@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row portfolio-feature contact-conatiner-form-and-desc ">
       <div class="col-12 col-lg-6 d-flex flex-column ">
-        <form id="form" method="POST" class="form-contact">
+        <form id="form" action="/send_email.php" method="POST" class="form-contact">
 
           <div class="mb-3 mt-3">
             <label for="name" class="form-label">Name</label>
@@ -68,31 +68,31 @@
 </section>
 
 <script>
-  $(document).ready(function (e) {
-    $('#form').on('submit', function (e) {
-      e.preventDefault();
-      console.log($('#form').serialize());
-      $.ajax({
-        type: 'post',
-        url: '/send_email.php',
-        data: $('#form').serialize(),
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function (response) {
-          console.log(response);
-          $('#send-success').show();
-          form.reset();
-          return
-        },
-        error: function (xhr, status, error) {
-          console.log({ xhr });
-          console.log({ status });
-          console.log({ error });
-          $('#send-fail').show();
-          return
-        }
-      });
-    });
-  });
+  // $(document).ready(function (e) {
+  //   $('#form').on('submit', function (e) {
+  //     e.preventDefault();
+  //     console.log($('#form').serialize());
+  //     $.ajax({
+  //       type: 'post',
+  //       url: '/send_email.php',
+  //       data: $('#form').serialize(),
+  //       cache: false,
+  //       contentType: false,
+  //       processData: false,
+  //       success: function (response) {
+  //         console.log(response);
+  //         $('#send-success').show();
+  //         form.reset();
+  //         return
+  //       },
+  //       error: function (xhr, status, error) {
+  //         console.log({ xhr });
+  //         console.log({ status });
+  //         console.log({ error });
+  //         $('#send-fail').show();
+  //         return
+  //       }
+  //     });
+  //   });
+  // });
 </script>
