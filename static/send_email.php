@@ -17,9 +17,9 @@ if (isset($_POST['email'])) {
         Message: " . $message;
 
     if (mail($mailTo, $mailSubject, $mailBody, $mailFrom)) {
-        echo json_encode(['success' => true]);
+        echo 'success';
     } else {
-        echo json_encode(['success' => false]);
+        echo 'error';
     }
 }
 ?>
