@@ -71,20 +71,16 @@
   $(document).ready(function (e) {
     $('#form').on('submit', function (e) {
       e.preventDefault();
-
       const form = document.getElementById('form');
       const data = new FormData(form);
-      console.log(data);
       $.ajax({
         type: 'post',
         url: '/send_email.php',
-        // data: $('#form').serialize(),
         data: data,
         cache: false,
         contentType: false,
         processData: false,
         success: function (response) {
-          console.log(response);
           $('#send-success').show();
           form.reset();
           return

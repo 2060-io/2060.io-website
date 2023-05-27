@@ -1,5 +1,4 @@
 <?php
-echo "<script>alert(" . $_POST['name'] . ");</script>";
 if (isset($_POST['email'])) {
     $name = htmlspecialchars($_POST['name']);
     $phone = htmlspecialchars($_POST['phone']);
