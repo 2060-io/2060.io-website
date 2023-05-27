@@ -71,14 +71,15 @@
   $(document).ready(function (e) {
     $('#form').on('submit', function (e) {
       e.preventDefault();
-      console.log($('#form').serialize());
+
       const form = document.getElementById('form');
       const data = new FormData(form);
+      console.log($data);
       $.ajax({
         type: 'post',
         url: '/send_email.php',
         // data: $('#form').serialize(),
-        data: $data,
+        data: data,
         cache: false,
         contentType: false,
         processData: false,
