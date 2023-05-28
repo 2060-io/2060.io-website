@@ -7,7 +7,7 @@ if (isset($_POST['email'])) {
 
     $mailFrom = "From: " . $name . "<" . $email . ">";
 
-    $mailTo = "fabrice@rochette.org";
+    $mailTo = "r@2060.io";
 
     $mailSubject = "Website contact form";
     $mailBody = "
