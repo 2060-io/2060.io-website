@@ -9,6 +9,8 @@
 
 .btn-contact {
   width: 140px;
+  height: 50px;
+  line-height: 2rem;
   border: 1px solid #0893FF;
   background-color: #FFFFFF;
   text-align: center;
@@ -40,11 +42,11 @@
   color: #FFFFFF;
   background-color: #0893FF !important;
   height: 50px;
-  width: 125px;
+  width: 100%;
 }
 
 .email-input {
-  width: 378px;
+  // width: 378px;
   height: 50px;
 }
 
@@ -99,4 +101,21 @@
 #send-fail,
 #send-success {
   display: none;
+  background-color: rgba($color: #3EBDB6, $alpha: .1);
+  border: 1px solid rgba($color: #3EBDB6, $alpha: .25);
+
+  p {
+    display: flex;
+    gap: 10px;
+
+    img {
+      width: 20px;
+    }
+  }
+}
+
+#send-fail {
+  background-color: rgba($color: #EF476F, $alpha: .1);
+  border: 1px solid #EF476F;
+  color: #EF476F;
 }

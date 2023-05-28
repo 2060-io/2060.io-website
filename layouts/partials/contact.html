@@ -21,23 +21,25 @@
             <label for="message" class="form-check-label mb-2">Message</label><br>
             <textarea name="message" id="message" placeholder="Edit..." required></textarea>
           </div>
+          <div class="mb-3">
+            <div id="send-success" class="text-green-soft p-3 rounded-3">
+              <p class="mb-0">
+                <img src="/images/contact-img/success.svg" alt="" />
+                Message has been sent successfully
+              </p>
+            </div>
+            <div id="send-fail" class="p-3 rounded-3">
+              <p class="mb-0">
+                <img src="/images/contact-img/error.svg" alt="" />
+                Please refresh the page and try again
+              </p>
+            </div>
+          </div>
           <div class="buttons-s-c">
             <input type="reset" value="Clear" class="btn fw-semibold clear-button">
             <button type="submit" class="btn fw-semibold submit-button">Submit</button>
           </div>
         </form>
-        <div class="mt-4">
-          <div id="send-success">
-            <p>
-              Message has been sent successfully
-            </p>
-          </div>
-          <div id="send-fail">
-            <p>
-              There was an error sending the email, please refresh the page and try again
-            </p>
-          </div>
-        </div>
       </div>
       <div class="col-12 col-lg-6 d-flex flex-column contact-text">
         {{ with .title }}
