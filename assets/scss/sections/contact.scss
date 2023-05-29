@@ -119,3 +119,21 @@
   border: 1px solid #EF476F;
   color: #EF476F;
 }
+
+label.error {
+  font-size: .8rem;
+  line-height: 1rem;
+  color: #EF476F;
+}
+
+input.error,
+textarea.error {
+  border-color: #EF476F;
+}
+
+.form-control {
+  &:focus {
+    border-color: #073B4C;
+    box-shadow: none;
+  }
+}

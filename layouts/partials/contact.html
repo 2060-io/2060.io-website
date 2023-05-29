@@ -6,7 +6,7 @@
 
           <div class="mb-3 mt-3">
             <label for="name" class="form-label">Name</label>
-            <input type="name" class="form-control" id="name" placeholder="Enter your full name" name="name" required>
+            <input type="text" class="form-control" id="name" placeholder="Enter your full name" name="name" required>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -19,7 +19,7 @@
           </div>
           <div class="mb-3">
             <label for="message" class="form-check-label mb-2">Message</label><br>
-            <textarea name="message" id="message" placeholder="Edit..." required></textarea>
+            <textarea class="form-control" name="message" id="message" placeholder="Edit..." required></textarea>
           </div>
           <div class="mb-3">
             <div id="send-success" class="text-green-soft p-3 rounded-3">
@@ -69,32 +69,63 @@
   </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 <script>
-  $(document).ready(function (e) {
-    $('#form').on('submit', function (e) {
-      e.preventDefault();
-      const form = document.getElementById('form');
-      const data = new FormData(form);
-      $.ajax({
-        type: 'post',
-        url: '/send_email.php',
-        data: data,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function (response) {
-          $('#send-success').show();
-          form.reset();
-          return
+  $(document).ready(function () {
+    jQuery.validator.addMethod("string", function (value, element) {
+      return this.optional(element) || /^[A-Za-zàâçéèêëîïôûùüÿñæœ .-]*$/.test(value);
+    }, "Please enter a valid name.");
+    jQuery.validator.addMethod("phonevalid", function (value, element) {
+      return this.optional(element) || /^\+(?:[0-9] ?){6,14}[0-9]$/i.test(value);
+    }, "Please enter a valid phone number.");
+    jQuery.validator.addMethod("emailvalid", function (value, element) {
+      return this.optional(element) || /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i.test(value);
+    }, "Please enter a valid email address.");
+
+    $("#form").validate({
+      rules: {
+        name: {
+          required: true,
+          string: true,
+          minlength: 3
         },
-        error: function (xhr, status, error) {
-          console.log({ xhr });
-          console.log({ status });
-          console.log({ error });
-          $('#send-fail').show();
-          return
+        email: {
+          required: true,
+          emailvalid: true
+        },
+        phone: {
+          required: true,
+          phonevalid: true
+        },
+        message: {
+          required: true,
+          minlength: 3
         }
-      });
+      },
+      submitHandler: function (form) {
+        const data = new FormData(form);
+        $.ajax({
+          type: 'post',
+          url: '/send_email.php',
+          data: data,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            $('#send-success').show();
+            form.reset();
+            return
+          },
+          error: function (xhr, status, error) {
+            console.log({ xhr });
+            console.log({ status });
+            console.log({ error });
+            $('#send-fail').show();
+            return
+          }
+        });
+        return false;
+      }
     });
   });
 </script>
