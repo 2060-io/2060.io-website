@@ -25,6 +25,7 @@ params:
     github: "https://github.com/2060-io"
     linkedin: "https://www.linkedin.com/company/2060-io/"
     twitter: "#"
+    medium: "#"
 
   location:
     - "Cra 13A #86A-54 Bogotá DC, Colombia"
