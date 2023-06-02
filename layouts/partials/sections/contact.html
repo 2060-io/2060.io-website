@@ -29,8 +29,8 @@
         <form id="newsletter" method="POST">
           <div class="row">
             <div class=" col-12 col-md-7">
-              <input type="email" class="form-control email-input" placeholder="Your email address" name="email"
-                required>
+              <input type="email" id="email" class="form-control email-input" placeholder="Your email address"
+                name="email" required>
             </div>
 
             <div class="col-12 col-md-3">
@@ -59,32 +59,45 @@
       handle your data.</p>
   </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 <script>
-  $(document).ready(function (e) {
-    $('#newsletter').on('submit', function (e) {
-      e.preventDefault();
-      const form = document.getElementById('newsletter');
-      const data = new FormData(form);
-      $.ajax({
-        type: 'post',
-        url: '/newsletter.php',
-        data: data,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function (response) {
-          $('#send-success').show();
-          form.reset();
-          return
-        },
-        error: function (xhr, status, error) {
-          console.log({ xhr });
-          console.log({ status });
-          console.log({ error });
-          $('#send-fail').show();
-          return
+  $(document).ready(function () {
+    jQuery.validator.addMethod("emailvalid", function (value, element) {
+      return this.optional(element) || /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i.test(value);
+    }, "Please enter a valid email address.");
+
+    $("#newsletter").validate({
+      rules: {
+        email: {
+          required: true,
+          emailvalid: true
         }
-      });
+      },
+      submitHandler: function (form) {
+        const data = new FormData(form);
+        $.ajax({
+          type: 'post',
+          url: '/newsletter.php',
+          data: data,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            $('#send-success').show();
+            form.reset();
+            return
+          },
+          error: function (xhr, status, error) {
+            console.log({ xhr });
+            console.log({ status });
+            console.log({ error });
+            $('#send-fail').show();
+            return
+          }
+        });
+        return false;
+      }
     });
   });
 </script>

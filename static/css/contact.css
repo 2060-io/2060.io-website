@@ -14,7 +14,7 @@
     color: #073B4C;
 }
 
-#message {
+/* #message {
     width: 100%;
     height: 14rem;
     padding-top: 1rem;
@@ -22,7 +22,7 @@
     resize: none;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-  }
+  } */
 
 .buttons-s-c{
     display: flex;
@@ -81,15 +81,12 @@
     margin-bottom: 40px !important;
 }
 .form-contact textarea{
-resize: none !important;
-width: 100%;
-height: 200px;
-padding: 10px 15px;
-border-radius: 3px;
-border-top-color: rgba(52, 52, 52, 0.18);
-border-right-color: rgba(52, 52, 52, 0.18);
-border-bottom-color: rgba(52, 52, 52, 0.18);
-border-left-color: rgba(52, 52, 52, 0.18);
+    resize: none !important;
+    width: 100%;
+    height: 200px;
+    padding: 10px 15px;
+    border-radius: 3px;
+    border: 1px solid rgba(52, 52, 52, 0.18);
 }
 .contact-text ul li h4{
     font-size: 1.4rem;
