@@ -2,7 +2,7 @@ baseURL: ""
 theme: "up-business-theme"
 languageCode: "en-us"
 ignoreErrors: ["error-remote-getjson"]
-title: "2060 | Verifiable Credential & Authentic Data"
+title: "2060 | Verifiable Credentials & Authentic Data"
 
 # googleAnalytics: ""
 
@@ -10,7 +10,7 @@ summaryLength: 20
 
 params:
   title: ""
-  description: "Verifiable Credential & Authentic Data"
+  description: "Verifiable Credentials & Authentic Data"
   images:
     - "images/footer-img/logo-white.svg"
 
