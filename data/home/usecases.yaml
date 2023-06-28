@@ -22,7 +22,7 @@ content:
     id: "idcard"
     para: "Issuing ID cards through a "
     bold_txt: "chatbot-based system "
-    para2: "that utilises the user’s handset biometrics and allows for "
+    para2: "that utilises the user’s handset cameras for biometric correlation and allows for "
     bold_txt2: "customisable instructions."
 
     buttons:
