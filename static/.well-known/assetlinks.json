@@ -1,5 +1,50 @@
-[{
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target" : { "namespace": "android_app", "package_name": "com.app2060",
-                 "sha256_cert_fingerprints": ["20:BF:EC:C1:EB:84:8C:63:5D:D3:A5:74:66:51:42:B7:6F:A6:EA:9E:0F:48:D9:B6:1E:95:7E:02:6E:80:AE:1D"] }
-  }]
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.app2060",
+            "sha256_cert_fingerprints": [
+                "20:BF:EC:C1:EB:84:8C:63:5D:D3:A5:74:66:51:42:B7:6F:A6:EA:9E:0F:48:D9:B6:1E:95:7E:02:6E:80:AE:1D"
+            ]
+        }
+    },
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "io.twentysixty.mobileagent",
+            "sha256_cert_fingerprints": [
+                "20:BF:EC:C1:EB:84:8C:63:5D:D3:A5:74:66:51:42:B7:6F:A6:EA:9E:0F:48:D9:B6:1E:95:7E:02:6E:80:AE:1D"
+            ]
+        }
+    },
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "io.twentysixty.mobileagent.dev",
+            "sha256_cert_fingerprints": [
+                "20:BF:EC:C1:EB:84:8C:63:5D:D3:A5:74:66:51:42:B7:6F:A6:EA:9E:0F:48:D9:B6:1E:95:7E:02:6E:80:AE:1D"
+            ]
+        }
+    },
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "io.twentysixty.mobileagent.staging",
+            "sha256_cert_fingerprints": [
+                "20:BF:EC:C1:EB:84:8C:63:5D:D3:A5:74:66:51:42:B7:6F:A6:EA:9E:0F:48:D9:B6:1E:95:7E:02:6E:80:AE:1D"
+            ]
+        }
+    }
+]
