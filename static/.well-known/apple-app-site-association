@@ -1,13 +1,25 @@
 {
-"applinks": {
-"apps": [],
-"details": [
-{
-"appID": "PJHCSSACYU.org.mobiera.2060app",
-"paths": [
-"*"
-]
-}
-]
-}
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "RB75N5246J.io.2060.mobileagent.dev",
+                "paths": [
+                    "*"
+                ]
+            },
+            {
+                "appID": "RB75N5246J.io.2060.mobileagent",
+                "paths": [
+                    "*"
+                ]
+            },
+            {
+                "appID": "RB75N5246J.io.2060.mobileagent.staging",
+                "paths": [
+                    "*"
+                ]
+            }
+        ]
+    }
 }
