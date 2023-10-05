@@ -36,10 +36,10 @@ content:
       title: "ID Card Issuance"
       para: "Issuing ID cards through a "
       bold_txt_carou: "chatbot-based system "
-      para2: "that utilises the user’s handset biometrics and allows for "
+      para2: "that utilises the user’s biometrics and allows for "
       bold_txt_carou2: "customisable instructions."
       ## scan me :
-      imageQR: "https://gaia-id.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
+      imageQR: "https://registry.st.gaiaid.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
       btn_lm_uc_c: "/use-cases/"
       paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
       btn: true

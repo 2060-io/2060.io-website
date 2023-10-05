@@ -3,7 +3,7 @@ id: "home"
 
 content:
   title: "Verifiable Credentials & Authentic Data"
-  text: "Open-source tools that enable building rich decentralised chat-powered services, combining text, pictures, videos and voice based on "
+  text: "Open-source tools that enable building rich decentralized chat-powered services, combining text, pictures, videos and voice based on "
   color_txt: "Verifiable Credentials."
   buttonPrimary:
     icon: "/images/icons/icone-download.svg"
