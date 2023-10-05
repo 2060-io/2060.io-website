@@ -3,7 +3,7 @@ id: "home"
 
 content:
   title: "Verifiable Credentials & Authentic Data"
-  text: "Open-source software for Companies and Institutions that want to rapidly implements services using "
+  text: "Open-source software for companies and tnstitutions that want to Issue, Verify and Hold "
   color_txt: "Verifiable Credentials."
   buttonPrimary:
     icon: "/images/icons/icone-download.svg"
