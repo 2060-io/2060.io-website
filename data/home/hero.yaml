@@ -3,10 +3,8 @@ id: "home"
 
 content:
   title: "Verifiable Credentials & Authentic Data"
-  text: "Open-source tools that enable building "
-  color_txt: "Verifiable Credential"
-  text: " solutions embedding OpenID for Verifiable Credentials and rich decentralized didcomm Auditable and Verifiable chat-powered messaging services, combining text, pictures, videos and voice."
-  #color_txt: "Verifiable Credentials."
+  text: "Open-source tools that enable building rich decentralised chat-powered services, combining text, pictures, videos and voice based on "
+  color_txt: "Verifiable Credentials."
   buttonPrimary:
     icon: "/images/icons/icone-download.svg"
     label: "Download"
