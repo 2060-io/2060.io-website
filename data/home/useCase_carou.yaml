@@ -36,7 +36,7 @@ content:
       title: "ID Card Issuance"
       para: "Issuing ID cards through a "
       bold_txt_carou: "chatbot-based system "
-      para2: "that utilises the user’s handset biometrics and allows for "
+      para2: "that utilises the user’s biometrics and allows for "
       bold_txt_carou2: "customisable instructions."
       ## scan me :
       imageQR: "https://registry.st.gaiaid.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
