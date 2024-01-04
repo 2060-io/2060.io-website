@@ -16,11 +16,11 @@ content:
     # imgScan : "/images/usecases/img6.png"
 
   - image: "/images/usecases/id-card-new.png"
-    qr_scan_uc_img: "https://registry.st.gaiaid.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
+    qr_scan_uc_img: "https://gaia.demos.m.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-idcard-issuance.png"
     title: "ID Card Issuance"
     id: "idcard"
-    para: "Issuing ID cards through a "
+    para: "Issuing Verifiable ID cards through a "
     bold_txt: "chatbot-based system "
     para2: "that utilises the user’s handset cameras for biometric correlation and allows for "
     bold_txt2: "customisable instructions."
