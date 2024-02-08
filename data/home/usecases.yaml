@@ -12,6 +12,7 @@ content:
     id: "p2p"
     buttons:
       - label: "Scan me"
+    reminder: "Make sure to scan this QR code with the Hologram App."
 
     # imgScan : "/images/usecases/img6.png"
 
@@ -32,25 +33,24 @@ content:
     # imgScan : "/images/usecases/img6.png"
 
   - image: "/images/usecases/credit.png"
-    qr_scan_uc_img: "https://cc.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
+    qr_scan_uc_img: "https://avatar.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-cci.png"
     title: "Build intelligent decentralized chatbots"
     id: "creditcard"
-    para: "Build your own chatbots by embedding our open source software containers in your applications or services"
-    #buttons:
-    #  - label: "Scan me"
-    #reminder: "Make sure to download the 2060 app before scanning the QR Code."
+    para: "Build your own chatbots by embedding our open source software containers in your applications or services. Check this out with the AvatarID chatbot!"
+    buttons:
+      - label: "Scan me"
+    reminder: "Make sure to scan this QR code with the Hologram App."
 
     # imgScan: "/images/usecases/img9.png"
 
   - image: "/images/usecases/email.png"
     qr_scan_uc_img: "https://em-vs.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-email.png"
-    title: "Email Verification Service"
+    title: "Prove your are human"
     id: "emailverification"
-    para: "Ensure the validity of your recipient’s email address and the  "
-    bold_txt: "authenticity of the content to safeguard the information exchanged "
-    para2: "during email communications."
+    para: "Restrict access to your services to human only by just let them flash a QR Code and present "
+    bold_txt: "an AvatarID Verifiable Credential."
     buttons:
       - label: "Scan me"
     reminder: "Make sure to download the 2060 app before scanning the QR Code."
