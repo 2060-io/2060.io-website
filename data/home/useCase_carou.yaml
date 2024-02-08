@@ -44,8 +44,8 @@ content:
       paraqr: "Make sure to scan this QR code with the Hologram App."
       btn: true
 
-    - image: "images/usecases/carou_img/img4.png"
-      id: "creditcard"
+    - image: "images/usecases/carou_img/img2.png"
+      id: "auth"
       title: "Fast KYC for B2C companies"
       para: "Authenticate your users and verify their identity in no time by comparing Verifiable Credential data with user biometrics using "
       bold_txt_carou: "our open source software."
@@ -56,7 +56,7 @@ content:
       paraqr: "Make sure to scan this QR code with the Hologram App."
       btn: true
 
-    - image: "images/usecases/carou_img/img7.png"
+    - image: "images/usecases/carou_img/img6.png"
       id: "avatar"
       title: "Decentralized chatbots"
       para: "Build your own chatbots by embedding our open source software containers in your applications or services. Check this out with "
