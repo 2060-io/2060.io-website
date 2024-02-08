@@ -2,7 +2,8 @@
 
   <div class="container download-mobile-container">
     {{ with .content.title }}
-    <h3 class="text-center text-lg-start mb-5 secondary fw-semibold fs-big title-dwn title-dwn"><img src="/images/download_images/hologram.png"/> {{ . | markdownify }}
+    <img src="/images/download_images/hologram.png"/> 
+    <h3 class="text-center text-lg-start mb-5 secondary fw-semibold fs-big title-dwn title-dwn">{{ . | markdownify }}
     </h3>
     {{ end }}
   </div>
