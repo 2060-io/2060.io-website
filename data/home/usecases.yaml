@@ -19,7 +19,7 @@ content:
   - image: "/images/usecases/id-card-new.png"
     qr_scan_uc_img: "https://auth-bank.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/p2p-new.png"
-    title: "Non-repudiable five minute $0.00 cost KYC for B2C companies"
+    title: "Non-repudiable five minute KYC for B2C companies"
     id: "idcard"
     para: "Authenticate your users and verify their identity "
     bold_txt: "in no time  "
