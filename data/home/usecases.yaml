@@ -37,7 +37,8 @@ content:
     img: "/images/usecases/img-idcard-issuance.png"
     title: "Build intelligent decentralized chatbots"
     id: "creditcard"
-    para: "Build your own chatbots by embedding our open source software containers in your applications or services. Check this out with the AvatarID chatbot!"
+    para: "Build your own chatbots by embedding our open source software containers in your applications or services. Check this out with "
+    bold_txt: "the AvatarID chatbot! "
     buttons:
       - label: "Scan me"
     reminder: "Make sure to scan this QR code with the Hologram App."
