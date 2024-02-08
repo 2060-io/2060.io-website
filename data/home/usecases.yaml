@@ -8,7 +8,8 @@ content:
     img: "/images/usecases/img-idcard-issuance.png"
     title: "Verifiable ID card issuance for Governments"
     para: "Use our open source software to quickly enable issuance of Verifiable ID Cards to citizens."
-    bold_txt: "Eradicate identity fraud and theft in no time."
+    bold_txt: "Eradicate identity fraud and theft in no time "
+    para2: "by generalizing secure remote identity verification in your country."
     id: "idcard"
     buttons:
       - label: "Scan me"
