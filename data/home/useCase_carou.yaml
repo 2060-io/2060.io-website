@@ -33,7 +33,7 @@ content:
 
     - image: "images/usecases/carou_img/img3.png"
       id: "idcard"
-      title: "Verifiable ID card issuance for governments"
+      title: "ID card issuance for GOVs"
       para: "Use our open source software to quickly enable issuance of Verifiable ID Cards to citizens."
       bold_txt_carou: "Eradicate identity fraud and theft in no time."
       ##para2: "that utilises the user’s biometrics and allows for "
@@ -46,7 +46,7 @@ content:
 
     - image: "images/usecases/carou_img/img4.png"
       id: "creditcard"
-      title: "Non-repudiable five minute KYC for B2C companies"
+      title: "Fast KYC for B2C companies"
       para: "Authenticate your users and verify their identity in no time by comparing Verifiable Credential data with user biometrics using "
       bold_txt_carou: "our open source software."
       ##para2: "using Verifiable Credentials based interactions via chatbots and secure connections with banking infrastructure."
@@ -58,7 +58,7 @@ content:
 
     - image: "images/usecases/carou_img/img7.png"
       id: "avatar"
-      title: "Build intelligent decentralized chatbots"
+      title: "Decentralized chatbots"
       para: "Build your own chatbots by embedding our open source software containers in your applications or services. Check this out with "
       bold_txt_carou: "the AvatarID chatbot."
       ##bold_txt_carou: "authenticity of the content to safeguard the information exchanged "
