@@ -20,52 +20,66 @@ content:
     #   btn_lm_uc_c: "/2060-usecases"
     #   paraqr : "After downloading the 2060 app, scan this QR-Code to test this use case"
 
-    - image: "images/usecases/carou_img/img2.png"
-      id: "p2p"
-      title: "P2P Secure Invitation"
-      para: "Peer-to-Peer secure invitations provide a secure and efficient way to invite and onboard new users to platforms, services, or networks, using "
-      bold_txt_carou: "time-bound unique invitation codes."
-      ## scan me :
-      imageQR: "/images/usecases/qr_code_uc.png"
-      btn_lm_uc_c: "/usecases"
-      paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
-      btn: false
+    #- image: "images/usecases/carou_img/img2.png"
+    #  id: "p2p"
+    #  title: "P2P Secure Invitation"
+    #  para: "Peer-to-Peer secure invitations provide a secure and efficient way to invite and onboard new users to platforms, services, or networks, using "
+    #  bold_txt_carou: "time-bound unique invitation codes."
+    #  ## scan me :
+    #  imageQR: "/images/usecases/qr_code_uc.png"
+    #  btn_lm_uc_c: "/usecases"
+    #  paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
+    #  btn: false
 
     - image: "images/usecases/carou_img/img3.png"
       id: "idcard"
-      title: "ID Card Issuance"
-      para: "Issuing ID cards through a "
-      bold_txt_carou: "chatbot-based system "
-      para2: "that utilises the user’s biometrics and allows for "
-      bold_txt_carou2: "customisable instructions."
+      title: "Verifiable ID card issuance for governments"
+      para: "Use our open source software to quickly enable issuance of Verifiable ID Cards to citizens."
+      bold_txt_carou: "Eradicate identity fraud and theft in no time."
+      ##para2: "that utilises the user’s biometrics and allows for "
+      ##bold_txt_carou2: "customisable instructions."
       ## scan me :
       imageQR: "https://gaia.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
       btn_lm_uc_c: "/use-cases/"
-      paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
+      paraqr: "Make sure to scan this QR code with the Hologram App."
       btn: true
 
     - image: "images/usecases/carou_img/img4.png"
       id: "creditcard"
-      title: "Credit Card Issuance"
-      para: "Authentication of "
-      bold_txt_carou: "credit cards ordering and submission processes "
-      para2: "using Verifiable Credentials based interactions via chatbots and secure connections with banking infrastructure."
+      title: "Non-repudiable five minute KYC for B2C companies"
+      para: "Authenticate your users and verify their identity in no time by comparing Verifiable Credential data with user biometrics using "
+      bold_txt_carou: "our open source software."
+      ##para2: "using Verifiable Credentials based interactions via chatbots and secure connections with banking infrastructure."
       ## scan me :
-      imageQR: "https://cc.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
+      imageQR: "https://auth-bank.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
       btn_lm_uc_c: "/use-cases/"
-      paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
+      paraqr: "Make sure to scan this QR code with the Hologram App."
       btn: true
 
     - image: "images/usecases/carou_img/img7.png"
-      id: "emailverification"
-      title: "Email Verification Service"
-      para: "Ensure the validity of your recipient’s email address and the  "
-      bold_txt_carou: "authenticity of the content to safeguard the information exchanged "
-      para2: "during email communications."
+      id: "avatar"
+      title: "Build intelligent decentralized chatbots"
+      para: "Build your own chatbots by embedding our open source software containers in your applications or services. Check this out with "
+      bold_txt_carou: "the AvatarID chatbot."
+      ##bold_txt_carou: "authenticity of the content to safeguard the information exchanged "
+      ##para2: "during email communications."
       ## scan me :
-      imageQR: "https://em-vs.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
+      imageQR: "https://avatar.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
       btn_lm_uc_c: "/use-cases/"
-      paraqr: "After downloading the 2060 app, scan this QR-Code to test this use case"
+      paraqr: "Make sure to scan this QR code with the Hologram App."
+      btn: true
+
+    - image: "images/usecases/carou_img/img7.png"
+      id: "human"
+      title: "Proof of Humanity"
+      para: "Restrict access to your services to human only by just let them flash a QR Code and present "
+      bold_txt_carou: "an AvatarID Verifiable Credential."
+      ##bold_txt_carou: "authenticity of the content to safeguard the information exchanged "
+      ##para2: "during email communications."
+      ## scan me :
+      imageQR: "https://auth-social-avatar.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
+      btn_lm_uc_c: "/use-cases/"
+      paraqr: "Make sure to scan this QR code with the Hologram App."
       btn: true
 
     # - image: "images/usecases/carou_img/img5.png"

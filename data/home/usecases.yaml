@@ -9,7 +9,7 @@ content:
     title: "Verifiable ID card issuance for Governments"
     para: "Use our open source software to quickly enable issuance of Verifiable ID Cards to citizens."
     bold_txt: "Eradicate identity fraud and theft in no time."
-    id: "p2p"
+    id: "idcard"
     buttons:
       - label: "Scan me"
     reminder: "Make sure to scan this QR code with the Hologram App."
@@ -20,7 +20,7 @@ content:
     qr_scan_uc_img: "https://auth-bank.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-p2p.png"
     title: "Non-repudiable five minute KYC for B2C companies"
-    id: "idcard"
+    id: "auth"
     para: "Authenticate your users and verify their identity "
     bold_txt: "in no time  "
     para2: "by comparing Verifiable Credential data with user biometrics using our "
@@ -36,7 +36,7 @@ content:
     qr_scan_uc_img: "https://avatar.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-idcard-issuance.png"
     title: "Build intelligent decentralized chatbots"
-    id: "creditcard"
+    id: "avatar"
     para: "Build your own chatbots by embedding our open source software containers in your applications or services. Check this out with "
     bold_txt: "the AvatarID chatbot! "
     buttons:
@@ -46,10 +46,10 @@ content:
     # imgScan: "/images/usecases/img9.png"
 
   - image: "/images/usecases/email.png"
-    qr_scan_uc_img: "https://em-vs.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
+    qr_scan_uc_img: "https://auth-social-avatar.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-p2p.png"
     title: "Prove your are human"
-    id: "emailverification"
+    id: "human"
     para: "Restrict access to your services to human only by just let them flash a QR Code and present "
     bold_txt: "an AvatarID Verifiable Credential."
     buttons:
