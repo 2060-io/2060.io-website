@@ -5,7 +5,7 @@ id: "usecases"
 content:
   - image: "/images/usecases/img-idcard-issuance.png"
     qr_scan_uc_img: "https://gaia.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
-    img: "/images/usecases/img-p2p.png"
+    img: "/images/usecases/id-card-new.png"
     title: "Verifiable ID card issuance for Governments"
     para: "Use our open source software to quickly enable issuance of Verifiable ID Cards to citizens."
     bold_txt: "Eradicate identity fraud and theft in no time."
@@ -18,7 +18,7 @@ content:
 
   - image: "/images/usecases/id-card-new.png"
     qr_scan_uc_img: "https://auth-bank.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
-    img: "/images/usecases/p2p-new.png"
+    img: "/images/usecases/img-p2p.png"
     title: "Non-repudiable five minute KYC for B2C companies"
     id: "idcard"
     para: "Authenticate your users and verify their identity "
@@ -46,7 +46,7 @@ content:
 
   - image: "/images/usecases/email.png"
     qr_scan_uc_img: "https://em-vs.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
-    img: "/images/usecases/p2p-new.png"
+    img: "/images/usecases/img-p2p.png"
     title: "Prove your are human"
     id: "emailverification"
     para: "Restrict access to your services to human only by just let them flash a QR Code and present "
