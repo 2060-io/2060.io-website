@@ -3,7 +3,7 @@ id: "usecases"
 
 # para_uc_top : "To run the examples, please make sure you downloaded the 2060 client."
 content:
-  - image: "/images/usecases/id-card-new.png.png"
+  - image: "/images/usecases/id-card-new.png"
     qr_scan_uc_img: "https://gaia.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-idcard-issuance.png"
     title: "Verifiable ID card issuance for Governments"
