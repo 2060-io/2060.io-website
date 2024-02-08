@@ -10,8 +10,8 @@ content:
     para: "Use our open source software to quickly enable issuance of Verifiable ID Cards to citizens."
     bold_txt: "Eradicate identity fraud and theft in no time."
     id: "p2p"
-    # buttons:
-    #   - label: "Scan me"
+    buttons:
+      - label: "Scan me"
 
     # imgScan : "/images/usecases/img6.png"
 
@@ -34,14 +34,12 @@ content:
   - image: "/images/usecases/credit.png"
     qr_scan_uc_img: "https://cc.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-cci.png"
-    title: "Credit Card Issuance"
+    title: "Build intelligent decentralized chatbots"
     id: "creditcard"
-    para: "Authentication of "
-    bold_txt: "credit cards ordering and submission "
-    para2: "processes using Verifiable Credentials based interactions via chatbots and secure connections with banking infrastructure."
-    buttons:
-      - label: "Scan me"
-    reminder: "Make sure to download the 2060 app before scanning the QR Code."
+    para: "Build your own chatbots by embedding our open source software containers in your applications or services"
+    #buttons:
+    #  - label: "Scan me"
+    #reminder: "Make sure to download the 2060 app before scanning the QR Code."
 
     # imgScan: "/images/usecases/img9.png"
 
