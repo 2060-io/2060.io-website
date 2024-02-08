@@ -3,7 +3,7 @@ id: "usecases"
 
 # para_uc_top : "To run the examples, please make sure you downloaded the 2060 client."
 content:
-  - image: "/images/usecases/p2p-new.png"
+  - image: "/images/usecases/img-idcard-issuance.png"
     qr_scan_uc_img: "https://gaia.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-p2p.png"
     title: "Verifiable ID card issuance for Governments"
@@ -18,7 +18,7 @@ content:
 
   - image: "/images/usecases/id-card-new.png"
     qr_scan_uc_img: "https://auth-bank.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
-    img: "/images/usecases/img-idcard-issuance.png"
+    img: "/images/usecases/p2p-new.png"
     title: "Non-repudiable five minute $0.00 cost KYC for B2C companies"
     id: "idcard"
     para: "Authenticate your users and verify their identity "
@@ -34,7 +34,7 @@ content:
 
   - image: "/images/usecases/credit.png"
     qr_scan_uc_img: "https://avatar.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
-    img: "/images/usecases/img-cci.png"
+    img: "/images/usecases/img-idcard-issuance.png"
     title: "Build intelligent decentralized chatbots"
     id: "creditcard"
     para: "Build your own chatbots by embedding our open source software containers in your applications or services. Check this out with the AvatarID chatbot!"
@@ -46,7 +46,7 @@ content:
 
   - image: "/images/usecases/email.png"
     qr_scan_uc_img: "https://em-vs.dev.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
-    img: "/images/usecases/img-email.png"
+    img: "/images/usecases/p2p-new.png"
     title: "Prove your are human"
     id: "emailverification"
     para: "Restrict access to your services to human only by just let them flash a QR Code and present "
