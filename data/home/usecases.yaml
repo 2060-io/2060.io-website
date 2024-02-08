@@ -16,18 +16,18 @@ content:
     # imgScan : "/images/usecases/img6.png"
 
   - image: "/images/usecases/id-card-new.png"
-    qr_scan_uc_img: "https://gaia.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
+    qr_scan_uc_img: "https://auth-bank.demos.2060.io/qr?size=500&bcolor=FFFFFF&balpha=1&fcolor=073B4C&falpha=1"
     img: "/images/usecases/img-idcard-issuance.png"
-    title: "ID Card Issuance"
+    title: "Non-repudiable five minute $0.00 cost KYC for B2C companies"
     id: "idcard"
-    para: "Issuing Verifiable ID cards through a "
-    bold_txt: "chatbot-based system "
-    para2: "that utilises the user’s handset cameras for biometric correlation and allows for "
-    bold_txt2: "customisable instructions."
+    para: "Authenticate your users and verify their identity "
+    bold_txt: "in no time  "
+    para2: "by comparing Verifiable Credential data with user biometrics using our "
+    bold_txt2: "open source software."
 
     buttons:
       - label: "Scan me"
-    reminder: "Make sure to download the 2060 app before scanning the QR Code."
+    reminder: "Make sure to scan this QR code with the Hologram App."
 
     # imgScan : "/images/usecases/img6.png"
 
