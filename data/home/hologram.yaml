@@ -1,8 +1,8 @@
 enable: true
-id: "privacy-policy"
+id: "hologram"
 
 content:
-  - title: "Information We Collect"
+  - title: "Hologram Information We Collect"
     description: "We collect information that you voluntarily provide to us, such as your name, email address, and any other information you choose to provide. We also collect information automatically through cookies and similar technologies."
 
   - title: "How We Use Your Information"
