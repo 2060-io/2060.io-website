@@ -6,4 +6,4 @@ id : "underheader_hologram"
 content:
   smallTitle: "Hologram App"
   text : "Hologram is a Verifiable Credential Wallet and Messaging App with true privacy preserving features."
-  smText : "Unlike other messaging apps, Hologram is a self-custody app, which means user’s data is only stored on device, and exclusively under user’s control."
+#  smText : "Unlike other messaging apps, Hologram is a self-custody app, which means user’s data is only stored on device, and exclusively under user’s control."
