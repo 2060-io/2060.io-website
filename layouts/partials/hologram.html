@@ -1,0 +1,13 @@
+<section class="section privacy">
+    <div class="container text-green-hard">
+        <p class="txt-privacy fw-light mb-5">Hologram.</p>
+        {{ range .content }}
+        {{ with .title }}
+        <h4 class="mb-3 title-privacy fw-semibold">{{ . }}</h4>
+        {{ end }}
+        {{ with .description }}
+        <p class="mb-5 txt-privacy fw-light">{{ . }}</p>
+        {{ end }}
+        {{ end }}
+    </div>
+</section>
