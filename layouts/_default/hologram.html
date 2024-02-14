@@ -1,7 +1,6 @@
 {{ define "main" }}
 {{ with .Site.Data.home.under_header_hologram }}{{ partial "shared/underheader_hologram.html" . }}{{ end }}
 {{ with .Site.Data.home.download }}{{ partial "hologram-download.html" . }}{{ end }}
-{{ with .Site.Data.home.hologram }}{{ partial "hologram-privacy.html" . }}{{ end }}
 {{ $contact := partial "sections/contact.html" . }}
 {{ $contact = replace $contact "<p class=\"para-policy\">" "<p class=\"para-policy\" style=\"display:none;\">" | safeHTML }}
     {{ $contact }}
