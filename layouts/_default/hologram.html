@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ with .Site.Data.home.under_header_privacy }}{{ partial "shared/underheader_hologram.html" . }}{{ end }}
+{{ with .Site.Data.home.under_header_privacy }}{{ partial "shared/under_header_hologram.html" . }}{{ end }}
 {{ with .Site.Data.home.privacy }}{{ partial "hologram.html" . }}{{ end }}
 {{ $contact := partial "sections/contact.html" . }}
 {{ $contact = replace $contact "<p class=\"para-policy\">" "<p class=\"para-policy\" style=\"display:none;\">" | safeHTML }}
