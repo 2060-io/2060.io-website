@@ -24,8 +24,12 @@
                 </div>
               </div>
               <div class="col-12 col-lg-5 d-flex flex-column justify-content-center py-2 py-md-5 dwn-desc-content">
+                {{ with .content.title }}
+                <h3 class="text-center text-lg-start mb-5 text-secondary fw-semibold fs-big title-dwn">{{ . | markdownify }}
+                </h3>
+                {{ end }}
+                {{ with .content }}
                 <img src="/images/hologram-app.png" style="width:280px; border: 0px"/>
-                
                 <p class="text-lg-start pb-4 txt-dwn">
                   {{ .text | markdownify}}
                   <span class="bold-dwn-txt">{{ .bold_txt }}</span>
