@@ -1,0 +1,9 @@
+enable : true 
+id : "underheader_hologram"
+
+
+
+content:
+  smallTitle: "Hologram App"
+  text : "Hologram is a Verifiable Credential Wallet and Messaging App with true privacy preserving features."
+  smText : "Create fully authenticated chat connections where both parties are clearly identified."

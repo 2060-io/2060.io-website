@@ -46,13 +46,17 @@ menus:
       url: "/use-cases/"
       weight: 2
 
+    - name: "Hologram"
+      url: "/hologram/"
+      weight: 3
+
     - name: "About"
       url: "/about-us/"
-      weight: 3
+      weight: 4
 
     - name: "Contact"
       url: "/contact-us/"
-      weight: 4
+      weight: 5
 
   externals:
     - name: "Github"
