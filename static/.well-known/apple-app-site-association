@@ -3,19 +3,19 @@
         "apps": [],
         "details": [
             {
-                "appID": "RB75N5246J.io.2060.mobileagent.dev",
+                "appID": "Y5A6KQ62S7.io.2060.mobileagent.dev",
                 "paths": [
                     "*"
                 ]
             },
             {
-                "appID": "RB75N5246J.io.2060.mobileagent",
+                "appID": "Y5A6KQ62S7.io.2060.mobileagent.m",
                 "paths": [
                     "*"
                 ]
             },
             {
-                "appID": "RB75N5246J.io.2060.mobileagent.staging",
+                "appID": "Y5A6KQ62S7.io.2060.mobileagent.st",
                 "paths": [
                     "*"
                 ]
