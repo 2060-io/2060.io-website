@@ -1,25 +1,19 @@
 {
-    "applinks": {
-        "apps": [],
-        "details": [
-            {
-                "appID": "Y5A6KQ62S7.io.2060.mobileagent.dev",
-                "paths": [
-                    "*"
-                ]
-            },
-            {
-                "appID": "Y5A6KQ62S7.io.2060.mobileagent.m",
-                "paths": [
-                    "*"
-                ]
-            },
-            {
-                "appID": "Y5A6KQ62S7.io.2060.mobileagent.st",
-                "paths": [
-                    "*"
-                ]
-            }
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "Y5A6KQ62S7.io.2060.mobileagent.dev",
+          "Y5A6KQ62S7.io.2060.mobileagent.m",
+          "Y5A6KQ62S7.io.2060.mobileagent.st"
+        ],
+        "components": [
+          {
+            "/": "/i/*",
+            "comment": "Matches any URL with a path that starts with /i/"
+          }
         ]
-    }
+      }
+    ]
+  }
 }
