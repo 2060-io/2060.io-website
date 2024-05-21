@@ -8,11 +8,11 @@ content:
   txt2: "Unlike other messaging apps, Hologram is a self-custody app, which means user's data is only stored on device, and exclusively under user's control."
   text3 : "Get a sneak peak of the above- mentioned features and more by downloading the  "
   col_txt_dwn : "Hologram "
-  txt4 : "app now. As App is not available in the play store yet, a click in the play store button will download the Apk."
+  txt4 : "app now."
   buttonplay:
     # icon: "/images/icons/play_store.png"
     label: "Play Store"
-    url: "https://apks.2060.io/hologram.apk"
+    url: "https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m&pli=1"
 
   buttonapp:
     # icon: "/images/icons/app_store.png"
