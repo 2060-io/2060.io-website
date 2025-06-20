@@ -1,4 +1,4 @@
-baseURL: ""
+baseURL: https://2060.io/
 theme: "up-business-theme"
 languageCode: "en-us"
 ignoreErrors: ["error-remote-getjson"]
