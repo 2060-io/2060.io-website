@@ -1,3 +1,114 @@
+{{ define "head" }}
+  {{- /*
+    Structured data for rich search results.
+    Scoped to the home page so Google de-duplicates the graph rather
+    than seeing it repeated on every inner page.
+  */ -}}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "2060",
+          "legalName": "2060 OÜ",
+          "url": "https://2060.io",
+          "logo": "https://2060.io/assets/logo-2060.svg",
+          "foundingDate": "2020",
+          "description": "Independent research and engineering company building the infrastructure for a verifiable internet.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Ahtri tn 12",
+            "postalCode": "10151",
+            "addressLocality": "Tallinn",
+            "addressCountry": "EE"
+          },
+          "sameAs": [
+            "https://github.com/2060-io",
+            "https://www.linkedin.com/company/2060-io/"
+          ],
+          "memberOf": {
+            "@type": "Organization",
+            "name": "Verana Foundation",
+            "url": "https://verana.io"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Hologram Agentic AI",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Cross-platform",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "url": "https://hologram.zone",
+          "downloadUrl": "https://github.com/2060-io",
+          "description": "Open infrastructure for deploying decentralized, verifiable, identifiable, and governable AI agents. Built by 2060 on the Verana trust layer."
+        },
+        {
+          "@type": "TechArticle",
+          "headline": "Verifiable Trust Specification",
+          "url": "https://verana-labs.github.io/verifiable-trust-spec/",
+          "author": {
+            "@type": "Organization",
+            "name": "2060"
+          },
+          "about": [
+            "Verifiable Credentials",
+            "Trust Registry",
+            "Decentralized Identity",
+            "Digital Trust Ecosystem"
+          ]
+        },
+        {
+          "@type": "TechArticle",
+          "headline": "Verifiable Public Registry Specification",
+          "url": "https://verana-labs.github.io/verifiable-trust-vpr-spec/",
+          "author": {
+            "@type": "Organization",
+            "name": "2060"
+          },
+          "about": [
+            "Verifiable Public Registry",
+            "Decentralized Identity",
+            "Digital Trust Ecosystem"
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Fabrice Rochette",
+          "jobTitle": "Co-founder and CEO",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "2060"
+          },
+          "image": "https://2060.io/assets/illustrations/fabrice.jpeg",
+          "sameAs": [
+            "https://www.linkedin.com/in/fabricerochette/",
+            "https://x.com/fabricerochette"
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Ariel Gentile",
+          "jobTitle": "Co-founder and CTO",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "2060"
+          },
+          "image": "https://2060.io/assets/illustrations/ariel.jpeg",
+          "sameAs": [
+            "https://www.linkedin.com/in/aogentile/",
+            "https://github.com/genaris"
+          ]
+        }
+      ]
+    }
+  </script>
+{{ end }}
+
 {{ define "main" }}
 
     <!-- ================== SECTION 1, HERO ================== -->

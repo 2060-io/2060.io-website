@@ -1,0 +1,58 @@
+{{- /*
+  Open Graph + Twitter Card metadata.
+
+  Call site passes the already-resolved title and description so every
+  <head> tag agrees on exactly one string per field:
+
+      {{ partial "head-og.html" (dict
+           "page"        .
+           "title"       $metaTitle
+           "description" $metaDescription) }}
+
+  Default social-card image is `/static/assets/og-image.png`; override
+  per page via `og_image:` in front-matter. The image is emitted with
+  an absolute URL because Facebook, LinkedIn, and Twitter all refuse
+  relative paths in OG crawlers.
+*/ -}}
+{{- $page := .page -}}
+{{- $title := .title -}}
+{{- $description := .description -}}
+{{- $siteTitle := site.Title -}}
+
+{{- /* og:type = article only for real content pages; home and section
+       listings remain website. */ -}}
+{{- $type := "website" -}}
+{{- if and $page.IsPage (not $page.IsHome) -}}
+  {{- $type = "article" -}}
+{{- end -}}
+
+{{- /* Image resolution: page override -> site default -> baked-in fallback. */ -}}
+{{- $defaultImage := "/assets/og-image.png" -}}
+{{- with site.Params.seo -}}
+  {{- with .ogImage -}}{{- $defaultImage = . -}}{{- end -}}
+{{- end -}}
+{{- $image := $page.Params.og_image | default $defaultImage -}}
+{{- $imageURL := $image | absURL -}}
+
+<meta property="og:type" content="{{ $type }}" />
+<meta property="og:site_name" content="{{ $siteTitle }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:url" content="{{ $page.Permalink }}" />
+<meta property="og:image" content="{{ $imageURL }}" />
+{{- /*
+  og:locale expects BCP-47 with an underscore and uppercase region:
+  "en_US", "fr_FR", etc. Hugo stores languageCode as "en-us", so we
+  split on the dash, upper-case the region, and rejoin.
+*/ -}}
+{{- $parts := split (site.LanguageCode | default "en-us") "-" -}}
+{{- $locale := index $parts 0 -}}
+{{- if gt (len $parts) 1 -}}
+  {{- $locale = printf "%s_%s" (index $parts 0) (upper (index $parts 1)) -}}
+{{- end -}}
+<meta property="og:locale" content="{{ $locale }}" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+<meta name="twitter:image" content="{{ $imageURL }}" />
