@@ -1,0 +1,143 @@
+{{ define "main" }}
+
+    <!-- SECTION 8, OVERVIEW -->
+    <section class="px-6 pt-24 pb-16 border-b hairline">
+      <div class="max-w-6xl mx-auto">
+        <p class="tag">What we do</p>
+        <h1 class="display text-4xl md:text-6xl mt-4 leading-tight">Research. Specify. Build. Advise.</h1>
+        <div class="accent-line mt-6"></div>
+        <p class="text-lg text-muted mt-8 reading">Four practices that reinforce each other, delivered by the people who invented and wrote the protocols we work on.</p>
+        <div class="grid md:grid-cols-2 gap-10 mt-12 reading">
+          <p class="text-muted">2060 is not a generalist consultancy. We work exclusively in the domain we have helped define: decentralized identity, verifiable credentials, trust networks, and the agentic infrastructure built on top of them.</p>
+          <p class="text-muted">Clients typically engage us across two or three practices at once: a research phase to frame the problem, a specification phase to formalize the model, an engineering phase to build the reference implementation, and an advisory relationship to support the rollout. We adapt the mix to your timeline.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9, RESEARCH -->
+    <section id="research" class="px-6 py-24 border-b hairline scroll-mt-16">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-4">
+          <p class="tag">Practice 01</p>
+          <h2 class="display text-3xl md:text-4xl mt-4">Research</h2>
+          <div class="accent-line mt-4"></div>
+        </div>
+        <div class="md:col-span-8">
+          <p class="text-muted reading">We investigate hard problems of decentralized trust before they become product requirements. Research outputs take the form of specification drafts, reference implementations, and deployed testnets, not only academic papers. We bring what we learn directly into the Verana ecosystem and into client engagements.</p>
+          <p class="mt-6 text-sm tracking-wide uppercase text-muted">Current portfolio</p>
+          <ul class="mt-4 space-y-5 text-e5">
+            <li><strong class="text-fg">Decentralized identifiers and credential formats</strong>, contributions to the <a href="https://openwallet.foundation/" class="prose-link text-fg" rel="noopener">OpenWallet Foundation</a> (notably <a href="https://github.com/openwallet-foundation/credo-ts" class="prose-link text-fg" rel="noopener">credo-ts</a>), <a href="https://trustoverip.org/" class="prose-link text-fg" rel="noopener">Trust Over IP</a> working groups and specifications, W3C specifications, DIDComm messages, DID methods, and related standards efforts.</li>
+            <li><strong class="text-fg">Verifiable governance</strong>, formal models of Ecosystem Governance Frameworks, Permission Trees, and on-chain trust deposits that make governance machine-readable and economically enforceable.</li>
+            <li><strong class="text-fg">Agentic trust</strong>, how W3C Verifiable Credentials, DIDComm, and MCP combine to give AI agents verifiable identities, bounded authority, and auditable behavior.</li>
+            <li><strong class="text-fg">Proof-of-Trust resolution</strong>, recursive trust-chain verification algorithms, caching strategies, and UX patterns for presenting cryptographic provenance to non-technical users.</li>
+            <li><strong class="text-fg">Privacy-preserving verification</strong>, unlinkability guarantees, BBS+ and CL signature deployments, and selective-disclosure interaction patterns.</li>
+          </ul>
+          <a href="/research/" class="btn mt-8">Read Recent Publications</a>
+        </div>
+        <figure class="md:col-span-12 mt-8" role="img" aria-label="A stack of slightly offset specification pages, normative language, section identifiers, and a single purple tab marking the live draft.">
+          <div class="illus-s09" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 10, SPECIFICATION DELIVERY -->
+    <section id="specification" class="px-6 py-24 border-b hairline scroll-mt-16">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-4">
+          <p class="tag">Practice 02</p>
+          <h2 class="display text-3xl md:text-4xl mt-4">Specification Delivery</h2>
+          <div class="accent-line mt-4"></div>
+        </div>
+        <div class="md:col-span-8">
+          <p class="text-muted reading">Writing a good specification is a craft. It requires technical depth, ecosystem judgment, and the patience to reach consensus without losing rigor. We do it for our own stack, and we do it for clients.</p>
+          <p class="mt-6 text-sm tracking-wide uppercase text-muted">As Verana's principal spec authors, we published:</p>
+          <ul class="mt-4 space-y-5 text-e5">
+            <li><a href="https://verana-labs.github.io/verifiable-trust-spec/" class="prose-link text-fg font-medium" rel="noopener">Verifiable Trust Specification</a>, the end-to-end model for Verifiable Services, Verifiable User Agents, Proof-of-Trust, service-endpoint declaration, and credential-chain resolution.</li>
+            <li><a href="https://verana-labs.github.io/verifiable-trust-vpr-spec/" class="prose-link text-fg font-medium" rel="noopener">Verifiable Public Registry Specification</a>, the on-chain data model for trust registries, credential schemas, permission trees, validation fees, and trust deposits.</li>
+            <li><strong class="text-fg">Ecosystem Governance Frameworks</strong>, templates and worked examples for drafting the governance documents that bind a trust registry to a real-world jurisdiction or industry.</li>
+          </ul>
+          <p class="text-muted reading mt-6">For clients who need a protocol, for their ecosystem, their regulator, their consortium, we deliver it: problem framing, interoperability analysis, normative language, conformance test suites, and a reference implementation that proves the spec is buildable.</p>
+          <a href="/contact/" class="btn mt-8">Discuss a Specification Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11, OPEN-SOURCE ENGINEERING -->
+    <section id="engineering" class="px-6 py-24 border-b hairline scroll-mt-16">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-4">
+          <p class="tag">Practice 03</p>
+          <h2 class="display text-3xl md:text-4xl mt-4">Open-Source Engineering</h2>
+          <div class="accent-line mt-4"></div>
+        </div>
+        <div class="md:col-span-8">
+          <p class="text-muted reading">We ship production-grade open source. Today the 2060 portfolio includes:</p>
+          <ul class="mt-6 space-y-5 text-e5">
+            <li><a href="https://hologram.zone" class="prose-link text-fg font-medium" rel="noopener">Hologram Agentic AI</a>, an open-source stack for building, deploying, and governing AI agents for personal and corporate use: the VS Agent framework (DIDComm + credo-ts), the Generic AI Agent (modular LLM orchestration with MCP, RAG, and credential-based access control), and Helm charts for Kubernetes deployment.</li>
+            <li><strong class="text-fg">Hologram App</strong>, an open-source Verifiable User Agent for iOS, Android, and Huawei AppGallery: end-to-end encrypted DIDComm messaging, credential wallet, NFC document reading, biometric liveness detection, audio/video calls, and parental controls. Extend it, or build your own against the <a href="https://verana-labs.github.io/verifiable-trust-spec/" class="prose-link text-fg" rel="noopener">Verifiable Trust</a> spec.</li>
+            <li><strong class="text-fg">MCP servers</strong>, reusable Model Context Protocol servers for real-world tools: Wise, GitHub, X (Twitter), and a growing catalog of ecosystem integrations.</li>
+            <li><strong class="text-fg">Verifiable Services</strong>, reference issuers and utilities deployed on the Verana network: the Avatar issuer, the Government Digital ID issuer (passport NFC + liveness), and a portfolio of AI agents.</li>
+            <li><strong class="text-fg">Verana infrastructure components</strong>, co-maintained with the Verana Foundation: VPR blockchain node, Frontend, Resolver, Indexer, Visualizer, testnet faucet.</li>
+          </ul>
+          <p class="text-sm text-muted mt-6"><strong class="text-fg">All Open Source. All self-hostable. All running in production somewhere today.</strong></p>
+          <a href="https://github.com/2060-io" class="btn mt-8" rel="noopener">Browse github.com/2060-io ↗</a>
+        </div>
+        <figure class="md:col-span-12 mt-8" role="img" aria-label="A working table-top: a notebook with a hand-drawn trust-chain, an open laptop, and a coffee mug, with a single purple accent marking the client's deployment.">
+          <div class="illus-s12" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 12, CONSULTING & ADVISORY -->
+    <section id="consulting" class="px-6 py-24 border-b hairline scroll-mt-16">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-4">
+          <p class="tag">Practice 04</p>
+          <h2 class="display text-3xl md:text-4xl mt-4">Consulting &amp; Advisory</h2>
+          <div class="accent-line mt-4"></div>
+        </div>
+        <div class="md:col-span-8">
+          <p class="text-muted reading">Specifications and open source are necessary but not sufficient. Deploying them correctly takes experience most organizations do not yet have in-house. We fill that gap.</p>
+          <ul class="mt-6 space-y-5 text-e5">
+            <li><strong class="text-fg">Ecosystem design</strong>, help a government, industry consortium, or large enterprise design a trust registry: credential schemas, governance framework, permission tree, fee structure, grantor model.</li>
+            <li><strong class="text-fg">Technical due diligence</strong>, independent assessment of decentralized identity and verifiable credentials stacks for strategic buyers, auditors, or regulators.</li>
+            <li><strong class="text-fg">Architecture review and advisory</strong>, short, focused engagements for teams building on DIDs, Verifiable Credentials, DIDComm, MCP, or the Verana network. Code review, threat modeling, performance analysis, migration strategy.</li>
+            <li><strong class="text-fg">Custom development</strong>, where off-the-shelf open source does not reach, we build the missing pieces: custom MCP servers, custom Agent Packs, custom credential schemas, custom verifier flows, custom trust-resolution UIs.</li>
+            <li><strong class="text-fg">Managed operation</strong>, for clients that want a sovereign deployment without operating it themselves, we run the stack under an operational agreement. You own the DIDs and the data; we run the pods and the on-call rotation.</li>
+            <li><strong class="text-fg">Training and enablement</strong>, developer workshops on the Hologram stack, the Verifiable Trust spec, the VPR, MCP, and DIDComm. Remote or on-site.</li>
+          </ul>
+          <a href="/contact/" class="btn mt-8">Request a Conversation</a>
+        </div>
+        <figure class="md:col-span-12 mt-8" role="img" aria-label="An empty boardroom just before the meeting, a long table, printed proposal packets at each seat, and a single purple tab marking the live agenda on the back wall.">
+          <div class="illus-s13" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 13, ENGAGEMENT MODELS -->
+    <section id="engagement" class="px-6 py-24 border-b hairline scroll-mt-16">
+      <div class="max-w-6xl mx-auto">
+        <p class="tag">Engagement</p>
+        <h2 class="display text-3xl md:text-4xl mt-4">How We Work</h2>
+        <div class="accent-line mt-4"></div>
+        <div class="mt-12 overflow-x-auto">
+          <table class="clean">
+            <thead>
+              <tr><th>Model</th><th>Duration</th><th>Fit</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="text-fg font-medium">Advisory retainer</td><td>Monthly, open-ended</td><td class="text-muted">Leadership teams that need strategic and technical input on verifiable trust, DIDs, and agentic AI.</td></tr>
+              <tr><td class="text-fg font-medium">Specification engagement</td><td>2–6 months</td><td class="text-muted">Ecosystems or consortia that need a protocol written, reviewed, or standardized.</td></tr>
+              <tr><td class="text-fg font-medium">Proof-of-concept / pilot</td><td>6–12 weeks</td><td class="text-muted">Demonstrating the Verana + Hologram stack for a specific use case, end-to-end.</td></tr>
+              <tr><td class="text-fg font-medium">Implementation project</td><td>3–9 months</td><td class="text-muted">Custom credential schemas, MCP servers, trust-resolution flows, bespoke integrations.</td></tr>
+              <tr><td class="text-fg font-medium">Managed operation</td><td>Annual</td><td class="text-muted">Running a sovereign deployment on behalf of a client with SLAs and compliance support.</td></tr>
+              <tr><td class="text-fg font-medium">Ecosystem-as-a-Service</td><td>Multi-year</td><td class="text-muted">Standing up and operating a full trust registry on the Verana network, including grantor services.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-muted reading mt-10">Every engagement starts with a short scope document, a handful of pages, covering objective, deliverables, milestones, assumptions, and commercial terms. No multi-month sales cycle.</p>
+        <a href="/contact/" class="btn btn-primary mt-8">Start a Scope Conversation</a>
+      </div>
+    </section>
+
+{{ end }}

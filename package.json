@@ -1,5 +1,18 @@
 {
-  "dependencies": {
-    "bootstrap": "^5.2.3"
+  "name": "2060.io-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Source for the 2060.io website (Hugo + Tailwind).",
+  "license": "MIT",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/input.css -o ./static/css/custom.css --minify",
+    "dev:css": "tailwindcss -i ./assets/css/input.css -o ./static/css/custom.css --watch",
+    "dev:hugo": "hugo server --disableFastRender",
+    "dev": "npm run build:css && concurrently -n css,hugo -c magenta,cyan \"npm:dev:css\" \"npm:dev:hugo\"",
+    "build": "npm run build:css && hugo --minify"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "tailwindcss": "^3.4.14"
   }
 }
