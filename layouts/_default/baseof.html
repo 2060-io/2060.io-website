@@ -2,6 +2,13 @@
 <html lang="{{ site.LanguageCode | default "en" }}">
 <head>
   {{- partial "head.html" . -}}
+  {{- /*
+    Per-page <head> injection point. Layouts that need to add extra
+    metadata (JSON-LD structured data, per-page preloads, etc.) can
+    implement a `{{ define "head" }}...{{ end }}` block — see
+    layouts/index.html for the canonical example.
+  */ -}}
+  {{- block "head" . }}{{ end -}}
 </head>
 <body>
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-accent focus:text-fg focus:px-3 focus:py-2">Skip to content</a>

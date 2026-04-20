@@ -41,9 +41,8 @@
     <div class="max-w-6xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-muted">
       <span>© {{ now.Format "2006" }} 2060 OÜ · Ahtri tn 12, 10151 Tallinn, Estonia</span>
       <ul class="flex gap-6">
-        <li><a href="#" class="prose-link">Privacy Policy</a></li>
-        <li><a href="#" class="prose-link">Terms of Service</a></li>
-        <li><a href="#" class="prose-link">Cookie Policy</a></li>
+        <li><a href="{{ "/privacy-policy/"   | relURL }}" class="prose-link">Privacy Policy</a></li>
+        <li><a href="{{ "/terms-of-service/" | relURL }}" class="prose-link">Terms of Service</a></li>
       </ul>
     </div>
   </div>
