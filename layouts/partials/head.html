@@ -1,19 +1,23 @@
 {{- /*
-  <head> contents. Page-specific title / description fall back to site-wide
-  defaults from hugo.yaml. The wordmark is rendered via CSS mask, so we
-  only need to ship a single favicon here.
+  <head> contents.
+
+  SEO metadata resolution (highest priority first):
+    * <title>                  .Params.meta_title        -> auto-built (home vs inner page)
+    * <meta description>       .Params.meta_description  -> .Description -> site.Params.description
+    * og:title / og:description mirror the two above.
 */ -}}
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 {{- $siteTitle := site.Title -}}
 {{- $pageTitle := .Title -}}
 {{- $tagline := "We Build the Open Trust Layer" -}}
-{{- if .IsHome -}}
-  <title>{{ $siteTitle }}, {{ $tagline }}</title>
-{{- else -}}
-  <title>{{ $pageTitle }} · {{ $siteTitle }}</title>
-{{- end }}
-<meta name="description" content="{{ .Description | default site.Params.description }}" />
+{{- $autoTitle := cond .IsHome (printf "%s, %s" $siteTitle $tagline) (printf "%s · %s" $pageTitle $siteTitle) -}}
+{{- $metaTitle := .Params.meta_title | default $autoTitle -}}
+{{- $metaDescription := .Params.meta_description | default .Description | default site.Params.description -}}
+
+<title>{{ $metaTitle }}</title>
+<meta name="description" content="{{ $metaDescription }}" />
 <link rel="canonical" href="{{ .Permalink }}" />
 
 {{- /* Favicon + theme colour. */ -}}
@@ -23,8 +27,8 @@
 
 {{- /* Open Graph / minimal social card. */ -}}
 <meta property="og:type" content="website" />
-<meta property="og:title" content="{{ if .IsHome }}{{ $siteTitle }}, {{ $tagline }}{{ else }}{{ $pageTitle }} · {{ $siteTitle }}{{ end }}" />
-<meta property="og:description" content="{{ .Description | default site.Params.description }}" />
+<meta property="og:title" content="{{ $metaTitle }}" />
+<meta property="og:description" content="{{ $metaDescription }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 
 {{- /* Fonts. */ -}}
