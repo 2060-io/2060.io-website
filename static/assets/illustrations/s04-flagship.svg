@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="s04-t s04-d" preserveAspectRatio="xMidYMid meet">
+  <title id="s04-t">Flagship projects — Verana + Hologram</title>
+  <desc id="s04-d">Two cards side by side. Left: Verana trust-registry glyph (ring of DIDs around a central VPR node) in brand purple #763EF0. Right: Hologram agent orb with credential badge in periwinkle #7678ec with deeper indigo #6161cb for depth. 2060 wordmark quietly above, connector labelled "Built on Verana". 16:9.</desc>
+
+  <!-- 2060 wordmark above (quiet — currentColor at 70% opacity) -->
+  <g transform="translate(719 80)" fill="currentColor" opacity="0.7">
+    <path d="M162.412,32.2A24.973,24.973,0,0,0,134.87,10.156c-5.929.658-10.914,2.771-14.956,7.042a26.2,26.2,0,0,1,5.453,7.912l.023.376a15.463,15.463,0,1,1,13.934,24.832,15.668,15.668,0,0,1-11.718-3.363,15.1,15.1,0,0,1-5.327-8.241,12.808,12.808,0,0,1-.247-1.8c0-.056,0-.112,0-.168A22.135,22.135,0,0,0,99.936,15.32c-.679,0-1.351.042-2.013.1a26.268,26.268,0,0,1,16.369-5.943l.275,0L114.675,0a35.775,35.775,0,0,0-23.659,8.8,38.743,38.743,0,0,0-8.982,11.338A24.912,24.912,0,0,0,37.21,35.132H37.2A15.594,15.594,0,0,1,22.352,49.983H17.827l10.811-8.964.014.014c.086-.072.161-.156.247-.231l.529-.439.012-.068A17.449,17.449,0,1,0,0,27.631H9.472a7.988,7.988,0,1,1,13.351,5.9L2.064,50.746H2.053v.012l-.035.028.035.042V59.46h9.554v0h9.9l1.612-.03A25.071,25.071,0,0,0,46.683,35.146l.037-.585A15.455,15.455,0,1,1,62.154,50.608a15.859,15.859,0,0,1-10.6-4.469,26.774,26.774,0,0,1-4.082,9.15,24.852,24.852,0,0,0,34.472-5.02,22.054,22.054,0,0,0,35.881.135,24.2,24.2,0,0,0,3.8,3.9,25.332,25.332,0,0,0,15.933,5.586,25.866,25.866,0,0,0,2.813-.154A24.943,24.943,0,0,0,162.412,32.2M112.83,37.8l-.012,0,.009.054a12.49,12.49,0,1,1,.021-.413c0,.121-.016.238-.019.357"/>
+  </g>
+
+  <!-- Connector between cards, labelled "Built on Verana" -->
+  <g>
+    <line x1="620" y1="520" x2="980" y2="520" stroke="currentColor" stroke-width="1" opacity="0.25" stroke-dasharray="4 6"/>
+    <text x="800" y="512" text-anchor="middle" fill="currentColor" opacity="0.55"
+          font-family="'Space Grotesk', Inter, -apple-system, sans-serif" font-size="14" font-style="italic">Built on Verana</text>
+  </g>
+
+  <!-- ============ CARD 1: Verana (left) ============ -->
+  <g>
+    <rect x="150" y="270" width="480" height="500" fill="none" stroke="currentColor" stroke-width="1" opacity="0.12"/>
+    <!-- Trust registry glyph -->
+    <g transform="translate(390 520)">
+      <!-- Outer ring -->
+      <circle cx="0" cy="0" r="135" fill="none" stroke="#763EF0" stroke-width="2" opacity="0.5"/>
+      <!-- DIDs on the ring -->
+      <g fill="#763EF0">
+        <circle cx="0" cy="-135" r="10"/><circle cx="117" cy="-67" r="10"/><circle cx="117" cy="67" r="10"/>
+        <circle cx="0" cy="135" r="10"/><circle cx="-117" cy="67" r="10"/><circle cx="-117" cy="-67" r="10"/>
+      </g>
+      <!-- Spokes from center to each DID -->
+      <g stroke="#763EF0" stroke-width="1.5" opacity="0.55">
+        <line x1="0" y1="-33" x2="0" y2="-122"/>
+        <line x1="29" y1="-16" x2="106" y2="-60"/>
+        <line x1="29" y1="16" x2="106" y2="60"/>
+        <line x1="0" y1="33" x2="0" y2="122"/>
+        <line x1="-29" y1="16" x2="-106" y2="60"/>
+        <line x1="-29" y1="-16" x2="-106" y2="-60"/>
+      </g>
+      <!-- Central VPR node -->
+      <circle cx="0" cy="0" r="33" fill="#763EF0"/>
+      <text x="0" y="5" text-anchor="middle" fill="#ffffff"
+            font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="700" letter-spacing="0.5">VPR</text>
+    </g>
+    <!-- Labels -->
+    <text x="390" y="732" text-anchor="middle" fill="currentColor"
+          font-family="'Space Grotesk', Inter, sans-serif" font-size="30" font-weight="600">Verana</text>
+    <text x="390" y="760" text-anchor="middle" fill="currentColor" opacity="0.6"
+          font-family="Inter, sans-serif" font-size="14">The open trust layer</text>
+  </g>
+
+  <!-- ============ CARD 2: Hologram (right) ============ -->
+  <g>
+    <rect x="970" y="270" width="480" height="500" fill="none" stroke="currentColor" stroke-width="1" opacity="0.12"/>
+    <g transform="translate(1210 520)">
+      <!-- Depth/shadow offset behind orb -->
+      <circle cx="6" cy="6" r="100" fill="#6161cb" opacity="0.65"/>
+      <!-- Orb -->
+      <circle cx="0" cy="0" r="100" fill="#7678ec"/>
+      <!-- Face hint: two small light points -->
+      <circle cx="-26" cy="-14" r="6" fill="#ffffff" opacity="0.85"/>
+      <circle cx="26" cy="-14" r="6" fill="#ffffff" opacity="0.85"/>
+      <!-- Credential badge near the orb -->
+      <g transform="translate(86 66)">
+        <path d="M 0 -28 L 22 -17 L 22 12 L 0 28 L -22 12 L -22 -17 Z"
+              fill="#6161cb" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M -9 0 L -2 7 L 11 -9" fill="none"
+              stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+    <!-- Labels -->
+    <text x="1210" y="732" text-anchor="middle" fill="currentColor"
+          font-family="'Space Grotesk', Inter, sans-serif" font-size="30" font-weight="600">Hologram</text>
+    <text x="1210" y="760" text-anchor="middle" fill="currentColor" opacity="0.6"
+          font-family="Inter, sans-serif" font-size="14">AI agents you can verify</text>
+  </g>
+</svg>

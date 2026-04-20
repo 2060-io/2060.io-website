@@ -1,0 +1,42 @@
+baseURL: https://2060.io/
+languageCode: en-us
+title: "2060"
+enableRobotsTXT: true
+
+# Disable the default `tags` + `categories` taxonomies and their term
+# pages, this is a 6-page brochure site, not a blog.
+disableKinds:
+  - taxonomy
+  - term
+
+# Clear Hugo's default taxonomy list so nothing generates noise about
+# missing layouts.
+taxonomies: {}
+
+# No theme — we render everything from layouts/.
+# Menus are defined via layouts/partials/nav.html for fine-grained markup
+# control; we keep them out of config so the partial remains the single
+# source of truth.
+
+params:
+  description: "An independent research and engineering company inventing, specifying, and shipping the infrastructure for a verifiable internet."
+  fontAwesomeVersion: "6.5.2"
+  # Fallback for pages that don't set their own <meta description>.
+
+# Clean URLs ( /services/ , /projects/ , ...) are the Hugo default.
+# We keep them; the HTML "./services.html" links get rewritten at build
+# time in layouts.
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true   # allow raw HTML in content/*.md page bodies.
+
+build:
+  writeStats: false
+
+# Do not rebuild when the generated CSS changes under static/css/.
+# Tailwind rebuilds that file in watch mode; Hugo would otherwise
+# see the write event and redo the whole render.
+ignoreFiles:
+  - "static/css/custom\\.css$"

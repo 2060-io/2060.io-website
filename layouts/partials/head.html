@@ -1,0 +1,50 @@
+{{- /*
+  <head> contents. Page-specific title / description fall back to site-wide
+  defaults from hugo.yaml. The wordmark is rendered via CSS mask, so we
+  only need to ship a single favicon here.
+*/ -}}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+{{- $siteTitle := site.Title -}}
+{{- $pageTitle := .Title -}}
+{{- $tagline := "We Build the Open Trust Layer" -}}
+{{- if .IsHome -}}
+  <title>{{ $siteTitle }}, {{ $tagline }}</title>
+{{- else -}}
+  <title>{{ $pageTitle }} · {{ $siteTitle }}</title>
+{{- end }}
+<meta name="description" content="{{ .Description | default site.Params.description }}" />
+<link rel="canonical" href="{{ .Permalink }}" />
+
+{{- /* Favicon + theme colour. */ -}}
+<link rel="icon" type="image/svg+xml" href="{{ "/assets/favicon.svg" | relURL }}" />
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+{{- /* Open Graph / minimal social card. */ -}}
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ if .IsHome }}{{ $siteTitle }}, {{ $tagline }}{{ else }}{{ $pageTitle }} · {{ $siteTitle }}{{ end }}" />
+<meta property="og:description" content="{{ .Description | default site.Params.description }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+{{- /* Fonts. */ -}}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+{{- /* Font Awesome, used inline in Section 3 / Section 5 titles. */ -}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{ site.Params.fontAwesomeVersion }}/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+{{- /*
+  Theme script must execute before stylesheets so the `.light` / `.dark`
+  class lands on <html> before any rule is evaluated, avoiding a flash
+  of the wrong theme on first paint.
+*/ -}}
+<script src="{{ "/assets/theme.js" | relURL }}"></script>
+
+{{- /*
+  Tailwind output, produced by `npm run build:css` (see package.json).
+  In production Hugo appends a cache-busting ?v=<buildTime> to prevent
+  stale CDN copies after a deploy.
+*/ -}}
+<link rel="stylesheet" href="{{ "/css/custom.css" | relURL }}{{ if hugo.IsProduction }}?v={{ now.Unix }}{{ end }}" />

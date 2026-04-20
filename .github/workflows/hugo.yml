@@ -1,61 +1,79 @@
-# Based on the sample workflow for building and deploying a Hugo site to GitHub Pages
+# Build and deploy the 2060.io website to GitHub Pages.
+#
+# Pipeline:
+#   1. Install the pinned Tailwind + Node toolchain (needed to compile
+#      assets/css/input.css -> static/css/custom.css).
+#   2. Install Hugo extended, the minified CSS + Hugo's own pipeline
+#      both need it.
+#   3. Build the site with the URL GitHub Pages hands us at runtime
+#      (custom domain or github.io subpath, either works).
+#   4. Upload the public/ directory as a Pages artifact and deploy.
+#
+# The deploy step is gated on the default branch + correct repo name
+# to avoid accidental publishes from forks.
+
 name: Deploy Hugo site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
-
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.130.0
+      HUGO_VERSION: 0.141.0
+      NODE_VERSION: 20
     steps:
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          submodules: recursive
-      - name: Setup Pages
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build Tailwind CSS
+        run: npm run build:css
+
+      - name: Install Hugo CLI
+        run: |
+          wget -q -O "${{ runner.temp }}/hugo.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i "${{ runner.temp }}/hugo.deb"
+
+      - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v5
+
       - name: Build with Hugo
         env:
-          # For maximum backward compatibility with Hugo modules
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
           hugo \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/" \
-            -s "./" \
-            --themesDir "./themes"
-      - name: Upload artifact
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages

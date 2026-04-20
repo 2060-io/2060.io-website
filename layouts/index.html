@@ -1,12 +1,248 @@
 {{ define "main" }}
-  {{ with .Site.Data.home.hero }}{{ partial "sections/hero.html" . }}{{ end }}
-  <!-- {{ with .Site.Data.home.brands }}{{ partial "sections/brands.html" . }}{{ end }} -->
-  <!-- {{ with .Site.Data.home.portfolio }}{{ partial "sections/portfolio.html" . }}{{ end }} -->
-  {{ with .Site.Data.home.features }}{{ partial "sections/features.html" . }}{{ end }}
-  {{ with .Site.Data.home.download }}{{ partial "sections/download.html" . }}{{ end }}
-  <!-- {{ with .Site.Data.home.services }}{{ partial "sections/services.html" . }}{{ end }} -->
-  {{ with .Site.Data.home.useCase_carou }}{{ partial "sections/useCase_carou.html" . }}{{ end }}
-  {{ with .Site.Data.home.contact }}{{ partial "sections/contact.html" . }}{{ end }}
-  <!-- {{ with .Site.Data.home.testimonials }}{{ partial "sections/testimonials.html" . }}{{ end }} -->
-  <!-- {{ with .Site.Data.home.cta }}{{ partial "sections/cta.html" . }}{{ end }} -->
+
+    <!-- ================== SECTION 1, HERO ================== -->
+    <section class="px-6 pt-12 md:pt-16 pb-20 md:pb-28 border-b hairline">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-xs text-muted tracking-wide uppercase">
+          Open Source · Founding Member of the Verana Foundation
+        </p>
+        <h1 class="display text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl mx-auto mt-6">
+          We Build the Open Trust Layer
+        </h1>
+        <div class="accent-line mx-auto mt-6"></div>
+        <p class="text-lg md:text-xl text-muted reading max-w-2xl mx-auto mt-8">
+          An independent research and engineering company inventing, specifying, and shipping the infrastructure for a verifiable internet, for humans, services, and AI agents.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3 mt-10">
+          <a href="/contact/" class="btn btn-primary">Work With Us</a>
+          <a href="/projects/" class="btn">See Our Projects</a>
+        </div>
+        <figure class="illustration mt-12" role="img" aria-label="A research desk seen from above: an open laptop, papers with a hand-drawn trust graph, a coffee mug, and a fountain pen.">
+          <div class="illus-s01" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================== SECTION 2, WHO WE ARE ================== -->
+    <section class="px-6 py-16 border-b hairline">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-12 gap-10">
+          <div class="md:col-span-4">
+            <p class="tag">Who we are</p>
+            <h2 class="display text-3xl md:text-4xl mt-4">Independent. Technical. Long-Term.</h2>
+          </div>
+          <div class="md:col-span-8 reading space-y-5 text-e5">
+            <p>
+              2060 is a small, senior team distributed across the world. We are the people who, after many years at the <a href="https://internetidentityworkshop.com/" class="prose-link text-fg" rel="noopener">Internet Identity Workshop</a>, invented the concept of <strong class="text-fg">Verifiable Trust</strong>, and then wrote the specifications, seeded the reference implementations, and co-founded the <a href="https://verana.io" class="prose-link text-fg" rel="noopener">Verana Foundation</a> to steward the work as a public good.
+            </p>
+            <p>
+              We do not sell a platform. We write protocols. We ship open source. We operate the decentralized networks those protocols depend on. Our revenue comes from research, consulting, and managed operation, never from gatekeeping the technologies we invent.
+            </p>
+            <p>
+              When you work with 2060, you work directly with spec authors, maintainers, and operators. Not a sales team.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline illustration -->
+        <ol class="mt-16 grid grid-cols-2 md:grid-cols-6 gap-4 text-sm relative" aria-label="Timeline">
+          <div class="hidden md:block absolute top-2.5 left-4 right-4 h-px hairline border-t"></div>
+          <li class="relative"><span class="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong class="block text-fg">2020</strong><span class="text-muted">Genesis, Verifiable Trust concept</span></li>
+          <li class="relative"><span class="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong class="block text-fg">2021–22</strong><span class="text-muted">First PoCs, Hologram App</span></li>
+          <li class="relative"><span class="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong class="block text-fg">2023</strong><span class="text-muted">Verana VPR development starts</span></li>
+          <li class="relative"><span class="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong class="block text-fg">2024</strong><span class="text-muted">Verana brand established</span></li>
+          <li class="relative"><span class="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong class="block text-fg">2025</strong><span class="text-muted">Verana testnet launch</span></li>
+          <li class="relative"><span class="block w-2 h-2 rounded-full bg-accent mb-3"></span><strong class="block text-fg">2026</strong><span class="text-muted">Building the agentic internet</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================== SECTION 3, WHAT WE DO ================== -->
+    <section class="px-6 py-16 border-b hairline">
+      <div class="max-w-6xl mx-auto">
+        <div class="max-w-3xl">
+          <p class="tag">What we do</p>
+          <h2 class="display text-3xl md:text-4xl mt-4">Four Practices. One Mission.</h2>
+          <p class="text-muted mt-4 reading">Our work clusters around four reinforcing practices. Most engagements combine more than one.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-px mt-12 hairline border">
+          <article class="card bg-bg">
+            <h3 class="display text-xl flex items-center gap-3">
+              <i class="fa-solid fa-magnifying-glass text-2xl text-fg" aria-hidden="true"></i>
+              Research
+            </h3>
+            <div class="accent-line mt-2 mb-4"></div>
+            <p class="text-muted">Investigate the hard problems of decentralized trust, DIDs, credential formats, verifiable governance, agentic trust, before they become product requirements.</p>
+            <a href="/services/#research" class="prose-link text-fg text-sm inline-block mt-4">Learn more →</a>
+          </article>
+          <article class="card bg-bg">
+            <h3 class="display text-xl flex items-center gap-3">
+              <i class="fa-solid fa-file-lines text-2xl text-fg" aria-hidden="true"></i>
+              Specification Delivery
+            </h3>
+            <div class="accent-line mt-2 mb-4"></div>
+            <p class="text-muted">Write production-grade protocols for ecosystems, consortia, and standards bodies. We authored the Verana specifications and can do the same for yours.</p>
+            <a href="/services/#specification" class="prose-link text-fg text-sm inline-block mt-4">Learn more →</a>
+          </article>
+          <article class="card bg-bg">
+            <h3 class="display text-xl flex items-center gap-3">
+              <i class="fa-solid fa-code-branch text-2xl text-fg" aria-hidden="true"></i>
+              Open-Source Engineering
+            </h3>
+            <div class="accent-line mt-2 mb-4"></div>
+            <p class="text-muted">Ship production-grade open source: Governable AI Agents for personal and corporate use, Hologram App, MCP servers, verifiable services. All open source, all self-hostable.</p>
+            <a href="/services/#engineering" class="prose-link text-fg text-sm inline-block mt-4">Learn more →</a>
+          </article>
+          <article class="card bg-bg">
+            <h3 class="display text-xl flex items-center gap-3">
+              <i class="fa-solid fa-handshake text-2xl text-fg" aria-hidden="true"></i>
+              Consulting &amp; Advisory
+            </h3>
+            <div class="accent-line mt-2 mb-4"></div>
+            <p class="text-muted">Ecosystem design, technical due diligence, architecture review, custom development, managed operation, and training, delivered by the people who built the stack.</p>
+            <a href="/services/#consulting" class="prose-link text-fg text-sm inline-block mt-4">Learn more →</a>
+          </article>
+        </div>
+        <div class="mt-10">
+          <a href="/services/#engagement" class="btn">See Engagement Models</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== SECTION 4, FLAGSHIP PROJECTS ================== -->
+    <section class="px-6 py-16 border-b hairline">
+      <div class="max-w-6xl mx-auto">
+        <div class="max-w-3xl">
+          <p class="tag">Flagship projects</p>
+          <h2 class="display text-3xl md:text-4xl mt-4">What We've Built</h2>
+          <p class="text-muted mt-4 reading">Two flagship efforts define 2060's public footprint today.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 mt-12">
+          <article class="card flex flex-col h-full">
+            <span class="display text-xs tracking-wider uppercase text-muted">Public foundation</span>
+            <h3 class="display text-2xl mt-3 flex items-center gap-3">
+              <img src="/assets/verana-logo.svg" alt="" class="card-logo w-8 h-8 flex-shrink-0" width="32" height="32" aria-hidden="true">
+              Verana Foundation
+            </h3>
+            <p class="text-muted mt-3 flex-1">The open, non-profit trust layer for the internet. We are a founding member of the Council, the principal author of the two Verana specifications, and the largest code contributor to the reference implementation. Verana is the ecosystem; 2060 is one of its engines.</p>
+            <a href="https://verana.io" class="prose-link text-fg text-sm mt-5 self-end" rel="noopener">Visit verana.io ↗</a>
+          </article>
+          <article class="card flex flex-col h-full">
+            <span class="display text-xs tracking-wider uppercase text-muted">Product</span>
+            <h3 class="display text-2xl mt-3 flex items-center gap-3">
+              <img src="/assets/hologram-logo.svg" alt="" class="card-logo w-8 h-8 flex-shrink-0 rounded-md" width="32" height="32" aria-hidden="true">
+              Hologram Agentic AI
+            </h3>
+            <p class="text-muted mt-3 flex-1">Open infrastructure for deploying decentralized, verifiable, identifiable, and governable AI agents. Built by 2060 on top of the Verana trust layer, running in production today, fully open source.</p>
+            <a href="https://hologram.zone" class="prose-link text-fg text-sm mt-5 self-end" rel="noopener">Visit hologram.zone ↗</a>
+          </article>
+        </div>
+        <p class="text-sm text-muted mt-8">
+          Plus a growing portfolio of open-source projects under <a href="https://github.com/2060-io" class="prose-link text-fg" rel="noopener">github.com/2060-io</a>, see <a href="/projects/" class="prose-link text-fg">Projects</a> for the full list.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================== SECTION 5, PRINCIPLES ================== -->
+    <section class="px-6 py-16 border-b hairline">
+      <div class="max-w-6xl mx-auto">
+        <div class="max-w-3xl">
+          <p class="tag">What we believe</p>
+          <h2 class="display text-3xl md:text-4xl mt-4">Principles We Don't Compromise</h2>
+          <p class="text-muted mt-4 reading">Six principles guide every engagement, every spec, and every line of code.</p>
+        </div>
+        <dl class="grid md:grid-cols-2 gap-y-8 gap-x-12 mt-12">
+          <div>
+            <dt class="display text-lg flex items-center gap-3">
+              <i class="fa-solid fa-network-wired text-xl text-fg" aria-hidden="true"></i>
+              Decentralization
+            </dt>
+            <dd class="text-muted mt-2">No single entity should decide who is allowed to exist online. Trust is cryptographic, portable, and ecosystem-governed.</dd>
+          </div>
+          <div>
+            <dt class="display text-lg flex items-center gap-3">
+              <i class="fa-solid fa-lock text-xl text-fg" aria-hidden="true"></i>
+              Privacy
+            </dt>
+            <dd class="text-muted mt-2">Personal data is not a business model. Selective disclosure and local-first computation are baseline requirements.</dd>
+          </div>
+          <div>
+            <dt class="display text-lg flex items-center gap-3">
+              <i class="fa-solid fa-id-card text-xl text-fg" aria-hidden="true"></i>
+              Sovereignty
+            </dt>
+            <dd class="text-muted mt-2">Individuals own their identity and data. Organizations own their services and infrastructure.</dd>
+          </div>
+          <div>
+            <dt class="display text-lg flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-xl text-fg" aria-hidden="true"></i>
+              Verifiability
+            </dt>
+            <dd class="text-muted mt-2">"Trust me" is not a protocol. Every claim is independently verifiable; every governance rule is public.</dd>
+          </div>
+          <div>
+            <dt class="display text-lg flex items-center gap-3">
+              <i class="fa-solid fa-book-open text-xl text-fg" aria-hidden="true"></i>
+              Open source, open standards
+            </dt>
+            <dd class="text-muted mt-2">We publish specifications so the work outlives us and competitors become collaborators.</dd>
+          </div>
+          <div>
+            <dt class="display text-lg flex items-center gap-3">
+              <i class="fa-solid fa-paper-plane text-xl text-fg" aria-hidden="true"></i>
+              Ship the code
+            </dt>
+            <dd class="text-muted mt-2">A specification without a working implementation is a suggestion. Every spec we author comes with a production reference implementation.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================== SECTION 6, STANDARDS & COMMUNITY ================== -->
+    <section class="standards-section px-6 py-16 border-b hairline">
+      <div class="max-w-6xl mx-auto">
+        <p class="tag">Standards</p>
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 mt-4 lg:items-start">
+          <div>
+            <h2 class="display text-3xl md:text-4xl">We Build on Open Standards</h2>
+            <p class="text-muted mt-4 reading">2060 does not reinvent protocols. We implement them, contribute back, and extend them where real deployments expose gaps. Every component we ship is built on open, interoperable standards maintained by global standards bodies, and we are active participants in those bodies.</p>
+            <p class="text-xs text-muted mt-8 italic">Interoperable by design. No vendor lock-in. Ever.</p>
+          </div>
+          <ul class="logo-strip" aria-label="Standards bodies, foundations, and implementations we work with">
+            <li><a href="https://www.w3.org/"          target="_blank" rel="noopener noreferrer" title="W3C"><img class="logo-img" src="/assets/logos/logo-w3c.svg"            alt="W3C"></a></li>
+            <li><a href="https://didcomm.org/"         target="_blank" rel="noopener noreferrer" title="DIDComm"><img class="logo-img" src="/assets/logos/logo-didcomm.svg"        alt="DIDComm"></a></li>
+            <li><a href="https://identity.foundation/" target="_blank" rel="noopener noreferrer" title="Decentralized Identity Foundation"><img class="logo-img" src="/assets/logos/logo-dif.png"            alt="Decentralized Identity Foundation"></a></li>
+            <li><a href="https://trustoverip.org/"     target="_blank" rel="noopener noreferrer" title="Trust over IP Foundation"><img class="logo-img" src="/assets/logos/logo-trust-over-ip.svg"  alt="Trust over IP Foundation"></a></li>
+            <li><a href="https://openwallet.foundation/" target="_blank" rel="noopener noreferrer" title="OpenWallet Foundation"><img class="logo-img" src="/assets/logos/logo-open-wallet.svg"    alt="OpenWallet Foundation"></a></li>
+            <li><a href="https://credo.js.org/"        target="_blank" rel="noopener noreferrer" title="Credo"><img class="logo-img" src="/assets/logos/logo-credo.svg"          alt="Credo"></a></li>
+            <li><a href="https://daiaa.org/"           target="_blank" rel="noopener noreferrer" title="DAIAA"><img class="logo-img" src="/assets/logos/daiaa.avif"              alt="DAIAA"></a></li>
+            <li><a href="https://cosmos.network/"      target="_blank" rel="noopener noreferrer" title="Cosmos"><img class="logo-img logo-wide" src="/assets/logos/cosmos-logo-black.svg" alt="Cosmos"></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== SECTION 7, FINAL CTA ================== -->
+    <section class="px-6 py-20">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="display text-3xl md:text-5xl max-w-3xl mx-auto leading-tight">
+          Building the Verifiable Internet. Together.
+        </h2>
+        <div class="accent-line mx-auto mt-6"></div>
+        <p class="text-muted mt-8 max-w-2xl mx-auto reading mx-auto">
+          If you are a government, industry consortium, enterprise, or startup serious about decentralized trust and agentic AI, we would like to hear what you are building.
+        </p>
+        <p class="text-muted mt-4 max-w-2xl mx-auto reading mx-auto">
+          Start with a conversation. We respond within a few business days with honest input on whether we are the right fit.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3 mt-10">
+          <a href="/contact/" class="btn btn-primary">Request Information →</a>
+          <a href="/projects/" class="btn">Explore Our Projects</a>
+        </div>
+        <figure class="illustration mt-12" role="img" aria-label="Editorial illustration closing the page on a note of shared intent.">
+          <div class="illus-s07" aria-hidden="true"></div>
+        </figure>
+      </div>
+    </section>
+
 {{ end }}

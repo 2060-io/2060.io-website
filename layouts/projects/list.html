@@ -1,0 +1,168 @@
+{{ define "main" }}
+    <!-- SECTION 14, OVERVIEW -->
+    <section class="px-6 pt-24 pb-16 border-b hairline">
+      <div class="max-w-6xl mx-auto">
+        <p class="tag">Projects</p>
+        <h1 class="display text-4xl md:text-6xl mt-4 leading-tight">What We've Shipped</h1>
+        <div class="accent-line mt-6"></div>
+        <p class="text-lg text-muted mt-8 reading">Production open source, public specifications, and running deployments, the work 2060 has delivered so far.</p>
+        <p class="text-muted reading mt-4">This page is the index. Each project below links to its repository, its deployment, or its specification. Nothing on this page is a roadmap item; if it's listed here, it exists.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 15, VERANA FOUNDATION -->
+    <section class="px-6 py-20 border-b hairline">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-4">
+          <p class="tag">01</p>
+          <h2 class="display text-3xl mt-4">Verana Foundation</h2>
+          <div class="accent-line mt-4"></div>
+          <span class="inline-block w-3 h-3 rounded-full mt-6" style="background:#763EF0" aria-hidden="true"></span>
+          <p class="text-xs text-muted mt-2">Public foundation</p>
+        </div>
+        <div class="md:col-span-8">
+          <p class="text-muted reading">We are a founding member of the Verana Foundation and a permanent member of the Verana Council. In practical terms, that means 2060:</p>
+          <ul class="mt-6 space-y-3 text-e5">
+            <li>,  Co-founded the Foundation and seeded its initial governance.</li>
+            <li>,  Maintains the two Verana specifications (Verifiable Trust and VPR).</li>
+            <li>,  Contributes the majority of the code in the reference implementation.</li>
+            <li>,  Operates a validator on the Verana testnet (and, in due course, mainnet).</li>
+            <li>,  Acts as grantor on behalf of ecosystems deploying on Verana.</li>
+          </ul>
+          <p class="text-muted reading mt-6">The Foundation is the public steward; 2060 is one of its engines.</p>
+          <div class="flex flex-wrap gap-3 mt-8">
+            <a href="https://verana.io" class="btn btn-primary" rel="noopener">Visit verana.io ↗</a>
+            <a href="https://verana-labs.github.io/verifiable-trust-spec/" class="btn" rel="noopener">Read the Specifications ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 16, VERIFIABLE TRUST SPECIFICATIONS -->
+    <section class="px-6 py-20 border-b hairline">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-4">
+          <p class="tag">02</p>
+          <h2 class="display text-3xl mt-4">The Specifications We Authored</h2>
+          <div class="accent-line mt-4"></div>
+        </div>
+        <div class="md:col-span-8 space-y-6">
+          <p class="text-muted reading">Two public specifications, written by 2060, published under the Verana Foundation, becoming the reference for verifiable trust in decentralized ecosystems.</p>
+          <article class="card">
+            <h3 class="display text-xl"><a href="https://verana-labs.github.io/verifiable-trust-spec/" class="prose-link text-fg" rel="noopener">Verifiable Trust Specification</a></h3>
+            <p class="text-muted mt-3">The end-to-end model: how any digital service (Verifiable Service, VS) and any user agent (Verifiable User Agent, VUA) identify, authenticate, and mutually verify each other before connecting. Defines Proof-of-Trust, service-endpoint declaration, credential-chain resolution, and conformance requirements.</p>
+          </article>
+          <article class="card">
+            <h3 class="display text-xl"><a href="https://verana-labs.github.io/verifiable-trust-vpr-spec/" class="prose-link text-fg" rel="noopener">Verifiable Public Registry Specification</a></h3>
+            <p class="text-muted mt-3">The on-chain registry that anchors trust registries, credential schemas, permission trees, validation fees, issuance and verification economics, and trust deposits.</p>
+          </article>
+          <p class="text-muted reading">Both specifications are versioned in the open, with full change history on GitHub. Contributions welcome.</p>
+          <a href="https://github.com/verana-labs" class="btn" rel="noopener">Contribute on GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 17, HOLOGRAM AGENTIC AI -->
+    <section class="px-6 py-20 border-b hairline">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-4">
+          <p class="tag">03</p>
+          <h2 class="display text-3xl mt-4">Hologram Agentic AI</h2>
+          <div class="accent-line mt-4"></div>
+          <span class="inline-block w-3 h-3 rounded-full mt-6" style="background:#7678ec" aria-hidden="true"></span>
+          <p class="text-xs text-muted mt-2">Product</p>
+        </div>
+        <div class="md:col-span-8">
+          <p class="text-muted reading">Our flagship product and proof that Verifiable Trust scales to AI.</p>
+          <p class="text-muted reading mt-4">Hologram is open infrastructure for deploying decentralized, verifiable, identifiable, and governable AI agents, for personal use or enterprise. Every agent has a DID, holds Verifiable Credentials proving who operates it, presents a Proof-of-Trust before any interaction, and connects to tools through standard MCP servers. The entire stack is open source and Kubernetes-native.</p>
+          <p class="text-muted reading mt-4">It is the first answer to the question "what does AI look like when every agent is verifiable by construction?".</p>
+          <div class="flex flex-wrap gap-3 mt-8">
+            <a href="https://hologram.zone" class="btn btn-primary" rel="noopener">Visit hologram.zone ↗</a>
+            <a href="https://github.com/2060-io/hologram-generic-ai-agent-vs/blob/main/docs/agent-pack-schema.md" class="btn" rel="noopener">Read the Agent Pack Spec ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 18, OPEN-SOURCE PORTFOLIO -->
+    <section class="px-6 py-20 border-b hairline">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-12 gap-10">
+          <div class="md:col-span-4">
+            <p class="tag">04</p>
+            <h2 class="display text-3xl mt-4">Open-Source Portfolio</h2>
+            <div class="accent-line mt-4"></div>
+          </div>
+          <div class="md:col-span-8">
+            <p class="text-muted reading">Selected production projects maintained by 2060:</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-px mt-10 border hairline">
+          <article class="card bg-bg">
+            <div class="flex items-center justify-between">
+              <span class="tag">Verifiable User Agent</span><span class="tag tag-accent">Flagship</span>
+            </div>
+            <h3 class="display text-lg mt-3">Hologram Messaging App</h3>
+            <p class="text-muted text-sm mt-2">iOS, Android, Huawei. Production.</p>
+          </article>
+          <article class="card bg-bg">
+            <div class="flex items-center justify-between">
+              <span class="tag">Agent</span><span class="tag tag-accent">Flagship</span>
+            </div>
+            <h3 class="display text-lg mt-3">Hologram Generic AI Agent</h3>
+            <p class="text-muted text-sm mt-2">Modular LLM chatbot with MCP, RAG, RBAC. Deployable just by writing an <code>agent-pack.yml</code>. TypeScript, NestJS. Production.</p>
+          </article>
+          <article class="card bg-bg">
+            <div class="flex items-center justify-between"><span class="tag">Vision</span><span class="tag">Suite</span></div>
+            <h3 class="display text-lg mt-3">Vision software suite</h3>
+            <p class="text-muted text-sm mt-2">Computer-vision tooling for document capture, image processing, and identity flows. Production.</p>
+          </article>
+          <article class="card bg-bg">
+            <div class="flex items-center justify-between"><span class="tag">Vision</span><span class="tag">Biometrics</span></div>
+            <h3 class="display text-lg mt-3">Face matching engine with liveness detection</h3>
+            <p class="text-muted text-sm mt-2">1:1 face verification with presentation-attack / liveness detection for KYC and onboarding. Production.</p>
+          </article>
+          <article class="card bg-bg">
+            <div class="flex items-center justify-between"><span class="tag">Mediator</span></div>
+            <h3 class="display text-lg mt-3">DIDComm mediator</h3>
+            <p class="text-muted text-sm mt-2">Message relay for DIDComm agents, store-and-forward for offline mobile clients. Production.</p>
+          </article>
+          <article class="card bg-bg">
+            <div class="flex items-center justify-between"><span class="tag">Issuer</span></div>
+            <h3 class="display text-lg mt-3">Government Digital ID issuer</h3>
+            <p class="text-muted text-sm mt-2">NFC passport reading + liveness detection + credential issuance. Production.</p>
+          </article>
+          <article class="card bg-bg md:col-span-2">
+            <div class="flex items-center justify-between"><span class="tag">Manifests</span></div>
+            <h3 class="display text-lg mt-3">Custom Agent Packs</h3>
+            <p class="text-muted text-sm mt-2">Reference YAML manifests for common agent archetypes (customer service, finance, HR, compliance).</p>
+          </article>
+        </div>
+        <p class="text-sm text-muted mt-8">Full list at <a href="https://github.com/2060-io" class="prose-link text-fg" rel="noopener">github.com/2060-io ↗</a></p>
+      </div>
+    </section>
+
+    <!-- SECTION 19, VERANA ECOSYSTEM INFRASTRUCTURE -->
+    <section class="px-6 py-20 border-b hairline">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-4">
+          <p class="tag">05</p>
+          <h2 class="display text-3xl mt-4">Verana Ecosystem Infrastructure</h2>
+          <div class="accent-line mt-4"></div>
+        </div>
+        <div class="md:col-span-8">
+          <p class="text-muted reading">Beyond the specifications, 2060 co-maintains the production tooling that makes the Verana network usable:</p>
+          <ul class="mt-6 space-y-3 text-e5">
+            <li><strong class="text-fg">VPR blockchain node</strong>, Cosmos SDK implementation of the Verifiable Public Registry.</li>
+            <li><strong class="text-fg">Verana Frontend</strong>, the official ecosystem-management interface.</li>
+            <li><strong class="text-fg">Verana Resolver</strong>, trust-chain resolution service.</li>
+            <li><strong class="text-fg">Verana Indexer</strong>, on-chain data indexer for queries.</li>
+            <li><strong class="text-fg">Verana Visualizer</strong>, dashboard for exploring registries, schemas, and credentials.</li>
+            <li><strong class="text-fg">Verana Faucet</strong>, testnet token distribution, delivered via a Hologram chatbot.</li>
+          </ul>
+          <p class="text-muted reading mt-6">All repositories live under <a href="https://github.com/verana-labs" class="prose-link text-fg" rel="noopener">github.com/verana-labs ↗</a> and are stewarded by the Foundation. 2060 contributes code, reviews PRs, and operates reference deployments.</p>
+          <a href="https://verana.io/page/developers/testnet" class="btn mt-8" rel="noopener">Explore the Verana Testnet ↗</a>
+        </div>
+      </div>
+    </section>
+{{ end }}
