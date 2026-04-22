@@ -1,0 +1,88 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches: [main, 'release/**']
+
+permissions:
+  contents: write    # required for release-please and gh release create
+  issues: write
+  pull-requests: write
+
+env:
+  IMAGE_NAME: 'website'
+  DOCKER_HUB_NAMESPACE: 'io2060'
+
+jobs:
+  resolve-version:
+    uses: 2060-io/organization/.github/workflows/resolve-version-call.yml@main
+
+  docker:
+    needs: resolve-version
+    if: needs.resolve-version.outputs.new-release-published == 'true'
+    runs-on: ubuntu-latest
+
+    env:
+      RELEASE_TYPE: ${{ needs.resolve-version.outputs.release-type }}
+      RELEASE_VERSION: ${{ needs.resolve-version.outputs.release-version }}
+      RELEASE_MAJOR: ${{ needs.resolve-version.outputs.release-major }}
+      RELEASE_MINOR: ${{ needs.resolve-version.outputs.release-minor }}
+      RELEASE_PATCH: ${{ needs.resolve-version.outputs.release-patch }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compute tags
+        id: compute-tags
+        run: |
+          if [ "$RELEASE_TYPE" = "stable" ]; then
+            echo "IMAGE_TAG=latest" >> $GITHUB_ENV
+            echo "SUFFIX=" >> $GITHUB_ENV
+          else
+            echo "IMAGE_TAG=dev" >> $GITHUB_ENV
+            echo "SUFFIX=-dev" >> $GITHUB_ENV
+            # semantic-release emits a pre-release patch like "1-dev.abc1234".
+            # Take its first char so the v<M>.<m>.<p>-dev tag stays a simple integer.
+            echo "RELEASE_PATCH_SHORT=${RELEASE_PATCH:0:1}" >> $GITHUB_ENV
+          fi
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Docker login
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_LOGIN }}
+          password: ${{ secrets.DOCKER_HUB_PWD }}
+
+      - name: Build & push ${{ env.IMAGE_NAME }} dev tags
+        if: env.RELEASE_TYPE == 'dev'
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          tags: |
+            ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+            ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.IMAGE_NAME }}:v${{ env.RELEASE_MAJOR }}${{ env.SUFFIX }}
+            ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.IMAGE_NAME }}:v${{ env.RELEASE_MAJOR }}.${{ env.RELEASE_MINOR }}${{ env.SUFFIX }}
+            ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.IMAGE_NAME }}:v${{ env.RELEASE_MAJOR }}.${{ env.RELEASE_MINOR }}.${{ env.RELEASE_PATCH_SHORT }}${{ env.SUFFIX }}
+            ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.IMAGE_NAME }}:${{ env.RELEASE_VERSION }}
+
+      - name: Build & push ${{ env.IMAGE_NAME }} stable release tags
+        if: env.RELEASE_TYPE == 'stable'
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          tags: |
+            ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+            ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.IMAGE_NAME }}:v${{ env.RELEASE_MAJOR }}${{ env.SUFFIX }}
+            ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.IMAGE_NAME }}:v${{ env.RELEASE_MAJOR }}.${{ env.RELEASE_MINOR }}${{ env.SUFFIX }}
+            ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.IMAGE_NAME }}:${{ env.RELEASE_VERSION }}
