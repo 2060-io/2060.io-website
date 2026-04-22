@@ -1,0 +1,6 @@
+apiVersion: v2
+name: website
+description: Helm chart that deploys the 2060.io Next.js website behind an nginx ingress with Let's Encrypt TLS.
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

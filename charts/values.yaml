@@ -1,0 +1,69 @@
+# Default values for the 2060.io website Helm chart.
+
+nameOverride: "website"
+fullnameOverride: ""
+
+image:
+  repository: io2060/website
+  # tag defaults to "v<Chart.AppVersion>" when empty, matching the Docker
+  # tags produced by .github/workflows/cd.yml (e.g. v1.0.0).
+  tag: ""
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+resources:
+  requests:
+    cpu: "50m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+service:
+  type: ClusterIP
+  port: 80
+  # The Next.js standalone server listens on 3000.
+  targetPort: 3000
+
+ingress:
+  enabled: true
+  className: nginx
+  host: 2060.io
+  tls:
+    enabled: true
+    secretName: website-2060-io-tls
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+
+# Container env for the Node.js runtime.
+env:
+  - name: NODE_ENV
+    value: production
+  - name: PORT
+    value: "3000"
+  - name: HOSTNAME
+    value: 0.0.0.0
+
+# Health probes hit the Next.js app root, which is statically prerendered and
+# always returns 200 once the standalone server is listening.
+probes:
+  liveness:
+    path: /
+    initialDelaySeconds: 15
+    periodSeconds: 30
+    timeoutSeconds: 3
+    failureThreshold: 3
+  readiness:
+    path: /
+    initialDelaySeconds: 3
+    periodSeconds: 10
+    timeoutSeconds: 3
+    failureThreshold: 3
+
+podSecurityContext: {}
+securityContext: {}
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

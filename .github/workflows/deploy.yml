@@ -1,0 +1,90 @@
+name: Deploy to Kubernetes
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Image tag to deploy (e.g. v1.2.3, v1, dev, latest)"
+        required: true
+        default: latest
+
+concurrency:
+  group: cd-${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compute image tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            # release-please tags releases 'v1.2.3' and the Docker workflow
+            # in cd.yml pushes io2060/website:v1.2.3 with the same name,
+            # so use the ref name as-is (no 'v' stripping).
+            VERSION="${GITHUB_REF_NAME}"
+          else
+            VERSION="${{ inputs.version }}"
+          fi
+          if [ -z "$VERSION" ]; then
+            echo "::error::Could not determine image tag to deploy."
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Deploying io2060/website:$VERSION"
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.14.0
+
+      - name: Write kubeconfig
+        env:
+          KUBECONFIG_DATA: ${{ vars.OVH_KUBERNETES }}
+        run: |
+          if [ -z "$KUBECONFIG_DATA" ]; then
+            echo "::error::The OVH_KUBERNETES GitHub Actions variable is empty."
+            echo "Set it under Settings → Secrets and variables → Actions → Variables."
+            exit 1
+          fi
+          mkdir -p "$HOME/.kube"
+          printf '%s' "$KUBECONFIG_DATA" > "$HOME/.kube/config"
+          chmod 600 "$HOME/.kube/config"
+          kubectl cluster-info
+
+      - name: Wait for Docker image to be available on Docker Hub
+        run: |
+          IMAGE="io2060/website:${{ steps.tag.outputs.version }}"
+          for i in $(seq 1 10); do
+            if docker manifest inspect "$IMAGE" >/dev/null 2>&1; then
+              echo "Image $IMAGE is available."
+              exit 0
+            fi
+            echo "[$i/10] Image $IMAGE not yet available on Docker Hub, waiting 30s..."
+            sleep 30
+          done
+          echo "::error::Image $IMAGE was not available after ~5 minutes."
+          exit 1
+
+      - name: Helm upgrade
+        run: |
+          helm upgrade --install website ./charts \
+            --namespace web \
+            --create-namespace \
+            --set image.tag=${{ steps.tag.outputs.version }} \
+            --wait --timeout 5m
+
+      - name: Show deployed resources
+        if: always()
+        run: |
+          helm status website -n web || true
+          kubectl -n web get deploy,svc,ingress -l app.kubernetes.io/name=website -o wide || true
