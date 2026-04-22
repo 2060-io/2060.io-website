@@ -1,10 +1,184 @@
-export const metadata = {
-  title: '2060 — We Build the Open Trust Layer for the Agentic Internet',
+/*
+  Structured data for rich search results.
+  Scoped to the home page so Google de-duplicates the graph rather
+  than seeing it repeated on every inner page.
+*/
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://2060.io/#organization",
+      "name": "2060",
+      "legalName": "2060 OÜ",
+      "url": "https://2060.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://2060.io/assets/logo-2060.svg",
+      },
+      "foundingDate": "2023",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Tallinn, Estonia",
+      },
+      "description":
+        "Independent research and engineering company building the infrastructure for a verifiable internet.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ahtri tn 12",
+        "postalCode": "10151",
+        "addressLocality": "Tallinn",
+        "addressCountry": "EE",
+      },
+      "sameAs": [
+        "https://github.com/2060-io",
+        "https://www.linkedin.com/company/2060-io/",
+      ],
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Verana Foundation",
+        "url": "https://verana.io",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://2060.io/#website",
+      "url": "https://2060.io",
+      "name": "2060",
+      "publisher": { "@id": "https://2060.io/#organization" },
+      "inLanguage": "en",
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Hologram Agentic AI",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Cross-platform",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+      },
+      "url": "https://hologram.zone",
+      "downloadUrl": "https://github.com/2060-io",
+      "creator": { "@id": "https://2060.io/#organization" },
+      "description":
+        "Open infrastructure for deploying decentralized, verifiable, identifiable, and governable AI agents. Built by 2060 on the Verana trust layer.",
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Verifiable Trust Specification",
+      "url": "https://verana-labs.github.io/verifiable-trust-spec/",
+      "author": { "@id": "https://2060.io/#organization" },
+      "about": [
+        "Verifiable Credentials",
+        "Trust Registry",
+        "Decentralized Identity",
+        "Digital Trust Ecosystem",
+      ],
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Verifiable Public Registry Specification",
+      "url": "https://verana-labs.github.io/verifiable-trust-vpr-spec/",
+      "author": { "@id": "https://2060.io/#organization" },
+      "about": [
+        "Verifiable Public Registry",
+        "Decentralized Identity",
+        "Digital Trust Ecosystem",
+      ],
+    },
+    {
+      "@type": "Person",
+      "name": "Fabrice Rochette",
+      "jobTitle": "Co-founder and CEO",
+      "worksFor": { "@id": "https://2060.io/#organization" },
+      "image": "https://2060.io/assets/illustrations/fabrice.jpeg",
+      "sameAs": [
+        "https://www.linkedin.com/in/fabricerochette/",
+        "https://x.com/fabricerochette",
+      ],
+    },
+    {
+      "@type": "Person",
+      "name": "Ariel Gentile",
+      "jobTitle": "Co-founder and CTO",
+      "worksFor": { "@id": "https://2060.io/#organization" },
+      "image": "https://2060.io/assets/illustrations/ariel.jpeg",
+      "sameAs": [
+        "https://www.linkedin.com/in/aogentile/",
+        "https://github.com/genaris",
+      ],
+    },
+    {
+      "@type": "Person",
+      "name": "Gerard William Burion",
+      "jobTitle": "Chief Product Officer",
+      "worksFor": { "@id": "https://2060.io/#organization" },
+      "sameAs": ["https://www.linkedin.com/in/gerard-william-burion/"],
+    },
+    {
+      "@type": "Person",
+      "name": "Pratik Kumar",
+      "jobTitle": "Senior Blockchain Developer",
+      "worksFor": { "@id": "https://2060.io/#organization" },
+      "image": "https://2060.io/assets/pratik.jpeg",
+      "sameAs": [
+        "https://www.linkedin.com/in/pratik-kumar-/",
+        "https://github.com/pratikasr",
+      ],
+    },
+    {
+      "@type": "Person",
+      "name": "Tarun Vadde",
+      "jobTitle": "Software Developer",
+      "worksFor": { "@id": "https://2060.io/#organization" },
+      "image": "https://2060.io/assets/tarun.jpeg",
+      "sameAs": ["https://www.linkedin.com/in/tarunvadde/"],
+    },
+    {
+      "@type": "Person",
+      "name": "Andrés Felipe Vallecilla Puentes",
+      "jobTitle": "Full-Stack Developer",
+      "worksFor": { "@id": "https://2060.io/#organization" },
+      "image": "https://2060.io/assets/andres.jpeg",
+      "sameAs": [
+        "https://www.linkedin.com/in/andres-felipe-vallecilla-puentes/",
+      ],
+    },
+    {
+      "@type": "Person",
+      "name": "Maxime Mansiet",
+      "jobTitle": "Software Developer",
+      "worksFor": { "@id": "https://2060.io/#organization" },
+      "image": "https://2060.io/assets/maxime.jpeg",
+      "sameAs": ["https://www.linkedin.com/in/maxime-mansiet/"],
+    },
+    {
+      "@type": "Person",
+      "name": "Philip A. Bildner",
+      "jobTitle": "Strategic Advisor",
+      "affiliation": { "@id": "https://2060.io/#organization" },
+      "image": "https://2060.io/assets/philip.jpeg",
+      "sameAs": ["https://www.linkedin.com/in/pbildner/"],
+    },
+    {
+      "@type": "Person",
+      "name": "David Rennie",
+      "jobTitle": "Strategic Advisor",
+      "affiliation": { "@id": "https://2060.io/#organization" },
+      "image": "https://2060.io/assets/david.jpeg",
+      "sameAs": ["https://www.linkedin.com/in/david-rennie-b736541/"],
+    },
+  ],
 };
 
 export default function Page() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
 {/* ================== SECTION 1, HERO ================== */}
     <section className="px-6 pt-12 md:pt-16 pb-20 md:pb-28 border-b hairline">
       <div className="max-w-6xl mx-auto text-center">

@@ -5,10 +5,72 @@ import Footer from "./components/Footer";
 import Reveals from "./components/Reveals";
 import ImagePreloader from "./components/ImagePreloader";
 
+const SITE_URL = "https://2060.io";
+const SITE_NAME = "2060";
+const SITE_TITLE = "2060 — We Build the Open Trust Layer for the Agentic Internet";
+const SITE_DESCRIPTION =
+  "An independent research and engineering company inventing, specifying, and shipping the infrastructure that lets humans, services, and AI agents prove who they are and act under verifiable authority.";
+
 export const metadata: Metadata = {
-  title: "2060 — We Build the Open Trust Layer for the Agentic Internet",
-  description:
-    "An independent research and engineering company inventing, specifying, and shipping the infrastructure that lets humans, services, and AI agents prove who they are and act under verifiable authority.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: "%s — 2060",
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: "2060 OÜ", url: SITE_URL }],
+  creator: "2060 OÜ",
+  publisher: "2060 OÜ",
+  keywords: [
+    "2060",
+    "Hologram",
+    "Verana",
+    "Verifiable Trust",
+    "VPR",
+    "agentic AI",
+    "decentralized identity",
+    "verifiable credentials",
+    "trust registry",
+    "DIDComm",
+    "MCP",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    url: SITE_URL,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    locale: "en_US",
+    images: [
+      {
+        url: "/assets/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: SITE_TITLE,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/assets/og-image.png"],
+  },
   icons: {
     icon: "/assets/favicon.svg",
   },
