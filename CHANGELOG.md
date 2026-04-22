@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.0.0...2060-io-website-v2.1.0) (2026-04-22)
+
+
+### Features
+
+* **analytics:** add Google Analytics 4 (G-9H5406F02W) + update privacy/contact ([cfddbbc](https://github.com/2060-io/2060.io-website/commit/cfddbbc4090219eb77e0f2efc39fa9d631927500))
+* **analytics:** add Google Analytics 4 (G-9H5406F02W) + update privacy/contact ([0064b7c](https://github.com/2060-io/2060.io-website/commit/0064b7c46703feee506d5bd4bef2867f762f10c4))
+
 ## [2.0.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v1.0.0...2060-io-website-v2.0.0) (2026-04-22)
 
 
