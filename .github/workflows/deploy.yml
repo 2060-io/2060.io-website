@@ -49,11 +49,11 @@ jobs:
 
       - name: Write kubeconfig
         env:
-          KUBECONFIG_DATA: ${{ vars.OVH_KUBERNETES }}
+          KUBECONFIG_DATA: ${{ secrets.OVH_KUBECONFIG }}
         run: |
           if [ -z "$KUBECONFIG_DATA" ]; then
-            echo "::error::The OVH_KUBERNETES GitHub Actions variable is empty."
-            echo "Set it under Settings → Secrets and variables → Actions → Variables."
+            echo "::error::The OVH_KUBECONFIG GitHub Actions secret is empty."
+            echo "Set it under Settings → Secrets and variables → Actions → Secrets."
             exit 1
           fi
           mkdir -p "$HOME/.kube"
