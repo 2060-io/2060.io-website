@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.2.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.1.1...2060-io-website-v2.2.0) (2026-04-22)
+
+
+### Features
+
+* **favicon:** replace text favicon with inverted 2060 wordmark ([f6cef3c](https://github.com/2060-io/2060.io-website/commit/f6cef3c6e10781a49540c0b558b4c394e316ca7c))
+* **favicon:** replace text favicon with inverted 2060 wordmark ([bdc944d](https://github.com/2060-io/2060.io-website/commit/bdc944df8f84dca690c7ac1d1cf0e3d0819905ce))
+* **privacy:** add first-visit cookie consent dialog ([a6f9017](https://github.com/2060-io/2060.io-website/commit/a6f901766ade5303e15fd073293c05961450d65a))
+* **privacy:** add first-visit cookie consent dialog ([119c9b3](https://github.com/2060-io/2060.io-website/commit/119c9b3235ee2fa5b5c513cc4b14d1110eba2a9c))
+
 ## [2.1.1](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.1.0...2060-io-website-v2.1.1) (2026-04-22)
 
 
