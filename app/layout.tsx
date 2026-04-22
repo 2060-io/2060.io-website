@@ -8,7 +8,7 @@ import Analytics from "./components/Analytics";
 
 const SITE_URL = "https://2060.io";
 const SITE_NAME = "2060";
-const SITE_TITLE = "2060 — We Build the Open Trust Layer for the Agentic Internet";
+const SITE_TITLE = "2060 — We Build the Open Trust Layer for the Agentic Era";
 const SITE_DESCRIPTION =
   "An independent research and engineering company inventing, specifying, and shipping the infrastructure that lets humans, services, and AI agents prove who they are and act under verifiable authority.";
 
