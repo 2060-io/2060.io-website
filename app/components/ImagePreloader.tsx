@@ -83,6 +83,10 @@ export default function ImagePreloader() {
         link.rel = "prefetch";
         link.as = "image";
         link.href = href;
+        // Keep it explicitly deprioritized so it never competes with the
+        // current page's in-flight resources. `rel="prefetch"` is already
+        // low-priority per the spec; fetchPriority pins it.
+        link.setAttribute("fetchpriority", "low");
         document.head.appendChild(link);
       });
       try {
@@ -92,26 +96,23 @@ export default function ImagePreloader() {
       }
     }
 
-    function schedule() {
-      const ric = (
-        window as Window & {
-          requestIdleCallback?: (
-            cb: () => void,
-            opts?: { timeout?: number }
-          ) => number;
-        }
-      ).requestIdleCallback;
-      if (typeof ric === "function") {
-        ric(prefetchAll, { timeout: 3000 });
-      } else {
-        setTimeout(prefetchAll, 1000);
+    // Run as soon as this component mounts (i.e. right after hydration).
+    // rel="prefetch" fetchpriority="low" is low-priority, so it won't
+    // compete with the current page's critical resources; firing here
+    // instead of waiting for window.load + requestIdleCallback cuts
+    // 1-3 seconds off the time-to-cache for cross-page images.
+    const ric = (
+      window as Window & {
+        requestIdleCallback?: (
+          cb: () => void,
+          opts?: { timeout?: number }
+        ) => number;
       }
-    }
-
-    if (document.readyState === "complete") {
-      schedule();
+    ).requestIdleCallback;
+    if (typeof ric === "function") {
+      ric(prefetchAll, { timeout: 500 });
     } else {
-      window.addEventListener("load", schedule, { once: true });
+      setTimeout(prefetchAll, 0);
     }
   }, []);
 
