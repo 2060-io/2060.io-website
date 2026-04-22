@@ -186,8 +186,8 @@ export default function Page() {
         <p className="text-xs text-muted tracking-wide uppercase">
           Open Source · Founding Member of the Verana Foundation · Production Stack in Market
         </p>
-        <h1 className="display text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-5xl mx-auto mt-6">
-          We Build the Open Trust Layer for the Agentic Internet
+        <h1 className="display text-3xl md:text-5xl lg:text-6xl leading-[1.1] max-w-4xl mx-auto mt-6">
+          We Build the Open Trust Layer for the Agentic Era
         </h1>
         <div className="accent-line mx-auto mt-6"></div>
         <p className="text-lg md:text-xl text-muted reading max-w-2xl mx-auto mt-8">
