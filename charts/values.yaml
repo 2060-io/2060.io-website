@@ -5,7 +5,8 @@ fullnameOverride: ""
 
 image:
   repository: io2060/website
-  # tag defaults to Chart.AppVersion when empty
+  # tag defaults to "v<Chart.AppVersion>" when empty, matching the Docker
+  # tags produced by .github/workflows/cd.yml (e.g. v1.0.0).
   tag: ""
   pullPolicy: IfNotPresent
 

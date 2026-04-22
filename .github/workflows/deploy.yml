@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Image tag to deploy (e.g. 1.2.3 or latest)"
+        description: "Image tag to deploy (e.g. v1.2.3, v1, dev, latest)"
         required: true
         default: latest
 
@@ -25,8 +25,10 @@ jobs:
         id: tag
         run: |
           if [ "${{ github.event_name }}" = "release" ]; then
-            # release tag is of the form v1.2.3 — drop the leading v
-            VERSION="${GITHUB_REF_NAME#v}"
+            # release-please tags releases 'v1.2.3' and the Docker workflow
+            # in cd.yml pushes io2060/website:v1.2.3 with the same name,
+            # so use the ref name as-is (no 'v' stripping).
+            VERSION="${GITHUB_REF_NAME}"
           else
             VERSION="${{ inputs.version }}"
           fi

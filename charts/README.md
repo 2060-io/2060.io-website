@@ -8,7 +8,7 @@ nginx ingress with Let's Encrypt TLS.
 | Key | Value |
 | --- | --- |
 | `image.repository` | `io2060/website` |
-| `image.tag` | empty → `Chart.AppVersion` |
+| `image.tag` | empty → `v<Chart.AppVersion>` (e.g. `v1.0.0`) |
 | `replicaCount` | `2` |
 | `service.type` | `ClusterIP` |
 | `service.port` | `80` |
@@ -25,13 +25,14 @@ nginx ingress with Let's Encrypt TLS.
 helm upgrade --install website ./charts \
   --namespace web \
   --create-namespace \
-  --set image.tag=v1.0.0
+  --set image.tag=v1.0.0   # or leave unset to default to v<AppVersion>, or use 'latest' / 'dev'
 ```
 
 ## CI
 
-Deployment is triggered automatically by `.github/workflows/cd.yml` on every
-published GitHub release. It authenticates against the OVH cluster using the
+Deployment is triggered automatically by `.github/workflows/deploy.yml` on
+every published GitHub release (the companion `.github/workflows/cd.yml`
+builds the image). It authenticates against the OVH cluster using the
 `OVH_KUBERNETES` GitHub Actions variable.
 
 > **Security note:** `OVH_KUBERNETES` is a Variable (not a Secret) per the
