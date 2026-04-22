@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Reveals from "./components/Reveals";
 import ImagePreloader from "./components/ImagePreloader";
 import Analytics from "./components/Analytics";
+import CookieConsent from "./components/CookieConsent";
 
 const SITE_URL = "https://2060.io";
 const SITE_NAME = "2060";
@@ -138,6 +139,7 @@ export default function RootLayout({
         <Footer />
         <Reveals />
         <ImagePreloader />
+        <CookieConsent />
         <Analytics />
       </body>
     </html>
