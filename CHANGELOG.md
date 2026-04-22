@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.1](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.1.0...2060-io-website-v2.1.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* **deploy:** use `secrets.OVH_KUBECONFIG` for cluster auth ([ec9ce21](https://github.com/2060-io/2060.io-website/commit/ec9ce21f0dd3a0ea199eb4e42260bbf42aa3daab))
+* **deploy:** use secrets.OVH_KUBECONFIG for cluster auth ([de08a57](https://github.com/2060-io/2060.io-website/commit/de08a5781dd3dd3df2b839f93f554f59513e0e00))
+
+
+### Performance Improvements
+
+* **nav:** cache /assets/* + /images/* and start preload earlier ([51f2145](https://github.com/2060-io/2060.io-website/commit/51f214527437ae5e572bbf47e48fd0c9ade56902))
+* **nav:** cache /assets/* and /images/*, and start preload earlier ([8ae8a9f](https://github.com/2060-io/2060.io-website/commit/8ae8a9f4f6c304a472da762feb7b1c8afea12bfd))
+
 ## [2.1.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.0.0...2060-io-website-v2.1.0) (2026-04-22)
 
 
