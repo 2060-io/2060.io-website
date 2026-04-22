@@ -2,121 +2,124 @@
 
 Source for [2060.io](https://2060.io) — the 2060 OÜ public website.
 
-Built with **Hugo** + **Tailwind CSS**. Six hand-crafted pages (home, What We Do, Projects, Research, Team, Contact) layered over a shared dark/light theme driven by CSS custom properties.
+Built with **Next.js 15** (App Router) + **React 19** + **Tailwind CSS v4** + **TypeScript**. Six hand-crafted pages (Home, Projects, Team, Investors, Contact, Privacy) share a theme-aware dark/light design driven by CSS custom properties.
 
-Deployed automatically to GitHub Pages on every push to `main`.
+Delivered as a container image (`io2060/website` on Docker Hub), built and published automatically by GitHub Actions.
 
 ## Stack
 
 | Piece | What |
 |-|-|
-| Static site generator | [Hugo extended](https://gohugo.io) (v0.141) |
-| Styling | [Tailwind CSS](https://tailwindcss.com) (v3.4, JIT) compiled via the standalone CLI |
-| Theme | Custom, no Hugo theme, all layouts live under `layouts/` |
+| Framework | [Next.js 15](https://nextjs.org) (App Router, `output: "standalone"`) |
+| Language | TypeScript, strict mode |
+| Styling | [Tailwind v4](https://tailwindcss.com) (CSS-first `@theme` configuration) |
 | Fonts | Inter + Space Grotesk via Google Fonts |
 | Icons | Font Awesome 6 via cdnjs |
-| Hosting | GitHub Pages with custom domain `2060.io` (see `static/CNAME`) |
+| Runtime | Node 22 (alpine) |
+| Container | Multi-stage `Dockerfile`, unprivileged user |
+| Release mgmt | [release-please](https://github.com/googleapis/release-please) (`release-type: node`) |
 
 ## Repository layout
 
 ```text
 .
-├── archetypes/              Hugo page templates for `hugo new`
-├── assets/
-│   └── css/input.css        Tailwind source (compiled to static/css/custom.css at build)
-├── content/                 One Markdown file per page, front-matter only
-│   ├── _index.md            Home
-│   ├── services/_index.md   What We Do
-│   ├── projects/_index.md
-│   ├── research/_index.md
-│   ├── team/_index.md
-│   └── contact/_index.md
-├── layouts/
-│   ├── _default/baseof.html Shared HTML shell (html, head, body, main block)
-│   ├── partials/            head.html, nav.html, footer.html
-│   ├── index.html           Home page
-│   ├── services/list.html   Each section's list layout = the whole page
-│   ├── projects/list.html
-│   ├── research/list.html
-│   ├── team/list.html
-│   └── contact/list.html
-├── static/                  Copied verbatim into the site root at build
-│   ├── CNAME                -> public/CNAME  (GitHub Pages custom domain)
-│   └── assets/              illustrations, logos, theme.js, favicon, etc.
+├── app/
+│   ├── layout.tsx              Shared HTML shell, fonts, Nav, Footer, theme script
+│   ├── globals.css             Tailwind v4 import + all custom CSS (ported from v1)
+│   ├── page.tsx                Home (/)
+│   ├── projects/page.tsx       /projects
+│   ├── team/page.tsx           /team
+│   ├── investors/page.tsx      /investors
+│   ├── contact/page.tsx        /contact
+│   ├── privacy/page.tsx        /privacy
+│   └── components/
+│       ├── Nav.tsx             Header (client: theme toggle, mobile menu, active link)
+│       ├── Footer.tsx          Footer (server)
+│       └── Reveals.tsx         IntersectionObserver fade-up (client)
+├── public/
+│   └── assets/                 Illustrations, logos, favicon, avatars
+├── static-old/                 Frozen snapshot of the previous Hugo build's static/
 ├── .github/workflows/
-│   └── hugo.yml             Build + deploy to GitHub Pages
-├── hugo.yaml                Hugo configuration
-├── package.json             Tailwind toolchain
-├── tailwind.config.js       Theme tokens, colour palette via CSS vars
-└── README.md
+│   ├── docker-publish.yml      Build + push io2060/website to Docker Hub
+│   └── release-please.yml      Conventional-commits driven version bumps + releases
+├── Dockerfile                  Multi-stage: deps → build → runner
+├── .dockerignore
+├── next.config.ts              `output: "standalone"`, strict mode
+├── postcss.config.mjs          Tailwind v4 PostCSS plugin
+├── tsconfig.json
+├── package.json
+├── release-please-config.json
+└── .release-please-manifest.json
 ```
 
 ## Prerequisites
 
-- [Hugo extended](https://gohugo.io/installation/) v0.141 or newer
-- Node.js 20+ (for Tailwind)
+- Node.js 22+ (LTS)
+- npm (bundled with Node)
 
 ```bash
-brew install hugo node      # macOS
+brew install node            # macOS
 ```
 
 ## Develop locally
 
-Install the Tailwind toolchain once:
-
 ```bash
 npm install
-```
-
-Then run the dev server. The `npm run dev` script rebuilds Tailwind on every CSS change and boots `hugo server` concurrently:
-
-```bash
 npm run dev
 ```
 
-Open <http://localhost:1313>.
-
-If you prefer two terminals (less noise, easier to debug CSS):
-
-```bash
-# terminal 1
-npm run dev:css
-
-# terminal 2
-npm run dev:hugo
-```
+Open <http://localhost:3000>.
 
 ## Build for production
 
 ```bash
 npm run build
+npm start
 ```
 
-The output lands in `public/`. That directory is what CI uploads to GitHub Pages.
+The `standalone` build output lives in `.next/standalone/` and is what the Docker image ships.
 
-## Adding or editing content
+## Run the container locally
 
-Most pages are driven directly from their layout file, the Markdown file is just a stub that tells Hugo the page exists and carries its `<title>` / `<meta description>`.
-
-1. To edit existing page copy, open the matching file under `layouts/` (e.g. `layouts/services/list.html`). Every section is marked with an `<!-- SECTION N -->` comment.
-2. To change a page's title or description, edit the front-matter in the matching `content/**/_index.md`.
-3. To tweak colours or spacing tokens, edit `assets/css/input.css` (CSS variables in the `:root` / `:root.light` blocks) and re-run `npm run build:css`.
+```bash
+docker build -t 2060-website .
+docker run --rm -p 3000:3000 2060-website
+```
 
 ## Theme switching
 
-Dark is the default. A `.light` class on `<html>` flips every CSS variable to the light palette. The class is set by `static/assets/theme.js`, which:
+Dark is the default. A `.light` class on `<html>` flips every CSS variable to the light palette. The class is set by an inline script in `app/layout.tsx` that runs synchronously in `<head>` before first paint, so there is no flash of the wrong theme. The script:
 
-- respects the user's previous choice (`localStorage`),
+- respects the user's previous choice (`localStorage['2060-theme']`),
 - then falls back to `prefers-color-scheme`,
-- and wires up the `[data-theme-toggle]` button and mobile menu.
+- and persists every subsequent toggle.
 
-Adding a new themable colour token only requires editing `assets/css/input.css` — both variants live there, side by side.
+The toggle button and mobile menu live in `app/components/Nav.tsx` (client component). IntersectionObserver-based fade-up reveal is handled by `app/components/Reveals.tsx`.
+
+## Adding or editing content
+
+Each page is a single `page.tsx` under `app/` (or a subdirectory of `app/` for subpages). The conversion from the v1 HTML preserves the original section structure and comments — look for `{/* ================== SECTION N ================== */}` markers.
+
+To add a new route:
+
+1. Create `app/<route>/page.tsx` with `export default function Page() { return (<>...</>); }`.
+2. Add a link to it in `app/components/Nav.tsx` (the `LINKS` array) and, if appropriate, in `app/components/Footer.tsx`.
 
 ## Deployment
 
-Push to `main` → GitHub Actions runs `.github/workflows/hugo.yml` → Hugo build artifact is uploaded → GitHub Pages deploys.
+`push` to `main` triggers two workflows:
 
-The custom domain `2060.io` is pinned via `static/CNAME`. If that file is removed, GitHub Pages automatically falls back to <https://2060-io.github.io/2060.io-website/>.
+1. **`docker-publish.yml`** — builds a dev-tagged image (`io2060/website:dev`, `io2060/website:dev-YYYYMMDD-HHMMSS`) and pushes it to Docker Hub. Use this for previewing changes on staging.
+2. **`release-please.yml`** — opens (or updates) a release PR based on Conventional Commits. Merging the release PR creates a Git tag + GitHub release and re-invokes `docker-publish.yml` with the release version, producing `io2060/website:latest` and `io2060/website:<version>`.
+
+Required GitHub repository secrets:
+
+- `DOCKER_HUB_LOGIN`
+- `DOCKER_HUB_PWD`
+
+## Versioning
+
+Versions follow SemVer. Commits on `main` must use [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `chore:`, `docs:`, etc.) so `release-please` can compute the next version and generate `CHANGELOG.md` entries.
 
 ## License
 
