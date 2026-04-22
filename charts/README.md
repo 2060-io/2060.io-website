@@ -33,10 +33,9 @@ helm upgrade --install website ./charts \
 Deployment is triggered automatically by `.github/workflows/deploy.yml` on
 every published GitHub release (the companion `.github/workflows/cd.yml`
 builds the image). It authenticates against the OVH cluster using the
-`OVH_KUBERNETES` GitHub Actions variable.
+`OVH_KUBECONFIG` GitHub Actions **secret** (raw kubeconfig contents,
+masked in logs).
 
-> **Security note:** `OVH_KUBERNETES` is a Variable (not a Secret) per the
-> current configuration. A kubeconfig grants cluster access and is usually
-> stored as a Secret. If the value contains raw kubeconfig credentials,
-> consider moving it to `${{ secrets.OVH_KUBERNETES }}` and updating the
-> workflow accordingly.
+Set it under *Settings → Secrets and variables → Actions → Secrets →
+New repository secret*, name `OVH_KUBECONFIG`, value the full kubeconfig
+YAML.
