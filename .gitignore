@@ -1,13 +1,40 @@
-# Hugo
-/public/
-/resources/
-/.hugo_build.lock
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# Node / Tailwind
-/node_modules/
+# Testing
+/coverage
 
-# Tailwind build output (generated from assets/css/input.css at build time)
-/static/css/custom.css
+# Next.js build output
+/.next/
+/out/
 
-# OS noise
+# Production build
+/build
+
+# Misc
 .DS_Store
+*.pem
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Env files
+.env
+.env*.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

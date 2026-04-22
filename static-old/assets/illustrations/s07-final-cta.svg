@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 720" role="img" aria-labelledby="s07-t s07-d" preserveAspectRatio="xMidYMid meet">
+  <title id="s07-t">Final CTA — Resolved trust-graph bookend</title>
+  <desc id="s07-d">The hero trust-graph resolved. Every node labelled, every connection verified. Wordmark centered, accent line beneath. Flat and static; more detail, not more atmosphere. 21:9.</desc>
+
+  <!-- Resolved trust graph at ~11% opacity — more detail than the hero -->
+  <g fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.11"
+     font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9">
+
+    <!-- Edges -->
+    <g stroke-width="1">
+      <!-- Left cluster edges -->
+      <line x1="110" y1="90" x2="240" y2="150"/>
+      <line x1="240" y1="150" x2="370" y2="80"/>
+      <line x1="370" y1="80" x2="520" y2="140"/>
+      <line x1="240" y1="150" x2="190" y2="280"/>
+      <line x1="190" y1="280" x2="340" y2="260"/>
+      <line x1="340" y1="260" x2="470" y2="220"/>
+      <line x1="470" y1="220" x2="520" y2="140"/>
+      <line x1="190" y1="280" x2="130" y2="420"/>
+      <line x1="130" y1="420" x2="250" y2="460"/>
+      <line x1="250" y1="460" x2="340" y2="260"/>
+      <line x1="250" y1="460" x2="380" y2="540"/>
+      <line x1="380" y1="540" x2="540" y2="580"/>
+      <line x1="540" y1="580" x2="640" y2="470"/>
+      <line x1="640" y1="470" x2="470" y2="220"/>
+      <line x1="380" y1="540" x2="220" y2="620"/>
+      <!-- Right cluster edges (mirror) -->
+      <line x1="1570" y1="90" x2="1440" y2="150"/>
+      <line x1="1440" y1="150" x2="1310" y2="80"/>
+      <line x1="1310" y1="80" x2="1160" y2="140"/>
+      <line x1="1440" y1="150" x2="1490" y2="280"/>
+      <line x1="1490" y1="280" x2="1340" y2="260"/>
+      <line x1="1340" y1="260" x2="1210" y2="220"/>
+      <line x1="1210" y1="220" x2="1160" y2="140"/>
+      <line x1="1490" y1="280" x2="1550" y2="420"/>
+      <line x1="1550" y1="420" x2="1430" y2="460"/>
+      <line x1="1430" y1="460" x2="1340" y2="260"/>
+      <line x1="1430" y1="460" x2="1300" y2="540"/>
+      <line x1="1300" y1="540" x2="1140" y2="580"/>
+      <line x1="1140" y1="580" x2="1040" y2="470"/>
+      <line x1="1040" y1="470" x2="1210" y2="220"/>
+      <line x1="1300" y1="540" x2="1460" y2="620"/>
+    </g>
+
+    <!-- Nodes with small labels -->
+    <g>
+      <circle cx="110" cy="90" r="5"/><text x="120" y="88">did:web:*</text>
+      <circle cx="240" cy="150" r="5"/><text x="250" y="148">vc-holder</text>
+      <circle cx="370" cy="80" r="5"/><text x="380" y="78">issuer</text>
+      <circle cx="520" cy="140" r="5"/><text x="530" y="138">registry</text>
+      <circle cx="190" cy="280" r="5"/><text x="200" y="278">verifier</text>
+      <circle cx="340" cy="260" r="5"/><text x="350" y="258">service</text>
+      <circle cx="470" cy="220" r="5"/><text x="480" y="218">trust-reg</text>
+      <circle cx="130" cy="420" r="5"/><text x="140" y="418">schema</text>
+      <circle cx="250" cy="460" r="5"/><text x="260" y="458">grantor</text>
+      <circle cx="380" cy="540" r="5"/><text x="390" y="538">validator</text>
+      <circle cx="540" cy="580" r="5"/><text x="550" y="578">MCP</text>
+      <circle cx="640" cy="470" r="5"/><text x="650" y="468">agent</text>
+      <circle cx="220" cy="620" r="5"/><text x="230" y="618">wallet</text>
+
+      <circle cx="1570" cy="90" r="5"/><text x="1510" y="88" text-anchor="end">did:webvh</text>
+      <circle cx="1440" cy="150" r="5"/><text x="1428" y="148" text-anchor="end">service</text>
+      <circle cx="1310" cy="80" r="5"/><text x="1298" y="78" text-anchor="end">VS</text>
+      <circle cx="1160" cy="140" r="5"/><text x="1148" y="138" text-anchor="end">VUA</text>
+      <circle cx="1490" cy="280" r="5"/><text x="1478" y="278" text-anchor="end">deposit</text>
+      <circle cx="1340" cy="260" r="5"/><text x="1328" y="258" text-anchor="end">proof</text>
+      <circle cx="1210" cy="220" r="5"/><text x="1198" y="218" text-anchor="end">cred-chain</text>
+      <circle cx="1550" cy="420" r="5"/><text x="1538" y="418" text-anchor="end">EGF</text>
+      <circle cx="1430" cy="460" r="5"/><text x="1418" y="458" text-anchor="end">perms</text>
+      <circle cx="1300" cy="540" r="5"/><text x="1288" y="538" text-anchor="end">DIDComm</text>
+      <circle cx="1140" cy="580" r="5"/><text x="1128" y="578" text-anchor="end">agent</text>
+      <circle cx="1040" cy="470" r="5"/><text x="1028" y="468" text-anchor="end">resolver</text>
+      <circle cx="1460" cy="620" r="5"/><text x="1448" y="618" text-anchor="end">chain</text>
+    </g>
+  </g>
+
+  <!-- Central 2060 wordmark (scale 3×) -->
+  <g transform="translate(596.15 239.85) scale(3)" fill="currentColor">
+    <path d="M162.412,32.2A24.973,24.973,0,0,0,134.87,10.156c-5.929.658-10.914,2.771-14.956,7.042a26.2,26.2,0,0,1,5.453,7.912l.023.376a15.463,15.463,0,1,1,13.934,24.832,15.668,15.668,0,0,1-11.718-3.363,15.1,15.1,0,0,1-5.327-8.241,12.808,12.808,0,0,1-.247-1.8c0-.056,0-.112,0-.168A22.135,22.135,0,0,0,99.936,15.32c-.679,0-1.351.042-2.013.1a26.268,26.268,0,0,1,16.369-5.943l.275,0L114.675,0a35.775,35.775,0,0,0-23.659,8.8,38.743,38.743,0,0,0-8.982,11.338A24.912,24.912,0,0,0,37.21,35.132H37.2A15.594,15.594,0,0,1,22.352,49.983H17.827l10.811-8.964.014.014c.086-.072.161-.156.247-.231l.529-.439.012-.068A17.449,17.449,0,1,0,0,27.631H9.472a7.988,7.988,0,1,1,13.351,5.9L2.064,50.746H2.053v.012l-.035.028.035.042V59.46h9.554v0h9.9l1.612-.03A25.071,25.071,0,0,0,46.683,35.146l.037-.585A15.455,15.455,0,1,1,62.154,50.608a15.859,15.859,0,0,1-10.6-4.469,26.774,26.774,0,0,1-4.082,9.15,24.852,24.852,0,0,0,34.472-5.02,22.054,22.054,0,0,0,35.881.135,24.2,24.2,0,0,0,3.8,3.9,25.332,25.332,0,0,0,15.933,5.586,25.866,25.866,0,0,0,2.813-.154A24.943,24.943,0,0,0,162.412,32.2M112.83,37.8l-.012,0,.009.054a12.49,12.49,0,1,1,.021-.413c0,.121-.016.238-.019.357"/>
+  </g>
+
+  <!-- Accent line -->
+  <rect x="770" y="455" width="140" height="2" fill="#553C9A"/>
+</svg>

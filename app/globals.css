@@ -1,0 +1,494 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+ * 2060.io — Tailwind v4 theme + supplemental styles.
+ *
+ * Theme handling: dark is default, `.light` on <html> switches to light mode.
+ * `.dark` is also set explicitly for CSS selectors that need it.
+ * ========================================================================== */
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Stop Tailwind from injecting preflight rules that conflict with legacy
+   component CSS below. */
+@layer base {
+  :root {
+    --bg: #0a0a0a;
+    --bg-rgb: 10 10 10;
+    --fg: #fafafa;
+    --fg-rgb: 250 250 250;
+    --muted: #a3a3a3;
+    --muted-rgb: 163 163 163;
+    --accent: #553C9A;
+    --accent-rgb: 85 60 154;
+    --accent-hover: #9F7AEA;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    --e5: #e5e5e5;
+  }
+
+  :root.light {
+    --bg: #ffffff;
+    --bg-rgb: 255 255 255;
+    --fg: #0a0a0a;
+    --fg-rgb: 10 10 10;
+    --muted: #525252;
+    --muted-rgb: 82 82 82;
+    --accent: #553C9A;
+    --accent-rgb: 85 60 154;
+    --accent-hover: #763EF0;
+    --border: rgba(0, 0, 0, 0.08);
+    --border-strong: rgba(0, 0, 0, 0.16);
+    --e5: #404040;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+}
+
+/* Accent underline on prose links — 1px solid, fade in on hover */
+.prose-link {
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  background-position: 0 100%;
+  transition: background-size 150ms ease, color 150ms ease;
+}
+.prose-link:hover,
+.prose-link:focus-visible {
+  background-size: 100% 1px;
+  color: var(--fg);
+}
+
+/* Nav link */
+.nav-link {
+  position: relative;
+  color: var(--muted);
+  transition: color 150ms ease;
+}
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link[aria-current="page"],
+.nav-link.nav-active {
+  color: var(--fg);
+}
+.nav-link[aria-current="page"]::after,
+.nav-link.nav-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* Focus ring — site-wide, 2px accent, 2px offset */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Hairline dividers */
+.hairline { border-color: var(--border); }
+
+/* Primary button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--border);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--fg);
+  background: transparent;
+  transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+  white-space: nowrap;
+}
+.btn:hover,
+.btn:focus-visible {
+  border-color: var(--accent);
+  background: rgb(var(--accent-rgb) / 0.08);
+}
+.btn-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fafafa;
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #fafafa;
+}
+
+/* Accent line — thin mark used under hero wordmark and as divider highlight */
+.accent-line {
+  height: 1px;
+  background: var(--accent);
+  width: 3rem;
+}
+
+/* Card */
+.card {
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+/* Reading width */
+.reading { max-width: 72ch; }
+
+/* Section reveal — fade-up on scroll, 700ms ease. Disabled for reduced-motion. */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* Form inputs */
+.field {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font: inherit;
+  transition: border-color 150ms ease, background 150ms ease, box-shadow 150ms ease;
+}
+.field:hover { border-color: var(--border-strong); }
+.field:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgb(var(--accent-rgb) / 0.3);
+}
+.field::placeholder { color: var(--muted); opacity: 0.7; }
+
+/* Tag (small meta label) */
+.tag {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.tag-accent {
+  color: var(--accent-hover);
+  border-color: rgb(var(--accent-rgb) / 0.6);
+}
+
+/* Tables */
+table.clean {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+table.clean th,
+table.clean td {
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+table.clean th {
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Display type — Space Grotesk, tighter tracking */
+.display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: transparent;
+  transition: color 150ms ease, border-color 150ms ease, background 150ms ease;
+  cursor: pointer;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--fg);
+  border-color: var(--accent);
+  background: rgb(var(--accent-rgb) / 0.08);
+}
+.theme-toggle [data-theme-icon] {
+  font-size: 1rem;
+  line-height: 1;
+}
+.theme-toggle [data-theme-icon]::before {
+  content: "\263E";
+}
+:root.light .theme-toggle [data-theme-icon]::before {
+  content: "\2600";
+}
+
+/* Theme colour utilities — override Tailwind for our CSS-variable palette */
+.text-fg { color: var(--fg); }
+.text-muted { color: var(--muted); }
+.text-accent { color: var(--accent); }
+.text-accent-hover { color: var(--accent-hover); }
+.text-e5 { color: var(--e5); }
+.bg-bg { background-color: var(--bg); }
+.bg-fg { background-color: var(--fg); }
+.bg-muted { background-color: var(--muted); }
+.bg-accent { background-color: var(--accent); }
+.border-accent { border-color: var(--accent); }
+
+/* ------------------------------------------------------------------ *
+ * 2060 wordmark — theme-adaptive via CSS mask-image.
+ * Usage: <span className="logo-2060 h-5 text-fg" role="img" aria-label="2060" />
+ * ------------------------------------------------------------------ */
+.logo-2060 {
+  display: inline-block;
+  vertical-align: middle;
+  aspect-ratio: 162.566 / 60.09;
+  background-color: currentColor;
+  color: var(--fg);
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 162.566 60.09'><path fill='%23000' d='M162.412,32.2A24.973,24.973,0,0,0,134.87,10.156c-5.929.658-10.914,2.771-14.956,7.042a26.2,26.2,0,0,1,5.453,7.912l.023.376a15.463,15.463,0,1,1,13.934,24.832,15.668,15.668,0,0,1-11.718-3.363,15.1,15.1,0,0,1-5.327-8.241,12.808,12.808,0,0,1-.247-1.8c0-.056,0-.112,0-.168A22.135,22.135,0,0,0,99.936,15.32c-.679,0-1.351.042-2.013.1a26.268,26.268,0,0,1,16.369-5.943l.275,0L114.675,0a35.775,35.775,0,0,0-23.659,8.8,38.743,38.743,0,0,0-8.982,11.338A24.912,24.912,0,0,0,37.21,35.132H37.2A15.594,15.594,0,0,1,22.352,49.983H17.827l10.811-8.964.014.014c.086-.072.161-.156.247-.231l.529-.439.012-.068A17.449,17.449,0,1,0,0,27.631H9.472a7.988,7.988,0,1,1,13.351,5.9L2.064,50.746H2.053v.012l-.035.028.035.042V59.46h9.554v0h9.9l1.612-.03A25.071,25.071,0,0,0,46.683,35.146l.037-.585A15.455,15.455,0,1,1,62.154,50.608a15.859,15.859,0,0,1-10.6-4.469,26.774,26.774,0,0,1-4.082,9.15,24.852,24.852,0,0,0,34.472-5.02,22.054,22.054,0,0,0,35.881.135,24.2,24.2,0,0,0,3.8,3.9,25.332,25.332,0,0,0,15.933,5.586,25.866,25.866,0,0,0,2.813-.154A24.943,24.943,0,0,0,162.412,32.2M112.83,37.8l-.012,0,.009.054a12.49,12.49,0,1,1,.021-.413c0,.121-.016.238-.019.357'/></svg>");
+          mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 162.566 60.09'><path fill='%23000' d='M162.412,32.2A24.973,24.973,0,0,0,134.87,10.156c-5.929.658-10.914,2.771-14.956,7.042a26.2,26.2,0,0,1,5.453,7.912l.023.376a15.463,15.463,0,1,1,13.934,24.832,15.668,15.668,0,0,1-11.718-3.363,15.1,15.1,0,0,1-5.327-8.241,12.808,12.808,0,0,1-.247-1.8c0-.056,0-.112,0-.168A22.135,22.135,0,0,0,99.936,15.32c-.679,0-1.351.042-2.013.1a26.268,26.268,0,0,1,16.369-5.943l.275,0L114.675,0a35.775,35.775,0,0,0-23.659,8.8,38.743,38.743,0,0,0-8.982,11.338A24.912,24.912,0,0,0,37.21,35.132H37.2A15.594,15.594,0,0,1,22.352,49.983H17.827l10.811-8.964.014.014c.086-.072.161-.156.247-.231l.529-.439.012-.068A17.449,17.449,0,1,0,0,27.631H9.472a7.988,7.988,0,1,1,13.351,5.9L2.064,50.746H2.053v.012l-.035.028.035.042V59.46h9.554v0h9.9l1.612-.03A25.071,25.071,0,0,0,46.683,35.146l.037-.585A15.455,15.455,0,1,1,62.154,50.608a15.859,15.859,0,0,1-10.6-4.469,26.774,26.774,0,0,1-4.082,9.15,24.852,24.852,0,0,0,34.472-5.02,22.054,22.054,0,0,0,35.881.135,24.2,24.2,0,0,0,3.8,3.9,25.332,25.332,0,0,0,15.933,5.586,25.866,25.866,0,0,0,2.813-.154A24.943,24.943,0,0,0,162.412,32.2M112.83,37.8l-.012,0,.009.054a12.49,12.49,0,1,1,.021-.413c0,.121-.016.238-.019.357'/></svg>");
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-position: center;
+          mask-position: center;
+  flex-shrink: 0;
+}
+
+.logo-2060.h-5  { height: 1.25rem; width: calc(1.25rem * 162.566 / 60.09); }
+.logo-2060.h-12 { height: 3rem;    width: calc(3rem    * 162.566 / 60.09); }
+.logo-2060.h-16 { height: 4rem;    width: calc(4rem    * 162.566 / 60.09); }
+
+/* Flagship card logo & icon treatment: muted by default, full contrast on hover */
+.card-logo {
+  filter: grayscale(100%) opacity(0.65);
+  transition: filter 200ms ease, opacity 200ms ease;
+}
+:root:not(.light) .card-logo {
+  filter: grayscale(100%) invert(1) opacity(0.65);
+}
+.card:hover .card-logo {
+  filter: none;
+  opacity: 1;
+}
+
+.card-icon {
+  color: var(--muted);
+  transition: color 200ms ease;
+}
+.card:hover .card-icon {
+  color: var(--fg);
+}
+
+/* Standards & Community logo strip */
+.logo-strip {
+  list-style: none;
+  padding: 0;
+  max-width: 48rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 1.75rem 0.5rem;
+}
+@media (min-width: 640px) {
+  .logo-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .standards-section .logo-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.logo-strip > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-img {
+  height: 1.75rem;
+  width: auto;
+  display: block;
+  filter: grayscale(100%) opacity(0.7);
+  transition: filter 200ms ease, opacity 200ms ease, transform 200ms ease;
+}
+:root:not(.light) .logo-img {
+  filter: grayscale(100%) invert(1) opacity(0.7);
+}
+.logo-img:hover,
+.logo-img:focus-visible {
+  filter: none;
+  opacity: 1;
+  outline: none;
+}
+.logo-img.logo-wide {
+  height: 1.125rem;
+}
+
+/* Nav background — semi-transparent with theme-aware blur */
+.nav-bg {
+  background-color: rgb(var(--bg-rgb) / 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* FA icons in flex lists — align icon box with first line of sibling text */
+li.flex.items-start > i[class*="fa-"]:first-child,
+.flex.items-start > i[class*="fa-"]:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: inherit;
+  height: 1lh;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+/* Softer prose emphasis */
+body strong,
+body b {
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ *
+ * Hero illustration — editorial SVG sitting above a page's headline.
+ * Source SVG is authored light-first; in dark mode we apply
+ * invert(1) hue-rotate(180deg) to flip the grayscale ramp while
+ * keeping the purple accent recognisable.
+ * ------------------------------------------------------------------ */
+.hero-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 36rem;
+  object-fit: contain;
+  transition: filter 200ms ease;
+}
+:root.dark .hero-illustration:not([data-authored="dark"]) {
+  filter: invert(1) hue-rotate(180deg);
+}
+:root.light .hero-illustration[data-authored="dark"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Consulting / closing illustration — two authored SVGs, show the
+   one that matches the current theme. */
+.consulting-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 36rem;
+  object-fit: contain;
+}
+.consulting-illustration.consulting-dark { display: none; }
+:root.dark .consulting-illustration.consulting-light { display: none; }
+:root.dark .consulting-illustration.consulting-dark { display: block; }
+
+/* ------------------------------------------------------------------ *
+ * Avatar — 64px circular portrait slot. Used on the Team page; falls
+ * back to a monogram (e.g. "GB") when no image is supplied, which is
+ * why the container centres its text.
+ * ------------------------------------------------------------------ */
+.avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  background: transparent;
+  overflow: hidden;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Spec-sheet row — <dl>-based "at a glance" data-sheet blocks */
+.spec-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2rem;
+  row-gap: 0.25rem;
+  padding: 1.125rem 0;
+  border-bottom: 1px solid var(--border);
+}
+@media (min-width: 768px) {
+  .spec-row {
+    grid-template-columns: 13rem 1fr;
+    padding: 1.25rem 0;
+  }
+}
+.spec-row dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.5rem;
+}
+.spec-row dd {
+  font-size: 0.9375rem;
+  color: var(--fg);
+  line-height: 1.5rem;
+}

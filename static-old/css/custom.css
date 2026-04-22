@@ -1,0 +1,1975 @@
+/* ==================================================================
+   2060.io, Tailwind source.
+   Compiled by Tailwind CLI into static/css/custom.css.
+   Served as /css/custom.css. Relative paths below therefore resolve
+   against /css/, e.g. "../assets/illustrations/foo.svg" -> /assets/illustrations/foo.svg.
+   ==================================================================*/
+
+*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+/* ! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
+  /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
+*/
+
+html,
+:host {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4;
+  /* 3 */
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* 4 */
+  font-feature-settings: normal;
+  /* 5 */
+  font-variation-settings: normal;
+  /* 6 */
+  -webkit-tap-highlight-color: transparent;
+  /* 7 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0;
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* 1 */
+  font-feature-settings: normal;
+  /* 2 */
+  font-variation-settings: normal;
+  /* 3 */
+  font-size: 1em;
+  /* 4 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-feature-settings: inherit;
+  /* 1 */
+  font-variation-settings: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  letter-spacing: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+
+dialog {
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+
+:root {
+  --bg: #0a0a0a;
+  --bg-rgb: 10 10 10;
+  --fg: #fafafa;
+  --fg-rgb: 250 250 250;
+  --muted: #a3a3a3;
+  --muted-rgb: 163 163 163;
+  --accent: #553C9A;
+  --accent-rgb: 85 60 154;
+  --accent-hover: #9F7AEA;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --e5: #e5e5e5;
+}
+
+:root.light {
+  --bg: #ffffff;
+  --bg-rgb: 255 255 255;
+  --fg: #0a0a0a;
+  --fg-rgb: 10 10 10;
+  --muted: #525252;
+  --muted-rgb: 82 82 82;
+  --accent: #553C9A;
+  --accent-rgb: 85 60 154;
+  --accent-hover: #763EF0;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --e5: #404040;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+/* Site-wide focus ring, 2px accent, 2px offset. */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Accent underline on prose links, 1px solid, fade in on hover. */
+
+.prose-link {
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  background-position: 0 100%;
+  transition: background-size 150ms ease, color 150ms ease;
+}
+
+.prose-link:hover,
+  .prose-link:focus-visible {
+  background-size: 100% 1px;
+  color: var(--fg);
+}
+
+/* Nav link. */
+
+.nav-link {
+  position: relative;
+  color: var(--muted);
+  transition: color 150ms ease;
+}
+
+.nav-link:hover,
+  .nav-link:focus-visible,
+  .nav-link[aria-current="page"],
+  .nav-link.nav-active {
+  color: var(--fg);
+}
+
+.nav-link[aria-current="page"]::after,
+  .nav-link.nav-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* Hairline dividers (applied alongside Tailwind's border-*). */
+
+.hairline {
+  border-color: var(--border);
+}
+
+/* Buttons. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--border);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--fg);
+  background: transparent;
+  transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+  white-space: nowrap;
+}
+
+.btn:hover,
+  .btn:focus-visible {
+  border-color: var(--accent);
+  background: rgb(var(--accent-rgb) / 0.08);
+}
+
+.btn-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fafafa;
+}
+
+.btn-primary:hover,
+  .btn-primary:focus-visible {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #fafafa;
+}
+
+/* Accent line, thin mark used under hero wordmark and as divider highlight. */
+
+.accent-line {
+  height: 1px;
+  background: var(--accent);
+  width: 3rem;
+}
+
+/* Card. */
+
+.card {
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+/* Reading width. */
+
+.reading {
+  max-width: 72ch;
+}
+
+/* Section reveal, fade-up on scroll, 700ms ease. */
+
+/* Form inputs. */
+
+.field {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font: inherit;
+  transition: border-color 150ms ease, background 150ms ease, box-shadow 150ms ease;
+}
+
+.field:hover {
+  border-color: var(--border-strong);
+}
+
+.field:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgb(var(--accent-rgb) / 0.3);
+}
+
+.field::-moz-placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.field::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+/* Tag (small meta label). */
+
+.tag {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.tag-accent {
+  color: var(--accent-hover);
+  border-color: rgb(var(--accent-rgb) / 0.6);
+}
+
+/* Tables. */
+
+table.clean {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+table.clean th,
+  table.clean td {
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+table.clean th {
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Display type, Space Grotesk, tighter tracking. */
+
+.display {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+/* Long-form prose (legal pages, future blog posts, etc.).
+     Deliberately narrow scope: only styles descendants, never the
+     container itself, so utility classes on the surrounding <article>
+     keep working as usual. */
+
+.prose-2060 h2 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.prose-2060 > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.prose-2060 h3 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--fg);
+}
+
+.prose-2060 p {
+  color: var(--muted);
+  margin: 1rem 0;
+  max-width: 72ch;
+  line-height: 1.7;
+}
+
+.prose-2060 ul,
+  .prose-2060 ol {
+  color: var(--muted);
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  max-width: 72ch;
+  line-height: 1.7;
+}
+
+.prose-2060 ul {
+  list-style: disc;
+}
+
+.prose-2060 ol {
+  list-style: decimal;
+}
+
+.prose-2060 li {
+  margin: 0.5rem 0;
+}
+
+.prose-2060 li > p {
+  margin: 0.25rem 0;
+}
+
+.prose-2060 strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.prose-2060 em {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.prose-2060 a {
+  color: var(--fg);
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  transition: color 150ms ease, background-size 150ms ease;
+}
+
+.prose-2060 a:hover,
+  .prose-2060 a:focus-visible {
+  color: var(--accent-hover);
+}
+
+.prose-2060 code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875em;
+  color: var(--fg);
+  background: rgb(var(--accent-rgb) / 0.08);
+  padding: 0.125rem 0.375rem;
+  border: 1px solid var(--border);
+}
+
+.prose-2060 hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+.prose-2060 blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+/* Theme toggle button. */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: transparent;
+  transition: color 150ms ease, border-color 150ms ease, background 150ms ease;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+  .theme-toggle:focus-visible {
+  color: var(--fg);
+  border-color: var(--accent);
+  background: rgb(var(--accent-rgb) / 0.08);
+}
+
+.theme-toggle [data-theme-icon] {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Nav background, semi-transparent with theme-aware blur. */
+
+.nav-bg {
+  background-color: rgb(var(--bg-rgb) / 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.left-4 {
+  left: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.top-2\.5 {
+  top: 0.625rem;
+}
+
+.z-40 {
+  z-index: 40;
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
+.mt-0\.5 {
+  margin-top: 0.125rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.flex {
+  display: flex;
+}
+
+.table {
+  display: table;
+}
+
+.grid {
+  display: grid;
+}
+
+.contents {
+  display: contents;
+}
+
+.hidden {
+  display: none;
+}
+
+.h-14 {
+  height: 3.5rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.h-3 {
+  height: 0.75rem;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-9 {
+  height: 2.25rem;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-px {
+  height: 1px;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.w-2 {
+  width: 0.5rem;
+}
+
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-5 {
+  width: 1.25rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-9 {
+  width: 2.25rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.max-w-6xl {
+  max-width: 72rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.scroll-mt-16 {
+  scroll-margin-top: 4rem;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-12 {
+  gap: 3rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-px {
+  gap: 1px;
+}
+
+.gap-x-12 {
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+}
+
+.gap-y-8 {
+  row-gap: 2rem;
+}
+
+.space-y-10 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
+.space-y-5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-y {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-l-2 {
+  border-left-width: 2px;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.bg-accent {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--accent-rgb) / var(--tw-bg-opacity, 1));
+}
+
+.bg-bg {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--bg-rgb) / var(--tw-bg-opacity, 1));
+}
+
+.bg-muted {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--muted-rgb) / var(--tw-bg-opacity, 1));
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
+.pb-16 {
+  padding-bottom: 4rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.pt-12 {
+  padding-top: 3rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pt-24 {
+  padding-top: 6rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.not-italic {
+  font-style: normal;
+}
+
+.leading-\[1\.05\] {
+  line-height: 1.05;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.text-accent-hover {
+  color: var(--accent-hover);
+}
+
+.text-fg {
+  --tw-text-opacity: 1;
+  color: rgb(var(--fg-rgb) / var(--tw-text-opacity, 1));
+}
+
+.text-muted {
+  --tw-text-opacity: 1;
+  color: rgb(var(--muted-rgb) / var(--tw-text-opacity, 1));
+}
+
+.text-e5 {
+  color: var(--e5);
+}
+
+/* ----------------------------------------------------------------- *
+ * Theme tokens.
+ * Dark is the default; the `.light` class on <html>, set by
+ * static/assets/theme.js, flips every token in one place. The
+ * -rgb variants feed Tailwind's `rgb(var(--foo-rgb) / <alpha-value>)`
+ * colour utilities (see tailwind.config.js).
+ * ----------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------- *
+ * Utility overrides Tailwind can't express.
+ * .text-e5 is a one-off semi-muted body-text tone that isn't worth
+ * adding to the colour palette since it's used in two places on the
+ * home page.
+ * ----------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------- *
+ * 2060 wordmark, theme-adaptive via CSS mask-image.
+ * The shape is inlined as a data URL so the mask resource is never
+ * cached stale and is immune to cross-origin / isolated-context
+ * resolution quirks that blank some WebKit builds.
+ * ----------------------------------------------------------------- */
+
+.logo-2060 {
+  display: inline-block;
+  vertical-align: middle;
+  aspect-ratio: 162.566 / 60.09;
+  background-color: currentColor;
+  color: var(--fg);
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 162.566 60.09'><path fill='%23000' d='M162.412,32.2A24.973,24.973,0,0,0,134.87,10.156c-5.929.658-10.914,2.771-14.956,7.042a26.2,26.2,0,0,1,5.453,7.912l.023.376a15.463,15.463,0,1,1,13.934,24.832,15.668,15.668,0,0,1-11.718-3.363,15.1,15.1,0,0,1-5.327-8.241,12.808,12.808,0,0,1-.247-1.8c0-.056,0-.112,0-.168A22.135,22.135,0,0,0,99.936,15.32c-.679,0-1.351.042-2.013.1a26.268,26.268,0,0,1,16.369-5.943l.275,0L114.675,0a35.775,35.775,0,0,0-23.659,8.8,38.743,38.743,0,0,0-8.982,11.338A24.912,24.912,0,0,0,37.21,35.132H37.2A15.594,15.594,0,0,1,22.352,49.983H17.827l10.811-8.964.014.014c.086-.072.161-.156.247-.231l.529-.439.012-.068A17.449,17.449,0,1,0,0,27.631H9.472a7.988,7.988,0,1,1,13.351,5.9L2.064,50.746H2.053v.012l-.035.028.035.042V59.46h9.554v0h9.9l1.612-.03A25.071,25.071,0,0,0,46.683,35.146l.037-.585A15.455,15.455,0,1,1,62.154,50.608a15.859,15.859,0,0,1-10.6-4.469,26.774,26.774,0,0,1-4.082,9.15,24.852,24.852,0,0,0,34.472-5.02,22.054,22.054,0,0,0,35.881.135,24.2,24.2,0,0,0,3.8,3.9,25.332,25.332,0,0,0,15.933,5.586,25.866,25.866,0,0,0,2.813-.154A24.943,24.943,0,0,0,162.412,32.2M112.83,37.8l-.012,0,.009.054a12.49,12.49,0,1,1,.021-.413c0,.121-.016.238-.019.357'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 162.566 60.09'><path fill='%23000' d='M162.412,32.2A24.973,24.973,0,0,0,134.87,10.156c-5.929.658-10.914,2.771-14.956,7.042a26.2,26.2,0,0,1,5.453,7.912l.023.376a15.463,15.463,0,1,1,13.934,24.832,15.668,15.668,0,0,1-11.718-3.363,15.1,15.1,0,0,1-5.327-8.241,12.808,12.808,0,0,1-.247-1.8c0-.056,0-.112,0-.168A22.135,22.135,0,0,0,99.936,15.32c-.679,0-1.351.042-2.013.1a26.268,26.268,0,0,1,16.369-5.943l.275,0L114.675,0a35.775,35.775,0,0,0-23.659,8.8,38.743,38.743,0,0,0-8.982,11.338A24.912,24.912,0,0,0,37.21,35.132H37.2A15.594,15.594,0,0,1,22.352,49.983H17.827l10.811-8.964.014.014c.086-.072.161-.156.247-.231l.529-.439.012-.068A17.449,17.449,0,1,0,0,27.631H9.472a7.988,7.988,0,1,1,13.351,5.9L2.064,50.746H2.053v.012l-.035.028.035.042V59.46h9.554v0h9.9l1.612-.03A25.071,25.071,0,0,0,46.683,35.146l.037-.585A15.455,15.455,0,1,1,62.154,50.608a15.859,15.859,0,0,1-10.6-4.469,26.774,26.774,0,0,1-4.082,9.15,24.852,24.852,0,0,0,34.472-5.02,22.054,22.054,0,0,0,35.881.135,24.2,24.2,0,0,0,3.8,3.9,25.332,25.332,0,0,0,15.933,5.586,25.866,25.866,0,0,0,2.813-.154A24.943,24.943,0,0,0,162.412,32.2M112.83,37.8l-.012,0,.009.054a12.49,12.49,0,1,1,.021-.413c0,.121-.016.238-.019.357'/></svg>");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  flex-shrink: 0;
+}
+
+.logo-2060.h-5  {
+  height: 1.25rem;
+  width: calc(1.25rem * 162.566 / 60.09);
+}
+
+.logo-2060.h-12 {
+  height: 3rem;
+  width: calc(3rem    * 162.566 / 60.09);
+}
+
+.logo-2060.h-16 {
+  height: 4rem;
+  width: calc(4rem    * 162.566 / 60.09);
+}
+
+/* ----------------------------------------------------------------- *
+ * Themed editorial illustrations (Sections 1, 3, 5, 7, 9, 12, 13).
+ * Each slot has pre-rendered dark / light SVG variants; only the
+ * active one is ever fetched.
+ * ----------------------------------------------------------------- */
+
+.illus-s01 {
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
+  aspect-ratio: 2 / 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../assets/illustrations/s01-hero-desk-dark.svg');
+}
+
+:root.light .illus-s01 {
+  background-image: url('../assets/illustrations/s01-hero-desk-light.svg');
+}
+
+.illus-s3 {
+  width: 100%;
+  aspect-ratio: 3960 / 972;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../assets/illustrations/s3-four-practices-dark.svg');
+}
+
+:root.light .illus-s3 {
+  background-image: url('../assets/illustrations/s3-four-practices-light.svg');
+}
+
+.illus-s05 {
+  width: 100%;
+  aspect-ratio: 2660 / 508;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../assets/illustrations/s05-principles-dark.svg');
+}
+
+:root.light .illus-s05 {
+  background-image: url('../assets/illustrations/s05-principles-light.svg');
+}
+
+.illus-s07 {
+  width: 100%;
+  max-width: 48rem;
+  margin-inline: auto;
+  aspect-ratio: 2 / 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../assets/illustrations/s07-handshake-dark.svg');
+}
+
+:root.light .illus-s07 {
+  background-image: url('../assets/illustrations/s07-handshake-light.svg');
+}
+
+.illus-s09 {
+  width: 100%;
+  max-width: 44rem;
+  margin-inline: auto;
+  aspect-ratio: 2432 / 1792;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../assets/illustrations/s09-research-dark.svg');
+}
+
+:root.light .illus-s09 {
+  background-image: url('../assets/illustrations/s09-research-light.svg');
+}
+
+.illus-s12 {
+  width: 100%;
+  max-width: 44rem;
+  margin-inline: auto;
+  aspect-ratio: 2432 / 1792;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../assets/illustrations/s12-consulting-dark.svg');
+}
+
+:root.light .illus-s12 {
+  background-image: url('../assets/illustrations/s12-consulting-light.svg');
+}
+
+.illus-s13 {
+  width: 100%;
+  max-width: 44rem;
+  margin-inline: auto;
+  aspect-ratio: 2432 / 1792;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../assets/illustrations/s13-engagement-dark.svg');
+}
+
+:root.light .illus-s13 {
+  background-image: url('../assets/illustrations/s13-engagement-light.svg');
+}
+
+/* ----------------------------------------------------------------- *
+ * Section 4, flagship card logos (Verana / Hologram) and
+ * Section 6, standards logo strip.
+ * Desaturated + dimmed by default so the row reads as one calm
+ * monochrome palette; hover / focus restores original brand colour.
+ * ----------------------------------------------------------------- */
+
+.card-logo {
+  filter: grayscale(100%) opacity(0.65);
+  transition: filter 200ms ease, opacity 200ms ease;
+}
+
+:root:not(.light) .card-logo {
+  filter: grayscale(100%) invert(1) opacity(0.65);
+}
+
+.card:hover .card-logo {
+  filter: none;
+  opacity: 1;
+}
+
+.logo-strip {
+  list-style: none;
+  padding: 0;
+  max-width: 48rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 1.75rem 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .logo-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .standards-section .logo-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.logo-strip > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  height: 1.75rem;
+  width: auto;
+  display: block;
+  filter: grayscale(100%) opacity(0.7);
+  transition: filter 200ms ease, opacity 200ms ease, transform 200ms ease;
+}
+
+:root:not(.light) .logo-img {
+  filter: grayscale(100%) invert(1) opacity(0.7);
+}
+
+.logo-img:hover,
+.logo-img:focus-visible {
+  filter: none;
+  opacity: 1;
+  outline: none;
+}
+
+.logo-img.logo-wide {
+  height: 1.125rem;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+.focus\:absolute:focus {
+  position: absolute;
+}
+
+.focus\:left-4:focus {
+  left: 1rem;
+}
+
+.focus\:top-4:focus {
+  top: 1rem;
+}
+
+.focus\:z-50:focus {
+  z-index: 50;
+}
+
+.focus\:bg-accent:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--accent-rgb) / var(--tw-bg-opacity, 1));
+}
+
+.focus\:px-3:focus {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.focus\:py-2:focus {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.focus\:text-fg:focus {
+  --tw-text-opacity: 1;
+  color: rgb(var(--fg-rgb) / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 768px) {
+  .md\:order-1 {
+    order: 1;
+  }
+
+  .md\:order-2 {
+    order: 2;
+  }
+
+  .md\:col-span-12 {
+    grid-column: span 12 / span 12;
+  }
+
+  .md\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .md\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+
+  .md\:col-span-8 {
+    grid-column: span 8 / span 8;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:items-baseline {
+    align-items: baseline;
+  }
+
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
+  .md\:pb-28 {
+    padding-bottom: 7rem;
+  }
+
+  .md\:pt-16 {
+    padding-top: 4rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:items-start {
+    align-items: flex-start;
+  }
+
+  .lg\:gap-16 {
+    gap: 4rem;
+  }
+
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
