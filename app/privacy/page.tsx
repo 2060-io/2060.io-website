@@ -11,10 +11,10 @@ export default function Page() {
         <p className="tag">Legal</p>
         <h1 className="display text-4xl md:text-5xl mt-4">Privacy Policy</h1>
         <div className="accent-line mt-6"></div>
-        <p className="text-xs tracking-wider uppercase text-muted mt-8"><strong className="text-fg">Last updated.</strong> 2026-04-23</p>
+        <p className="text-xs tracking-wider uppercase text-muted mt-8"><strong className="text-fg">Last updated.</strong> 2026-04-22</p>
         <div className="reading max-w-3xl mt-8 space-y-5 text-e5">
           <p>This page explains what personal data <strong className="text-fg">2060 OÜ</strong> collects through <strong className="text-fg">2060.io</strong>, why we collect it, how long we keep it, and what rights you have under the EU General Data Protection Regulation (GDPR). The policy covers the <strong className="text-fg">contact form</strong> on <code>/contact</code> and any cookies or anti-abuse signals set by the site.</p>
-          <p>2060.io does not sell data. It does not run ad tracking. The only reason we collect data is to respond to inquiries you send us and to keep the site itself secure and functional.</p>
+          <p>2060.io does not sell data and does not run ad targeting or remarketing. The only data we collect is what you explicitly send us via the contact form, what our hosting provider logs for security, and the aggregated usage measurements captured by <strong className="text-fg">Google Analytics 4</strong> so we can see which pages people read.</p>
         </div>
       </div>
     </section>
@@ -72,12 +72,16 @@ export default function Page() {
           <div className="md:col-span-4">
             <h3 className="display text-lg">Cookies and analytics</h3>
           </div>
-          <div className="md:col-span-8 reading text-e5">
-            <ul className="space-y-3 text-muted">
-              <li><strong className="text-fg">No cookies at all.</strong> The site sets no cookies: no tracking cookies, no analytics cookies, no anti-bot cookies, no session cookies. The contact form's anti-abuse measures (honeypot, time-to-submit check, rate limit, disposable-email blocklist) are all server-side and require no browser storage.</li>
-              <li><strong className="text-fg">No third-party analytics by default.</strong> If privacy-respecting server-side analytics are introduced in the future (for example, Plausible, Fathom, or an equivalent self-hosted option), this page will be updated before deployment.</li>
-              <li><strong className="text-fg">No ad networks. No cross-site trackers.</strong></li>
+          <div className="md:col-span-8 reading text-e5 space-y-5">
+            <p className="text-muted"><strong className="text-fg">Google Analytics 4 (GA4).</strong> The site loads the GA4 tag (measurement ID <code>G-9H5406F02W</code>) to count pageviews and track navigation between pages. Two first-party cookies are set on your browser:</p>
+            <ul className="space-y-2 text-muted">
+              <li><code>_ga</code> &mdash; distinguishes unique browsers. Expires after 2 years.</li>
+              <li><code>_ga_9H5406F02W</code> &mdash; persists session state for this specific GA4 property. Expires after 2 years.</li>
             </ul>
+            <p className="text-muted">GA4 <strong className="text-fg">anonymizes IP addresses before storage</strong> by default, so no full IP is retained against your session. We use the <strong className="text-fg">standard GA4 configuration only</strong>: no Google Signals, no remarketing, no ad personalization, no Google Ads linkage, no user-ID joins across devices. The data we receive is aggregate (page popularity, referrer, rough geography, device class).</p>
+            <p className="text-muted"><strong className="text-fg">No other cookies.</strong> The contact form's anti-abuse measures (honeypot, time-to-submit check, rate limit, disposable-email blocklist) are all server-side and set no cookies. No anti-bot cookies, no session cookies, no preference cookies beyond GA4.</p>
+            <p className="text-muted"><strong className="text-fg">No ad networks. No cross-site trackers.</strong> GA4 is the only third-party tag on the site.</p>
+            <p className="text-xs text-muted italic">If you would rather opt out of GA4 tracking on this site, browser-level "Do Not Track" and extensions like uBlock Origin or the official <a href="https://tools.google.com/dlpage/gaoptout" className="prose-link text-fg" rel="noopener">Google Analytics Opt-out Browser Add-on</a> will block the GA4 script entirely. We do not contest that choice and the site functions identically.</p>
           </div>
         </div>
       </div>
@@ -105,9 +109,14 @@ export default function Page() {
             <p className="text-muted text-sm">Spam protection is <strong className="text-fg">fully self-hosted</strong> using server-side measures inside the OVHcloud Canada datacenter (honeypot field, time-to-submit check, per-IP rate limiting, disposable-email-domain blocklist). <strong className="text-fg">No third-party anti-bot service</strong> (Cloudflare Turnstile, hCaptcha, reCAPTCHA, or equivalent) is used; no spam-protection data leaves the hosting datacenter.</p>
           </article>
           <article className="card">
+            <h3 className="display text-lg flex items-center gap-2"><i className="fa-solid fa-fw fa-chart-line text-fg" aria-hidden="true"></i>Google Analytics 4</h3>
+            <div className="accent-line mt-2 mb-4"></div>
+            <p className="text-muted text-sm">Aggregate site-usage measurements are processed by <strong className="text-fg">Google LLC</strong> (United States) and <strong className="text-fg">Google Ireland Limited</strong>, in the Google Analytics 4 infrastructure. Transfers from the EEA to the United States are covered by the <strong className="text-fg">EU-US Data Privacy Framework</strong> (Commission Implementing Decision (EU) 2023/1795 of 10 July 2023), for which Google LLC is a certified participant. IP addresses are <strong className="text-fg">anonymized before storage</strong>. No ad personalization, remarketing, or Google Signals is enabled.</p>
+          </article>
+          <article className="card">
             <h3 className="display text-lg flex items-center gap-2"><i className="fa-solid fa-fw fa-arrows-rotate text-fg" aria-hidden="true"></i>Future sub-processors</h3>
             <div className="accent-line mt-2 mb-4"></div>
-            <p className="text-muted text-sm">If any future sub-processor (for example, the submission handler or an analytics tool) is located in a country without an EC adequacy decision or DPF coverage, transfer will be governed by the European Commission's <strong className="text-fg">Standard Contractual Clauses (SCCs)</strong> and any supplementary safeguards required. An up-to-date list of sub-processors is maintained on this page.</p>
+            <p className="text-muted text-sm">If any future sub-processor is located in a country without an EC adequacy decision or DPF coverage, transfer will be governed by the European Commission's <strong className="text-fg">Standard Contractual Clauses (SCCs)</strong> and any supplementary safeguards required. An up-to-date list of sub-processors is maintained on this page.</p>
           </article>
         </div>
       </div>
@@ -142,7 +151,11 @@ export default function Page() {
               </tr>
               <tr>
                 <td>Submission-handler processing logs</td>
-                <td>Per the handler's default policy, to be specified during implementation; targeted retention: <strong className="text-fg">≤ 30 days</strong>.</td>
+                <td>Per the handler's default policy, to be specified during implementation; targeted retention: <strong className="text-fg">&le; 30 days</strong>.</td>
+              </tr>
+              <tr>
+                <td>Google Analytics 4 event and user-property data</td>
+                <td><strong className="text-fg">2 months</strong> (the minimum GA4 retention setting). Aggregate reports derived from that data are kept indefinitely but contain no identifiers.</td>
               </tr>
             </tbody>
           </table>

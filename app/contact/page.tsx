@@ -29,7 +29,7 @@ export default function Page() {
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-envelope-open-text text-muted mt-1" aria-hidden="true"></i><span>No email addresses exposed. Nothing in HTML, meta, or JSON-LD.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-shield-halved text-muted mt-1" aria-hidden="true"></i><span>Self-hosted anti-abuse. No Turnstile, hCaptcha, or reCAPTCHA.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-database text-muted mt-1" aria-hidden="true"></i><span>One processor: OVHcloud Canada (Beauharnois, Québec). No CDN. Covered by EC adequacy decision 2002/2/EC.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-cookie-bite text-muted mt-1" aria-hidden="true"></i><span>No cookies. None at all.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-cookie-bite text-muted mt-1" aria-hidden="true"></i><span>No cookies from this form. The site uses Google Analytics 4 (pageviews only, IP anonymized) &mdash; see the <a href="/privacy" className="prose-link text-fg">Privacy Policy</a>.</span></li>
             </ul>
             <p className="text-xs text-muted mt-8">Full details on the <a href="/privacy" className="prose-link text-fg">Privacy Policy</a>.</p>
           </aside>

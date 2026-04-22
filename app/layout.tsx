@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Reveals from "./components/Reveals";
 import ImagePreloader from "./components/ImagePreloader";
+import Analytics from "./components/Analytics";
 
 const SITE_URL = "https://2060.io";
 const SITE_NAME = "2060";
@@ -137,6 +138,7 @@ export default function RootLayout({
         <Footer />
         <Reveals />
         <ImagePreloader />
+        <Analytics />
       </body>
     </html>
   );
