@@ -94,7 +94,7 @@ export default function Page() {
         <h3 className="display text-xl mt-12">Product</h3>
         <div className="grid md:grid-cols-2 gap-6 mt-6">
           <article className="card flex items-start gap-5">
-            <span className="avatar" aria-hidden="true">GB</span>
+            <span className="avatar"><img src="/assets/gerard.jpeg" alt="Gerard William Burion portrait" width="64" height="64" /></span>
             <div className="flex-1">
               <h4 className="display text-lg">Gerard William Burion</h4>
               <p className="text-xs tracking-wider uppercase text-accent-hover mt-1">Chief Product Officer</p>
