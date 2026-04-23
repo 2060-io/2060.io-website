@@ -14,6 +14,12 @@ spec:
     metadata:
       labels:
         {{- include "website.selectorLabels" . | nindent 8 }}
+      annotations:
+        # Forces a pod rollout on every `helm upgrade`, even when the image
+        # tag is unchanged. Paired with image.pullPolicy=Always in values.yaml
+        # so the replacement pod always repulls the image from the registry.
+        # See: https://helm.sh/docs/howto/charts_tips_and_tricks/#automatically-roll-deployments
+        rollme: {{ randAlphaNum 5 | quote }}
     spec:
       {{- with .Values.podSecurityContext }}
       securityContext:
