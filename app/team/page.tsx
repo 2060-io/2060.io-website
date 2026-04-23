@@ -176,7 +176,7 @@ export default function Page() {
                 <p className="text-xs tracking-wider uppercase text-accent-hover mt-1">Strategic Advisor</p>
               </div>
             </div>
-            <p className="text-muted text-sm mt-5 flex-1">London-based digital-identity and payments specialist with 18+ years of work on UK identity infrastructure. Individual Expert Member at the <a href="https://digitalpoundfoundation.com/" className="prose-link text-fg" rel="noopener">Digital Pound Foundation</a>, leading its Privacy and Identity Working Group. Prior work across the UK Identity Card Programme, the James Crosby review of identity assurance, the Privacy and Consumer Advisory Group, the Open Identity Exchange, and GOV.UK Verify. Currently advising at Westwick Melrose &amp; Cromwell (WMC), a London family-office advisory.</p>
+            <p className="text-muted text-sm mt-5 flex-1">London-based digital-identity and payments specialist with 18+ years of work on UK identity infrastructure. Individual Expert Member at the <a href="https://digitalpoundfoundation.com/" className="prose-link text-fg" rel="noopener">Digital Pound Foundation</a>, leading its Privacy and Identity Working Group. Prior work across the UK Identity Card Programme, the James Crosby review of identity assurance, the Privacy and Consumer Advisory Group, the Open Identity Exchange, and GOV.UK Verify.</p>
             <div className="mt-5">
               <a href="https://www.linkedin.com/in/david-rennie-b736541/" className="prose-link text-fg text-sm" rel="noopener">LinkedIn ↗</a>
             </div>
