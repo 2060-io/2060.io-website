@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.4.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.3.0...2060-io-website-v2.4.0) (2026-04-23)
+
+
+### Features
+
+* david bio updates ([ea97a37](https://github.com/2060-io/2060.io-website/commit/ea97a3717ec55adbfbc909e891197fb680ed337f))
+* david bio updates ([0efa095](https://github.com/2060-io/2060.io-website/commit/0efa095f77bc52a1f7a4beed5a098da964a1c0f8))
+
 ## [2.3.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.2.0...2060-io-website-v2.3.0) (2026-04-23)
 
 
