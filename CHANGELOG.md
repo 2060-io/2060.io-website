@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.2.0...2060-io-website-v2.3.0) (2026-04-23)
+
+
+### Features
+
+* updated README ([38c2735](https://github.com/2060-io/2060.io-website/commit/38c2735ae1c79f9e021be05901815b3b986c7845))
+
 ## [2.2.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.1.1...2060-io-website-v2.2.0) (2026-04-22)
 
 
