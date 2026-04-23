@@ -124,3 +124,4 @@ Versions follow SemVer. Commits on `main` must use [Conventional Commits](https:
 ## License
 
 See [LICENSE](LICENSE).
+
