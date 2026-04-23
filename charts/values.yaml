@@ -8,9 +8,14 @@ image:
   # tag defaults to "v<Chart.AppVersion>" when empty, matching the Docker
   # tags produced by .github/workflows/cd.yml (e.g. v1.0.0).
   tag: ""
-  pullPolicy: IfNotPresent
+  # Always repull on pod creation so a redeploy against a mutable tag
+  # (dev, latest, v1) still picks up the newest image.
+  pullPolicy: Always
 
-replicaCount: 2
+# Marketing site; a single replica is plenty for the traffic we see and
+# lets the rolling-update strategy swap in the new pod cleanly on every
+# `helm upgrade`.
+replicaCount: 1
 
 resources:
   requests:
