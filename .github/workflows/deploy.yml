@@ -1,17 +1,22 @@
 name: Deploy to Kubernetes
 
+# Manual-only rollout for pinning an arbitrary image tag to the cluster
+# (rollback, redeploy `latest`/`dev`/`v1` floating tags, pin to a
+# specific vX.Y.Z). Automatic deploys for new stable releases are
+# chained off the `docker` job in cd.yml — we can't use a `release:
+# published` trigger here because release-please creates the release
+# with the default GITHUB_TOKEN, and events produced by GITHUB_TOKEN
+# don't cascade into other workflows.
 on:
-  release:
-    types: [published]
   workflow_dispatch:
     inputs:
       version:
-        description: "Image tag to deploy (e.g. v1.2.3, v1, dev, latest)"
+        description: "Image tag to deploy (e.g. 2060-io-website-v2.3.0, v2, dev, latest)"
         required: true
         default: latest
 
 concurrency:
-  group: cd-${{ github.workflow }}
+  group: cd-deploy-k8s
   cancel-in-progress: false
 
 jobs:
@@ -24,14 +29,7 @@ jobs:
       - name: Compute image tag
         id: tag
         run: |
-          if [ "${{ github.event_name }}" = "release" ]; then
-            # release-please tags releases 'v1.2.3' and the Docker workflow
-            # in cd.yml pushes io2060/website:v1.2.3 with the same name,
-            # so use the ref name as-is (no 'v' stripping).
-            VERSION="${GITHUB_REF_NAME}"
-          else
-            VERSION="${{ inputs.version }}"
-          fi
+          VERSION="${{ inputs.version }}"
           if [ -z "$VERSION" ]; then
             echo "::error::Could not determine image tag to deploy."
             exit 1
