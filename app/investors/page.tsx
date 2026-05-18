@@ -32,7 +32,7 @@ export default function Page() {
             <div className="spec-row"><dt>Flagship product</dt><dd><a href="https://hologram.zone" className="prose-link" rel="noopener">Hologram</a>: deploy personal and corporate AI agents that are verifiable, compliant, governable, and multi-user</dd></div>
             <div className="spec-row"><dt>Protocol</dt><dd><a href="https://verana.io" className="prose-link" rel="noopener">Verana</a>: co-founder, Council member, largest code contributor</dd></div>
             <div className="spec-row"><dt>Standards</dt><dd>Verifiable Trust v4 · VPR v4 (co-authored, lead editor)</dd></div>
-            <div className="spec-row"><dt>Stage</dt><dd>Production stack shipped and open-sourced · Hologram Cloud (managed SaaS) GA launching <strong className="text-fg">15 May 2026</strong> · commercial adoption begins at Cloud GA</dd></div>
+            <div className="spec-row"><dt>Stage</dt><dd>Production stack shipped and open-sourced · Hologram Cloud (managed SaaS) GA launching <strong className="text-fg">15 August 2026</strong> · commercial adoption begins at Cloud GA</dd></div>
             <div className="spec-row"><dt>Tech</dt><dd>Open source (Apache 2.0) · W3C VC / DIDComm / MCP / Verana</dd></div>
             <div className="spec-row"><dt>Geography</dt><dd>HQ Tallinn · team distributed across Europe, Asia, and the Americas</dd></div>
             <div className="spec-row"><dt>Investment target</dt><dd>Equity</dd></div>
@@ -113,7 +113,7 @@ export default function Page() {
       <div className="max-w-6xl mx-auto">
         <p className="tag">Traction</p>
         <h2 className="display text-3xl md:text-4xl mt-4">Production Stack Shipped. Cloud GA Next.</h2>
-        <p className="text-muted mt-4 max-w-3xl reading">Technology is shipped and open-sourced. Commercial adoption begins with <strong className="text-fg">Hologram Cloud</strong> GA, scheduled for <strong className="text-fg">15 May 2026</strong>. Until then, running a Hologram agent requires a developer team to deploy from GitHub, which is why the self-hosted footprint today is small by design.</p>
+        <p className="text-muted mt-4 max-w-3xl reading">Technology is shipped and open-sourced. Commercial adoption begins with <strong className="text-fg">Hologram Cloud</strong> GA, scheduled for <strong className="text-fg">15 August 2026</strong>. Until then, running a Hologram agent requires a developer team to deploy from GitHub, which is why the self-hosted footprint today is small by design.</p>
 
         <div className="grid md:grid-cols-2 gap-10 mt-12">
           <div>
@@ -127,12 +127,12 @@ export default function Page() {
           </div>
           <div>
             <p className="text-xs tracking-wider uppercase text-muted mb-4">Pre-cloud adoption (today)</p>
-            <p className="text-muted text-sm leading-relaxed">Small and deliberate by design. Self-hosting a Hologram agent from GitHub today requires an engineering team, which both limits who runs one and is precisely the gate Cloud GA removes. Pre-cloud adoption metrics (self-hosted organizations, GitHub stars, Discord community, external contributors, active pilots and letters of intent) are published alongside commercial metrics at <strong className="text-fg">Hologram Cloud GA on 15 May 2026</strong>.</p>
+            <p className="text-muted text-sm leading-relaxed">Small and deliberate by design. Self-hosting a Hologram agent from GitHub today requires an engineering team, which both limits who runs one and is precisely the gate Cloud GA removes. Pre-cloud adoption metrics (self-hosted organizations, GitHub stars, Discord community, external contributors, active pilots and letters of intent) are published alongside commercial metrics at <strong className="text-fg">Hologram Cloud GA on 15 August 2026</strong>.</p>
           </div>
         </div>
 
         <div className="mt-14 border-l-2 border-accent pl-6 py-3 max-w-3xl">
-          <p className="text-xs tracking-wider uppercase text-accent-hover">Hologram Cloud GA: 15 May 2026 (the inflection)</p>
+          <p className="text-xs tracking-wider uppercase text-accent-hover">Hologram Cloud GA: 15 August 2026 (the inflection)</p>
           <ul className="mt-3 space-y-2 text-muted text-sm">
             <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-rocket text-fg mt-1" aria-hidden="true"></i><span><strong className="text-fg">Design-partner tenants</strong> live at launch.</span></li>
             <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-rocket text-fg mt-1" aria-hidden="true"></i><span><strong className="text-fg">Consumer Pro ($TBD/month)</strong> and <strong className="text-fg">enterprise managed hosting</strong> live day one.</span></li>
@@ -227,7 +227,7 @@ export default function Page() {
           <div>
             <p className="text-xs tracking-wider uppercase text-muted mb-4">12-month milestones (2060-owned)</p>
             <ul className="space-y-3 text-muted text-sm">
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-circle-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Cloud</strong> GA shipped in month 1 (<strong className="text-fg">15 May 2026</strong>).</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-circle-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Cloud</strong> GA shipped in month 1 (<strong className="text-fg">15 August 2026</strong>).</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-circle-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">150+ companies</strong> on Hologram Cloud by month 12.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-circle-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">10,000+ Personal AI agents</strong> on the Hologram App by month 12.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-circle-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">ARR target</strong> by month 12 (specific figure shared with qualified investors).</span></li>
@@ -249,7 +249,7 @@ export default function Page() {
         <div className="mt-14">
           <p className="text-xs tracking-wider uppercase text-muted mb-4">Why now for 2060</p>
           <ul className="grid md:grid-cols-2 gap-y-4 gap-x-10 max-w-5xl text-muted">
-            <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-bolt text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Cloud GA imminent.</strong> Hologram Cloud launches on <strong className="text-fg">15 May 2026</strong>: the stack moves from developer-deploy to managed SaaS. Investor dollars compound a live commercial surface that is weeks away.</span></li>
+            <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-bolt text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Cloud GA imminent.</strong> Hologram Cloud launches on <strong className="text-fg">15 August 2026</strong>: the stack moves from developer-deploy to managed SaaS. Investor dollars compound a live commercial surface that is weeks away.</span></li>
             <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-box-open text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Production stack shipped.</strong> Technology risk behind us.</span></li>
             <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-wind text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Regulatory tailwind accelerating.</strong></span></li>
             <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-bullseye text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Category forming now.</strong> Reference position is available for the next 12–24 months.</span></li>
