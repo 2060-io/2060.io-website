@@ -42,6 +42,19 @@ spec:
             - name: {{ .name }}
               value: {{ .value | quote }}
             {{- end }}
+            {{- if .Values.relaticle.enabled }}
+            # Relaticle CRM (in-cluster). The contact form posts inquiries here.
+            - name: RELATICLE_API_URL
+              value: {{ .Values.relaticle.apiUrl | quote }}
+            - name: RELATICLE_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.relaticle.secretName }}
+                  key: RELATICLE_API_TOKEN
+                  # Optional so the pod still starts if the secret is absent;
+                  # the contact route degrades to best-effort (logs only).
+                  optional: true
+            {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           livenessProbe:
