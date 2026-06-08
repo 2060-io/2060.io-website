@@ -66,6 +66,15 @@ probes:
     timeoutSeconds: 3
     failureThreshold: 3
 
+# Relaticle CRM integration for the /contact form. The token is injected into
+# the `secretName` Secret by the deploy workflows from the RELATICLE_API_TOKEN
+# GitHub Actions secret (kubectl create secret, kept across helm upgrades).
+relaticle:
+  enabled: true
+  # In-cluster Relaticle service (same OVH cluster, namespace `relaticle`).
+  apiUrl: http://relaticle.relaticle.svc.cluster.local
+  secretName: website-secrets
+
 podSecurityContext: {}
 securityContext: {}
 

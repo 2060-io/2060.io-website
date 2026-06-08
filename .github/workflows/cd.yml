@@ -136,6 +136,19 @@ jobs:
           chmod 600 "$HOME/.kube/config"
           kubectl cluster-info
 
+      - name: Create/refresh app secret
+        # Token consumed by the /contact route (Relaticle CRM). Created via
+        # kubectl (not helm) and annotated keep so helm never prunes it.
+        env:
+          RELATICLE_API_TOKEN: ${{ secrets.RELATICLE_API_TOKEN }}
+        run: |
+          kubectl create namespace web --dry-run=client -o yaml | kubectl apply -f -
+          kubectl -n web create secret generic website-secrets \
+            --from-literal=RELATICLE_API_TOKEN="${RELATICLE_API_TOKEN}" \
+            --dry-run=client -o yaml | kubectl apply -f -
+          kubectl -n web annotate secret website-secrets \
+            helm.sh/resource-policy=keep --overwrite
+
       - name: Helm upgrade
         run: |
           echo "Deploying io2060/${{ env.IMAGE_NAME }}:${{ env.RELEASE_VERSION }} to namespace 'web'..."
