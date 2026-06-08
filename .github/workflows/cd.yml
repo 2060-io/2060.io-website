@@ -163,3 +163,16 @@ jobs:
         run: |
           helm status website -n web || true
           kubectl -n web get deploy,svc,ingress -l app.kubernetes.io/name=website -o wide || true
+
+  # Announce stable (Release Please) releases on Discord. resolve-version wraps
+  # release-please; release-type=stable is the Release Please path. Chained here
+  # (not a `release: published` trigger) because the release is created with the
+  # default GITHUB_TOKEN, whose events don't cascade into other workflows.
+  discord-notify:
+    needs: [resolve-version]
+    if: needs.resolve-version.outputs.new-release-published == 'true' && needs.resolve-version.outputs.release-type == 'stable'
+    uses: 2060-io/organization/.github/workflows/discord-release-notify-call.yml@main
+    with:
+      tag_name: ${{ needs.resolve-version.outputs.release-version }}
+    secrets:
+      DISCORD_UPDATES_WEBHOOK_URL: ${{ secrets.DISCORD_UPDATES_WEBHOOK_URL }}
