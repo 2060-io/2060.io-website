@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.5.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.4.1...2060-io-website-v2.5.0) (2026-06-08)
+
+
+### Features
+
+* post contact form to Relaticle CRM ([2d1c27e](https://github.com/2060-io/2060.io-website/commit/2d1c27e57cf177cbb9dcd970eb9a35416f84c953))
+* post contact form to Relaticle CRM ([905914e](https://github.com/2060-io/2060.io-website/commit/905914e033beee9212adcfe651f33ac2e7c79fec))
+
 ## [2.4.1](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.4.0...2060-io-website-v2.4.1) (2026-05-18)
 
 
