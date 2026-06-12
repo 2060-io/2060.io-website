@@ -73,7 +73,7 @@ relaticle:
   enabled: true
   # In-cluster Relaticle service (same OVH cluster, namespace `relaticle`).
   apiUrl: http://relaticle.relaticle.svc.cluster.local
-  secretName: website-secrets
+  secretName: 2060-website-secrets
 
 podSecurityContext: {}
 securityContext: {}
