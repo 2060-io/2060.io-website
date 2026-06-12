@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.5.1](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.5.0...2060-io-website-v2.5.1) (2026-06-12)
+
+
+### Bug Fixes
+
+* align Foundation/Council separation with strategy defs ([5c9ea36](https://github.com/2060-io/2060.io-website/commit/5c9ea368e430e496a6ffa410e53397414ed761d4))
+* align Foundation/Council separation with strategy defs ([75eff4b](https://github.com/2060-io/2060.io-website/commit/75eff4b7e0ae9bd6884fa5c096c18cb4d6f461fd))
+* site-scoped CRM secret name (website-secrets -&gt; 2060-website-secrets) ([e309f33](https://github.com/2060-io/2060.io-website/commit/e309f3395e9f4d0b76dda8d64389d5b818922ea1))
+* site-scoped CRM secret name (website-secrets → 2060-website-secrets) ([3a6c087](https://github.com/2060-io/2060.io-website/commit/3a6c087a579bb47015f60c3a2be8f62f27a8a744))
+
 ## [2.5.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.4.1...2060-io-website-v2.5.0) (2026-06-08)
 
 
