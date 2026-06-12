@@ -37,7 +37,7 @@ const structuredData = {
       "memberOf": {
         "@type": "Organization",
         "name": "Verana Foundation",
-        "url": "https://verana.io",
+        "url": "https://veranafoundation.org",
       },
     },
     {
@@ -227,7 +227,7 @@ export default function Page() {
           <li className="relative"><span className="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong className="block text-fg">2020</strong><span className="text-muted">Verifiable Trust invented at IIW</span></li>
           <li className="relative"><span className="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong className="block text-fg">2021–22</strong><span className="text-muted">First Hologram PoCs</span></li>
           <li className="relative"><span className="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong className="block text-fg">2023</strong><span className="text-muted">Verana VPR development</span></li>
-          <li className="relative"><span className="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong className="block text-fg">2024</strong><span className="text-muted">Verana Foundation co-founded</span></li>
+          <li className="relative"><span className="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong className="block text-fg">2024</strong><span className="text-muted">Verana Foundation initiated</span></li>
           <li className="relative"><span className="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong className="block text-fg">2025</strong><span className="text-muted">Hologram in market · Verana Testnet</span></li>
           <li className="relative"><span className="block w-2 h-2 rounded-full bg-accent mb-3"></span><strong className="block text-fg">2026</strong><span className="text-muted">Hologram Cloud GA, 15 August</span></li>
         </ol>
@@ -260,7 +260,7 @@ export default function Page() {
               <img src="/assets/verana-logo.svg" alt="" className="card-logo w-8 h-8 flex-shrink-0" width="32" height="32" aria-hidden="true" />
               Verana
             </h3>
-            <p className="text-muted mt-3 flex-1">Open, decentralized infrastructure for trust registries and verifiable governance, stewarded by the Verana Foundation Council. 2060 co-founded it, holds a Council seat, and is the largest single code contributor.</p>
+            <p className="text-muted mt-3 flex-1">Open, decentralized infrastructure for trust registries and verifiable governance. Its specifications are stewarded by the Verana Foundation; the live network is governed and secured by the independent Verana Council. 2060 is a founding member of the Foundation, holds a Council seat, and is the largest single code contributor.</p>
             <a href="https://verana.io" className="prose-link text-fg text-sm mt-5 self-end" rel="noopener">Explore Verana ↗</a>
           </article>
           <article className="card flex flex-col h-full">
@@ -269,7 +269,7 @@ export default function Page() {
               <i className="fa-solid fa-fw fa-file-lines text-2xl card-icon" aria-hidden="true"></i>
               Verifiable Trust &amp; VPR
             </h3>
-            <p className="text-muted mt-3 flex-1">The open specifications that define the category. Verifiable Trust v4 and VPR v4: co-authored by 2060, maintained publicly, adopted by the Council. Apache 2.0.</p>
+            <p className="text-muted mt-3 flex-1">The open specifications that define the category. Verifiable Trust v4 and VPR v4: co-authored by 2060, maintained publicly, owned and hosted by the Verana Foundation. Apache 2.0.</p>
             <a href="/projects#specifications" className="prose-link text-fg text-sm mt-5 self-end">Read the specs →</a>
           </article>
         </div>
@@ -323,13 +323,13 @@ export default function Page() {
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Production stack shipped</strong>: 6+ open-source components (Apache 2.0) including Hologram App, VS Agent, Generic AI Agent, SDK, and MCP catalog.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Messaging App</strong> live on App Store, Google Play, and Huawei AppGallery.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">5 reference agents</strong> accessible today: Avatar, Gov ID, GitHub, Wise, X.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verana Trust Network</strong> testnet operational; mainnet on the Foundation's roadmap.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verana Trust Network</strong> testnet operational; mainnet targeted for Q1 2027.</span></li>
             </ul>
           </div>
           <div>
             <p className="text-xs tracking-wider uppercase text-muted mb-4">Standards &amp; ecosystem</p>
             <ul className="space-y-4 text-muted">
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Founding member and Council seat: <strong className="text-fg">Verana Foundation</strong>.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Founding member: <strong className="text-fg">Verana Foundation</strong> · Council seat: <strong className="text-fg">Verana Council</strong>.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Active contributors: <strong className="text-fg">OpenWallet Foundation · Trust Over IP · Decentralized Identity Foundation</strong>.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Speakers and maintainers at the <strong className="text-fg">Internet Identity Workshop</strong>.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verifiable Trust v4</strong> and <strong className="text-fg">VPR v4</strong> specifications: public, open, maintained.</span></li>
@@ -398,9 +398,10 @@ export default function Page() {
           <article className="card">
             <p className="text-xs tracking-wider uppercase text-muted">Council / protocol</p>
             <h3 className="display text-lg mt-3">Build on Verana</h3>
-            <p className="text-muted mt-3 text-sm">Neutral public infrastructure for trust registries and verifiable governance. Council seats, validator ops, and ecosystem onboarding.</p>
-            <div className="mt-5">
+            <p className="text-muted mt-3 text-sm">Neutral public infrastructure for trust registries and verifiable governance. Council seats, validator ops, and ecosystem onboarding are handled by the independent Verana Council.</p>
+            <div className="mt-5 flex flex-wrap gap-3">
               <a href="https://verana.io" className="btn" rel="noopener">Verana ↗</a>
+              <a href="https://veranacouncil.org" className="btn" rel="noopener">Verana Council ↗</a>
             </div>
           </article>
         </div>
