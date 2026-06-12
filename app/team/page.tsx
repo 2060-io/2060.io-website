@@ -32,9 +32,9 @@ export default function Page() {
             <p className="text-muted text-xs tracking-wider uppercase pt-2">That thesis produced</p>
             <ul className="space-y-3 text-muted">
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-file-lines text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Specifications.</strong> The Verifiable Trust and VPR specifications, drafted between 2021 and 2024, now at v4.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-network-wired text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">A protocol.</strong> Verana, whose reference implementation 2060 seeded and whose Foundation 2060 co-founded in 2024.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-network-wired text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">A protocol.</strong> Verana, whose reference implementation 2060 seeded; its Foundation, initiated in 2024, counts 2060 as a founding member.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-rocket text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">A product line.</strong> Hologram, our commercial stack, in market since 2025 and now on the App Store, Google Play, and Huawei AppGallery.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-people-group text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">An ecosystem.</strong> A Council of 15+ independent organizations across sectors and jurisdictions, each with one vote on the protocol's direction.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-people-group text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">An ecosystem.</strong> The Verana Council, the independent body that governs and secures the network, targeting 15+ member organizations across sectors and jurisdictions for mainnet launch, each with one vote.</span></li>
             </ul>
             <p className="pt-2 italic">2060 does not own the ecosystem. 2060 invented the category it sits in.</p>
           </div>
@@ -56,7 +56,7 @@ export default function Page() {
                 <p className="text-xs tracking-wider uppercase text-accent-hover mt-1">Co-founder &amp; CEO</p>
               </div>
             </div>
-            <p className="text-muted text-sm mt-5 flex-1">Entrepreneur and visionary technologist. Co-inventor of Verifiable Trust. Principal author of the Verana specifications. Lead of product and ecosystem strategy. Also Co-founder and CEO of the Verana Foundation.</p>
+            <p className="text-muted text-sm mt-5 flex-1">Entrepreneur and visionary technologist. Co-inventor of Verifiable Trust. Principal author of the Verana specifications. Lead of product and ecosystem strategy.</p>
             <div className="mt-5 flex flex-wrap gap-4 text-sm">
               <a href="https://www.linkedin.com/in/fabricerochette/" className="prose-link text-fg" rel="noopener">LinkedIn ↗</a>
               <a href="https://x.com/fabricerochette" className="prose-link text-fg" rel="noopener">X ↗</a>
@@ -71,7 +71,7 @@ export default function Page() {
                 <p className="text-xs tracking-wider uppercase text-accent-hover mt-1">Co-founder &amp; CTO</p>
               </div>
             </div>
-            <p className="text-muted text-sm mt-5 flex-1">Electronic engineer and open-source leader. Maintainer of VS Agent and the Hologram App. Long-time contributor to Credo-TS. Co-founder and CTO of the Verana Foundation.</p>
+            <p className="text-muted text-sm mt-5 flex-1">Electronic engineer and open-source leader. Maintainer of VS Agent and the Hologram App. Long-time contributor to Credo-TS.</p>
             <div className="mt-5 flex flex-wrap gap-4 text-sm">
               <a href="https://www.linkedin.com/in/aogentile/" className="prose-link text-fg" rel="noopener">LinkedIn ↗</a>
               <a href="https://github.com/genaris" className="prose-link text-fg" rel="noopener">GitHub ↗</a>
@@ -197,7 +197,8 @@ export default function Page() {
           </div>
           <div className="md:col-span-8 reading">
             <ul className="space-y-4 text-muted">
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-star text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verana Foundation</strong>: founding member, Council seat (one of 15+), validator operator, lead editor of the Verifiable Trust and VPR specifications.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-star text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verana Foundation</strong>: founding member, lead editor of the Verifiable Trust and VPR specifications.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-landmark text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verana Council</strong>: Council seat (targeting 15+ members for mainnet launch), validator operator on the Verana Trust Network.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-wallet text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">OpenWallet Foundation</strong>: active contributor on Credo-ts and wallet interoperability.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-shield-halved text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Trust Over IP (ToIP)</strong>: participant in governance and trust-registry working groups.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-id-card text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Decentralized Identity Foundation (DIF)</strong>: contributor on DID methods and credential formats.</span></li>

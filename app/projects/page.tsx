@@ -73,11 +73,11 @@ export default function Page() {
           </div>
           <div className="md:col-span-8 reading space-y-5 text-e5">
             <p>
-              Verana is a neutral, decentralized Layer-1 protocol for trust registries, credential schemas, and verifiable governance. It is <strong className="text-fg">not</strong> a 2060 product. It is stewarded by the <strong className="text-fg">Verana Foundation</strong> and governed by a <strong className="text-fg">Council of independent member organizations</strong> across sectors and jurisdictions, each holding one vote.
+              Verana is a neutral, decentralized Layer-1 protocol for trust registries, credential schemas, and verifiable governance. It is <strong className="text-fg">not</strong> a 2060 product. Its specifications are stewarded by the <strong className="text-fg">Verana Foundation</strong>, and the live network is governed and secured by the <strong className="text-fg">Verana Council</strong>, an independent association of member organizations across sectors and jurisdictions, each holding one vote.
             </p>
             <p className="text-muted text-xs tracking-wider uppercase pt-4">2060's role in Verana</p>
             <ul className="space-y-3 text-muted">
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-star text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Founding member and Council seat.</strong></span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-star text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Founding member of the Verana Foundation; seat in the Verana Council.</strong></span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-code-branch text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Largest single code contributor</strong> to the reference implementation.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-pen-nib text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Lead editor</strong> of the Verifiable Trust and VPR specifications.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-server text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Validator operator</strong> on the Verana Trust Network.</span></li>

@@ -14,7 +14,7 @@ export default function Footer() {
             An independent research and engineering company. 2060 is a founding
             member of the{" "}
             <a
-              href="https://verana.io"
+              href="https://veranafoundation.org"
               className="prose-link text-fg"
               rel="noopener"
             >
