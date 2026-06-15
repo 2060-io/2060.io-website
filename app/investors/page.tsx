@@ -53,7 +53,7 @@ export default function Page() {
             <div className="accent-line mt-6"></div>
           </div>
           <div className="md:col-span-8 reading space-y-5 text-e5">
-            <p>The inflection has already happened. Every major lab shipped autonomous agents — Operator, Computer Use + MCP, Mariner, Copilot Studio. They initiate connections, call tools, and move money with no human in the loop. Independent analysts size agentic AI at <strong className="text-fg">$2.6T–$4.4T</strong> of annual value, with a third of enterprise apps embedding agents within a few years.</p>
+            <p>The inflection has already happened. Every major lab has shipped autonomous agents that initiate connections, call tools, and move money with no human in the loop. Independent analysts size agentic AI at <strong className="text-fg">$2.6T–$4.4T</strong> of annual value, with a third of enterprise apps embedding agents within a few years.</p>
             <p>Regulation is compounding pressure: EU AI Act, eIDAS 2.0, US AI executive orders, sectoral rules in finance and healthcare. The requirement is identical across all of them: <strong className="text-fg">AI agents must be identifiable, auditable, and accountable.</strong></p>
             <p>The infrastructure those agents need is still missing. Identity is unclear. Authority is implicit. Governance is fragmented. Agents operate in isolation. This is not a product gap. It is a <strong className="text-fg">category gap</strong>, and that is the opening this round exists to fill.</p>
             <p className="text-xs text-muted italic">Market figures are third-party estimates, included as context.</p>
