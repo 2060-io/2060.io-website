@@ -94,7 +94,7 @@ export default function Page() {
             <ul className="mt-4 space-y-2 text-muted text-sm flex-1">
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>VNA is owned by no one: issuance &amp; verification fees, trust deposits, and slashing all settle on-chain.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Token demand tracks the adoption curve of verified agents and ecosystems — not 2060 sales effort.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Issued and administered by the Verana Foundation group in a separate legal vehicle — <strong className="text-fg">not owned by 2060</strong>.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Issued and administered by the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a> group in a separate legal vehicle — <strong className="text-fg">not owned by 2060</strong>.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Neutral by construction, which is exactly what makes it adoptable by governments and enterprises.</span></li>
             </ul>
           </article>
@@ -102,7 +102,7 @@ export default function Page() {
 
         <div className="mt-12 max-w-3xl reading text-e5">
           <p className="text-xs tracking-wider uppercase text-muted">Why two entities, not one</p>
-          <p className="mt-3"><strong className="text-fg">Neutrality is the product.</strong> Enterprises, regulators, and competing ecosystems adopt Verana precisely because no single company controls it. The protocol is stewarded by the <strong className="text-fg">Verana Foundation</strong> (specifications, open-source software, the VNA token, growth) and the live network is governed and secured by the <strong className="text-fg">Verana Council</strong>, an independent association — fully separate from the Foundation. If 2060 owned Verana, Verana would not be adopted, and our best distribution channel would disappear. This round funds the separation, not around it.</p>
+          <p className="mt-3"><strong className="text-fg">Neutrality is the product.</strong> Enterprises, regulators, and competing ecosystems adopt Verana precisely because no single company controls it. The protocol is stewarded by the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a> (specifications, open-source software, the VNA token, growth) and the live network is governed and secured by the <a href="https://veranacouncil.org" className="prose-link text-fg" rel="noopener">Verana Council</a>, an independent association — fully separate from the Foundation. If 2060 owned Verana, Verana would not be adopted, and our best distribution channel would disappear. This round funds the separation, not around it.</p>
         </div>
       </div>
     </section>
@@ -140,7 +140,7 @@ export default function Page() {
           </ul>
         </div>
 
-        <p className="text-sm text-muted mt-10 max-w-3xl"><strong className="text-fg">Verana (protocol context):</strong> Testnet live. The Verana Council is forming — a seed cohort toward a target of <strong className="text-fg">15+ independent member organizations</strong> for mainnet launch. <strong className="text-fg">vna-mainnet-1</strong> is targeted for <strong className="text-fg">Q1 2027</strong>. Protocol-level metrics are tracked and published by the Verana Foundation and Council, not 2060.</p>
+        <p className="text-sm text-muted mt-10 max-w-3xl"><strong className="text-fg">Verana (protocol context):</strong> Testnet live. The <a href="https://veranacouncil.org" className="prose-link text-fg" rel="noopener">Verana Council</a> is forming — a seed cohort toward a target of <strong className="text-fg">15+ independent member organizations</strong> for mainnet launch. <strong className="text-fg">vna-mainnet-1</strong> is targeted for <strong className="text-fg">Q1 2027</strong>. Protocol-level metrics are tracked and published by the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a> and Council, not 2060.</p>
       </div>
     </section>
 
@@ -211,7 +211,7 @@ export default function Page() {
             <p className="text-muted text-sm mt-6 italic">The single most demanding pre-mainnet task — and the one this round funds most deliberately.</p>
           </div>
           <div className="md:col-span-8 reading space-y-5 text-e5">
-            <p>A neutral protocol is only as credible as the body that governs it. The <strong className="text-fg">Verana Council</strong> is an independent association (Swiss Verein, in formation) that governs and secures the live network — the <strong className="text-fg">only</strong> body whose members run validator nodes. Without a seated Council and the first ecosystem participants, the network launches empty.</p>
+            <p>A neutral protocol is only as credible as the body that governs it. The <a href="https://veranacouncil.org" className="prose-link text-fg" rel="noopener">Verana Council</a> is an independent association (Swiss Verein, in formation) that governs and secures the live network — the <strong className="text-fg">only</strong> body whose members run validator nodes. Without a seated Council and the first ecosystem participants, the network launches empty.</p>
             <p>Recruiting that founding membership across a matrix of sectors and regions — finance, healthcare, public sector, AI/agentic, academia, and more — is slow, high-touch work that cannot be shortcut. It is the critical path to mainnet, and it starts now.</p>
             <p className="text-muted text-xs tracking-wider uppercase pt-2">What the round funds here</p>
             <ul className="space-y-3 text-muted">
@@ -249,7 +249,7 @@ export default function Page() {
 
         <aside className="mt-10 border-l-2 border-accent pl-6 py-3 max-w-3xl" role="note">
           <p className="text-xs tracking-wider uppercase text-accent-hover">Clean capital stack</p>
-          <p className="text-e5 text-sm mt-2">Equity and token are <strong className="text-fg">separable</strong> instruments: the SAFE is exposure to 2060&apos;s commercial business; the Token Warrant is upside on the protocol. VNA is issued by a separate legal vehicle in the Verana Foundation group — 2060 does not own or issue it. Full entity structure and jurisdictions are available in the data room.</p>
+          <p className="text-e5 text-sm mt-2">Equity and token are <strong className="text-fg">separable</strong> instruments: the SAFE is exposure to 2060&apos;s commercial business; the Token Warrant is upside on the protocol. VNA is issued by a separate legal vehicle in the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a> group — 2060 does not own or issue it. Full entity structure and jurisdictions are available in the data room.</p>
         </aside>
 
         <div className="mt-14">
@@ -271,7 +271,7 @@ export default function Page() {
         <h2 className="display text-3xl md:text-4xl mt-4">The People You Are Investing In</h2>
         <ul className="grid md:grid-cols-2 gap-y-6 gap-x-12 mt-12 max-w-5xl text-muted">
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-pen-nib text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Spec authors.</strong><span>Co-inventors of Verifiable Trust at IIW; lead editor of the Verifiable Trust and VPR specifications.</span></div></li>
-          <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-seedling text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Protocol builders.</strong><span>2060 co-founded the Verana Foundation, holds a seat on the independent Verana Council, and is the largest single code contributor.</span></div></li>
+          <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-seedling text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Protocol builders.</strong><span>2060 co-founded the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a>, holds a seat on the independent <a href="https://veranacouncil.org" className="prose-link text-fg" rel="noopener">Verana Council</a>, and is the largest single code contributor.</span></div></li>
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-rocket text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Product operators.</strong><span>Shipped the Hologram stack to App Store, Google Play, and Huawei AppGallery.</span></div></li>
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-users text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Senior team.</strong><span>A small, senior core across product and engineering, distributed across Europe, the Americas, and Asia — plus advisors in law, finance, and digital identity.</span></div></li>
         </ul>
