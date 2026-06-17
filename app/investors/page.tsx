@@ -243,8 +243,8 @@ export default function Page() {
             <p className="display text-fg whitespace-nowrap">$2.0M · 40%</p>
           </div>
           <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">30%</p><p className="text-muted text-sm">$1.5M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Product &amp; Cloud GA</p><p className="text-muted text-sm mt-2">Hologram AI Agent, Hologram VUA (AG-UI), Hologram Messaging, and Hologram Cloud to general availability.</p></div>
-            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">10%</p><p className="text-muted text-sm">$0.5M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Go-to-market</p><p className="text-muted text-sm mt-2">Enterprise design partners, sales, and developer relations for the product.</p></div>
+            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">22%</p><p className="text-muted text-sm">$1.1M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Product &amp; ongoing dev</p><p className="text-muted text-sm mt-2">Continued development of Hologram AI Agent, Hologram VUA (AG-UI), and Hologram Messaging. Hologram Cloud reaches a <strong className="text-fg">v1 GA in Q3 2026</strong> and keeps maturing across the runway.</p></div>
+            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">18%</p><p className="text-muted text-sm">$0.9M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Go-to-market</p><p className="text-muted text-sm mt-2">Enterprise design partners, sales, developer relations, and demand generation — ramping as Cloud GA opens the self-serve and managed funnel.</p></div>
           </div>
 
           <div className="flex items-baseline justify-between gap-4 border-t hairline pt-4 mt-8">
@@ -274,7 +274,7 @@ export default function Page() {
         <div className="mt-14">
           <p className="text-xs tracking-wider uppercase text-muted mb-6">What this round unlocks</p>
           <ol className="grid md:grid-cols-3 gap-6">
-            <li className="card"><p className="text-xs tracking-wider uppercase text-accent-hover">Q3 2026</p><h3 className="display text-lg mt-2">Cloud GA + Council seed</h3><p className="text-muted text-sm mt-2">Hologram Cloud reaches general availability. Council seed cohort seated. Security audits in flight on VPR v4 and the Indexer; validator recruitment underway.</p></li>
+            <li className="card"><p className="text-xs tracking-wider uppercase text-accent-hover">Q3 2026</p><h3 className="display text-lg mt-2">Cloud GA + Council seed</h3><p className="text-muted text-sm mt-2">Hologram Cloud reaches its first GA (v1); development continues past it. Council seed cohort seated. Security audits in flight on VPR v4 and the Indexer; validator recruitment underway.</p></li>
             <li className="card"><p className="text-xs tracking-wider uppercase text-muted">Q4 2026</p><h3 className="display text-lg mt-2">Council + ecosystem build</h3><p className="text-muted text-sm mt-2">Founding-member recruitment toward the 25-seat cap. ECS-EGF delivered and the first ecosystem participants recruited. Framework adapters published (LangGraph, CrewAI, AutoGen).</p></li>
             <li className="card"><p className="text-xs tracking-wider uppercase text-muted">Q1 2027</p><h3 className="display text-lg mt-2">Mainnet + first anchor</h3><p className="text-muted text-sm mt-2">vna-mainnet-1 launches with ECS participants permissioned. First anchor ecosystem signed — government digital ID, healthcare workforce, or agentic AI.</p></li>
           </ol>
