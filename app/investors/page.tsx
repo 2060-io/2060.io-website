@@ -10,7 +10,7 @@ export default function Page() {
       <div className="max-w-6xl mx-auto">
         <img src="/assets/viaduc2.svg" alt="" aria-hidden="true" className="hero-illustration mb-10" width="3072" height="1536" />
         <p className="tag tag-accent">Investors</p>
-        <h1 className="display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mt-6 max-w-4xl">Verana Is Raising a Seed Round to Build the Open Trust Layer for the Agentic Internet</h1>
+        <h1 className="display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mt-6 max-w-4xl">Invest in the Company Building the Agentic Trust Infrastructure</h1>
         <div className="accent-line mt-6"></div>
         <p className="text-lg md:text-xl text-fg mt-8 max-w-3xl font-medium">One round, two pillars. You back <strong className="text-fg">2060</strong> — the company shipping the first product and stewarding the protocol — and you get token upside on <strong className="text-fg">Verana</strong>, the neutral network underneath it.</p>
         <div className="max-w-3xl reading space-y-5 text-e5 mt-8">
