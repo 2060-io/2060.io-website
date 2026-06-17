@@ -31,7 +31,7 @@ export default function Page() {
             <div className="spec-row"><dt>Round</dt><dd>Seed · <strong className="text-fg">$5M target</strong> · ~24-month runway to mainnet</dd></div>
             <div className="spec-row"><dt>Instrument</dt><dd>SAFE (equity in 2060) <strong className="text-fg">+</strong> Token Warrant (VNA on Verana) — one ticket, exposure to both</dd></div>
             <div className="spec-row"><dt>Use of funds</dt><dd>Protocol &amp; mainnet · ecosystem onboarding · Council formation · developer relations · operations · legal</dd></div>
-            <div className="spec-row"><dt>Flagship product</dt><dd><a href="https://hologram.zone" className="prose-link" rel="noopener">Hologram</a>: verifiable, compliant, governable AI agents — live on iOS / Android / Huawei</dd></div>
+            <div className="spec-row"><dt>Flagship product</dt><dd><a href="https://hologram.zone" className="prose-link" rel="noopener">Hologram</a> Agentic AI: a framework to deploy verifiable, governable LLM agents, plus the Hologram Messaging wallet — live on the App Store &amp; Google Play</dd></div>
             <div className="spec-row"><dt>Protocol</dt><dd><a href="https://verana.io" className="prose-link" rel="noopener">Verana</a>: co-founder, Council member, largest single code contributor</dd></div>
             <div className="spec-row"><dt>Standards</dt><dd>Verifiable Trust v4 · VPR v4 (co-authored, lead author)</dd></div>
             <div className="spec-row"><dt>Stage</dt><dd>Production stack shipped &amp; open-sourced · Hologram Cloud GA <strong className="text-fg">Q3 2026</strong> · mainnet <strong className="text-fg">Q1 2027</strong></dd></div>
@@ -116,13 +116,12 @@ export default function Page() {
 
         <div className="grid md:grid-cols-2 gap-10 mt-12">
           <div>
-            <p className="text-xs tracking-wider uppercase text-muted mb-4">Shipped today</p>
+            <p className="text-xs tracking-wider uppercase text-muted mb-4">Hologram today (2060)</p>
             <ul className="space-y-3 text-muted">
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">6+ components in production</strong> (Apache 2.0): Hologram App, VS Agent, Generic AI Agent, SDK, MCP catalog.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">5 reference agents live</strong>: Avatar, Gov ID, GitHub, Wise, X.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram App</strong> on App Store, Google Play, Huawei AppGallery.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Five v4 specifications public</strong>: VPR, Verifiable Trust, Indexer, Verana Graph, VS Agent.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">vna-testnet-1 operational</strong>; VNA live on testnet.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Deploy your own verifiable AI agent.</strong> Any LLM (OpenAI, Anthropic, Ollama, or any OpenAI-compatible API), connect any MCP tools, verifiable-credential authentication, role- and purpose-based access control with approval workflows, persistent memory, RAG, voice and vision — all declared in an <a href="https://github.com/2060-io/hologram-ai-agent/blob/main/docs/agent-pack-schema.md" className="prose-link text-fg" rel="noopener">Agent Pack</a>.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Messaging</strong> — a DIDComm wallet and messaging app on the App Store and Google Play; how users connect to and authenticate with agents today (credential exchange, device-bound biometric / face-match / NFC).</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram VUA</strong> — a smoother AG-UI interface (ChatGPT/Claude-style) in active development; today agents are reached directly over DIDComm via Hologram Messaging.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Open source, Apache 2.0.</span></li>
             </ul>
           </div>
           <div>
@@ -140,7 +139,7 @@ export default function Page() {
           </ul>
         </div>
 
-        <p className="text-sm text-muted mt-10 max-w-3xl"><strong className="text-fg">Verana (protocol context):</strong> Testnet live. The <a href="https://veranacouncil.org" className="prose-link text-fg" rel="noopener">Verana Council</a> is forming — from a seed cohort of three toward its cap of <strong className="text-fg">up to 25 Founding Member seats</strong>, with recruitment open through Q4 2026. <strong className="text-fg">vna-mainnet-1</strong> is targeted for <strong className="text-fg">Q1 2027</strong>. Protocol-level metrics are tracked and published by the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a> and Council, not 2060.</p>
+        <p className="text-sm text-muted mt-10 max-w-3xl"><strong className="text-fg">Verana (protocol context, not a 2060 product):</strong> Five v4 specifications public — VPR, Verifiable Trust, Indexer, Verana Graph, VS Agent — and <strong className="text-fg">vna-testnet-1</strong> operational with VNA live on testnet. The <a href="https://veranacouncil.org" className="prose-link text-fg" rel="noopener">Verana Council</a> is forming — from a seed cohort of three toward its cap of <strong className="text-fg">up to 25 Founding Member seats</strong>, with recruitment open through Q4 2026 — and <strong className="text-fg">vna-mainnet-1</strong> is targeted for <strong className="text-fg">Q1 2027</strong>. Protocol-level metrics are tracked and published by the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a> and Council, not 2060.</p>
       </div>
     </section>
 
@@ -152,7 +151,7 @@ export default function Page() {
         <p className="text-muted mt-4 reading max-w-3xl">Open standards are not the moat. 2060&apos;s <strong className="text-fg">position</strong> relative to those standards is — and it gets harder to overcome with every participant added.</p>
         <ul className="grid md:grid-cols-2 gap-y-6 gap-x-12 mt-12 max-w-5xl">
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-flag text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">First-mover category definition.</strong><span className="text-muted">Reference implementations of new standards tend to win the category (Stripe, Auth0, HashiCorp).</span></div></li>
-          <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-diagram-project text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Asymmetric network exposure through Verana.</strong><span className="text-muted">Hologram is the dominant Verifiable User Agent; we hold the largest trust deposits and operate validators with 5+ years of protocol experience.</span></div></li>
+          <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-diagram-project text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Asymmetric network exposure through Verana.</strong><span className="text-muted">Hologram is the first and most complete agent stack built on the network; 2060 operates validators and holds trust deposits, with 5+ years of protocol experience.</span></div></li>
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-scale-balanced text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Governance nobody can capture.</strong><span className="text-muted">One-member-one-vote Council, supermajority for any change, fixed validator terms. No VC, government, or token whale can flip the protocol — which is why regulated buyers require it.</span></div></li>
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-magnifying-glass text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">A structurally unique discovery layer.</strong><span className="text-muted">The Trust Resolver makes discoverability a function of proof, not ad spend. To match it, a competitor must rebuild the entire protocol underneath.</span></div></li>
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-gavel text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Regulatory lock-in.</strong><span className="text-muted">eIDAS 2.0 opens a binding government procurement cycle across 27 EU states. Verana is the only open, neutral, fully W3C-compliant protocol with live infrastructure.</span></div></li>
@@ -174,7 +173,7 @@ export default function Page() {
             <h3 className="display text-lg mt-2">Hologram SaaS</h3>
             <ul className="mt-4 space-y-2 text-muted text-sm">
               <li><strong className="text-fg">Consumer:</strong> free → Pro (more agents, any LLM, unlimited MCP, RAG, custom domain).</li>
-              <li><strong className="text-fg">Enterprise:</strong> managed hosting, custom trust-registry setup, RBAC, IAM integration, white-label, SLAs.</li>
+              <li><strong className="text-fg">Enterprise:</strong> managed hosting, custom trust-registry setup, role- and purpose-based access control, IAM integration, white-label, SLAs.</li>
               <li>All product revenue accrues to 2060.</li>
             </ul>
           </article>
@@ -272,7 +271,7 @@ export default function Page() {
         <ul className="grid md:grid-cols-2 gap-y-6 gap-x-12 mt-12 max-w-5xl text-muted">
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-pen-nib text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Spec authors.</strong><span>Co-inventors of Verifiable Trust at IIW; lead author of the Verifiable Trust and VPR specifications.</span></div></li>
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-seedling text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Protocol builders.</strong><span>2060 co-founded the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a>, holds a seat on the independent <a href="https://veranacouncil.org" className="prose-link text-fg" rel="noopener">Verana Council</a>, and is the largest single code contributor.</span></div></li>
-          <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-rocket text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Product operators.</strong><span>Shipped the Hologram stack to App Store, Google Play, and Huawei AppGallery.</span></div></li>
+          <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-rocket text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Product operators.</strong><span>Shipped Hologram AI Agent and Hologram Messaging to the App Store and Google Play.</span></div></li>
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-users text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Senior team.</strong><span>A small, senior core across product and engineering, distributed across Europe, the Americas, and Asia — plus advisors in law, finance, and digital identity.</span></div></li>
         </ul>
         <p className="text-sm text-muted mt-10">Full founder bios, advisor list, and ecosystem seats on the <a href="/team" className="prose-link text-fg">Team page</a>.</p>
