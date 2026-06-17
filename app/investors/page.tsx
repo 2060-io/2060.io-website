@@ -235,14 +235,34 @@ export default function Page() {
         </div>
 
         <div className="mt-12">
-          <p className="text-xs tracking-wider uppercase text-muted mb-4">Use of funds · $5M</p>
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">30%</p><p className="text-muted text-sm">$1.5M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Protocol &amp; mainnet</p><p className="text-muted text-sm mt-2">vna-mainnet-1 launch, security audits, VPR &amp; Indexer hardening, trust graph delivery.</p></div>
-            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">20%</p><p className="text-muted text-sm">$1.0M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Ecosystem onboarding</p><p className="text-muted text-sm mt-2">First anchor ecosystems — government, healthcare, agentic-AI — and the first ECS participants.</p></div>
+          <p className="text-xs tracking-wider uppercase text-muted mb-2">Use of funds · $5M</p>
+          <p className="text-muted text-sm mb-6 max-w-3xl reading">Your equity (the SAFE) funds both 2060&apos;s own <strong className="text-fg">Hologram product line</strong> and 2060&apos;s work on <strong className="text-fg">Verana</strong> as lead contributor and pre-incorporation steward. The Token Warrant captures the protocol upside separately.</p>
+
+          <div className="flex items-baseline justify-between gap-4 border-t hairline pt-4">
+            <p className="text-xs tracking-wider uppercase text-accent-hover">Hologram product line · your equity at work</p>
+            <p className="display text-fg whitespace-nowrap">$2.0M · 40%</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4 mt-4">
+            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">30%</p><p className="text-muted text-sm">$1.5M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Product &amp; Cloud GA</p><p className="text-muted text-sm mt-2">Hologram AI Agent, Hologram VUA (AG-UI), Hologram Messaging, and Hologram Cloud to general availability.</p></div>
+            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">10%</p><p className="text-muted text-sm">$0.5M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Go-to-market</p><p className="text-muted text-sm mt-2">Enterprise design partners, sales, and developer relations for the product.</p></div>
+          </div>
+
+          <div className="flex items-baseline justify-between gap-4 border-t hairline pt-4 mt-8">
+            <p className="text-xs tracking-wider uppercase text-muted">Verana protocol &amp; ecosystem · 2060&apos;s contributor &amp; steward role</p>
+            <p className="display text-fg whitespace-nowrap">$2.25M · 45%</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">20%</p><p className="text-muted text-sm">$1.0M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Protocol &amp; mainnet</p><p className="text-muted text-sm mt-2">vna-mainnet-1 launch, security audits, VPR &amp; Indexer hardening, trust graph delivery.</p></div>
+            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">10%</p><p className="text-muted text-sm">$0.5M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Ecosystem onboarding</p><p className="text-muted text-sm mt-2">First anchor ecosystems — government, healthcare, agentic-AI — and the first ECS participants.</p></div>
             <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">15%</p><p className="text-muted text-sm">$0.75M</p></div><p className="text-xs tracking-wider uppercase text-accent-hover mt-1">Council formation</p><p className="text-muted text-sm mt-2">Incorporation, veranacouncil.org platform, secretariat, founding-member recruitment.</p></div>
-            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">10%</p><p className="text-muted text-sm">$0.5M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Developer relations &amp; OSS</p><p className="text-muted text-sm mt-2">Docs, SDKs, framework adapters, grants, community.</p></div>
-            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">15%</p><p className="text-muted text-sm">$0.75M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Operations (G&amp;A)</p><p className="text-muted text-sm mt-2">Team, tooling, infrastructure, runway.</p></div>
-            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">10%</p><p className="text-muted text-sm">$0.5M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Legal &amp; token framework</p><p className="text-muted text-sm mt-2">Entity formation, jurisdiction &amp; counsel, VNA token framework.</p></div>
+          </div>
+
+          <div className="flex items-baseline justify-between gap-4 border-t hairline pt-4 mt-8">
+            <p className="text-xs tracking-wider uppercase text-muted">Shared</p>
+            <p className="display text-fg whitespace-nowrap">$0.75M · 15%</p>
+          </div>
+          <div className="mt-4">
+            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">15%</p><p className="text-muted text-sm">$0.75M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Operations, legal &amp; token framework</p><p className="text-muted text-sm mt-2">Team, tooling, infrastructure; entity formation, jurisdiction &amp; counsel, VNA token framework.</p></div>
           </div>
         </div>
 
