@@ -157,7 +157,7 @@ export default function Page() {
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-gavel text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Regulatory lock-in.</strong><span className="text-muted">eIDAS 2.0 opens a binding government procurement cycle across 27 EU states. Verana is the only open, neutral, fully W3C-compliant protocol with live infrastructure.</span></div></li>
           <li className="flex items-start gap-4"><i className="fa-solid fa-fw fa-code-branch text-xl text-muted mt-1" aria-hidden="true"></i><div><strong className="text-fg block">Open-source distribution.</strong><span className="text-muted">Apache 2.0. Adoption happens bottom-up, not only through procurement cycles.</span></div></li>
         </ul>
-        <p className="text-fg mt-12 max-w-3xl reading"><strong>We do not compete with LangChain, CrewAI, or Copilot Studio on orchestration. We are the trust layer underneath all of them.</strong></p>
+        <p className="text-fg mt-12 max-w-3xl reading"><strong>Frameworks like LangGraph, CrewAI, and AutoGen decide how agents run. None of them make an agent trustable — provable identity, credential-based authorization, auditable governance. That is the layer Verana standardizes and Hologram delivers, on open W3C standards rather than any single vendor&apos;s stack.</strong></p>
       </div>
     </section>
 
