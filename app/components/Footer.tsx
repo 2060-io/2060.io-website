@@ -112,7 +112,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://github.com/2060-io/hologram-generic-ai-agent-vs/blob/main/docs/agent-pack-schema.md"
+                href="https://github.com/2060-io/hologram-ai-agent/blob/main/docs/agent-pack-schema.md"
                 className="prose-link"
                 rel="noopener"
               >
