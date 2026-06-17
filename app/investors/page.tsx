@@ -112,7 +112,7 @@ export default function Page() {
       <div className="max-w-6xl mx-auto">
         <p className="tag">Traction</p>
         <h2 className="display text-3xl md:text-4xl mt-4">Shipped, Not Promised.</h2>
-        <p className="text-muted mt-4 max-w-3xl reading">We are not raising to explore. We are raising to launch mainnet and onboard anchor ecosystems on infrastructure that already exists. Commercial adoption begins with <strong className="text-fg">Hologram Cloud</strong> GA in <strong className="text-fg">Q3 2026</strong>.</p>
+        <p className="text-muted mt-4 max-w-3xl reading">We are not raising to explore. We are raising to launch mainnet and onboard anchor ecosystems on infrastructure that already exists. Commercial adoption begins with <strong className="text-fg">Hologram Cloud</strong> GA in <strong className="text-fg">Q3 2026</strong>, anchored to the Verana testnet until mainnet in <strong className="text-fg">Q1 2027</strong>.</p>
 
         <div className="grid md:grid-cols-2 gap-10 mt-12">
           <div>
