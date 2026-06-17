@@ -190,8 +190,8 @@ export default function Page() {
             <p className="text-xs tracking-wider uppercase text-muted">3. Ecosystem</p>
             <h3 className="display text-lg mt-2">Land &amp; expand</h3>
             <ul className="mt-4 space-y-2 text-muted text-sm">
-              <li>Anchor-ecosystem onboarding for government, healthcare, and AI-agent verticals.</li>
-              <li>Ecosystem-as-a-Service engagements; expansion at the ecosystem level, not the user level.</li>
+              <li><strong className="text-fg">Every sector issues and verifies credentials</strong> — logistics, IoT, energy, healthcare, notaries, finance, the public sector, and more. The trust layer is horizontal.</li>
+              <li>Land the first anchor ecosystems, then expand sector by sector. Ecosystem-as-a-Service engagements; growth at the ecosystem level, not the user level.</li>
             </ul>
           </article>
         </div>
