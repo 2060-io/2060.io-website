@@ -319,7 +319,7 @@ export default function Page() {
           <a href="/contact?topic=investor" className="btn">Request Data Room</a>
         </div>
 
-        <p className="text-xs text-muted mt-12 italic max-w-3xl">Forward-looking statements. Not investment advice. Not an offer to sell securities. Market figures are third-party estimates included as context.</p>
+        <p className="text-xs text-muted mt-12 italic max-w-3xl">This presentation is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities or tokens. Any offering will be made only to qualified investors pursuant to definitive documentation. This material contains forward-looking statements that involve risks and uncertainties. Past performance is not indicative of future results. VNA tokens have not been registered under any securities laws and are not being offered in jurisdictions where such offering would be prohibited.</p>
       </div>
     </section>
 
