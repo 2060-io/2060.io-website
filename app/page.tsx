@@ -229,7 +229,7 @@ export default function Page() {
           <li className="relative"><span className="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong className="block text-fg">2023</strong><span className="text-muted">Verana VPR development</span></li>
           <li className="relative"><span className="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong className="block text-fg">2024</strong><span className="text-muted">Verana Foundation initiated</span></li>
           <li className="relative"><span className="block w-2 h-2 rounded-full bg-muted mb-3"></span><strong className="block text-fg">2025</strong><span className="text-muted">Hologram in market · Verana Testnet</span></li>
-          <li className="relative"><span className="block w-2 h-2 rounded-full bg-accent mb-3"></span><strong className="block text-fg">2026</strong><span className="text-muted">Hologram Cloud GA, Q3</span></li>
+          <li className="relative"><span className="block w-2 h-2 rounded-full bg-accent mb-3"></span><strong className="block text-fg">2026</strong><span className="text-muted">Hologram Cloud GA, Q4</span></li>
         </ol>
 
         <img src="/assets/long-term.svg" alt="" aria-hidden="true" className="hero-illustration mt-16" width="3072" height="1536" />
@@ -251,7 +251,7 @@ export default function Page() {
               <img src="/assets/hologram-logo.svg" alt="" className="card-logo w-8 h-8 flex-shrink-0 rounded-md" width="32" height="32" aria-hidden="true" />
               Hologram
             </h3>
-            <p className="text-muted mt-3 flex-1">Our commercial product line: the verifiable trust layer for AI agents, in production today. Messaging app on iOS, Android, and Huawei; agent framework; SDK; enterprise cloud launching Q3 2026.</p>
+            <p className="text-muted mt-3 flex-1">Our commercial product line: the verifiable trust layer for AI agents, in production today. Hologram AI Agent framework, Hologram Messaging wallet (App Store &amp; Google Play), and SDK; enterprise Hologram Cloud launching Q4 2026.</p>
             <a href="https://hologram.zone" className="prose-link text-fg text-sm mt-5 self-end" rel="noopener">Explore Hologram ↗</a>
           </article>
           <article className="card flex flex-col h-full">
@@ -320,8 +320,8 @@ export default function Page() {
           <div>
             <p className="text-xs tracking-wider uppercase text-muted mb-4">What's live today</p>
             <ul className="space-y-4 text-muted">
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Production stack shipped</strong>: 6+ open-source components (Apache 2.0) including Hologram App, VS Agent, Generic AI Agent, SDK, and MCP catalog.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Messaging App</strong> live on App Store, Google Play, and Huawei AppGallery.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Production stack shipped</strong>: open-source components (Apache 2.0) — Hologram AI Agent, Hologram Messaging, SDK, and MCP catalog.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Messaging</strong> live on the App Store and Google Play.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">5 reference agents</strong> accessible today: Avatar, Gov ID, GitHub, Wise, X.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verana Trust Network</strong> testnet operational; mainnet targeted for Q1 2027.</span></li>
             </ul>
@@ -339,7 +339,7 @@ export default function Page() {
 
         <aside className="mt-14 border-l-2 border-accent pl-6 py-3 max-w-3xl" role="note">
           <p className="text-xs tracking-wider uppercase text-muted">Measured adoption</p>
-          <p className="text-e5 mt-2">Adoption metrics (Hologram Cloud tenants, Personal AI agents, network activity, open-source traction) are published alongside commercial launch at <strong className="text-fg">Hologram Cloud GA in Q3 2026</strong>.</p>
+          <p className="text-e5 mt-2">Adoption metrics (Hologram Cloud tenants, Personal AI agents, network activity, open-source traction) are published alongside commercial launch at <strong className="text-fg">Hologram Cloud GA in Q4 2026</strong>.</p>
         </aside>
 
         <img src="/assets/tools.svg" alt="" aria-hidden="true" className="hero-illustration mt-16" width="3072" height="1536" />
@@ -390,7 +390,7 @@ export default function Page() {
           <article className="card">
             <p className="text-xs tracking-wider uppercase text-muted">Enterprise / consortium</p>
             <h3 className="display text-lg mt-3">Evaluate Hologram</h3>
-            <p className="text-muted mt-3 text-sm">Our commercial product line. Verifiable AI agents on Apache 2.0 foundations, with enterprise managed hosting launching Q3 2026.</p>
+            <p className="text-muted mt-3 text-sm">Our commercial product line. Verifiable AI agents on Apache 2.0 foundations, with enterprise managed hosting launching Q4 2026.</p>
             <div className="mt-5">
               <a href="https://hologram.zone" className="btn" rel="noopener">Hologram ↗</a>
             </div>
