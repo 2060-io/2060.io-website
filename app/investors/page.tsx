@@ -34,7 +34,7 @@ export default function Page() {
             <div className="spec-row"><dt>Flagship product</dt><dd><a href="https://hologram.zone" className="prose-link" rel="noopener">Hologram</a> Agentic AI: a framework to deploy verifiable, governable LLM agents, plus the Hologram Messaging wallet — live on the App Store &amp; Google Play</dd></div>
             <div className="spec-row"><dt>Protocol</dt><dd><a href="https://verana.io" className="prose-link" rel="noopener">Verana</a>: co-founder, Council member, largest single code contributor</dd></div>
             <div className="spec-row"><dt>Standards</dt><dd>Verifiable Trust v4 · VPR v4 (co-authored, lead author)</dd></div>
-            <div className="spec-row"><dt>Stage</dt><dd>Production stack shipped &amp; open-sourced · Hologram Cloud GA <strong className="text-fg">Q3 2026</strong> · mainnet <strong className="text-fg">Q1 2027</strong></dd></div>
+            <div className="spec-row"><dt>Stage</dt><dd>Production stack shipped &amp; open-sourced · Hologram Cloud GA <strong className="text-fg">Q4 2026</strong> · mainnet <strong className="text-fg">Q1 2027</strong></dd></div>
             <div className="spec-row"><dt>Tech</dt><dd>Open source (Apache 2.0) · W3C VC / DIDComm / MCP / Verana</dd></div>
             <div className="spec-row"><dt>Geography</dt><dd>HQ Tallinn · team distributed across Europe, Asia, and the Americas</dd></div>
             <div className="spec-row"><dt>Round details</dt><dd>Valuation, lead status, and committed capital shared directly with qualified investors. <a href="/contact?topic=investor" className="prose-link">Talk to the founders →</a></dd></div>
@@ -112,7 +112,7 @@ export default function Page() {
       <div className="max-w-6xl mx-auto">
         <p className="tag">Traction</p>
         <h2 className="display text-3xl md:text-4xl mt-4">Shipped, Not Promised.</h2>
-        <p className="text-muted mt-4 max-w-3xl reading">We are not raising to explore. We are raising to launch mainnet and onboard anchor ecosystems on infrastructure that already exists. Commercial adoption begins with <strong className="text-fg">Hologram Cloud</strong> GA in <strong className="text-fg">Q3 2026</strong>, anchored to the Verana testnet until mainnet in <strong className="text-fg">Q1 2027</strong>.</p>
+        <p className="text-muted mt-4 max-w-3xl reading">We are not raising to explore. We are raising to launch mainnet and onboard anchor ecosystems on infrastructure that already exists. Commercial adoption begins with <strong className="text-fg">Hologram Cloud</strong> GA in <strong className="text-fg">Q4 2026</strong>, anchored to the Verana testnet until mainnet in <strong className="text-fg">Q1 2027</strong>.</p>
 
         <div className="grid md:grid-cols-2 gap-10 mt-12">
           <div>
@@ -126,12 +126,12 @@ export default function Page() {
           </div>
           <div>
             <p className="text-xs tracking-wider uppercase text-muted mb-4">Pre-cloud adoption (today)</p>
-            <p className="text-muted text-sm leading-relaxed">Small and deliberate by design. Self-hosting a Hologram agent from GitHub today requires an engineering team, which both limits who runs one and is precisely the gate Cloud GA removes. Pre-cloud adoption metrics (self-hosted organizations, GitHub stars, Discord community, external contributors, active pilots and letters of intent) are published alongside commercial metrics at <strong className="text-fg">Hologram Cloud GA in Q3 2026</strong>.</p>
+            <p className="text-muted text-sm leading-relaxed">Small and deliberate by design. Self-hosting a Hologram agent from GitHub today requires an engineering team, which both limits who runs one and is precisely the gate Cloud GA removes. Pre-cloud adoption metrics (self-hosted organizations, GitHub stars, Discord community, external contributors, active pilots and letters of intent) are published alongside commercial metrics at <strong className="text-fg">Hologram Cloud GA in Q4 2026</strong>.</p>
           </div>
         </div>
 
         <div className="mt-14 border-l-2 border-accent pl-6 py-3 max-w-3xl">
-          <p className="text-xs tracking-wider uppercase text-accent-hover">Hologram Cloud GA: Q3 2026 (the inflection)</p>
+          <p className="text-xs tracking-wider uppercase text-accent-hover">Hologram Cloud GA: Q4 2026 (the inflection)</p>
           <ul className="mt-3 space-y-2 text-muted text-sm">
             <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-rocket text-fg mt-1" aria-hidden="true"></i><span><strong className="text-fg">Design-partner tenants</strong> live at launch.</span></li>
             <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-rocket text-fg mt-1" aria-hidden="true"></i><span><strong className="text-fg">Consumer Pro</strong> and <strong className="text-fg">enterprise managed hosting</strong> live day one.</span></li>
@@ -243,7 +243,7 @@ export default function Page() {
             <p className="display text-fg whitespace-nowrap">$2.0M · 40%</p>
           </div>
           <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">20%</p><p className="text-muted text-sm">$1.0M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Product &amp; ongoing dev</p><p className="text-muted text-sm mt-2">Continued development of Hologram AI Agent, Hologram VUA (AG-UI), and Hologram Messaging. Hologram Cloud reaches a <strong className="text-fg">v1 GA in Q3 2026</strong> and keeps maturing across the runway.</p></div>
+            <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">20%</p><p className="text-muted text-sm">$1.0M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Product &amp; ongoing dev</p><p className="text-muted text-sm mt-2">Continued development of Hologram AI Agent, Hologram VUA (AG-UI), and Hologram Messaging. Hologram Cloud reaches a <strong className="text-fg">v1 GA in Q4 2026</strong> and keeps maturing across the runway.</p></div>
             <div className="card"><div className="flex items-baseline gap-3"><p className="display text-3xl text-fg">20%</p><p className="text-muted text-sm">$1.0M</p></div><p className="text-xs tracking-wider uppercase text-muted mt-1">Go-to-market</p><p className="text-muted text-sm mt-2">Enterprise design partners, sales, developer relations, and demand generation — ramping as Cloud GA opens the self-serve and managed funnel.</p></div>
           </div>
 
@@ -274,8 +274,8 @@ export default function Page() {
         <div className="mt-14">
           <p className="text-xs tracking-wider uppercase text-muted mb-6">What this round unlocks</p>
           <ol className="grid md:grid-cols-3 gap-6">
-            <li className="card"><p className="text-xs tracking-wider uppercase text-accent-hover">Q3 2026</p><h3 className="display text-lg mt-2">Cloud GA + Council seed</h3><p className="text-muted text-sm mt-2">Hologram Cloud reaches its first GA (v1); development continues past it. Council seed cohort seated. Security audits in flight on VPR v4 and the Indexer; validator recruitment underway.</p></li>
-            <li className="card"><p className="text-xs tracking-wider uppercase text-muted">Q4 2026</p><h3 className="display text-lg mt-2">Council + ecosystem build</h3><p className="text-muted text-sm mt-2">Founding-member recruitment toward the 25-seat cap. ECS-EGF delivered and the first ecosystem participants recruited. Framework adapters published (LangGraph, CrewAI, AutoGen).</p></li>
+            <li className="card"><p className="text-xs tracking-wider uppercase text-muted">Q3 2026</p><h3 className="display text-lg mt-2">Council seed + audits</h3><p className="text-muted text-sm mt-2">Council seed cohort seated. Security audits in flight on VPR v4 and the Indexer; validator recruitment underway.</p></li>
+            <li className="card"><p className="text-xs tracking-wider uppercase text-accent-hover">Q4 2026</p><h3 className="display text-lg mt-2">Cloud GA + ecosystem build</h3><p className="text-muted text-sm mt-2">Hologram Cloud reaches its first GA (v1), maturing across the runway. Founding-member recruitment toward the 25-seat cap. ECS-EGF delivered and the first ecosystem participants recruited. Framework adapters published (LangGraph, CrewAI, AutoGen).</p></li>
             <li className="card"><p className="text-xs tracking-wider uppercase text-muted">Q1 2027</p><h3 className="display text-lg mt-2">Mainnet + first anchor</h3><p className="text-muted text-sm mt-2">vna-mainnet-1 launches with ECS participants permissioned. First anchor ecosystem signed — government digital ID, healthcare workforce, or agentic AI.</p></li>
           </ol>
           <p className="text-sm text-muted mt-6 max-w-3xl"><strong className="text-fg">Then:</strong> second vertical live, Verana Graph public with the first verified services indexed, developer-grant programs running — positioned for a Series A on demonstrated network adoption.</p>
