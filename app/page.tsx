@@ -184,7 +184,7 @@ export default function Page() {
       <div className="max-w-6xl mx-auto text-center">
         <img src="/assets/team.svg" alt="" aria-hidden="true" className="hero-illustration mb-10" width="3072" height="1536" />
         <p className="text-xs text-muted tracking-wide uppercase">
-          Open Source · Founding Member of the Verana Foundation · Production Stack in Market
+          Open Source · Founding Member of the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a> · Production Stack in Market
         </p>
         <h1 className="display text-3xl md:text-5xl lg:text-6xl leading-[1.1] max-w-4xl mx-auto mt-6">
           We Build the Open Trust Layer for the Agentic Era
@@ -210,7 +210,7 @@ export default function Page() {
           </div>
           <div className="md:col-span-8 reading space-y-5 text-e5">
             <p>
-              2060 is a senior team distributed across Europe, Asia, and the Americas. We are the people who, over years of work at the <a href="https://internetidentityworkshop.com/" className="prose-link text-fg" rel="noopener">Internet Identity Workshop</a>, invented the concept of <strong className="text-fg">Verifiable Trust</strong>, then wrote the specifications, seeded the reference implementations, and co-founded the <a href="https://verana.io" className="prose-link text-fg" rel="noopener">Verana Foundation</a> to steward the work as a public good.
+              2060 is a senior team distributed across Europe, Asia, and the Americas. We are the people who, over years of work at the <a href="https://internetidentityworkshop.com/" className="prose-link text-fg" rel="noopener">Internet Identity Workshop</a>, invented the concept of <strong className="text-fg">Verifiable Trust</strong>, then wrote the specifications, seeded the reference implementations, and co-founded the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a> to steward the work as a public good.
             </p>
             <p>
               We do not sell a platform, and we do not sell hours. We build products, contribute to open protocols, and operate the decentralized networks those protocols depend on. Our revenue comes from <strong className="text-fg">Hologram</strong>, the commercial product line built on top of everything we've authored.
@@ -260,7 +260,7 @@ export default function Page() {
               <img src="/assets/verana-logo.svg" alt="" className="card-logo w-8 h-8 flex-shrink-0" width="32" height="32" aria-hidden="true" />
               Verana
             </h3>
-            <p className="text-muted mt-3 flex-1">Open, decentralized infrastructure for trust registries and verifiable governance. Its specifications are stewarded by the Verana Foundation; the live network is governed and secured by the independent Verana Council. 2060 is a founding member of the Foundation, holds a Council seat, and is the largest single code contributor.</p>
+            <p className="text-muted mt-3 flex-1">Open, decentralized infrastructure for trust registries and verifiable governance. Its specifications are stewarded by the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a>; the live network is governed and secured by the independent <a href="https://veranacouncil.org" className="prose-link text-fg" rel="noopener">Verana Council</a>. 2060 is a founding member of the Foundation, holds a Council seat, and is the largest single code contributor.</p>
             <a href="https://verana.io" className="prose-link text-fg text-sm mt-5 self-end" rel="noopener">Explore Verana ↗</a>
           </article>
           <article className="card flex flex-col h-full">
@@ -269,7 +269,7 @@ export default function Page() {
               <i className="fa-solid fa-fw fa-file-lines text-2xl card-icon" aria-hidden="true"></i>
               Verifiable Trust &amp; VPR
             </h3>
-            <p className="text-muted mt-3 flex-1">The open specifications that define the category. Verifiable Trust v4 and VPR v4: co-authored by 2060, maintained publicly, owned and hosted by the Verana Foundation. Apache 2.0.</p>
+            <p className="text-muted mt-3 flex-1">The open specifications that define the category. Verifiable Trust v4 and VPR v4: co-authored by 2060, maintained publicly, owned and hosted by the <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a>. Apache 2.0.</p>
             <a href="/projects#specifications" className="prose-link text-fg text-sm mt-5 self-end">Read the specs →</a>
           </article>
         </div>
@@ -329,7 +329,7 @@ export default function Page() {
           <div>
             <p className="text-xs tracking-wider uppercase text-muted mb-4">Standards &amp; ecosystem</p>
             <ul className="space-y-4 text-muted">
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Founding member: <strong className="text-fg">Verana Foundation</strong> · Council seat: <strong className="text-fg">Verana Council</strong>.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Founding member: <a href="https://veranafoundation.org" className="prose-link text-fg" rel="noopener">Verana Foundation</a> · Council seat: <a href="https://veranacouncil.org" className="prose-link text-fg" rel="noopener">Verana Council</a>.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Active contributors: <strong className="text-fg">OpenWallet Foundation · Trust Over IP · Decentralized Identity Foundation</strong>.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span>Speakers and maintainers at the <strong className="text-fg">Internet Identity Workshop</strong>.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-check text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verifiable Trust v4</strong> and <strong className="text-fg">VPR v4</strong> specifications: public, open, maintained.</span></li>
