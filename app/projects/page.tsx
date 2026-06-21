@@ -41,12 +41,12 @@ export default function Page() {
             </p>
             <p className="text-muted text-xs tracking-wider uppercase pt-4">The stack</p>
             <ul className="space-y-3 text-muted">
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-mobile-screen text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Messaging App.</strong> Verifiable User Agent for iOS, Android, and Huawei. Private messaging, credential wallet, Proof-of-Trust resolution.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-robot text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">VS Agent.</strong> DIDComm agent framework with credential management and DID lifecycle.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-brain text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Generic AI Agent.</strong> Modular LLM agent with MCP, RAG, RBAC, and approval workflows. LLM-agnostic, cloud-agnostic.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-mobile-screen text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Messaging.</strong> A DIDComm wallet and messaging app (App Store &amp; Google Play): private messaging, credential wallet, device-bound auth, and the channel for connecting to Hologram AI Agents.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-robot text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram AI Agent.</strong> Verifiable-service framework for decentralized LLM agents: connect any LLM and MCP tools, credential-based authentication, role- and purpose-based access control, and approval workflows. LLM- and cloud-agnostic.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-brain text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram VUA.</strong> A smoother AG-UI interface for using Hologram AI Agents (in development); today agents are reached over DIDComm via Hologram Messaging.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-cube text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram SDK</strong> and <strong className="text-fg">Agent Pack schema</strong> for developers building custom Verifiable Services.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-plug text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram MCP catalog</strong>: reusable MCP servers (Wise, GitHub, X, growing).</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-cloud text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Cloud</strong>: enterprise hosting, RBAC, SLAs, IAM integration, white-label. GA <strong className="text-fg">Q4 2026</strong>.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-cloud text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Cloud</strong>: enterprise hosting, role- and purpose-based access control, SLAs, IAM integration, white-label. GA <strong className="text-fg">Q4 2026</strong>.</span></li>
             </ul>
             <p className="text-xs text-muted italic pt-2">Open source (Apache 2.0). Built on W3C Verifiable Credentials, DIDComm, MCP, and the Verana Trust Network.</p>
             <div className="pt-4 flex flex-wrap gap-3">
@@ -79,7 +79,7 @@ export default function Page() {
             <ul className="space-y-3 text-muted">
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-star text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Founding member of the Verana Foundation; seat in the Verana Council.</strong></span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-code-branch text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Largest single code contributor</strong> to the reference implementation.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-pen-nib text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Lead editor</strong> of the Verifiable Trust and VPR specifications.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-pen-nib text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Lead author</strong> of the Verifiable Trust and VPR specifications.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-server text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Validator operator</strong> on the Verana Trust Network.</span></li>
             </ul>
             <p>
@@ -104,7 +104,7 @@ export default function Page() {
           </div>
           <div className="md:col-span-8 reading space-y-5 text-e5">
             <p>
-              The specifications that define the Verifiable Trust category. Public, openly licensed, maintained through the Verana Foundation's editorial process with 2060 as lead editor.
+              The specifications that define the Verifiable Trust category. Public, openly licensed, maintained through the Verana Foundation's editorial process with 2060 as lead author.
             </p>
             <div className="grid md:grid-cols-2 gap-4 pt-2">
               <a href="https://github.com/verana-labs/verifiable-trust-spec" className="card flex flex-col h-full text-fg" rel="noopener">
@@ -141,7 +141,7 @@ export default function Page() {
               <i className="fa-brands fa-fw fa-github text-2xl" aria-hidden="true"></i>
               github.com/2060-io
             </h3>
-            <p className="text-muted text-sm mt-3 flex-1">2060's commercial and experimental projects, including the Hologram stack, VS Agent, Generic AI Agent, SDK, and MCP catalog.</p>
+            <p className="text-muted text-sm mt-3 flex-1">2060's commercial and experimental projects, including the Hologram stack (Hologram AI Agent, Hologram Messaging), SDK, and MCP catalog.</p>
             <span className="prose-link text-fg text-sm mt-4 self-end">Browse ↗</span>
           </a>
           <a href="https://github.com/verana-labs" className="card flex flex-col h-full text-fg" rel="noopener">
