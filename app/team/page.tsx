@@ -33,7 +33,7 @@ export default function Page() {
             <ul className="space-y-3 text-muted">
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-file-lines text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Specifications.</strong> The Verifiable Trust and VPR specifications, drafted between 2021 and 2024, now at v4.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-network-wired text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">A protocol.</strong> Verana, whose reference implementation 2060 seeded; its Foundation, initiated in 2024, counts 2060 as a founding member.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-rocket text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">A product line.</strong> Hologram, our commercial stack, in market since 2025 and now on the App Store, Google Play, and Huawei AppGallery.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-rocket text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">A product line.</strong> Hologram, our commercial stack, in market since 2025 and now on the App Store and Google Play.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-people-group text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">An ecosystem.</strong> The Verana Council, the independent body that governs and secures the network — a 25-member Council (in formation) across sectors and jurisdictions, each with one vote.</span></li>
             </ul>
             <p className="pt-2 italic">2060 does not own the ecosystem. 2060 invented the category it sits in.</p>
@@ -71,7 +71,7 @@ export default function Page() {
                 <p className="text-xs tracking-wider uppercase text-accent-hover mt-1">Co-founder &amp; CTO</p>
               </div>
             </div>
-            <p className="text-muted text-sm mt-5 flex-1">Electronic engineer and open-source leader. Maintainer of VS Agent and the Hologram App. Long-time contributor to Credo-TS.</p>
+            <p className="text-muted text-sm mt-5 flex-1">Electronic engineer and open-source leader. Maintainer of VS Agent and Hologram Messaging. Long-time contributor to Credo-TS.</p>
             <div className="mt-5 flex flex-wrap gap-4 text-sm">
               <a href="https://www.linkedin.com/in/aogentile/" className="prose-link text-fg" rel="noopener">LinkedIn ↗</a>
               <a href="https://github.com/genaris" className="prose-link text-fg" rel="noopener">GitHub ↗</a>
@@ -123,7 +123,7 @@ export default function Page() {
             <div className="flex-1">
               <h4 className="display text-lg">Tarun Vadde</h4>
               <p className="text-xs tracking-wider uppercase text-muted mt-1">Software Developer</p>
-              <p className="text-muted text-sm mt-3">Self-sovereign-identity specialist. TypeScript, NestJS, Solidity, Hyperledger Aries / Indy. Works on VS Agent, credential-handling flows, and the Hologram App's verifiable-credential wallet.</p>
+              <p className="text-muted text-sm mt-3">Self-sovereign-identity specialist. TypeScript, NestJS, Solidity, Hyperledger Aries / Indy. Works on VS Agent, credential-handling flows, and Hologram Messaging's verifiable-credential wallet.</p>
               <a href="https://www.linkedin.com/in/tarunvadde/" className="prose-link text-fg text-sm mt-3 inline-block" rel="noopener">LinkedIn ↗</a>
             </div>
           </article>
@@ -197,7 +197,7 @@ export default function Page() {
           </div>
           <div className="md:col-span-8 reading">
             <ul className="space-y-4 text-muted">
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-star text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verana Foundation</strong>: founding member, lead editor of the Verifiable Trust and VPR specifications.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-star text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verana Foundation</strong>: founding member, lead author of the Verifiable Trust and VPR specifications.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-landmark text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Verana Council</strong>: Council seat (25-member Council, in formation), validator operator on the Verana Trust Network.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-wallet text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">OpenWallet Foundation</strong>: active contributor on Credo-ts and wallet interoperability.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-shield-halved text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Trust Over IP (ToIP)</strong>: participant in governance and trust-registry working groups.</span></li>
