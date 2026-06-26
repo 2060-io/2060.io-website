@@ -124,10 +124,10 @@ jobs:
 
       - name: Write kubeconfig
         env:
-          KUBECONFIG_DATA: ${{ secrets.OVH_KUBECONFIG }}
+          KUBECONFIG_DATA: ${{ secrets.KUBECONFIG_2060_PROD }}
         run: |
           if [ -z "$KUBECONFIG_DATA" ]; then
-            echo "::error::The OVH_KUBECONFIG GitHub Actions secret is empty."
+            echo "::error::The KUBECONFIG_2060_PROD GitHub Actions secret is empty."
             echo "Set it under Settings → Secrets and variables → Actions → Secrets."
             exit 1
           fi
