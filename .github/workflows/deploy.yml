@@ -78,10 +78,12 @@ jobs:
         # kubectl (not helm) and annotated keep so helm never prunes it.
         env:
           RELATICLE_API_TOKEN: ${{ secrets.RELATICLE_API_TOKEN }}
+          ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
         run: |
           kubectl create namespace web --dry-run=client -o yaml | kubectl apply -f -
           kubectl -n web create secret generic 2060-website-secrets \
             --from-literal=RELATICLE_API_TOKEN="${RELATICLE_API_TOKEN}" \
+            --from-literal=ALERT_WEBHOOK_URL="${ALERT_WEBHOOK_URL}" \
             --dry-run=client -o yaml | kubectl apply -f -
           kubectl -n web annotate secret 2060-website-secrets \
             helm.sh/resource-policy=keep --overwrite
