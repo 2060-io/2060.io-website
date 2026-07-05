@@ -15,7 +15,7 @@ env:
 
 jobs:
   resolve-version:
-    uses: 2060-io/organization/.github/workflows/resolve-version-call.yml@main
+    uses: 2060-io/organization/.github/workflows/resolve-version-call.yml@d199fdc55832f78f90158117a93d227709ca2746 # main
 
   docker:
     needs: resolve-version
@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Compute tags
         id: compute-tags
@@ -48,17 +48,17 @@ jobs:
           fi
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
 
       - name: Docker login
-        uses: docker/login-action@v3
+        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
         with:
           username: ${{ secrets.DOCKER_HUB_LOGIN }}
           password: ${{ secrets.DOCKER_HUB_PWD }}
 
       - name: Build & push ${{ env.IMAGE_NAME }} dev tags
         if: env.RELEASE_TYPE == 'dev'
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
         with:
           context: .
           file: ./Dockerfile
@@ -74,7 +74,7 @@ jobs:
 
       - name: Build & push ${{ env.IMAGE_NAME }} stable release tags
         if: env.RELEASE_TYPE == 'stable'
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
         with:
           context: .
           file: ./Dockerfile
@@ -112,13 +112,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Set up kubectl
-        uses: azure/setup-kubectl@v4
+        uses: azure/setup-kubectl@776406bce94f63e41d621b960d78ee25c8b76ede # v4
 
       - name: Set up Helm
-        uses: azure/setup-helm@v4
+        uses: azure/setup-helm@1a275c3b69536ee54be43f2070a358922e12c8d4 # v4
         with:
           version: v3.14.0
 
@@ -171,7 +171,7 @@ jobs:
   discord-notify:
     needs: [resolve-version]
     if: needs.resolve-version.outputs.new-release-published == 'true' && needs.resolve-version.outputs.release-type == 'stable'
-    uses: 2060-io/organization/.github/workflows/discord-release-notify-call.yml@main
+    uses: 2060-io/organization/.github/workflows/discord-release-notify-call.yml@d199fdc55832f78f90158117a93d227709ca2746 # main
     with:
       tag_name: ${{ needs.resolve-version.outputs.release-version }}
     secrets:
