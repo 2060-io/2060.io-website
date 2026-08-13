@@ -48,7 +48,7 @@ export default function Page() {
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-plug text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram MCP catalog</strong>: reusable MCP servers (Wise, GitHub, X, growing).</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-cloud text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Enterprise Cloud</strong>: SaaS hosting of the full platform (Business Wallets / managed Verifiable Services, credential issuance &amp; verification services, ecosystem operations, Hologram Agentic AI), with role- and purpose-based access control, SLAs, IAM integration, white-label. GA <strong className="text-fg">Q1 2027</strong>.</span></li>
             </ul>
-            <p className="text-xs text-muted italic pt-2">Open source (Apache 2.0). Built on W3C Verifiable Credentials, DIDComm, MCP, and the Verana Trust Network.</p>
+            <p className="text-xs text-muted italic pt-2">Open source (Apache 2.0). Built on W3C Verifiable Credentials, DIDComm, OpenID4VC (eIDAS 2.0 &amp; EUDI Wallet interop), MCP, and the Verana Trust Network.</p>
             <div className="pt-4 flex flex-wrap gap-3">
               <a href="https://hologram.zone" className="btn btn-primary" rel="noopener">Explore Hologram ↗</a>
               <a href="https://hologram.zone/demos" className="btn" rel="noopener">Live Demos ↗</a>
