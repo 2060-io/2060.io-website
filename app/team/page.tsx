@@ -33,7 +33,7 @@ export default function Page() {
             <ul className="space-y-3 text-muted">
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-file-lines text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Specifications.</strong> The Verifiable Trust and VPR specifications, drafted between 2021 and 2024, now at v4.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-network-wired text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">A protocol.</strong> Verana, whose reference implementation 2060 seeded; its Foundation, initiated in 2024, counts 2060 as a founding member.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-rocket text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">A product line.</strong> Hologram, our commercial stack, in market since 2025 and now on the App Store and Google Play.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-rocket text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">A product line.</strong> Hologram, the flagship line of our Business SaaS platform, in technology preview and live on the App Store and Google Play.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-people-group text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">An ecosystem.</strong> The <a href="https://veranacouncil.org" className="prose-link text-fg" rel="noopener">Verana Council</a>, the independent body that governs and secures the network — a 25-member Council (in formation) across sectors and jurisdictions, each with one vote.</span></li>
             </ul>
             <p className="pt-2 italic">2060 does not own the ecosystem. 2060 invented the category it sits in.</p>
@@ -98,7 +98,7 @@ export default function Page() {
             <div className="flex-1">
               <h4 className="display text-lg">Gerard William Burion</h4>
               <p className="text-xs tracking-wider uppercase text-accent-hover mt-1">Chief Product Officer</p>
-              <p className="text-muted text-sm mt-3">25+ years across mobile, media, payments, and fintech in the Paris tech ecosystem (including Treezor, Europe's banking-as-a-service platform). Owns product direction for the Hologram stack and the path to Hologram Cloud GA.</p>
+              <p className="text-muted text-sm mt-3">25+ years across mobile, media, payments, and fintech in the Paris tech ecosystem (including Treezor, Europe's banking-as-a-service platform). Owns product direction for the Hologram stack and the path to Enterprise Cloud GA.</p>
               <a href="https://www.linkedin.com/in/gerard-william-burion/" className="prose-link text-fg text-sm mt-3 inline-block" rel="noopener">LinkedIn ↗</a>
             </div>
           </article>

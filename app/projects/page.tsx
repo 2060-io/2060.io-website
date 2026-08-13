@@ -32,12 +32,12 @@ export default function Page() {
               <img src="/assets/hologram-logo.svg" alt="" className="card-logo w-8 h-8 flex-shrink-0 rounded-md" width="32" height="32" aria-hidden="true" />
               Hologram
             </h2>
-            <p className="text-muted mt-4">Verifiable AI Agents in Production.</p>
+            <p className="text-muted mt-4">Verifiable AI Agents, live in technology preview.</p>
             <div className="accent-line mt-6"></div>
           </div>
           <div className="md:col-span-8 reading space-y-5 text-e5">
             <p>
-              Hologram is our commercial product line. It is the verifiable trust layer for AI agents: a production stack that allows agents to identify themselves, operate under verifiable authority, prove their delegation rights, and interact safely across a trusted ecosystem.
+              Hologram is the flagship line of 2060&apos;s Business SaaS platform. It is the verifiable trust layer for AI agents: a production-grade stack, live in technology preview, that allows agents to identify themselves, operate under verifiable authority, prove their delegation rights, and interact safely across a trusted ecosystem.
             </p>
             <p className="text-muted text-xs tracking-wider uppercase pt-4">The stack</p>
             <ul className="space-y-3 text-muted">
@@ -46,7 +46,7 @@ export default function Page() {
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-brain text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram VUA.</strong> A smoother AG-UI interface for using Hologram AI Agents (in development); today agents are reached over DIDComm via Hologram Messaging.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-cube text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram SDK</strong> and <strong className="text-fg">Agent Pack schema</strong> for developers building custom Verifiable Services.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-plug text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram MCP catalog</strong>: reusable MCP servers (Wise, GitHub, X, growing).</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-cloud text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Hologram Cloud</strong>: enterprise hosting, role- and purpose-based access control, SLAs, IAM integration, white-label. GA <strong className="text-fg">Q4 2026</strong>.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-cloud text-muted mt-1" aria-hidden="true"></i><span><strong className="text-fg">Enterprise Cloud</strong>: SaaS hosting of the full platform (Business Wallets / managed Verifiable Services, credential issuance &amp; verification services, ecosystem operations, Hologram Agentic AI), with role- and purpose-based access control, SLAs, IAM integration, white-label. GA <strong className="text-fg">Q1 2027</strong>.</span></li>
             </ul>
             <p className="text-xs text-muted italic pt-2">Open source (Apache 2.0). Built on W3C Verifiable Credentials, DIDComm, MCP, and the Verana Trust Network.</p>
             <div className="pt-4 flex flex-wrap gap-3">
