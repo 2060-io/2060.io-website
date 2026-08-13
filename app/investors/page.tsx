@@ -37,7 +37,7 @@ export default function Page() {
             <div className="spec-row"><dt>Standards</dt><dd>Verifiable Trust v4 · VPR v4 (co-authored, lead author)</dd></div>
             <div className="spec-row"><dt>Stage</dt><dd>Production stack shipped &amp; open-sourced · Enterprise Cloud GA <strong className="text-fg">Q1 2027</strong> · mainnet <strong className="text-fg">2027</strong></dd></div>
             <div className="spec-row"><dt>Tech</dt><dd>Open source (Apache 2.0) · W3C VC / DIDComm / MCP / Verana</dd></div>
-            <div className="spec-row"><dt>Geography</dt><dd>HQ Tallinn · team distributed across Europe, Asia, and the Americas</dd></div>
+            <div className="spec-row"><dt>Geography</dt><dd>Team distributed across Europe, Asia, and the Americas</dd></div>
             <div className="spec-row"><dt>Round details</dt><dd>Valuation, lead status, and committed capital shared directly with qualified investors. <a href="/contact?topic=investor" className="prose-link">Talk to the founders →</a></dd></div>
           </dl>
         </div>
