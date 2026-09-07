@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.6.1](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.6.0...2060-io-website-v2.6.1) (2026-09-07)
+
+
+### Bug Fixes
+
+* **dataroom:** raise the ingress upload cap to 64m ([97c8e13](https://github.com/2060-io/2060.io-website/commit/97c8e133be9a391162d98d92e9c128e44a9d2208))
+* **dataroom:** raise the ingress upload cap to 64m ([96c1ec0](https://github.com/2060-io/2060.io-website/commit/96c1ec0f07147c205ab5be198b4fc557d406787a))
+
 ## [2.6.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.5.1...2060-io-website-v2.6.0) (2026-09-07)
 
 
