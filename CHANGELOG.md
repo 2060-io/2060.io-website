@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.13.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.12.0...2060-io-website-v2.13.0) (2026-09-07)
+
+
+### Features
+
+* **dataroom:** Meeting entry in the account menu for VCs ([0397998](https://github.com/2060-io/2060.io-website/commit/03979987327a3cef65311e76d44d62f8ec00ef91))
+* **dataroom:** Meeting entry in the account menu for VCs ([2b24655](https://github.com/2060-io/2060.io-website/commit/2b246557f89a5bb10b0793f3de80a62864370a20))
+
 ## [2.12.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.11.0...2060-io-website-v2.12.0) (2026-09-07)
 
 
