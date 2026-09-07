@@ -117,7 +117,61 @@ model VcInvite {
   invitedAt       DateTime  @default(now())
   lastLoginAt     DateTime? // refreshed on every sign-in (events.signIn)
 
-  org Org @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  org            Org             @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  documentGrants DocumentGrant[]
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Document repository — per-VC visibility, downloads audited
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// A data-room document. The row (its id) is the durable identity; replacing
+/// the content bumps `version` and writes a new file under the same id, so
+/// grants and download history survive updates. Old files are retained on the
+/// volume for audit; only the latest is served.
+model Document {
+  id          String   @id @default(cuid())
+  title       String
+  filename    String // original upload name (of the latest version)
+  contentType String
+  size        Int
+  storageKey  String // documents/<id>/v<version>-<filename>
+  version     Int      @default(1)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  updatedBy   String? // email of the VC admin who last uploaded
+
+  grants    DocumentGrant[]
+  downloads DownloadEvent[]
+}
+
+/// Visibility grant: this invited email sees this document in the data room.
+/// Nothing is visible without a grant.
+model DocumentGrant {
+  id         String   @id @default(cuid())
+  inviteId   String
+  documentId String
+  grantedBy  String? // email of the VC admin who granted
+  grantedAt  DateTime @default(now())
+
+  invite   VcInvite @relation(fields: [inviteId], references: [id], onDelete: Cascade)
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@unique([inviteId, documentId])
+}
+
+/// One row per download. `documentTitle` is copied at download time so the
+/// audit trail survives document deletion (the FK then nulls).
+model DownloadEvent {
+  id            String   @id @default(cuid())
+  email         String // the downloader's (invite) email
+  documentId    String?
+  documentTitle String
+  at            DateTime @default(now())
+
+  document Document? @relation(fields: [documentId], references: [id], onDelete: SetNull)
+
+  @@index([email, at])
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
