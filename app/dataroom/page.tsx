@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { db } from "@/app/lib/db";
 import { currentUser, isAdmin, isVcAdmin, vcInviteFor } from "@/app/lib/authz";
@@ -6,6 +7,8 @@ import { loadActiveNda } from "@/app/lib/nda-versions";
 import { resolveNdaTemplate } from "@/app/lib/nda-template";
 import { markdownToHtml } from "@/app/lib/doc-html";
 import { formatSize } from "@/app/lib/documents";
+import { loadMeetingConfig, bookingOpen } from "@/app/lib/meetings";
+import { gmtTime, DAY_CODES } from "@/app/lib/meeting-slots";
 import NdaSignForm from "./NdaSignForm";
 
 export const metadata: Metadata = {
@@ -94,12 +97,20 @@ export default async function DataroomPage() {
 
   // ── Signed: the document area ─────────────────────────────────────────────
   // Visible = always-visible documents ∪ documents granted to this email.
-  const docs = await db.document.findMany({
-    where: {
-      OR: [{ alwaysVisible: true }, { grants: { some: { inviteId: invite.id } } }],
-    },
-    orderBy: { createdAt: "desc" },
-  });
+  const [docs, upcomingMeeting, meetingCfg] = await Promise.all([
+    db.document.findMany({
+      where: {
+        OR: [{ alwaysVisible: true }, { grants: { some: { inviteId: invite.id } } }],
+      },
+      orderBy: { createdAt: "desc" },
+    }),
+    db.meeting.findFirst({
+      where: { inviteId: invite.id, startAt: { gte: new Date() } },
+      orderBy: { startAt: "asc" },
+    }),
+    loadMeetingConfig(),
+  ]);
+  const meetingsOpen = bookingOpen(meetingCfg);
 
   return (
     <section className="px-6 py-16">
@@ -161,6 +172,52 @@ export default async function DataroomPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        )}
+
+        {(upcomingMeeting || meetingsOpen) && (
+          <div className="card mt-10 max-w-xl">
+            {upcomingMeeting ? (
+              <>
+                <h2 className="display text-lg">Your call with 2060</h2>
+                <p className="text-sm text-muted mt-2">
+                  30 minutes on{" "}
+                  <strong className="text-fg">
+                    {DAY_CODES[upcomingMeeting.startAt.getUTCDay()]}{" "}
+                    {upcomingMeeting.startAt.toISOString().slice(0, 10)} at{" "}
+                    {gmtTime(upcomingMeeting.startAt)} GMT
+                  </strong>
+                  .
+                </p>
+                <div className="mt-4 flex flex-wrap items-center gap-4">
+                  {upcomingMeeting.meetUrl && (
+                    <a
+                      href={upcomingMeeting.meetUrl}
+                      rel="noopener"
+                      className="btn btn-primary text-sm"
+                    >
+                      Join with Google Meet
+                    </a>
+                  )}
+                  <Link href="/dataroom/meeting" className="prose-link text-fg text-sm">
+                    Manage
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <>
+                <h2 className="display text-lg">Talk to the team</h2>
+                <p className="text-sm text-muted mt-2">
+                  Questions on the materials? Book a 30-minute Google Meet call
+                  with 2060.
+                </p>
+                <div className="mt-4">
+                  <Link href="/dataroom/meeting" className="btn text-sm">
+                    Request a meeting
+                  </Link>
+                </div>
+              </>
+            )}
           </div>
         )}
       </div>

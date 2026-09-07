@@ -11,6 +11,7 @@
 #   POSTGRES_PASSWORD AUTH_SECRET
 #   AUTH_GOOGLE_ID AUTH_GOOGLE_SECRET AUTH_GITHUB_ID AUTH_GITHUB_SECRET
 #   MAIL_HOST MAIL_PORT MAIL_USERNAME MAIL_PASSWORD MAIL_ENCRYPTION
+#   GOOGLE_SA_EMAIL GOOGLE_SA_PRIVATE_KEY GOOGLE_CALENDAR_IMPERSONATE
 #   MAIL_FROM_ADDRESS MAIL_FROM_NAME ADMIN_BOOTSTRAP_EMAILS
 set -eu
 
@@ -41,6 +42,9 @@ kubectl -n web create secret generic 2060-website-secrets \
   --from-literal=MAIL_FROM_ADDRESS="${MAIL_FROM_ADDRESS:-}" \
   --from-literal=MAIL_FROM_NAME="${MAIL_FROM_NAME:-}" \
   --from-literal=ADMIN_BOOTSTRAP_EMAILS="${ADMIN_BOOTSTRAP_EMAILS:-}" \
+  --from-literal=GOOGLE_SA_EMAIL="${GOOGLE_SA_EMAIL:-}" \
+  --from-literal=GOOGLE_SA_PRIVATE_KEY="${GOOGLE_SA_PRIVATE_KEY:-}" \
+  --from-literal=GOOGLE_CALENDAR_IMPERSONATE="${GOOGLE_CALENDAR_IMPERSONATE:-}" \
   --dry-run=client -o yaml | kubectl apply -f -
 kubectl -n web annotate secret 2060-website-secrets \
   helm.sh/resource-policy=keep --overwrite

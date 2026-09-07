@@ -50,6 +50,13 @@ export default async function VcAdminPage() {
               a test.
             </p>
           </Link>
+          <Link href="/vc-admin/meetings" className="card block text-fg">
+            <h2 className="display text-lg">Meetings</h2>
+            <p className="text-muted text-sm mt-2">
+              Open days, GMT time slots, and 2060-side attendees for the
+              30-minute VC calls; see and cancel upcoming meetings.
+            </p>
+          </Link>
         </div>
       </div>
     </section>
