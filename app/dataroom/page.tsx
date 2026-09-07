@@ -5,6 +5,7 @@ import { currentUser, isAdmin, isVcAdmin, vcInviteFor } from "@/app/lib/authz";
 import { loadActiveNda } from "@/app/lib/nda-versions";
 import { resolveNdaTemplate } from "@/app/lib/nda-template";
 import { markdownToHtml } from "@/app/lib/doc-html";
+import { formatSize } from "@/app/lib/documents";
 import SessionBar from "@/app/components/SessionBar";
 import NdaSignForm from "./NdaSignForm";
 
@@ -95,6 +96,12 @@ export default async function DataroomPage() {
   }
 
   // ── Signed: the document area ─────────────────────────────────────────────
+  const grants = await db.documentGrant.findMany({
+    where: { inviteId: invite.id },
+    include: { document: true },
+    orderBy: { document: { createdAt: "desc" } },
+  });
+
   return (
     <section className="px-6 py-16">
       <div className="max-w-6xl mx-auto">
@@ -116,10 +123,48 @@ export default async function DataroomPage() {
           )}
           .
         </p>
-        <p className="text-muted mt-8 reading max-w-2xl">
-          The document repository is being provisioned — you will receive an
-          email when documents are available here.
-        </p>
+
+        {grants.length === 0 ? (
+          <p className="text-muted mt-10 reading max-w-2xl">
+            No documents have been shared with you yet — you will receive an
+            email when documents are available here.
+          </p>
+        ) : (
+          <div className="overflow-x-auto mt-10">
+            <table className="clean min-w-[560px]">
+              <thead>
+                <tr>
+                  <th>Document</th>
+                  <th>Size</th>
+                  <th>Updated</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {grants.map(({ document: d }) => (
+                  <tr key={d.id}>
+                    <td className="text-fg">{d.title}</td>
+                    <td className="text-muted whitespace-nowrap">
+                      {formatSize(d.size)}
+                    </td>
+                    <td className="text-muted whitespace-nowrap">
+                      {d.updatedAt.toISOString().slice(0, 10)}
+                    </td>
+                    <td>
+                      <a
+                        href={`/dataroom/doc/${d.id}`}
+                        className="btn text-xs"
+                        download
+                      >
+                        Download
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </section>
   );
