@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.11.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.10.0...2060-io-website-v2.11.0) (2026-09-07)
+
+
+### Features
+
+* **dataroom:** 30-minute Google Meet booking for VCs ([81c970f](https://github.com/2060-io/2060.io-website/commit/81c970fd27b5c3b7851662a82e8c9d7de800f1e8))
+
 ## [2.10.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.9.0...2060-io-website-v2.10.0) (2026-09-07)
 
 
