@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
-import SessionBar from "@/app/components/SessionBar";
 
 export const metadata: Metadata = {
   title: "VC admin",
@@ -19,7 +18,6 @@ export default async function VcAdminPage() {
   return (
     <section className="px-6 py-16">
       <div className="max-w-6xl mx-auto">
-        <SessionBar />
         <p className="tag tag-accent">Data room</p>
         <h1 className="display text-3xl md:text-4xl mt-4">VC administration</h1>
         <div className="accent-line mt-6"></div>

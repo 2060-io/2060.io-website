@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
-import SessionBar from "@/app/components/SessionBar";
 import { InviteForm, ResendButton, RevokeButton } from "./InviteControls";
 
 export const metadata: Metadata = {
@@ -35,7 +34,6 @@ export default async function VcAdminInvitesPage() {
   return (
     <section className="px-6 py-16">
       <div className="max-w-6xl mx-auto">
-        <SessionBar />
         <p className="text-sm mb-4">
           <Link href="/vc-admin" className="prose-link text-muted">
             ← VC admin

@@ -58,8 +58,22 @@ export default {
           return false;
       }
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user, account, profile }) {
       if (user) token.uid = user.id;
+      // Refresh name/avatar from the OAuth profile on every OAuth sign-in.
+      // With the DB adapter, `user` is the adapter row — for an account first
+      // created via the OTP flow it has no image, so the session (and the
+      // header avatar) would stay empty forever without this.
+      if (account?.provider === "google" && profile) {
+        const p = profile as { name?: string | null; picture?: string | null };
+        if (p.picture) token.picture = p.picture;
+        if (p.name) token.name = p.name;
+      }
+      if (account?.provider === "github" && profile) {
+        const p = profile as { name?: string | null; login?: string; avatar_url?: string | null };
+        if (p.avatar_url) token.picture = p.avatar_url;
+        if (p.name ?? p.login) token.name = p.name ?? p.login;
+      }
       return token;
     },
     async session({ session, token }) {

@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
 import { formatSize } from "@/app/lib/documents";
-import SessionBar from "@/app/components/SessionBar";
 import GrantEditor from "./GrantEditor";
 
 export const metadata: Metadata = {
@@ -35,7 +34,6 @@ export default async function InviteGrantsPage({
   return (
     <section className="px-6 py-16">
       <div className="max-w-6xl mx-auto">
-        <SessionBar />
         <p className="text-sm mb-4">
           <Link href="/vc-admin/invites" className="prose-link text-muted">
             ← Invitations

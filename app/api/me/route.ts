@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { isAdmin, isVcAdmin, vcInviteFor } from "@/app/lib/authz";
+import { db } from "@/app/lib/db";
 
 export const dynamic = "force-dynamic";
 
@@ -14,10 +15,18 @@ export async function GET() {
     return NextResponse.json({ user: null, actions: [] });
   }
 
-  const [admin, vcAdmin, invite] = await Promise.all([
+  const [admin, vcAdmin, invite, record] = await Promise.all([
     isAdmin(user.email),
     isVcAdmin(user.email),
     vcInviteFor(user.email),
+    // Stored profile: lets an OTP session still show the avatar/name captured
+    // from an earlier OAuth sign-in (events.signIn persists them).
+    user.id
+      ? db.user.findUnique({
+          where: { id: user.id },
+          select: { name: true, image: true },
+        })
+      : Promise.resolve(null),
   ]);
 
   const actions: { label: string; href: string; icon: string }[] = [];
@@ -29,9 +38,9 @@ export async function GET() {
   // show nothing but the sign-out.
   return NextResponse.json({
     user: {
-      name: user.name ?? null,
+      name: user.name ?? record?.name ?? null,
       email: user.email,
-      image: user.image ?? null,
+      image: user.image ?? record?.image ?? null,
     },
     actions,
   });

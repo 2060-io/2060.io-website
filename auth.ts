@@ -68,12 +68,38 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   },
   events: {
     // Record VC activity: refresh the invite's lastLoginAt on every sign-in.
-    async signIn({ user }) {
+    // Also persist the OAuth profile's name/avatar onto the User row — a row
+    // first created via the OTP flow has neither, and the adapter never
+    // refreshes them on later linked OAuth sign-ins. Stored copies let
+    // /api/me show the avatar even in OTP sessions.
+    async signIn({ user, account, profile }) {
       if (user.email) {
         await db.vcInvite.updateMany({
           where: { email: user.email.toLowerCase() },
           data: { lastLoginAt: new Date() },
         });
+      }
+      if (user.id && account && profile) {
+        const p = profile as {
+          name?: string | null;
+          login?: string;
+          picture?: string | null;
+          avatar_url?: string | null;
+        };
+        const image =
+          account.provider === "google" ? p.picture
+          : account.provider === "github" ? p.avatar_url
+          : null;
+        const name =
+          account.provider === "github" ? (p.name ?? p.login ?? null) : (p.name ?? null);
+        const data: { image?: string; name?: string } = {};
+        if (image) data.image = image;
+        if (name) data.name = name;
+        if (Object.keys(data).length) {
+          await db.user
+            .update({ where: { id: user.id }, data })
+            .catch(() => {/* best-effort */});
+        }
       }
     },
   },

@@ -6,7 +6,6 @@ import { loadActiveNda } from "@/app/lib/nda-versions";
 import { resolveNdaTemplate } from "@/app/lib/nda-template";
 import { markdownToHtml } from "@/app/lib/doc-html";
 import { formatSize } from "@/app/lib/documents";
-import SessionBar from "@/app/components/SessionBar";
 import NdaSignForm from "./NdaSignForm";
 
 export const metadata: Metadata = {
@@ -44,7 +43,6 @@ export default async function DataroomPage() {
       return (
         <section className="px-6 py-16">
           <div className="max-w-6xl mx-auto">
-            <SessionBar />
             <p className="tag tag-accent">Data room</p>
             <h1 className="display text-3xl md:text-4xl mt-4">{invite.org.name}</h1>
             <p className="text-muted mt-8 reading max-w-2xl">
@@ -66,7 +64,6 @@ export default async function DataroomPage() {
     return (
       <section className="px-6 py-16">
         <div className="max-w-6xl mx-auto">
-          <SessionBar />
           <p className="tag tag-accent">Data room</p>
           <h1 className="display text-3xl md:text-4xl mt-4">
             One step before the documents
@@ -105,7 +102,6 @@ export default async function DataroomPage() {
   return (
     <section className="px-6 py-16">
       <div className="max-w-6xl mx-auto">
-        <SessionBar />
         <p className="tag tag-accent">Data room</p>
         <h1 className="display text-3xl md:text-4xl mt-4">{invite.org.name}</h1>
         <div className="accent-line mt-6"></div>

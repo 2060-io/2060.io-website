@@ -5,7 +5,6 @@ import { db } from "@/app/lib/db";
 import { currentUser, isAdmin } from "@/app/lib/authz";
 import { listVersions, readVersionFile } from "@/app/lib/nda-versions";
 import { renderTemplateHtml } from "@/app/lib/doc-html";
-import SessionBar from "@/app/components/SessionBar";
 import VersionSelector from "./VersionSelector";
 
 export const metadata: Metadata = {
@@ -46,7 +45,6 @@ export default async function AdminNdaPage() {
   return (
     <section className="px-6 py-16">
       <div className="max-w-6xl mx-auto">
-        <SessionBar />
         <p className="text-sm mb-4">
           <Link href="/admin" className="prose-link text-muted">
             ← Admin
