@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.10.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.9.0...2060-io-website-v2.10.0) (2026-09-07)
+
+
+### Features
+
+* **dataroom:** engagement dashboard for the Activity page ([e18cd78](https://github.com/2060-io/2060.io-website/commit/e18cd78ec6f26f40601fd6de63a6281a98b81382))
+* **dataroom:** engagement dashboard for the Activity page ([7a985cd](https://github.com/2060-io/2060.io-website/commit/7a985cd8386fb558fa8616e144a3249c3cfc1146))
+
 ## [2.9.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.8.0...2060-io-website-v2.9.0) (2026-09-07)
 
 
