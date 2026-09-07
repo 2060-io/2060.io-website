@@ -26,7 +26,32 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
 # -----------------------------------------------------------------------------
-# Stage 3 — minimal runtime image
+# Stage 3 — migration runner (used only by the one-off k8s migrate/seed Jobs)
+# Full dependency tree + Prisma CLI + schema/migrations. Kept out of the lean
+# runtime image below and built/pushed under a separate :migrate tag with
+# `--target migrator`. Deliberately NOT the last stage: CI's default app build
+# has no --target, so the final stage below must remain the app image.
+# -----------------------------------------------------------------------------
+FROM node:22-alpine AS migrator
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY prisma ./prisma
+COPY prisma.config.ts package.json ./
+
+# Generate the Prisma client so this image can also run the seed
+# (node prisma/seed.mjs uses @prisma/client), not just `migrate deploy`.
+RUN node node_modules/prisma/build/index.js generate
+
+USER node
+
+CMD ["node", "node_modules/prisma/build/index.js", "migrate", "deploy"]
+
+# -----------------------------------------------------------------------------
+# Stage 4 — minimal runtime image (default build target — keep this stage LAST)
 # -----------------------------------------------------------------------------
 FROM node:22-alpine AS runner
 
