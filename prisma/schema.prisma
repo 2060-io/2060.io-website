@@ -211,6 +211,22 @@ model NdaSignature {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Invitation email template — one row, editable by VC admins
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// The customizable invitation email. Markdown body with {{org_name}},
+/// {{email}}, {{login_url}} placeholders; rendered inside the dual-logo
+/// (2060 + Verana Foundation) email shell. A code default applies until the
+/// first save creates the row (id "default").
+model InviteEmailTemplate {
+  id           String   @id @default("default")
+  subject      String
+  bodyMarkdown String   @db.Text
+  updatedBy    String?
+  updatedAt    DateTime @updatedAt
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Audit trail of privileged actions
 // ─────────────────────────────────────────────────────────────────────────────
 
