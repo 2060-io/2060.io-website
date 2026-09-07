@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
-import { InviteForm, ResendButton, RevokeButton } from "./InviteControls";
+import { InviteForm } from "./InviteControls";
+import InvitesTable, { type InviteRow } from "./InvitesTable";
 
 export const metadata: Metadata = {
   title: "Invitations · VC admin",
@@ -12,23 +13,57 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-function fmt(d: Date | null): string {
-  return d ? d.toISOString().slice(0, 16).replace("T", " ") : "never";
+/** Compact relative label: "just now", "5m ago", "3h ago", "6d ago", else date. */
+function relative(d: Date | null): string {
+  if (!d) return "never";
+  const s = (Date.now() - d.getTime()) / 1000;
+  if (s < 60) return "just now";
+  if (s < 3600) return `${Math.floor(s / 60)}m ago`;
+  if (s < 86400) return `${Math.floor(s / 3600)}h ago`;
+  if (s < 30 * 86400) return `${Math.floor(s / 86400)}d ago`;
+  return d.toISOString().slice(0, 10);
 }
 
 export default async function VcAdminInvitesPage() {
   const user = await currentUser();
   if (!user || !(await isVcAdmin(user.email))) notFound();
 
-  const orgs = await db.org.findMany({
-    orderBy: { name: "asc" },
-    include: {
-      ndaSignature: true,
-      invites: {
-        orderBy: { email: "asc" },
-        include: { _count: { select: { documentGrants: true } } },
+  const [invites, downloads] = await Promise.all([
+    db.vcInvite.findMany({
+      include: {
+        org: { include: { ndaSignature: true } },
+        _count: { select: { documentGrants: true } },
       },
-    },
+    }),
+    db.downloadEvent.groupBy({
+      by: ["email"],
+      _count: { _all: true },
+      _max: { at: true },
+    }),
+  ]);
+  const dlByEmail = new Map(
+    downloads.map((d) => [d.email, { count: d._count._all, last: d._max.at }]),
+  );
+
+  const rows: InviteRow[] = invites.map((i) => {
+    const dl = dlByEmail.get(i.email);
+    // "Last seen" = the latest signal we have: sign-in or download.
+    const lastSeen =
+      [i.lastLoginAt, dl?.last]
+        .filter((x): x is Date => !!x)
+        .sort((a, b) => b.getTime() - a.getTime())[0] ?? null;
+    return {
+      id: i.id,
+      email: i.email,
+      org: i.org.name,
+      ndaSigned: !!i.org.ndaSignature,
+      grants: i._count.documentGrants,
+      downloads: dl?.count ?? 0,
+      status: dl?.count ? "active" : i.lastLoginAt ? "connected" : "never",
+      lastSeenEpoch: lastSeen?.getTime() ?? 0,
+      lastSeenLabel: relative(lastSeen),
+      invitedLabel: i.invitedAt.toISOString().slice(0, 10),
+    };
   });
 
   return (
@@ -43,83 +78,15 @@ export default async function VcAdminInvitesPage() {
         <p className="text-muted mt-4 reading max-w-2xl">
           Only invited emails can sign in. Several emails can be invited under
           the same organization; the NDA is signed once per organization. New
-          invites see no documents until you select them per email.
+          invites see only always-visible documents until you select more per
+          email.
         </p>
 
         <h2 className="display text-xl mt-10 mb-4">Invite</h2>
-        <InviteForm orgNames={orgs.map((o) => o.name)} />
+        <InviteForm orgNames={[...new Set(invites.map((i) => i.org.name))].sort()} />
 
-        <h2 className="display text-xl mt-12 mb-2">Invited</h2>
-        {orgs.length === 0 && <p className="text-muted text-sm">No one yet.</p>}
-        <div className="grid gap-8 mt-4">
-          {orgs.map((org) => (
-            <div key={org.id} className="card">
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="display text-lg">{org.name}</h3>
-                <p className="text-sm text-muted">
-                  {org.ndaSignature ? (
-                    <>
-                      NDA signed by{" "}
-                      <strong className="text-fg">
-                        {org.ndaSignature.signerName}
-                      </strong>{" "}
-                      on {org.ndaSignature.signedAt.toISOString().slice(0, 10)}
-                    </>
-                  ) : (
-                    "NDA not signed yet"
-                  )}
-                </p>
-              </div>
-              <div className="overflow-x-auto mt-3">
-                <table className="clean min-w-[720px]">
-                  <thead>
-                    <tr>
-                      <th>Email</th>
-                      <th>Invited</th>
-                      <th>Last connected</th>
-                      <th>Documents</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {org.invites.map((i) => (
-                      <tr key={i.id}>
-                        <td className="text-fg">{i.email}</td>
-                        <td className="text-muted whitespace-nowrap">
-                          {fmt(i.invitedAt)}
-                        </td>
-                        <td className="text-muted whitespace-nowrap">
-                          {fmt(i.lastLoginAt)}
-                        </td>
-                        <td>
-                          <Link
-                            href={`/vc-admin/invites/${i.id}`}
-                            className="prose-link text-fg text-sm"
-                          >
-                            {i._count.documentGrants} shared — select
-                          </Link>
-                        </td>
-                        <td>
-                          <div className="flex items-center gap-3">
-                            <ResendButton id={i.id} />
-                            <RevokeButton id={i.id} email={i.email} />
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                    {org.invites.length === 0 && (
-                      <tr>
-                        <td colSpan={5} className="text-muted">
-                          No invites under this organization.
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          ))}
-        </div>
+        <h2 className="display text-xl mt-12 mb-4">Invited</h2>
+        <InvitesTable rows={rows} />
       </div>
     </section>
   );

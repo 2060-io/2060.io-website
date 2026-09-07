@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useActionState } from "react";
-import { inviteVcs, resendInvite, revokeInvite, type InviteState } from "./actions";
+import { inviteVcs, type InviteState } from "./actions";
 
 export function InviteForm({ orgNames }: { orgNames: string[] }) {
   const formRef = useRef<HTMLFormElement>(null);
@@ -47,48 +47,6 @@ export function InviteForm({ orgNames }: { orgNames: string[] }) {
       {state.ok && state.message && (
         <p className="text-sm text-accent-hover">{state.message}</p>
       )}
-    </form>
-  );
-}
-
-export function ResendButton({ id }: { id: string }) {
-  const [state, action, pending] = useActionState<InviteState, FormData>(
-    resendInvite,
-    {},
-  );
-  return (
-    <form action={action} className="inline-flex items-center gap-2">
-      <input type="hidden" name="id" value={id} />
-      <button
-        type="submit"
-        className="prose-link text-fg text-sm"
-        disabled={pending}
-      >
-        {pending ? "sending…" : state.ok ? "sent" : "resend"}
-      </button>
-      {state.error && <span className="text-xs text-red-500">{state.error}</span>}
-    </form>
-  );
-}
-
-export function RevokeButton({ id, email }: { id: string; email: string }) {
-  return (
-    <form
-      action={revokeInvite}
-      className="inline"
-      onSubmit={(e) => {
-        if (
-          !confirm(
-            `Revoke ${email}? They can no longer sign in; download history is kept.`,
-          )
-        )
-          e.preventDefault();
-      }}
-    >
-      <input type="hidden" name="id" value={id} />
-      <button type="submit" className="prose-link text-fg text-sm">
-        revoke
-      </button>
     </form>
   );
 }
