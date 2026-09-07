@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { isAdmin, isVcAdmin, vcInviteFor } from "@/app/lib/authz";
 import { db } from "@/app/lib/db";
+import { loadMeetingConfig, bookingOpen } from "@/app/lib/meetings";
 
 export const dynamic = "force-dynamic";
 
@@ -32,7 +33,21 @@ export async function GET() {
   const actions: { label: string; href: string; icon: string }[] = [];
   if (admin) actions.push({ label: "Admin", href: "/admin", icon: "shield" });
   if (vcAdmin) actions.push({ label: "VC admin", href: "/vc-admin", icon: "users" });
-  if (invite) actions.push({ label: "Data room", href: "/dataroom", icon: "folder" });
+  if (invite) {
+    actions.push({ label: "Data room", href: "/dataroom", icon: "folder" });
+    // Meeting entry: when booking is open, or the VC already has an upcoming
+    // call to manage (even if booking has been closed since).
+    const [cfg, upcoming] = await Promise.all([
+      loadMeetingConfig(),
+      db.meeting.findFirst({
+        where: { inviteId: invite.id, startAt: { gte: new Date() } },
+        select: { id: true },
+      }),
+    ]);
+    if (bookingOpen(cfg) || upcoming) {
+      actions.push({ label: "Meeting", href: "/dataroom/meeting", icon: "calendar" });
+    }
+  }
 
   // An email that lost every role (e.g. a revoked invite) still has a session;
   // show nothing but the sign-out.
