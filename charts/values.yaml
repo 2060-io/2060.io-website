@@ -40,6 +40,10 @@ ingress:
     secretName: website-2060-io-tls
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    # Data-room document uploads: nginx's default cap is 1m, which 413s any
+    # real document before it reaches the app (whose server-action limit is
+    # 64mb — keep the two in sync).
+    nginx.ingress.kubernetes.io/proxy-body-size: 64m
 
 # Container env for the Node.js runtime.
 env:
