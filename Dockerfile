@@ -41,6 +41,8 @@ ENV NODE_ENV=production
 COPY --from=deps /app/node_modules ./node_modules
 COPY prisma ./prisma
 COPY prisma.config.ts package.json ./
+# The seed activates an NDA version file from legal/.
+COPY legal ./legal
 
 # Generate the Prisma client so this image can also run the seed
 # (node prisma/seed.mjs uses @prisma/client), not just `migrate deploy`.

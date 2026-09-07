@@ -75,7 +75,53 @@ relaticle:
   apiUrl: http://relaticle.relaticle.svc.cluster.local
   secretName: 2060-website-secrets
 
-podSecurityContext: {}
+# ─── Investor data room (invitation-only; /login, /dataroom, /vc-admin,
+# /admin). Adds Postgres, a storage volume, and migrate/seed hook Jobs. All
+# credentials live in the `relaticle.secretName` Secret, which the deploy
+# workflows populate 1:1 from GitHub Actions secrets (DATABASE_URL is derived
+# there from POSTGRES_PASSWORD).
+dataroom:
+  enabled: true
+  # Public origin for Auth.js (OAuth callbacks, links in emails).
+  authUrl: https://2060.io
+  # Which legal/ file the seed activates as the NDA.
+  ndaFilename: nda-v1.md
+  # Optional hosted raster logos for email headers (empty → text wordmarks).
+  emailLogoUrl: ""
+  emailVeranaLogoUrl: ""
+
+  # Migrator image (Dockerfile `migrator` stage): Prisma CLI + schema +
+  # legal/, pushed by CI as migrate-<app tag> alongside every app tag. Runs
+  # `migrate deploy` then the seed as post-install/pre-upgrade Helm hooks.
+  migrate:
+    tag: migrate-latest
+
+  # In-cluster Postgres (StatefulSet + PVC). User/db are fixed to `dataroom`;
+  # the password comes from the POSTGRES_PASSWORD key of the app Secret.
+  postgres:
+    image: postgres:16-alpine
+    storage: 5Gi
+    # Empty → the cluster's default StorageClass.
+    storageClassName: ""
+    resources:
+      requests:
+        cpu: "50m"
+        memory: "128Mi"
+      limits:
+        cpu: "500m"
+        memory: "512Mi"
+
+  # Volume for data-room binaries (signed NDA PDFs, the document repository),
+  # mounted at /data (STORAGE_DIR). ReadWriteOnce — the app deployment
+  # therefore switches to the Recreate strategy while the data room is enabled.
+  storage:
+    size: 10Gi
+    storageClassName: ""
+
+# The runtime image runs as uid 1001 (nextjs); fsGroup makes the data-room
+# storage PVC group-writable for it.
+podSecurityContext:
+  fsGroup: 1001
 securityContext: {}
 
 nodeSelector: {}

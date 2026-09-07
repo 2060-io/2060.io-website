@@ -1,0 +1,80 @@
+{{- if .Values.dataroom.enabled }}
+# DB migrations + seed as Helm hooks, using the dedicated migrator image
+# (Dockerfile `migrator` stage; Prisma CLI + schema + legal/).
+#
+# post-install (not pre-install): on a first install the Postgres StatefulSet
+# does not exist yet while pre-install hooks run, so migration would wait
+# forever. post-install runs once resources are created; the init container
+# then waits for Postgres to accept connections. Upgrades use pre-upgrade, so
+# schema changes land before the new app pods roll.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "website.fullname" . }}-db-migrate
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "website.labels" . | nindent 4 }}
+    app.kubernetes.io/component: db-migrate
+  annotations:
+    helm.sh/hook: post-install,pre-upgrade
+    helm.sh/hook-weight: "-5"
+    # Keep a failed Job around for debugging; replace it on the next run.
+    helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+spec:
+  backoffLimit: 2
+  activeDeadlineSeconds: 420
+  template:
+    metadata:
+      labels:
+        {{- include "website.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: db-migrate
+    spec:
+      restartPolicy: Never
+      initContainers:
+        - name: wait-for-postgres
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            # Same not-configured guard as the main container: without it the
+            # wait would hang (and fail the deploy) while Postgres has no
+            # password to start with.
+            - |
+              if [ -z "$DATABASE_URL" ]; then
+                echo "DATABASE_URL not set - skipping wait."
+                exit 0
+              fi
+              until nc -z {{ include "website.fullname" . }}-postgres 5432; do
+                echo "waiting for postgres..."; sleep 2;
+              done
+          envFrom:
+            - secretRef:
+                name: {{ .Values.relaticle.secretName }}
+                optional: true
+      containers:
+        - name: migrate
+          image: "{{ .Values.image.repository }}:{{ .Values.dataroom.migrate.tag }}"
+          imagePullPolicy: Always
+          command: ["sh", "-c"]
+          args:
+            # Migrations, then the idempotent seed (admin allowlist bootstrap +
+            # NDA activation) — one Job so ordering can't be misconfigured.
+            # Skips cleanly while the Secret has no DATABASE_URL yet, so
+            # enabling the data room can never brick a site deploy.
+            - |
+              if [ -z "$DATABASE_URL" ]; then
+                echo "DATABASE_URL not set - skipping migrations/seed (data room not configured yet)."
+                exit 0
+              fi
+              node node_modules/prisma/build/index.js migrate deploy \
+              && node prisma/seed.mjs
+          env:
+            - name: NDA_FILENAME
+              value: {{ .Values.dataroom.ndaFilename | quote }}
+          envFrom:
+            # DATABASE_URL, ADMIN_BOOTSTRAP_EMAILS, … — the deploy workflows
+            # mirror GitHub Actions secrets 1:1 into this Secret.
+            - secretRef:
+                name: {{ .Values.relaticle.secretName }}
+                optional: true
+{{- end }}

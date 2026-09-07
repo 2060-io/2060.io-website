@@ -7,6 +7,13 @@ metadata:
     {{- include "website.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  {{- if .Values.dataroom.enabled }}
+  # The data-room storage PVC is ReadWriteOnce: a rolling update would leave
+  # the new pod stuck Pending on the volume, so replace the pod instead
+  # (brief downtime per deploy).
+  strategy:
+    type: Recreate
+  {{- end }}
   selector:
     matchLabels:
       {{- include "website.selectorLabels" . | nindent 6 }}
@@ -62,6 +69,36 @@ spec:
                   key: ALERT_WEBHOOK_URL
                   optional: true
             {{- end }}
+            {{- if .Values.dataroom.enabled }}
+            # ── Data room (invitation-only auth, NDA, documents) ──
+            - name: AUTH_URL
+              value: {{ .Values.dataroom.authUrl | quote }}
+            - name: NDA_FILENAME
+              value: {{ .Values.dataroom.ndaFilename | quote }}
+            - name: STORAGE_DIR
+              value: /data
+            {{- with .Values.dataroom.emailLogoUrl }}
+            - name: EMAIL_LOGO_URL
+              value: {{ . | quote }}
+            {{- end }}
+            {{- with .Values.dataroom.emailVeranaLogoUrl }}
+            - name: EMAIL_VERANA_LOGO_URL
+              value: {{ . | quote }}
+            {{- end }}
+            {{- end }}
+          {{- if .Values.dataroom.enabled }}
+          envFrom:
+            # DATABASE_URL, AUTH_SECRET, AUTH_GOOGLE_*/AUTH_GITHUB_*, MAIL_*,
+            # ADMIN_BOOTSTRAP_EMAILS — mirrored 1:1 from GitHub Actions secrets
+            # by the deploy workflows. Optional so the pod still starts before
+            # the secret exists (the data room then just refuses sign-ins).
+            - secretRef:
+                name: {{ .Values.relaticle.secretName }}
+                optional: true
+          volumeMounts:
+            - name: storage
+              mountPath: /data
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           livenessProbe:
@@ -80,6 +117,12 @@ spec:
             periodSeconds: {{ .Values.probes.readiness.periodSeconds }}
             timeoutSeconds: {{ .Values.probes.readiness.timeoutSeconds }}
             failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
+      {{- if .Values.dataroom.enabled }}
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: {{ include "website.fullname" . }}-storage
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

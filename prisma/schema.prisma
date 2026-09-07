@@ -98,13 +98,14 @@ model VcAdminEntry {
 // ─────────────────────────────────────────────────────────────────────────────
 
 /// A VC firm. Several invited emails can belong to one org; the NDA is signed
-/// once per org (NdaSignature arrives with the NDA feature).
+/// once per org.
 model Org {
   id        String   @id @default(cuid())
   name      String   @unique
   createdAt DateTime @default(now())
 
-  invites VcInvite[]
+  invites      VcInvite[]
+  ndaSignature NdaSignature?
 }
 
 /// An invited VC email. Its presence is what lets that email sign in as a VC.
@@ -116,7 +117,113 @@ model VcInvite {
   invitedAt       DateTime  @default(now())
   lastLoginAt     DateTime? // refreshed on every sign-in (events.signIn)
 
-  org Org @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  org            Org             @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  documentGrants DocumentGrant[]
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Document repository — per-VC visibility, downloads audited
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// A data-room document. The row (its id) is the durable identity; replacing
+/// the content bumps `version` and writes a new file under the same id, so
+/// grants and download history survive updates. Old files are retained on the
+/// volume for audit; only the latest is served.
+model Document {
+  id          String   @id @default(cuid())
+  title       String
+  filename    String // original upload name (of the latest version)
+  contentType String
+  size        Int
+  storageKey  String // documents/<id>/v<version>-<filename>
+  version     Int      @default(1)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  updatedBy   String? // email of the VC admin who last uploaded
+
+  grants    DocumentGrant[]
+  downloads DownloadEvent[]
+}
+
+/// Visibility grant: this invited email sees this document in the data room.
+/// Nothing is visible without a grant.
+model DocumentGrant {
+  id         String   @id @default(cuid())
+  inviteId   String
+  documentId String
+  grantedBy  String? // email of the VC admin who granted
+  grantedAt  DateTime @default(now())
+
+  invite   VcInvite @relation(fields: [inviteId], references: [id], onDelete: Cascade)
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@unique([inviteId, documentId])
+}
+
+/// One row per download. `documentTitle` is copied at download time so the
+/// audit trail survives document deletion (the FK then nulls).
+model DownloadEvent {
+  id            String   @id @default(cuid())
+  email         String // the downloader's (invite) email
+  documentId    String?
+  documentTitle String
+  at            DateTime @default(now())
+
+  document Document? @relation(fields: [documentId], references: [id], onDelete: SetNull)
+
+  @@index([email, at])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// NDA — versioned template catalog + one signature per org
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// Catalog of NDA template versions. The legal/ directory is the source of
+/// truth (one Markdown file per version, added, never edited); each row pins a
+/// filename to the sha384 it had when first activated, so a version can never
+/// silently change. Exactly one row is active at a time (see nda-versions.ts).
+model NdaDocument {
+  id            String   @id @default(cuid())
+  filename      String   @unique // e.g. "nda-v1.md" in legal/
+  version       String // display label, e.g. "v1"
+  hash          String // sha384 (SRI form) pinned at first activation
+  active        Boolean  @default(false)
+  effectiveFrom DateTime @default(now())
+
+  signatures NdaSignature[]
+}
+
+/// A signed NDA. One per org (@unique): the first invited VC of an org signs
+/// for everyone invited under that org.
+model NdaSignature {
+  id            String   @id @default(cuid())
+  orgId         String   @unique
+  ndaDocumentId String
+  signerUserId  String?
+  signerEmail   String
+  signerName    String
+  signedAt      DateTime @default(now())
+  pdfPath       String? // storage key of the rendered signed PDF
+  pdfHash       String? // sha384 (SRI form) of that exact PDF
+
+  org         Org         @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  ndaDocument NdaDocument @relation(fields: [ndaDocumentId], references: [id])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Invitation email template — one row, editable by VC admins
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// The customizable invitation email. Markdown body with {{org_name}},
+/// {{email}}, {{login_url}} placeholders; rendered inside the dual-logo
+/// (2060 + Verana Foundation) email shell. A code default applies until the
+/// first save creates the row (id "default").
+model InviteEmailTemplate {
+  id           String   @id @default("default")
+  subject      String
+  bodyMarkdown String   @db.Text
+  updatedBy    String?
+  updatedAt    DateTime @updatedAt
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
