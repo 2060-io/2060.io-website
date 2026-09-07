@@ -1,0 +1,30 @@
+# Local development dependencies (NOT used in production — the in-cluster
+# Postgres ships with the Helm chart).
+#
+# From the repo root:
+#   npm run db:up      # start Postgres
+#   npm run db:down    # stop it
+#   npm run db:migrate # apply migrations
+# or directly: docker compose -f docker/compose.yaml up -d
+name: dataroom-2060
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: dataroom-2060-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dataroom
+      POSTGRES_PASSWORD: dataroom # local dev only — never used in production
+      POSTGRES_DB: dataroom
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dataroom"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:

@@ -1,0 +1,138 @@
+// 2060.io — investor data room
+// Accounts are invitation-only (see auth.ts): an email can sign in only when it
+// is on one of the role tables below (admin allowlist, VC-admin allowlist, or a
+// VC invitation). Roles are resolved per request from the verified email.
+//
+// Conventions (shared with the veranafoundation.org codebase this is ported
+// from): cuid() ids, UTC DateTimes, explicit relations.
+
+generator client {
+  provider      = "prisma-client-js"
+  // "native" for local dev; the musl/openssl-3 target is for the node:22-alpine runtime.
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Auth.js (NextAuth v5) standard models — field names are required by the adapter
+// ─────────────────────────────────────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  name          String? // provider-supplied; refreshed on OAuth sign-in
+  email         String?   @unique // the verified email is the identity key
+  emailVerified DateTime?
+  image         String?
+
+  accounts     Account[]
+  sessions     Session[]
+  adminActions AdminAction[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String // "google" | "github" | "email" (OTP)
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String // email OTP
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Roles — an email's presence on a table IS the role grant
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// ADMIN: full access — manages admins, VC admins, and the NDA. Bootstrapped
+/// from ADMIN_BOOTSTRAP_EMAILS (prisma/seed.mjs), then managed in /admin.
+model AdminAllowlistEntry {
+  id            String   @id @default(cuid())
+  email         String   @unique // stored lowercased
+  addedByUserId String?
+  addedAt       DateTime @default(now())
+}
+
+/// VC_ADMIN: runs the data room — invitations, documents, per-VC document
+/// selection, activity, the invitation-email template. Added by ADMINs.
+model VcAdminEntry {
+  id            String   @id @default(cuid())
+  email         String   @unique // stored lowercased
+  addedByUserId String?
+  addedAt       DateTime @default(now())
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// VC organizations & invitations
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// A VC firm. Several invited emails can belong to one org; the NDA is signed
+/// once per org (NdaSignature arrives with the NDA feature).
+model Org {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+
+  invites VcInvite[]
+}
+
+/// An invited VC email. Its presence is what lets that email sign in as a VC.
+model VcInvite {
+  id              String    @id @default(cuid())
+  email           String    @unique // stored lowercased
+  orgId           String
+  invitedByUserId String?
+  invitedAt       DateTime  @default(now())
+  lastLoginAt     DateTime? // refreshed on every sign-in (events.signIn)
+
+  org Org @relation(fields: [orgId], references: [id], onDelete: Cascade)
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Audit trail of privileged actions
+// ─────────────────────────────────────────────────────────────────────────────
+
+model AdminAction {
+  id          String   @id @default(cuid())
+  actorUserId String
+  actorEmail  String
+  action      String // e.g. "admin.add", "vcadmin.remove"
+  targetType  String?
+  targetId    String?
+  before      Json?
+  after       Json?
+  at          DateTime @default(now())
+
+  actor User @relation(fields: [actorUserId], references: [id])
+}
