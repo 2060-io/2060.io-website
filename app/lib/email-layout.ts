@@ -20,24 +20,26 @@ const FONT =
 export type EmailButton = { label: string; href: string };
 
 /**
- * Email header logos. Uses hosted rasters when EMAIL_LOGO_URL /
- * EMAIL_VERANA_LOGO_URL are set (SVG/remote images render unreliably in many
- * clients — prefer small PNGs), otherwise styled text wordmarks. The Verana
- * Foundation mark sits alongside 2060's, as the data room is presented by both.
+ * Email header logos: the real 2060 and Verana Foundation marks, served as
+ * raster PNGs from this site (public/assets/email/, shipped at 2x for retina —
+ * SVG renders unreliably in many email clients). EMAIL_LOGO_URL /
+ * EMAIL_VERANA_LOGO_URL still override the defaults. The Verana Foundation
+ * mark sits alongside 2060's, as the data room is presented by both.
  */
 function logos(): string {
-  const url2060 = process.env.EMAIL_LOGO_URL;
-  const urlVerana = process.env.EMAIL_VERANA_LOGO_URL;
-  const mark2060 = url2060
-    ? `<img src="${url2060}" alt="2060" height="28" style="display:block;border:0;outline:none;text-decoration:none;height:28px;">`
-    : `<span style="font-family:${FONT};font-size:20px;font-weight:700;color:${INK};letter-spacing:-0.01em;">2060</span>`;
-  const markVerana = urlVerana
-    ? `<img src="${urlVerana}" alt="Verana Foundation" height="24" style="display:block;border:0;outline:none;text-decoration:none;height:24px;">`
-    : `<span style="font-family:${FONT};font-size:15px;font-weight:600;color:${INK};">Verana<span style="color:#763ef0;">Foundation</span></span>`;
+  const url2060 =
+    process.env.EMAIL_LOGO_URL || `${SITE_URL}/assets/email/2060-logo.png`;
+  const urlVerana =
+    process.env.EMAIL_VERANA_LOGO_URL ||
+    `${SITE_URL}/assets/email/verana-foundation-logo.png`;
   return `<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
-    <td style="vertical-align:middle;">${mark2060}</td>
-    <td style="vertical-align:middle;padding:0 12px;color:${RULE};font-family:${FONT};font-size:18px;">|</td>
-    <td style="vertical-align:middle;">${markVerana}</td>
+    <td style="vertical-align:middle;">
+      <img src="${url2060}" alt="2060" height="24" style="display:block;border:0;outline:none;text-decoration:none;height:24px;">
+    </td>
+    <td style="vertical-align:middle;padding:0 14px;color:${RULE};font-family:${FONT};font-size:18px;">|</td>
+    <td style="vertical-align:middle;">
+      <img src="${urlVerana}" alt="Verana Foundation" height="24" style="display:block;border:0;outline:none;text-decoration:none;height:24px;">
+    </td>
   </tr></table>`;
 }
 
