@@ -49,18 +49,6 @@ spec:
             - name: {{ .name }}
               value: {{ .value | quote }}
             {{- end }}
-            {{- if .Values.relaticle.enabled }}
-            # Relaticle CRM (in-cluster). The contact form posts inquiries here.
-            - name: RELATICLE_API_URL
-              value: {{ .Values.relaticle.apiUrl | quote }}
-            - name: RELATICLE_API_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.relaticle.secretName }}
-                  key: RELATICLE_API_TOKEN
-                  # Optional so the pod still starts if the secret is absent;
-                  # the contact route degrades to best-effort (logs only).
-                  optional: true
             # Ops alert webhook (Discord-shaped); alertOps() no-ops when unset.
             - name: ALERT_WEBHOOK_URL
               valueFrom:
@@ -68,7 +56,6 @@ spec:
                   name: {{ .Values.relaticle.secretName }}
                   key: ALERT_WEBHOOK_URL
                   optional: true
-            {{- end }}
             {{- if .Values.dataroom.enabled }}
             # ── Data room (invitation-only auth, NDA, documents) ──
             - name: AUTH_URL

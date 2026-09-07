@@ -30,7 +30,7 @@ export default function Page() {
             <ul className="mt-6 space-y-4 text-muted text-sm">
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-envelope-open-text text-muted mt-1" aria-hidden="true"></i><span>No email addresses exposed. Nothing in HTML, meta, or JSON-LD.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-shield-halved text-muted mt-1" aria-hidden="true"></i><span>Self-hosted anti-abuse. No Turnstile, hCaptcha, or reCAPTCHA.</span></li>
-              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-database text-muted mt-1" aria-hidden="true"></i><span>Inquiries are stored in our self-hosted Relaticle CRM (crm.2060.io) so we can follow up. No third-party CRM.</span></li>
+              <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-database text-muted mt-1" aria-hidden="true"></i><span>Inquiries go by email, straight to the 2060 team&apos;s own mailboxes. No CRM, no database, no third parties.</span></li>
               <li className="flex items-start gap-3"><i className="fa-solid fa-fw fa-cookie-bite text-muted mt-1" aria-hidden="true"></i><span>No cookies from this form. The site uses Google Analytics 4 (pageviews only, IP anonymized) &mdash; see the <a href="/privacy" className="prose-link text-fg">Privacy Policy</a>.</span></li>
             </ul>
             <p className="text-xs text-muted mt-8">Full details on the <a href="/privacy" className="prose-link text-fg">Privacy Policy</a>.</p>
