@@ -531,3 +531,8 @@ body b {
   text-align: left;
 }
 .doc-prose th { font-weight: 600; }
+
+/* Chart marks (data-room dashboard). Accent in light; the lighter accent in
+   dark, where the base accent lacks contrast against the near-black surface. */
+.chart-fill { fill: var(--accent); }
+:root:not(.light) .chart-fill { fill: var(--accent-hover); }
