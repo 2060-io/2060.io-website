@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
 import { sendInviteEmail } from "@/app/lib/invite-email";
+import { deleteMeetingEvent } from "@/app/lib/google-meet";
 
 export type InviteState = { error?: string; ok?: boolean; message?: string };
 
@@ -133,6 +134,19 @@ export async function revokeInvite(formData: FormData) {
     include: { org: true },
   });
   if (!invite) return;
+
+  // Cancel any upcoming meeting first (Google notifies attendees); the DB
+  // rows would cascade away silently otherwise, leaving the event standing.
+  const meetings = await db.meeting.findMany({
+    where: { inviteId: id, startAt: { gte: new Date() } },
+  });
+  for (const m of meetings) {
+    if (m.googleEventId) {
+      await deleteMeetingEvent(m.googleEventId).catch((e) =>
+        console.error("[invite] cancelling meeting on revoke failed", e),
+      );
+    }
+  }
 
   await db.vcInvite.delete({ where: { id } });
   await db.adminAction.create({

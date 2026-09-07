@@ -106,6 +106,7 @@ model Org {
 
   invites      VcInvite[]
   ndaSignature NdaSignature?
+  meetings     Meeting[]
 }
 
 /// An invited VC email. Its presence is what lets that email sign in as a VC.
@@ -119,6 +120,7 @@ model VcInvite {
 
   org            Org             @relation(fields: [orgId], references: [id], onDelete: Cascade)
   documentGrants DocumentGrant[]
+  meetings       Meeting[]
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -245,4 +247,39 @@ model AdminAction {
   at          DateTime @default(now())
 
   actor User @relation(fields: [actorUserId], references: [id])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// VC meetings — 30-minute Google Meet calls booked from the data room
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// Booking configuration (single row, id "default"), managed in
+/// /vc-admin/meetings. Days and time windows are interpreted in GMT.
+model MeetingSettings {
+  id             String   @id @default("default")
+  enabled        Boolean  @default(false)
+  openDays       Json // e.g. ["TUE","WED","THU"]
+  windows        Json // e.g. [{"start":"12:00","end":"15:00"}] (GMT)
+  attendeeEmails Json // 2060/Verana-side attendees, e.g. ["fabrice@2060.io"]
+  horizonDays    Int      @default(14) // how far ahead VCs can book
+  minNoticeHours Int      @default(24) // earliest bookable slot from now
+  updatedBy      String?
+  updatedAt      DateTime @updatedAt
+}
+
+/// A booked call. The slot is reserved by the DB row (unique startAt) before
+/// the Google event is created; rows are deleted on cancellation.
+model Meeting {
+  id            String   @id @default(cuid())
+  inviteId      String
+  email         String // booker (invite email)
+  orgId         String
+  startAt       DateTime @unique // GMT; 30-minute slots
+  endAt         DateTime
+  googleEventId String?
+  meetUrl       String?
+  createdAt     DateTime @default(now())
+
+  invite VcInvite @relation(fields: [inviteId], references: [id], onDelete: Cascade)
+  org    Org      @relation(fields: [orgId], references: [id], onDelete: Cascade)
 }
