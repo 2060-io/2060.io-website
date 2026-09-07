@@ -37,7 +37,8 @@ export default async function VcAdminDocumentsPage() {
           The data-room repository. Each document has a stable identity: replace
           its content any time (versioned) without losing who it is shared with
           or its download history. New documents are visible to no one until
-          granted.
+          granted per email — unless marked always visible, which shares them
+          with every invited email.
         </p>
         <DocumentManager
           docs={docs.map((d) => ({
@@ -48,6 +49,7 @@ export default async function VcAdminDocumentsPage() {
             version: d.version,
             updatedAt: d.updatedAt.toISOString().slice(0, 16).replace("T", " "),
             updatedBy: d.updatedBy ?? "—",
+            alwaysVisible: d.alwaysVisible,
             grants: d._count.grants,
             downloads: d._count.downloads,
           }))}

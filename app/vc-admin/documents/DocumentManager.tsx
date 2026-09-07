@@ -2,7 +2,13 @@
 
 import { useRef, useState } from "react";
 import { useActionState } from "react";
-import { addDocument, replaceDocument, removeDocument, type DocState } from "./actions";
+import {
+  addDocument,
+  replaceDocument,
+  removeDocument,
+  toggleAlwaysVisible,
+  type DocState,
+} from "./actions";
 
 export type DocRow = {
   id: string;
@@ -12,6 +18,7 @@ export type DocRow = {
   version: number;
   updatedAt: string; // preformatted
   updatedBy: string;
+  alwaysVisible: boolean;
   grants: number;
   downloads: number;
 };
@@ -37,6 +44,11 @@ function AddForm() {
         aria-label="Document title"
       />
       <input name="file" type="file" required className="field text-sm" aria-label="File" />
+      <label className="flex items-center gap-2 text-sm text-muted">
+        <input type="checkbox" name="alwaysVisible" />
+        Always visible — every invited email sees it, no per-email selection
+        needed
+      </label>
       <div className="flex items-center gap-4">
         <button type="submit" className="btn btn-primary" disabled={pending}>
           {pending ? "Uploading…" : "Add document"}
@@ -103,7 +115,7 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
                 <th>Size</th>
                 <th>v</th>
                 <th>Updated</th>
-                <th>Visible to</th>
+                <th>Visibility</th>
                 <th>Downloads</th>
                 <th>Actions</th>
               </tr>
@@ -122,7 +134,39 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
                   <td className="text-muted whitespace-nowrap" title={`by ${d.updatedBy}`}>
                     {d.updatedAt}
                   </td>
-                  <td className="text-muted">{d.grants} email{d.grants === 1 ? "" : "s"}</td>
+                  <td>
+                    <form
+                      action={toggleAlwaysVisible}
+                      onSubmit={(e) => {
+                        if (
+                          !d.alwaysVisible &&
+                          !confirm(
+                            `Make "${d.title}" visible to ALL invited emails?`,
+                          )
+                        )
+                          e.preventDefault();
+                      }}
+                    >
+                      <input type="hidden" name="id" value={d.id} />
+                      <button
+                        type="submit"
+                        className="prose-link text-sm whitespace-nowrap"
+                        title={
+                          d.alwaysVisible
+                            ? "Click to switch to manual per-email sharing"
+                            : "Click to make visible to every invited email"
+                        }
+                      >
+                        {d.alwaysVisible ? (
+                          <span className="text-accent-hover">everyone</span>
+                        ) : (
+                          <span className="text-muted">
+                            {d.grants} email{d.grants === 1 ? "" : "s"}
+                          </span>
+                        )}
+                      </button>
+                    </form>
+                  </td>
                   <td className="text-muted">{d.downloads}</td>
                   <td>
                     <div className="flex items-center gap-3">
@@ -159,8 +203,11 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
         </div>
         <p className="text-xs text-muted mt-3">
           A document keeps its identity across replacements: grants and download
-          history stay attached; the file is versioned. Who sees which document
-          is chosen per invited email on the Invitations page.
+          history stay attached; the file is versioned. Click the Visibility
+          cell to toggle between <strong className="text-fg">everyone</strong>{" "}
+          (all invited emails) and manual sharing, chosen per invited email on
+          the Invitations page. Per-email selections are kept while a document
+          is set to everyone, and apply again when toggled back.
         </p>
       </section>
     </div>

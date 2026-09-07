@@ -55,6 +55,7 @@ export default async function InviteGrantsPage({
             title: d.title,
             size: formatSize(d.size),
             granted: granted.has(d.id),
+            alwaysVisible: d.alwaysVisible,
           }))}
         />
       </div>

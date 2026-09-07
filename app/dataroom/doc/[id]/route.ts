@@ -8,8 +8,9 @@ export const dynamic = "force-dynamic";
 
 /**
  * VC document download. Serves the latest version only when the signed-in VC
- * (a) is invited, (b) has a grant for this document, and (c) their org signed
- * the NDA. Every successful download is recorded in the audit trail.
+ * (a) is invited, (b) has a grant for this document or the document is marked
+ * always-visible, and (c) their org signed the NDA. Every successful download
+ * is recorded in the audit trail.
  */
 export async function GET(
   _req: Request,
@@ -21,16 +22,17 @@ export async function GET(
   if (!invite) notFound();
 
   const { id } = await params;
-  const [grant, nda] = await Promise.all([
-    db.documentGrant.findUnique({
-      where: { inviteId_documentId: { inviteId: invite.id, documentId: id } },
-      include: { document: true },
+  // Access = (per-email grant OR always-visible) AND signed NDA.
+  const [doc, nda] = await Promise.all([
+    db.document.findFirst({
+      where: {
+        id,
+        OR: [{ alwaysVisible: true }, { grants: { some: { inviteId: invite.id } } }],
+      },
     }),
     db.ndaSignature.findUnique({ where: { orgId: invite.orgId } }),
   ]);
-  if (!grant || !nda) notFound();
-
-  const doc = grant.document;
+  if (!doc || !nda) notFound();
   let bytes: Buffer;
   try {
     bytes = await getFile(doc.storageKey);

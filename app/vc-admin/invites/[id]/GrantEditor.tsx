@@ -8,6 +8,7 @@ export type GrantOption = {
   title: string;
   size: string;
   granted: boolean;
+  alwaysVisible: boolean;
 };
 
 /** Per-email document selection: check what this VC sees, then save. */
@@ -41,12 +42,19 @@ export default function GrantEditor({
               type="checkbox"
               name="documentIds"
               value={o.id}
-              defaultChecked={o.granted}
+              defaultChecked={o.alwaysVisible || o.granted}
+              disabled={o.alwaysVisible}
               className="mt-1"
             />
-            <span>
+            <span className={o.alwaysVisible ? "opacity-70" : undefined}>
               <span className="text-fg">{o.title}</span>{" "}
               <span className="text-muted">({o.size})</span>
+              {o.alwaysVisible && (
+                <span className="text-muted">
+                  {" "}
+                  — visible to everyone (set on the Documents page)
+                </span>
+              )}
             </span>
           </label>
         ))}

@@ -96,10 +96,12 @@ export default async function DataroomPage() {
   }
 
   // ── Signed: the document area ─────────────────────────────────────────────
-  const grants = await db.documentGrant.findMany({
-    where: { inviteId: invite.id },
-    include: { document: true },
-    orderBy: { document: { createdAt: "desc" } },
+  // Visible = always-visible documents ∪ documents granted to this email.
+  const docs = await db.document.findMany({
+    where: {
+      OR: [{ alwaysVisible: true }, { grants: { some: { inviteId: invite.id } } }],
+    },
+    orderBy: { createdAt: "desc" },
   });
 
   return (
@@ -124,7 +126,7 @@ export default async function DataroomPage() {
           .
         </p>
 
-        {grants.length === 0 ? (
+        {docs.length === 0 ? (
           <p className="text-muted mt-10 reading max-w-2xl">
             No documents have been shared with you yet — you will receive an
             email when documents are available here.
@@ -141,7 +143,7 @@ export default async function DataroomPage() {
                 </tr>
               </thead>
               <tbody>
-                {grants.map(({ document: d }) => (
+                {docs.map((d) => (
                   <tr key={d.id}>
                     <td className="text-fg">{d.title}</td>
                     <td className="text-muted whitespace-nowrap">
