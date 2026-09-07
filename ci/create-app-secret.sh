@@ -7,7 +7,7 @@
 #
 # Expected in the environment (all optional; empty values just disable the
 # feature they serve):
-#   RELATICLE_API_TOKEN ALERT_WEBHOOK_URL
+#   ALERT_WEBHOOK_URL
 #   POSTGRES_PASSWORD AUTH_SECRET
 #   AUTH_GOOGLE_ID AUTH_GOOGLE_SECRET AUTH_GITHUB_ID AUTH_GITHUB_SECRET
 #   MAIL_HOST MAIL_PORT MAIL_USERNAME MAIL_PASSWORD MAIL_ENCRYPTION
@@ -25,7 +25,6 @@ fi
 
 kubectl create namespace web --dry-run=client -o yaml | kubectl apply -f -
 kubectl -n web create secret generic 2060-website-secrets \
-  --from-literal=RELATICLE_API_TOKEN="${RELATICLE_API_TOKEN:-}" \
   --from-literal=ALERT_WEBHOOK_URL="${ALERT_WEBHOOK_URL:-}" \
   --from-literal=POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-}" \
   --from-literal=DATABASE_URL="${DATABASE_URL}" \

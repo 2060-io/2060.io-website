@@ -180,7 +180,6 @@ jobs:
         # workflow and deploy.yml cannot drift). kubectl-managed (not helm),
         # annotated keep so helm never prunes it.
         env:
-          RELATICLE_API_TOKEN: ${{ secrets.RELATICLE_API_TOKEN }}
           ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           AUTH_SECRET: ${{ secrets.AUTH_SECRET }}

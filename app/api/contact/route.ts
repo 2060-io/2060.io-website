@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  submitInquiry,
-  crmConfigured,
-  alertOps,
-  type Inquiry,
-} from "@/app/lib/relaticle";
+import { db } from "@/app/lib/db";
+import { sendEmail, escapeHtml } from "@/app/lib/email";
+import { smtpServer } from "@/app/lib/smtp";
+import { emailLayout } from "@/app/lib/email-layout";
+import { alertOps } from "@/app/lib/ops-alert";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -13,8 +12,7 @@ const MIN_MESSAGE = 50;
 const MAX_MESSAGE = 4000;
 
 // Naive in-memory rate limit. The deployment runs a single replica, so a
-// per-process map is sufficient as a best-effort guard (in addition to the
-// CRM's own throttle:api).
+// per-process map is sufficient as a best-effort guard.
 const RATE_WINDOW_MS = 60_000;
 const RATE_MAX = 5;
 const hits = new Map<string, number[]>();
@@ -28,6 +26,31 @@ function rateLimited(ip: string): boolean {
 }
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+/** Every admin + VC-admin email, deduplicated (both lists store lowercase). */
+async function recipientEmails(): Promise<string[]> {
+  const [admins, vcAdmins] = await Promise.all([
+    db.adminAllowlistEntry.findMany({ select: { email: true } }),
+    db.vcAdminEntry.findMany({ select: { email: true } }),
+  ]);
+  return [...new Set([...admins, ...vcAdmins].map((e) => e.email))];
+}
+
+function inquiryHtml(rows: [string, string][], message: string): string {
+  const table = rows
+    .filter(([, v]) => v)
+    .map(
+      ([k, v]) =>
+        `<tr><td style="padding:2px 12px 2px 0;color:#525252;white-space:nowrap;">${k}</td>
+         <td style="padding:2px 0;">${escapeHtml(v)}</td></tr>`,
+    )
+    .join("");
+  return `
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="font-size:14px;margin:0 0 16px;">${table}</table>
+    <p style="margin:0 0 6px;color:#525252;">Message</p>
+    <div style="border-left:2px solid #553C9A;padding:2px 0 2px 12px;white-space:pre-wrap;">${escapeHtml(message)}</div>
+    <p style="margin:16px 0 0;color:#525252;font-size:12px;">Reply to this email to answer directly.</p>`;
+}
 
 export async function POST(req: NextRequest) {
   let data: Record<string, unknown>;
@@ -75,47 +98,58 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "rate_limited" }, { status: 429 });
   }
 
-  const inquiry: Inquiry = {
-    topic,
-    name,
-    email,
-    organization: String(data.organization ?? "").trim() || undefined,
-    role: String(data.role ?? "").trim() || undefined,
-    linkedin: String(data.linkedin ?? "").trim() || undefined,
-    companyWebsite:
-      String(data.company_website ?? "").trim() || undefined,
-    message,
-    source: String(data.source ?? "").trim() || undefined,
-    consentAt: new Date().toISOString(),
-  };
+  const organization = String(data.organization ?? "").trim();
+  const role = String(data.role ?? "").trim();
+  const linkedin = String(data.linkedin ?? "").trim();
+  const companyWebsite = String(data.company_website ?? "").trim();
+  const source = String(data.source ?? "").trim();
 
-  // If the CRM isn't configured (e.g. local dev without a token), don't fail
-  // the user — log and report success.
-  if (!crmConfigured()) {
-    console.warn(
-      "[contact] Relaticle not configured; inquiry not sent to CRM:",
-      { topic, name, email, organization: inquiry.organization }
-    );
+  // If SMTP isn't configured (e.g. local dev), don't fail the user — log and
+  // report success, mirroring the old CRM-unconfigured behavior.
+  if (!smtpServer()) {
+    console.warn("[contact] SMTP not configured; inquiry not delivered:", {
+      topic, name, email, organization,
+    });
     return NextResponse.json({ ok: true });
   }
 
   try {
-    const ids = await submitInquiry(inquiry);
-    console.info("[contact] CRM records created", ids);
-  } catch (err) {
-    console.error("[contact] CRM submission failed", err, {
-      topic,
-      name,
-      email,
-      organization: inquiry.organization,
+    const to = await recipientEmails();
+    if (to.length === 0) {
+      throw new Error("no admin or VC-admin recipients configured");
+    }
+    await sendEmail({
+      to,
+      replyTo: `${name} <${email}>`,
+      subject: `[2060.io contact] ${topic} — ${name}`,
+      html: emailLayout({
+        heading: "New contact inquiry",
+        bodyHtml: inquiryHtml(
+          [
+            ["Topic", topic],
+            ["Name", name],
+            ["Email", email],
+            ["Organization", organization],
+            ["Role", role],
+            ["LinkedIn", linkedin],
+            ["Website", companyWebsite],
+            ["Source", source],
+            ["Consent", new Date().toISOString()],
+          ],
+          message,
+        ),
+      }),
     });
+    console.info(`[contact] inquiry emailed to ${to.length} recipient(s)`);
+  } catch (err) {
+    console.error("[contact] delivery failed", err, { topic, name, email, organization });
     await alertOps(
-      `Contact form (2060.io): CRM write failed for ${name} <${email}> (${topic}). ${String(
+      `Contact form (2060.io): email delivery failed for ${name} <${email}> (${topic}). ${String(
         err
       ).slice(0, 300)}`
     );
     // Surface the failure so the user sees an error and can resubmit.
-    return NextResponse.json({ ok: false, error: "crm" }, { status: 502 });
+    return NextResponse.json({ ok: false, error: "delivery" }, { status: 502 });
   }
 
   return NextResponse.json({ ok: true });

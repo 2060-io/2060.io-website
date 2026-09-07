@@ -102,7 +102,7 @@ export default function Page() {
           <article className="card">
             <h3 className="display text-lg flex items-center gap-2"><i className="fa-solid fa-fw fa-envelope text-fg" aria-hidden="true"></i>Contact-form submissions</h3>
             <div className="accent-line mt-2 mb-4"></div>
-            <p className="text-muted text-sm">Stored in our <strong className="text-fg">self-hosted Relaticle CRM</strong> (<strong className="text-fg">crm.2060.io</strong>), operated by 2060 OÜ on our own infrastructure in the OVHcloud cluster, so we can respond to and manage your inquiry. The mechanism is <strong className="text-fg">not email-based</strong>; no email-sending provider (Resend, Postmark, Amazon SES, or equivalent) is used, and no third-party CRM or marketing platform receives this data.</p>
+            <p className="text-muted text-sm">Delivered <strong className="text-fg">by email to the 2060 team</strong> through our own <strong className="text-fg">Google Workspace</strong> mail account, so we can respond to your inquiry. Submissions are not stored in a CRM or database by the website; the resulting email lives in the recipients&apos; 2060 mailboxes (Google Workspace, subject to Google&apos;s data-processing terms). No third-party email-sending provider (Resend, Postmark, Amazon SES, or equivalent) and no third-party CRM or marketing platform receives this data.</p>
           </article>
           <article className="card">
             <h3 className="display text-lg flex items-center gap-2"><i className="fa-solid fa-fw fa-shield-halved text-fg" aria-hidden="true"></i>Anti-bot protection</h3>

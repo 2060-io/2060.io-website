@@ -9,9 +9,10 @@ type Attachment = { filename: string; content: Buffer };
  * without it.
  */
 export async function sendEmail(opts: {
-  to: string;
+  to: string | string[];
   subject: string;
   html: string;
+  replyTo?: string;
   attachments?: Attachment[];
 }): Promise<void> {
   const server = smtpServer();
@@ -25,6 +26,7 @@ export async function sendEmail(opts: {
     to: opts.to,
     subject: opts.subject,
     html: opts.html,
+    replyTo: opts.replyTo,
     attachments: opts.attachments,
   });
 }
