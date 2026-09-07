@@ -59,34 +59,49 @@ jobs:
           chmod 600 "$HOME/.kube/config"
           kubectl cluster-info
 
-      - name: Wait for Docker image to be available on Docker Hub
+      - name: Wait for Docker images to be available on Docker Hub
         run: |
-          IMAGE="io2060/website:${{ steps.tag.outputs.version }}"
-          for i in $(seq 1 10); do
-            if docker manifest inspect "$IMAGE" >/dev/null 2>&1; then
-              echo "Image $IMAGE is available."
-              exit 0
+          for IMAGE in "io2060/website:${{ steps.tag.outputs.version }}" \
+                       "io2060/website:migrate-${{ steps.tag.outputs.version }}"; do
+            ok=""
+            for i in $(seq 1 10); do
+              if docker manifest inspect "$IMAGE" >/dev/null 2>&1; then
+                echo "Image $IMAGE is available."
+                ok=1
+                break
+              fi
+              echo "[$i/10] Image $IMAGE not yet available on Docker Hub, waiting 30s..."
+              sleep 30
+            done
+            if [ -z "$ok" ]; then
+              echo "::error::Image $IMAGE was not available after ~5 minutes."
+              exit 1
             fi
-            echo "[$i/10] Image $IMAGE not yet available on Docker Hub, waiting 30s..."
-            sleep 30
           done
-          echo "::error::Image $IMAGE was not available after ~5 minutes."
-          exit 1
 
       - name: Create/refresh app secret
-        # Token consumed by the /contact route (Relaticle CRM). Created via
-        # kubectl (not helm) and annotated keep so helm never prunes it.
+        # Contact-form token + all data-room credentials, mirrored 1:1 from
+        # GitHub Actions secrets by the shared script (kept in ci/ so this
+        # workflow and cd.yml cannot drift). kubectl-managed (not helm),
+        # annotated keep so helm never prunes it.
         env:
           RELATICLE_API_TOKEN: ${{ secrets.RELATICLE_API_TOKEN }}
           ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
-        run: |
-          kubectl create namespace web --dry-run=client -o yaml | kubectl apply -f -
-          kubectl -n web create secret generic 2060-website-secrets \
-            --from-literal=RELATICLE_API_TOKEN="${RELATICLE_API_TOKEN}" \
-            --from-literal=ALERT_WEBHOOK_URL="${ALERT_WEBHOOK_URL}" \
-            --dry-run=client -o yaml | kubectl apply -f -
-          kubectl -n web annotate secret 2060-website-secrets \
-            helm.sh/resource-policy=keep --overwrite
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+          AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+          AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
+          AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
+          AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
+          MAIL_HOST: ${{ secrets.MAIL_HOST }}
+          MAIL_PORT: ${{ secrets.MAIL_PORT }}
+          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+          MAIL_ENCRYPTION: ${{ secrets.MAIL_ENCRYPTION }}
+          MAIL_FROM_ADDRESS: ${{ secrets.MAIL_FROM_ADDRESS }}
+          MAIL_FROM_NAME: ${{ secrets.MAIL_FROM_NAME }}
+          ADMIN_BOOTSTRAP_EMAILS: ${{ secrets.ADMIN_BOOTSTRAP_EMAILS }}
+        run: sh ci/create-app-secret.sh
 
       - name: Helm upgrade
         run: |
@@ -94,6 +109,7 @@ jobs:
             --namespace web \
             --create-namespace \
             --set image.tag=${{ steps.tag.outputs.version }} \
+            --set dataroom.migrate.tag=migrate-${{ steps.tag.outputs.version }} \
             --wait --timeout 5m
 
       - name: Show deployed resources
