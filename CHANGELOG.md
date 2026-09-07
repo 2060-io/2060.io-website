@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.12.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.11.0...2060-io-website-v2.12.0) (2026-09-07)
+
+
+### Features
+
+* **dataroom:** Sign in link in the header when signed out ([cee7f76](https://github.com/2060-io/2060.io-website/commit/cee7f76ab5b0b765debcbe15c18d170ff11ec612))
+* **dataroom:** Sign in link in the header when signed out ([09886b8](https://github.com/2060-io/2060.io-website/commit/09886b8f72d90dab3d2b260c568bd0644982941f))
+
 ## [2.11.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.10.0...2060-io-website-v2.11.0) (2026-09-07)
 
 
