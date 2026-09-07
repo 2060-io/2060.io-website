@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.7.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.6.1...2060-io-website-v2.7.0) (2026-09-07)
+
+
+### Features
+
+* **dataroom:** signed-in account menu in the header ([b3c6fac](https://github.com/2060-io/2060.io-website/commit/b3c6fac1bc1eb73c8c81dfc92bea048abfc8add7))
+* **dataroom:** signed-in account menu in the header ([472048b](https://github.com/2060-io/2060.io-website/commit/472048bad2b33938a79ea93a3512a1d0d3cb142c))
+
 ## [2.6.1](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.6.0...2060-io-website-v2.6.1) (2026-09-07)
 
 
