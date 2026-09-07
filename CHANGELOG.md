@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.8.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.7.0...2060-io-website-v2.8.0) (2026-09-07)
+
+
+### Features
+
+* **dataroom:** always-visible flag on documents ([ca94b62](https://github.com/2060-io/2060.io-website/commit/ca94b62d2d498abb19435cb98614758d5f14d01b))
+* **dataroom:** always-visible flag on documents ([6b50532](https://github.com/2060-io/2060.io-website/commit/6b50532106f1181cd9227199362d7ac7cdc9efbf))
+* **dataroom:** real 2060 + Verana Foundation logos in emails ([cb52dab](https://github.com/2060-io/2060.io-website/commit/cb52dab590487a70f54b7503a0826a90f2489c36))
+* **dataroom:** real 2060 + Verana Foundation logos in emails ([39ca637](https://github.com/2060-io/2060.io-website/commit/39ca637fb307bb296250c9a30bf8dd9acbf602da))
+
+
+### Bug Fixes
+
+* **dataroom:** store the OAuth avatar; drop the in-page session bar ([b07bf58](https://github.com/2060-io/2060.io-website/commit/b07bf58f8beccd5b698a25dfb42daf5acd32fb08))
+* **dataroom:** store the OAuth avatar; drop the in-page session bar ([46f8067](https://github.com/2060-io/2060.io-website/commit/46f806738f6d56044c9ccb8af1439ce7c480e9ad))
+
 ## [2.7.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.6.1...2060-io-website-v2.7.0) (2026-09-07)
 
 
