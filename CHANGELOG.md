@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.9.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.8.0...2060-io-website-v2.9.0) (2026-09-07)
+
+
+### Features
+
+* **dataroom:** dense status table for the Invitations page ([09d8e98](https://github.com/2060-io/2060.io-website/commit/09d8e98f63e6b28726bc7efcf4c664d445313d2c))
+* **dataroom:** dense status table for the Invitations page ([52e35a6](https://github.com/2060-io/2060.io-website/commit/52e35a6f65f653db6cc742a3fcb577d395c1a621))
+
 ## [2.8.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.7.0...2060-io-website-v2.8.0) (2026-09-07)
 
 
