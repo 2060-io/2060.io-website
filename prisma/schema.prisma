@@ -98,13 +98,14 @@ model VcAdminEntry {
 // ─────────────────────────────────────────────────────────────────────────────
 
 /// A VC firm. Several invited emails can belong to one org; the NDA is signed
-/// once per org (NdaSignature arrives with the NDA feature).
+/// once per org.
 model Org {
   id        String   @id @default(cuid())
   name      String   @unique
   createdAt DateTime @default(now())
 
-  invites VcInvite[]
+  invites      VcInvite[]
+  ndaSignature NdaSignature?
 }
 
 /// An invited VC email. Its presence is what lets that email sign in as a VC.
@@ -117,6 +118,42 @@ model VcInvite {
   lastLoginAt     DateTime? // refreshed on every sign-in (events.signIn)
 
   org Org @relation(fields: [orgId], references: [id], onDelete: Cascade)
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// NDA — versioned template catalog + one signature per org
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// Catalog of NDA template versions. The legal/ directory is the source of
+/// truth (one Markdown file per version, added, never edited); each row pins a
+/// filename to the sha384 it had when first activated, so a version can never
+/// silently change. Exactly one row is active at a time (see nda-versions.ts).
+model NdaDocument {
+  id            String   @id @default(cuid())
+  filename      String   @unique // e.g. "nda-v1.md" in legal/
+  version       String // display label, e.g. "v1"
+  hash          String // sha384 (SRI form) pinned at first activation
+  active        Boolean  @default(false)
+  effectiveFrom DateTime @default(now())
+
+  signatures NdaSignature[]
+}
+
+/// A signed NDA. One per org (@unique): the first invited VC of an org signs
+/// for everyone invited under that org.
+model NdaSignature {
+  id            String   @id @default(cuid())
+  orgId         String   @unique
+  ndaDocumentId String
+  signerUserId  String?
+  signerEmail   String
+  signerName    String
+  signedAt      DateTime @default(now())
+  pdfPath       String? // storage key of the rendered signed PDF
+  pdfHash       String? // sha384 (SRI form) of that exact PDF
+
+  org         Org         @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  ndaDocument NdaDocument @relation(fields: [ndaDocumentId], references: [id])
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

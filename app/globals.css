@@ -492,3 +492,42 @@ body b {
   color: var(--fg);
   line-height: 1.5rem;
 }
+
+/* Legal-document prose (the data-room NDA) — rendered from doc-html.ts */
+.doc-prose {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--fg);
+}
+.doc-prose h1,
+.doc-prose h2,
+.doc-prose h3 {
+  font-family: var(--font-display, inherit);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 1.25em 0 0.4em;
+}
+.doc-prose h1 { font-size: 1.15rem; }
+.doc-prose h2 { font-size: 1.05rem; }
+.doc-prose h3 { font-size: 0.95rem; }
+.doc-prose h1:first-child,
+.doc-prose h2:first-child { margin-top: 0; }
+.doc-prose p { margin: 0.5em 0; }
+.doc-prose strong { font-weight: 600; }
+.doc-prose hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 1em 0;
+}
+.doc-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75em 0;
+}
+.doc-prose th,
+.doc-prose td {
+  border: 1px solid var(--border);
+  padding: 0.35em 0.6em;
+  text-align: left;
+}
+.doc-prose th { font-weight: 600; }

@@ -35,13 +35,13 @@ export default async function AdminPage() {
               Manage who runs the data room: invitations, documents, activity.
             </p>
           </Link>
-          <div className="card">
+          <Link href="/admin/nda" className="card block text-fg">
             <h2 className="display text-lg">NDA</h2>
             <p className="text-muted text-sm mt-2">
-              Manage the NDA that VCs sign before accessing documents.
+              Manage the NDA that VCs sign before accessing documents, and see
+              who signed.
             </p>
-            <p className="text-xs text-muted mt-4 italic">Arriving in the next release.</p>
-          </div>
+          </Link>
         </div>
         <p className="text-sm text-muted mt-10">
           Admins hold every VC-admin privilege too —{" "}

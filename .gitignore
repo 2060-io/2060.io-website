@@ -40,3 +40,5 @@ yarn-error.log*
 next-env.d.ts
 
 .devin
+# Data-room local storage (signed NDA PDFs, documents)
+/var/storage

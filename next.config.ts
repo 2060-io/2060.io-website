@@ -4,6 +4,15 @@ const nextConfig: NextConfig = {
   output: "standalone",
   reactStrictMode: true,
 
+  // The NDA template is read from disk at runtime when a VC signs
+  // (app/lib/nda-versions.ts). `output: "standalone"` only ships traced files,
+  // so include legal/ for the routes that render or sign it.
+  outputFileTracingIncludes: {
+    "/dataroom/**": ["./legal/**"],
+    "/dataroom": ["./legal/**"],
+    "/admin/**": ["./legal/**"],
+  },
+
   // By default Next.js serves everything under `public/` with
   // `Cache-Control: public, max-age=0`, which forces the browser to
   // revalidate every image on every navigation (conditional GET → 304,
