@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.6.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.5.1...2060-io-website-v2.6.0) (2026-09-07)
+
+
+### Features
+
+* **dataroom:** document repository, grant-gated downloads, activity ([4e6c3df](https://github.com/2060-io/2060.io-website/commit/4e6c3dfc6d882035ea65f8e52f803e1ac644bae6))
+* **dataroom:** Helm chart and CI wiring for the data room ([e159844](https://github.com/2060-io/2060.io-website/commit/e1598442c2875a61e98453f96b8121ca3b9ebfa7))
+* **dataroom:** invitation-only auth, roles, and admin console ([4cb724b](https://github.com/2060-io/2060.io-website/commit/4cb724b6a9a1d606d4a1bc69033d98a2929688ff))
+* **dataroom:** invitation-only auth, roles, and admin console ([16c942a](https://github.com/2060-io/2060.io-website/commit/16c942abfc0603208d4b0349d3e530347126ec78))
+* **dataroom:** invitations, per-email document selection, invite email ([1ecac14](https://github.com/2060-io/2060.io-website/commit/1ecac142c65e8efd78da1cd0f1c74e79e261a209))
+* **dataroom:** NDA management and per-org click-to-sign ([91cbaaa](https://github.com/2060-io/2060.io-website/commit/91cbaaa9df27e35828e140ca174fd88b08aa10d9))
+* **dataroom:** NDA, documents, invitations, deploy (re-land [#90](https://github.com/2060-io/2060.io-website/issues/90)–[#93](https://github.com/2060-io/2060.io-website/issues/93)) ([a930c2d](https://github.com/2060-io/2060.io-website/commit/a930c2d72e134b726deb76542c0398faaa921235))
+* generalize the 2060 story to the Business SaaS platform ([d9b144a](https://github.com/2060-io/2060.io-website/commit/d9b144a6c97bbe225fbb926c00d94ab00b8b7e16))
+* generalize the 2060 story to the Business SaaS platform ([d2aa883](https://github.com/2060-io/2060.io-website/commit/d2aa883af88c79bd3a6744f58b2d48e3c6e49a28))
+* reflect VS Agent OpenID4VC / eIDAS 2.0 interop in the tech stack ([1c6075c](https://github.com/2060-io/2060.io-website/commit/1c6075c89dfbdf987ef5e34299d4c4420161cd8b))
+
+
+### Bug Fixes
+
+* **investors:** drop HQ Tallinn from the Geography row ([8e5d853](https://github.com/2060-io/2060.io-website/commit/8e5d8535f7ed10fd4e9bc8d2f12435654078b5a2))
+
 ## [2.5.1](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.5.0...2060-io-website-v2.5.1) (2026-06-21)
 
 
