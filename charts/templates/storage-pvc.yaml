@@ -1,0 +1,22 @@
+{{- if .Values.dataroom.enabled }}
+# Volume for data-room binaries (signed NDA PDFs, the document repository),
+# mounted into the app at /data (STORAGE_DIR). Kept when the release is
+# uninstalled — these are signed legal documents and uploaded files.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "website.fullname" . }}-storage
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "website.labels" . | nindent 4 }}
+  annotations:
+    helm.sh/resource-policy: keep
+spec:
+  accessModes: ["ReadWriteOnce"]
+  {{- with .Values.dataroom.storage.storageClassName }}
+  storageClassName: {{ . | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.dataroom.storage.size }}
+{{- end }}
