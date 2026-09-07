@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import UserMenu from "./UserMenu";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -69,6 +70,8 @@ export default function Nav() {
           </a>
         </nav>
         <div className="flex items-center gap-2">
+          {/* Signed-in data-room users only; renders nothing for visitors. */}
+          <UserMenu />
           <button
             type="button"
             data-theme-toggle
