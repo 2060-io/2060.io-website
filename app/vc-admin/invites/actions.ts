@@ -162,16 +162,24 @@ export async function setGrants(
 
   const wanted = new Set(formData.getAll("documentIds").map(String));
   // Only real documents can be granted.
-  const docs = await db.document.findMany({ select: { id: true } });
+  const docs = await db.document.findMany({
+    select: { id: true, alwaysVisible: true },
+  });
   const valid = new Set(docs.map((d) => d.id));
   for (const id of wanted) {
     if (!valid.has(id)) return { error: "Unknown document in selection." };
   }
+  // Always-visible documents are frozen here: their checkboxes are disabled in
+  // the editor (so they never arrive in `wanted`), and any manual grant they
+  // already carry is preserved — it applies again if the flag is turned off.
+  const frozen = new Set(docs.filter((d) => d.alwaysVisible).map((d) => d.id));
 
   const current = await db.documentGrant.findMany({ where: { inviteId } });
   const have = new Set(current.map((g) => g.documentId));
-  const toAdd = [...wanted].filter((id) => !have.has(id));
-  const toRemove = current.filter((g) => !wanted.has(g.documentId)).map((g) => g.id);
+  const toAdd = [...wanted].filter((id) => !have.has(id) && !frozen.has(id));
+  const toRemove = current
+    .filter((g) => !wanted.has(g.documentId) && !frozen.has(g.documentId))
+    .map((g) => g.id);
 
   await db.$transaction([
     db.documentGrant.deleteMany({ where: { id: { in: toRemove } } }),

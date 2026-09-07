@@ -137,6 +137,9 @@ model Document {
   size        Int
   storageKey  String // documents/<id>/v<version>-<filename>
   version     Int      @default(1)
+  /// true → every invited email sees it (no per-email grant needed);
+  /// false → visible only to emails granted individually.
+  alwaysVisible Boolean @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   updatedBy   String? // email of the VC admin who last uploaded

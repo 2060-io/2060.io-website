@@ -33,11 +33,15 @@ export async function addDocument(
   if (!validFile(file)) return { error: "Choose a file." };
   if (file.size > MAX_BYTES) return { error: "File too large (50 MB max)." };
 
+  const alwaysVisible = formData.get("alwaysVisible") === "on";
   const doc = await createDocument({
     title: title.data,
     file: await readUpload(file),
     updatedBy: user.email!.toLowerCase(),
   });
+  if (alwaysVisible) {
+    await db.document.update({ where: { id: doc.id }, data: { alwaysVisible: true } });
+  }
   await db.adminAction.create({
     data: {
       actorUserId: user.id!,
@@ -45,11 +49,37 @@ export async function addDocument(
       action: "document.add",
       targetType: "Document",
       targetId: doc.id,
-      after: { title: doc.title, filename: doc.filename, size: doc.size },
+      after: { title: doc.title, filename: doc.filename, size: doc.size, alwaysVisible },
     },
   });
   revalidatePath("/vc-admin/documents");
   return { ok: true };
+}
+
+/** Flip a document between "visible to everyone" and "manually shared". */
+export async function toggleAlwaysVisible(formData: FormData) {
+  const user = await guard();
+  if (!user) throw new Error("Forbidden");
+
+  const id = String(formData.get("id") ?? "");
+  const doc = await db.document.findUnique({ where: { id } });
+  if (!doc) return;
+
+  const next = !doc.alwaysVisible;
+  await db.document.update({ where: { id }, data: { alwaysVisible: next } });
+  await db.adminAction.create({
+    data: {
+      actorUserId: user.id!,
+      actorEmail: user.email!,
+      action: "document.visibility",
+      targetType: "Document",
+      targetId: id,
+      before: { alwaysVisible: doc.alwaysVisible },
+      after: { alwaysVisible: next, title: doc.title },
+    },
+  });
+  revalidatePath("/vc-admin/documents");
+  revalidatePath("/dataroom");
 }
 
 export async function replaceDocument(
