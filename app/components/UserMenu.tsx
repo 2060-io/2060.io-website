@@ -24,13 +24,16 @@ function avatarLabel(name: string | null, email: string): string {
   return `${local?.[0] ?? ""}${domain?.[0] ?? ""}`.toUpperCase() || "?";
 }
 
+type Me = { user: MeUser; actions: MeAction[] };
+
 /**
- * Signed-in account menu for the header (data-room users only). Fetches
- * /api/me on mount so the public pages stay static and logged-out visitors
- * render nothing at all.
+ * Header account control. Fetches /api/me on mount so the public pages stay
+ * static: while loading nothing renders (no flash), a signed-out visitor gets
+ * a "Sign in" link, and a signed-in data-room user gets the avatar menu.
  */
 export default function UserMenu() {
-  const [me, setMe] = useState<{ user: MeUser; actions: MeAction[] } | null>(null);
+  // undefined = still loading, null = signed out.
+  const [me, setMe] = useState<Me | null | undefined>(undefined);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -39,10 +42,10 @@ export default function UserMenu() {
     fetch("/api/me")
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
-        if (!cancelled && data?.user) setMe(data);
+        if (!cancelled) setMe(data?.user ? (data as Me) : null);
       })
       .catch(() => {
-        /* logged-out / offline — render nothing */
+        if (!cancelled) setMe(null); // offline — treat as signed out
       });
     return () => {
       cancelled = true;
@@ -57,7 +60,14 @@ export default function UserMenu() {
     return () => document.removeEventListener("mousedown", onDocClick);
   }, []);
 
-  if (!me) return null;
+  if (me === undefined) return null;
+  if (me === null) {
+    return (
+      <Link href="/login" className="nav-link text-sm whitespace-nowrap">
+        Sign in
+      </Link>
+    );
+  }
   const { user, actions } = me;
 
   return (
