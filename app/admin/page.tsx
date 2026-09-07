@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { currentUser, isAdmin } from "@/app/lib/authz";
-import SessionBar from "@/app/components/SessionBar";
 
 export const metadata: Metadata = {
   title: "Admin",
@@ -18,7 +17,6 @@ export default async function AdminPage() {
   return (
     <section className="px-6 py-16">
       <div className="max-w-6xl mx-auto">
-        <SessionBar />
         <p className="tag tag-accent">Data room</p>
         <h1 className="display text-3xl md:text-4xl mt-4">Administration</h1>
         <div className="accent-line mt-6"></div>
