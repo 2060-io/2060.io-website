@@ -95,26 +95,6 @@ export function filterAvailable(
   );
 }
 
-/** Group slots by GMT day for display: [{ dayLabel, slots }]. */
-export function groupByDay(slots: Slot[]): { day: string; label: string; slots: Slot[] }[] {
-  const groups = new Map<string, Slot[]>();
-  for (const s of slots) {
-    const key = s.startAt.toISOString().slice(0, 10);
-    (groups.get(key) ?? groups.set(key, []).get(key)!).push(s);
-  }
-  return [...groups.entries()].map(([day, daySlots]) => {
-    const d = new Date(`${day}T00:00:00Z`);
-    return {
-      day,
-      label: `${DAY_CODES[d.getUTCDay()]} ${d.toLocaleString("en", {
-        month: "short",
-        timeZone: "UTC",
-      })} ${d.getUTCDate()}`,
-      slots: daySlots,
-    };
-  });
-}
-
 /** "14:00" (GMT) for a slot instant. */
 export function gmtTime(d: Date): string {
   return d.toISOString().slice(11, 16);

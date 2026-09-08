@@ -8,7 +8,7 @@ import { resolveNdaTemplate } from "@/app/lib/nda-template";
 import { markdownToHtml } from "@/app/lib/doc-html";
 import { formatSize } from "@/app/lib/documents";
 import { loadMeetingConfig, bookingOpen } from "@/app/lib/meetings";
-import { gmtTime, DAY_CODES } from "@/app/lib/meeting-slots";
+import LocalTime from "@/app/components/LocalTime";
 import NdaSignForm from "./NdaSignForm";
 
 export const metadata: Metadata = {
@@ -183,9 +183,7 @@ export default async function DataroomPage() {
                 <p className="text-sm text-muted mt-2">
                   30 minutes on{" "}
                   <strong className="text-fg">
-                    {DAY_CODES[upcomingMeeting.startAt.getUTCDay()]}{" "}
-                    {upcomingMeeting.startAt.toISOString().slice(0, 10)} at{" "}
-                    {gmtTime(upcomingMeeting.startAt)} GMT
+                    <LocalTime iso={upcomingMeeting.startAt.toISOString()} />
                   </strong>
                   .
                 </p>
