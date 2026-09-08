@@ -4,8 +4,8 @@ import { notFound, redirect } from "next/navigation";
 import { db } from "@/app/lib/db";
 import { currentUser, vcInviteFor } from "@/app/lib/authz";
 import { loadMeetingConfig, bookingOpen, availableSlots } from "@/app/lib/meetings";
-import { groupByDay, gmtTime, DAY_CODES } from "@/app/lib/meeting-slots";
-import SlotPicker, { type DayGroup } from "./SlotPicker";
+import SlotPicker from "./SlotPicker";
+import LocalTime from "@/app/components/LocalTime";
 import { cancelMeeting } from "./actions";
 
 export const metadata: Metadata = {
@@ -14,10 +14,6 @@ export const metadata: Metadata = {
 };
 
 export const dynamic = "force-dynamic";
-
-function fmtWhen(d: Date): string {
-  return `${DAY_CODES[d.getUTCDay()]} ${d.toISOString().slice(0, 10)} at ${gmtTime(d)} GMT`;
-}
 
 export default async function MeetingPage() {
   const user = await currentUser();
@@ -35,17 +31,10 @@ export default async function MeetingPage() {
   const cfg = await loadMeetingConfig();
   const open = bookingOpen(cfg);
 
-  let days: DayGroup[] = [];
+  let startIsos: string[] = [];
   if (!upcoming && open) {
     const { slots } = await availableSlots(cfg);
-    days = groupByDay(slots).map((g) => ({
-      day: g.day,
-      label: g.label,
-      slots: g.slots.map((s) => ({
-        startIso: s.startAt.toISOString(),
-        time: gmtTime(s.startAt),
-      })),
-    }));
+    startIsos = slots.map((s) => s.startAt.toISOString());
   }
 
   return (
@@ -65,7 +54,10 @@ export default async function MeetingPage() {
             <h2 className="display text-lg">Your call is booked</h2>
             <p className="text-muted mt-3">
               30 minutes on{" "}
-              <strong className="text-fg">{fmtWhen(upcoming.startAt)}</strong>.
+              <strong className="text-fg">
+                <LocalTime iso={upcoming.startAt.toISOString()} />
+              </strong>
+              .
               The calendar invitation was sent to{" "}
               <strong className="text-fg">{invite.email}</strong>.
             </p>
@@ -87,7 +79,7 @@ export default async function MeetingPage() {
             Meeting requests are not open at the moment — please check back
             later or reply to your invitation email.
           </p>
-        ) : days.length === 0 ? (
+        ) : startIsos.length === 0 ? (
           <p className="text-muted mt-10 reading max-w-2xl">
             No slots are available right now — new slots open as the calendar
             frees up, so please check back soon.
@@ -100,7 +92,7 @@ export default async function MeetingPage() {
               <strong className="text-fg">{invite.email}</strong>.
             </p>
             <div className="mt-8 max-w-3xl">
-              <SlotPicker days={days} />
+              <SlotPicker startIsos={startIsos} />
             </div>
           </>
         )}

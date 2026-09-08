@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import {
   candidateSlots,
   filterAvailable,
-  groupByDay,
   gmtTime,
   overlapsBusy,
   parseWindowLine,
@@ -79,11 +78,3 @@ describe("availability filtering", () => {
   });
 });
 
-describe("groupByDay", () => {
-  it("labels groups with GMT weekday", () => {
-    const groups = groupByDay(candidateSlots(settings, NOW));
-    expect(groups).toHaveLength(2);
-    expect(groups[0].label).toMatch(/^TUE Sep 8$/);
-    expect(groups[0].slots).toHaveLength(4);
-  });
-});
