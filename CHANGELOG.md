@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.14.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.13.0...2060-io-website-v2.14.0) (2026-09-08)
+
+
+### Features
+
+* **dataroom:** show meeting slots in the viewer's time zone ([cba2554](https://github.com/2060-io/2060.io-website/commit/cba25544ba58f9dd1989c4fbf82b430bfdc2114a))
+* **dataroom:** show meeting slots in the viewer's time zone ([beab6c4](https://github.com/2060-io/2060.io-website/commit/beab6c4bc62f8f8901943ee0efe97fcb8d22ef5a))
+
 ## [2.13.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.12.0...2060-io-website-v2.13.0) (2026-09-07)
 
 
