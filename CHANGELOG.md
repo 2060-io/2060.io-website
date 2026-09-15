@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.15.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.14.0...2060-io-website-v2.15.0) (2026-09-15)
+
+
+### Features
+
+* **dataroom:** URL entries alongside documents ([1dfe03e](https://github.com/2060-io/2060.io-website/commit/1dfe03eff80b05effb6141a82254b531cdd62f3b))
+* **dataroom:** URL entries alongside documents ([ba0c251](https://github.com/2060-io/2060.io-website/commit/ba0c25177b4f02eefdc8bf82508d3a7acb017d3f))
+
 ## [2.14.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.13.0...2060-io-website-v2.14.0) (2026-09-08)
 
 
