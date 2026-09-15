@@ -12,9 +12,11 @@ import {
 
 export type DocRow = {
   id: string;
+  kind: "file" | "url";
   title: string;
   filename: string;
-  size: string; // preformatted
+  url: string | null;
+  size: string; // preformatted; "" for URL entries
   version: number;
   updatedAt: string; // preformatted
   updatedBy: string;
@@ -25,33 +27,70 @@ export type DocRow = {
 
 function AddForm() {
   const formRef = useRef<HTMLFormElement>(null);
+  const [kind, setKind] = useState<"file" | "url">("file");
   const [state, action, pending] = useActionState<DocState, FormData>(
     async (prev, fd) => {
       const res = await addDocument(prev, fd);
-      if (res.ok) formRef.current?.reset();
+      if (res.ok) {
+        formRef.current?.reset();
+        setKind("file");
+      }
       return res;
     },
     {},
   );
   return (
     <form ref={formRef} action={action} className="flex flex-col gap-2 max-w-xl">
+      <div className="flex items-center gap-5 text-sm mb-1">
+        {(["file", "url"] as const).map((k) => (
+          <label key={k} className="flex items-center gap-1.5">
+            <input
+              type="radio"
+              name="entryKind"
+              value={k}
+              checked={kind === k}
+              onChange={() => setKind(k)}
+            />
+            {k === "file" ? "Document (file)" : "URL"}
+          </label>
+        ))}
+      </div>
       <input
         name="title"
         type="text"
         required
-        placeholder="Document title (shown to VCs)"
+        placeholder={kind === "file" ? "Document title (shown to VCs)" : "Link label (shown to VCs)"}
         className="field text-sm"
-        aria-label="Document title"
+        aria-label="Title"
       />
-      <input name="file" type="file" required className="field text-sm" aria-label="File" />
-      <label className="flex items-center gap-2 text-sm text-muted">
-        <input type="checkbox" name="alwaysVisible" />
-        Always visible — every invited email sees it, no per-email selection
-        needed
-      </label>
+      {kind === "file" ? (
+        <>
+          <input name="file" type="file" required className="field text-sm" aria-label="File" />
+          <label className="flex items-center gap-2 text-sm text-muted">
+            <input type="checkbox" name="alwaysVisible" />
+            Always visible — every invited email sees it, no per-email selection
+            needed
+          </label>
+        </>
+      ) : (
+        <>
+          <input
+            name="url"
+            type="url"
+            required
+            placeholder="https://…"
+            className="field text-sm"
+            aria-label="URL"
+          />
+          <p className="text-xs text-muted">
+            URL entries are always visible to every invited email and open in a
+            new window.
+          </p>
+        </>
+      )}
       <div className="flex items-center gap-4">
         <button type="submit" className="btn btn-primary" disabled={pending}>
-          {pending ? "Uploading…" : "Add document"}
+          {pending ? (kind === "file" ? "Uploading…" : "Adding…") : kind === "file" ? "Add document" : "Add URL"}
         </button>
         {state.error && <p className="text-sm text-red-500">{state.error}</p>}
         {state.ok && <p className="text-sm text-accent-hover">Added.</p>}
@@ -100,7 +139,7 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
   return (
     <div className="grid gap-12 mt-10">
       <section>
-        <h2 className="display text-xl mb-4">Add a document</h2>
+        <h2 className="display text-xl mb-4">Add to the repository</h2>
         <AddForm />
       </section>
 
@@ -110,73 +149,103 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
           <table className="clean min-w-[820px]">
             <thead>
               <tr>
+                <th className="w-6" aria-label="Type"></th>
                 <th>Title</th>
-                <th>File</th>
+                <th>File / URL</th>
                 <th>Size</th>
                 <th>v</th>
                 <th>Updated</th>
                 <th>Visibility</th>
-                <th>Downloads</th>
+                <th>Opens</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {docs.map((d) => (
                 <tr key={d.id}>
+                  <td>
+                    <i
+                      className={`fa-solid ${d.kind === "url" ? "fa-link" : "fa-file"} text-muted text-xs`}
+                      title={d.kind === "url" ? "URL entry" : "Uploaded document"}
+                      aria-label={d.kind === "url" ? "URL entry" : "Uploaded document"}
+                    ></i>
+                  </td>
                   <td className="text-fg">{d.title}</td>
                   <td className="text-muted break-all">
-                    <a href={`/vc-admin/documents/${d.id}/file`} className="prose-link">
-                      {d.filename}
-                    </a>
+                    {d.kind === "url" ? (
+                      <a
+                        href={d.url ?? "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="prose-link"
+                      >
+                        {d.url}
+                      </a>
+                    ) : (
+                      <a href={`/vc-admin/documents/${d.id}/file`} className="prose-link">
+                        {d.filename}
+                      </a>
+                    )}
                   </td>
-                  <td className="text-muted whitespace-nowrap">{d.size}</td>
-                  <td className="text-muted">{d.version}</td>
+                  <td className="text-muted whitespace-nowrap">
+                    {d.kind === "url" ? "–" : d.size}
+                  </td>
+                  <td className="text-muted">{d.kind === "url" ? "–" : d.version}</td>
                   <td className="text-muted whitespace-nowrap" title={`by ${d.updatedBy}`}>
                     {d.updatedAt}
                   </td>
                   <td>
-                    <form
-                      action={toggleAlwaysVisible}
-                      onSubmit={(e) => {
-                        if (
-                          !d.alwaysVisible &&
-                          !confirm(
-                            `Make "${d.title}" visible to ALL invited emails?`,
-                          )
-                        )
-                          e.preventDefault();
-                      }}
-                    >
-                      <input type="hidden" name="id" value={d.id} />
-                      <button
-                        type="submit"
-                        className="prose-link text-sm whitespace-nowrap"
-                        title={
-                          d.alwaysVisible
-                            ? "Click to switch to manual per-email sharing"
-                            : "Click to make visible to every invited email"
-                        }
+                    {d.kind === "url" ? (
+                      <span
+                        className="text-accent-hover text-sm whitespace-nowrap"
+                        title="URL entries are always visible to every invited email"
                       >
-                        {d.alwaysVisible ? (
-                          <span className="text-accent-hover">everyone</span>
-                        ) : (
-                          <span className="text-muted">
-                            {d.grants} email{d.grants === 1 ? "" : "s"}
-                          </span>
-                        )}
-                      </button>
-                    </form>
+                        everyone
+                      </span>
+                    ) : (
+                      <form
+                        action={toggleAlwaysVisible}
+                        onSubmit={(e) => {
+                          if (
+                            !d.alwaysVisible &&
+                            !confirm(
+                              `Make "${d.title}" visible to ALL invited emails?`,
+                            )
+                          )
+                            e.preventDefault();
+                        }}
+                      >
+                        <input type="hidden" name="id" value={d.id} />
+                        <button
+                          type="submit"
+                          className="prose-link text-sm whitespace-nowrap"
+                          title={
+                            d.alwaysVisible
+                              ? "Click to switch to manual per-email sharing"
+                              : "Click to make visible to every invited email"
+                          }
+                        >
+                          {d.alwaysVisible ? (
+                            <span className="text-accent-hover">everyone</span>
+                          ) : (
+                            <span className="text-muted">
+                              {d.grants} email{d.grants === 1 ? "" : "s"}
+                            </span>
+                          )}
+                        </button>
+                      </form>
+                    )}
                   </td>
                   <td className="text-muted">{d.downloads}</td>
                   <td>
                     <div className="flex items-center gap-3">
-                      <ReplaceControl id={d.id} />
+                      {d.kind === "file" && <ReplaceControl id={d.id} />}
                       <form
                         action={removeDocument}
                         onSubmit={(e) => {
                           if (
                             !confirm(
-                              `Remove "${d.title}"? VCs lose access; download history is kept.`,
+                              `Remove "${d.title}"? VCs lose access; access history is kept.`,
                             )
                           )
                             e.preventDefault();
@@ -193,8 +262,8 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
               ))}
               {docs.length === 0 && (
                 <tr>
-                  <td colSpan={8} className="text-muted">
-                    No documents yet.
+                  <td colSpan={9} className="text-muted">
+                    Nothing yet.
                   </td>
                 </tr>
               )}
@@ -202,12 +271,12 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
           </table>
         </div>
         <p className="text-xs text-muted mt-3">
-          A document keeps its identity across replacements: grants and download
+          A document keeps its identity across replacements: grants and access
           history stay attached; the file is versioned. Click the Visibility
           cell to toggle between <strong className="text-fg">everyone</strong>{" "}
           (all invited emails) and manual sharing, chosen per invited email on
-          the Invitations page. Per-email selections are kept while a document
-          is set to everyone, and apply again when toggled back.
+          the Invitations page. URL entries are always visible and open in a
+          new window; the Opens column counts VC accesses for both kinds.
         </p>
       </section>
     </div>

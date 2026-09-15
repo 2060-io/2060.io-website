@@ -1,16 +1,14 @@
 import { notFound } from "next/navigation";
+import { NextResponse } from "next/server";
 import { db } from "@/app/lib/db";
 import { currentUser, vcInviteFor } from "@/app/lib/authz";
-import { getFile } from "@/app/lib/storage";
-import { safeFilename } from "@/app/lib/documents";
 
 export const dynamic = "force-dynamic";
 
 /**
- * VC document download. Serves the latest version only when the signed-in VC
- * (a) is invited, (b) has a grant for this document or the document is marked
- * always-visible, and (c) their org signed the NDA. Every successful download
- * is recorded in the audit trail.
+ * VC access to a URL entry: same gates as a document download (invited +
+ * signed NDA; URL entries are always visible), the open is recorded in the
+ * access trail, then a redirect sends the new window to the external URL.
  */
 export async function GET(
   _req: Request,
@@ -22,24 +20,17 @@ export async function GET(
   if (!invite) notFound();
 
   const { id } = await params;
-  // Access = (per-email grant OR always-visible) AND signed NDA.
   const [doc, nda] = await Promise.all([
     db.document.findFirst({
       where: {
         id,
-        kind: "file", // URL entries go through /dataroom/link/[id]
+        kind: "url",
         OR: [{ alwaysVisible: true }, { grants: { some: { inviteId: invite.id } } }],
       },
     }),
     db.ndaSignature.findUnique({ where: { orgId: invite.orgId } }),
   ]);
-  if (!doc || !nda) notFound();
-  let bytes: Buffer;
-  try {
-    bytes = await getFile(doc.storageKey);
-  } catch {
-    notFound();
-  }
+  if (!doc?.url || !nda) notFound();
 
   await db.downloadEvent.create({
     data: {
@@ -49,11 +40,8 @@ export async function GET(
     },
   });
 
-  return new Response(new Uint8Array(bytes), {
-    headers: {
-      "Content-Type": doc.contentType,
-      "Content-Disposition": `attachment; filename="${safeFilename(doc.filename)}"`,
-      "Cache-Control": "private, no-store",
-    },
+  return NextResponse.redirect(doc.url, {
+    status: 302,
+    headers: { "Cache-Control": "private, no-store" },
   });
 }
