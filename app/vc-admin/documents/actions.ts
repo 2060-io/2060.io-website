@@ -28,7 +28,47 @@ export async function addDocument(
   if (!user) return { error: "Forbidden" };
 
   const title = z.string().trim().min(1).max(200).safeParse(formData.get("title"));
-  if (!title.success) return { error: "Enter a document title." };
+  if (!title.success) return { error: "Enter a title." };
+
+  // URL entry: a labeled external link — always visible to every invited
+  // email, opened in a new window from the data room (no file involved).
+  if (formData.get("entryKind") === "url") {
+    const url = z
+      .string()
+      .trim()
+      .url()
+      .refine((u) => /^https?:\/\//i.test(u), "http(s) only")
+      .safeParse(formData.get("url"));
+    if (!url.success) return { error: "Enter a valid http(s) URL." };
+
+    const doc = await db.document.create({
+      data: {
+        kind: "url",
+        title: title.data,
+        url: url.data,
+        alwaysVisible: true,
+        filename: "",
+        contentType: "",
+        size: 0,
+        storageKey: "",
+        updatedBy: user.email!.toLowerCase(),
+      },
+    });
+    await db.adminAction.create({
+      data: {
+        actorUserId: user.id!,
+        actorEmail: user.email!,
+        action: "document.add-url",
+        targetType: "Document",
+        targetId: doc.id,
+        after: { title: doc.title, url: doc.url },
+      },
+    });
+    revalidatePath("/vc-admin/documents");
+    revalidatePath("/dataroom");
+    return { ok: true };
+  }
+
   const file = formData.get("file");
   if (!validFile(file)) return { error: "Choose a file." };
   if (file.size > MAX_BYTES) return { error: "File too large (50 MB max)." };
@@ -64,6 +104,7 @@ export async function toggleAlwaysVisible(formData: FormData) {
   const id = String(formData.get("id") ?? "");
   const doc = await db.document.findUnique({ where: { id } });
   if (!doc) return;
+  if (doc.kind === "url") return; // URL entries are always visible by definition
 
   const next = !doc.alwaysVisible;
   await db.document.update({ where: { id }, data: { alwaysVisible: next } });
@@ -96,6 +137,9 @@ export async function replaceDocument(
 
   const before = await db.document.findUnique({ where: { id } });
   if (!before) return { error: "Document not found." };
+  if (before.kind === "url") {
+    return { error: "URL entries have no file — remove and re-add to change them." };
+  }
 
   const doc = await replaceDocumentContent({
     documentId: id,

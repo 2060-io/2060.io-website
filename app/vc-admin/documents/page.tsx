@@ -41,8 +41,10 @@ export default async function VcAdminDocumentsPage() {
         <DocumentManager
           docs={docs.map((d) => ({
             id: d.id,
+            kind: d.kind === "url" ? ("url" as const) : ("file" as const),
             title: d.title,
             filename: d.filename,
+            url: d.url,
             size: formatSize(d.size),
             version: d.version,
             updatedAt: d.updatedAt.toISOString().slice(0, 16).replace("T", " "),

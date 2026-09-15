@@ -152,21 +152,41 @@ export default async function DataroomPage() {
               <tbody>
                 {docs.map((d) => (
                   <tr key={d.id}>
-                    <td className="text-fg">{d.title}</td>
+                    <td className="text-fg">
+                      {d.kind === "url" && (
+                        <i
+                          className="fa-solid fa-link text-muted text-xs mr-2"
+                          title="External link — opens in a new window"
+                          aria-hidden="true"
+                        ></i>
+                      )}
+                      {d.title}
+                    </td>
                     <td className="text-muted whitespace-nowrap">
-                      {formatSize(d.size)}
+                      {d.kind === "url" ? "Link" : formatSize(d.size)}
                     </td>
                     <td className="text-muted whitespace-nowrap">
                       {d.updatedAt.toISOString().slice(0, 10)}
                     </td>
                     <td>
-                      <a
-                        href={`/dataroom/doc/${d.id}`}
-                        className="btn text-xs"
-                        download
-                      >
-                        Download
-                      </a>
+                      {d.kind === "url" ? (
+                        <a
+                          href={`/dataroom/link/${d.id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn text-xs"
+                        >
+                          Open
+                        </a>
+                      ) : (
+                        <a
+                          href={`/dataroom/doc/${d.id}`}
+                          className="btn text-xs"
+                          download
+                        >
+                          Download
+                        </a>
+                      )}
                     </td>
                   </tr>
                 ))}

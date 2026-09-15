@@ -78,7 +78,11 @@ export default async function VcAdminActivityPage({
         where: { at: { gte: since } },
         select: { at: true, documentTitle: true, email: true },
       }),
-      db.downloadEvent.findMany({ orderBy: { at: "desc" }, take: 10 }),
+      db.downloadEvent.findMany({
+        orderBy: { at: "desc" },
+        take: 10,
+        include: { document: { select: { kind: true } } },
+      }),
       db.ndaSignature.findMany({
         orderBy: { signedAt: "desc" },
         take: 5,
@@ -104,8 +108,10 @@ export default async function VcAdminActivityPage({
   const feed = [
     ...recentEvents.map((e) => ({
       at: e.at,
-      icon: "fa-file-arrow-down",
-      text: `${e.email} downloaded "${e.documentTitle}"`,
+      icon: e.document?.kind === "url" ? "fa-link" : "fa-file-arrow-down",
+      text: `${e.email} ${
+        e.document?.kind === "url" ? "opened" : "downloaded"
+      } "${e.documentTitle}"`,
     })),
     ...recentNdas.map((s) => ({
       at: s.signedAt,
