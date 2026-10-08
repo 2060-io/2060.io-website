@@ -6,8 +6,15 @@ import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
 import { createDocument, replaceDocumentContent, readUpload } from "@/app/lib/documents";
 import { parseSortOrder } from "@/app/lib/document-order";
+import { thumbnailSource } from "@/app/lib/doc-view";
+import {
+  refreshAutoThumbnail,
+  removeCustomThumbnail,
+  setCustomThumbnail,
+  ThumbnailError,
+} from "@/app/lib/doc-thumbnail";
 
-export type DocState = { error?: string; ok?: boolean };
+export type DocState = { error?: string; ok?: boolean; message?: string };
 
 const MAX_BYTES = 50 * 1024 * 1024; // matches serverActions.bodySizeLimit headroom
 
@@ -88,6 +95,7 @@ export async function addDocument(
   if (alwaysVisible) {
     await db.document.update({ where: { id: doc.id }, data: { alwaysVisible: true } });
   }
+  await refreshAutoThumbnail(doc.id); // best-effort preview; never fails the upload
   await db.adminAction.create({
     data: {
       actorUserId: user.id!,
@@ -190,6 +198,7 @@ export async function replaceDocument(
     file: await readUpload(file),
     updatedBy: user.email!.toLowerCase(),
   });
+  await refreshAutoThumbnail(id); // re-render from the new content; an uploaded cover is kept
   await db.adminAction.create({
     data: {
       actorUserId: user.id!,
@@ -227,4 +236,105 @@ export async function removeDocument(formData: FormData) {
     },
   });
   revalidatePath("/vc-admin/documents");
+}
+
+// ─── Preview thumbnails ──────────────────────────────────────────────────────
+
+/** Render a document's automatic preview again from its current file. */
+export async function regenerateThumbnail(formData: FormData) {
+  const user = await guard();
+  if (!user) throw new Error("Forbidden");
+
+  const id = String(formData.get("id") ?? "");
+  await refreshAutoThumbnail(id);
+  revalidatePath("/vc-admin/documents");
+  revalidatePath("/dataroom");
+}
+
+/** Upload a cover image as the preview (for HTML decks and anything else that
+ *  cannot be rendered — or simply a nicer one). Kept across replacements. */
+export async function uploadThumbnail(
+  _prev: DocState,
+  formData: FormData,
+): Promise<DocState> {
+  const user = await guard();
+  if (!user) return { error: "Forbidden" };
+
+  const id = String(formData.get("id") ?? "");
+  const image = formData.get("image");
+  if (!validFile(image)) return { error: "Choose an image." };
+  const doc = await db.document.findUnique({ where: { id } });
+  if (!doc) return { error: "Document not found." };
+
+  try {
+    await setCustomThumbnail(id, Buffer.from(await image.arrayBuffer()));
+  } catch (e) {
+    return { error: e instanceof ThumbnailError ? e.message : "Could not process that image." };
+  }
+  await db.adminAction.create({
+    data: {
+      actorUserId: user.id!,
+      actorEmail: user.email!,
+      action: "document.thumbnail",
+      targetType: "Document",
+      targetId: id,
+      before: { thumbnailSource: doc.thumbnailSource },
+      after: { thumbnailSource: "custom", title: doc.title },
+    },
+  });
+  revalidatePath("/vc-admin/documents");
+  revalidatePath("/dataroom");
+  return { ok: true };
+}
+
+/** Drop the uploaded cover; the automatic preview takes over where possible. */
+export async function removeThumbnail(formData: FormData) {
+  const user = await guard();
+  if (!user) throw new Error("Forbidden");
+
+  const id = String(formData.get("id") ?? "");
+  const doc = await db.document.findUnique({ where: { id } });
+  if (!doc) return;
+
+  const result = await removeCustomThumbnail(id);
+  await db.adminAction.create({
+    data: {
+      actorUserId: user.id!,
+      actorEmail: user.email!,
+      action: "document.thumbnail",
+      targetType: "Document",
+      targetId: id,
+      before: { thumbnailSource: doc.thumbnailSource },
+      after: { thumbnailSource: result === "generated" ? "auto" : null, title: doc.title },
+    },
+  });
+  revalidatePath("/vc-admin/documents");
+  revalidatePath("/dataroom");
+}
+
+/** Backfill: render previews for every file that can have one and has none. */
+export async function generateMissingThumbnails(
+  _prev: DocState,
+  _formData: FormData,
+): Promise<DocState> {
+  const user = await guard();
+  if (!user) return { error: "Forbidden" };
+
+  const docs = await db.document.findMany({ where: { kind: "file", thumbnailKey: null } });
+  let generated = 0;
+  let failed = 0;
+  for (const d of docs) {
+    if (!thumbnailSource(d)) continue;
+    const r = await refreshAutoThumbnail(d.id);
+    if (r === "generated") generated++;
+    else if (r === "failed") failed++;
+  }
+  revalidatePath("/vc-admin/documents");
+  revalidatePath("/dataroom");
+  return {
+    ok: true,
+    message: `${generated} preview${generated === 1 ? "" : "s"} rendered${
+      failed ? `, ${failed} failed (see the server log)` : ""
+    }.`,
+  };
 }

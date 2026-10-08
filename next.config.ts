@@ -1,8 +1,29 @@
 import type { NextConfig } from "next";
 
+// Thumbnail rendering (app/lib/doc-thumbnail.ts) needs files the tracer can't
+// see: pdf.js reads its fonts, CMaps, wasm decoders and ICC profiles from
+// disk and loads @napi-rs/canvas through a computed require, and the canvas
+// package picks its native binary (@napi-rs/canvas-<platform>) the same way.
+// The standalone output only ships traced files, so include them for the
+// admin routes that render.
+const THUMBNAIL_ASSETS = [
+  "./node_modules/pdfjs-dist/legacy/build/pdf.mjs",
+  "./node_modules/pdfjs-dist/legacy/build/pdf.worker.mjs",
+  "./node_modules/pdfjs-dist/standard_fonts/**",
+  "./node_modules/pdfjs-dist/cmaps/**",
+  "./node_modules/pdfjs-dist/wasm/**",
+  "./node_modules/pdfjs-dist/iccs/**",
+  "./node_modules/@napi-rs/canvas/**",
+  "./node_modules/@napi-rs/canvas-*/**",
+];
+
 const nextConfig: NextConfig = {
   output: "standalone",
   reactStrictMode: true,
+
+  // Thumbnail rendering: native (@napi-rs/canvas, sharp) and ESM-with-worker
+  // (pdfjs-dist) packages the bundler must leave to Node's own loader.
+  serverExternalPackages: ["pdfjs-dist", "@napi-rs/canvas", "sharp"],
 
   // Document uploads ride server actions; the default body limit is 1 MB.
   // 64mb gives headroom over the 50 MB per-file cap enforced in the action.
@@ -15,6 +36,8 @@ const nextConfig: NextConfig = {
     "/dataroom/**": ["./legal/**"],
     "/dataroom": ["./legal/**"],
     "/admin/**": ["./legal/**"],
+    "/vc-admin/documents": THUMBNAIL_ASSETS,
+    "/vc-admin/documents/**": THUMBNAIL_ASSETS,
   },
 
   // By default Next.js serves everything under `public/` with

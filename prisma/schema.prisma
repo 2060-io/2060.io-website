@@ -151,6 +151,12 @@ model Document {
   /// Position in the lists VCs and staff see: ascending, with unordered
   /// (null) entries after the ordered ones, newest first. Set by VC admins.
   sortOrder   Int?
+  /// Preview shown in the lists: storage key of a WebP under documents/<id>/,
+  /// null when there is none. `thumbnailSource` is "auto" (rendered from the
+  /// file: PDF or Markdown page 1, or the image itself) or "custom" (uploaded
+  /// by a VC admin; kept when the content is replaced).
+  thumbnailKey    String?
+  thumbnailSource String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   updatedBy   String? // email of the VC admin who last uploaded

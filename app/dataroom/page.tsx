@@ -11,6 +11,7 @@ import { DOCUMENT_LIST_ORDER } from "@/app/lib/document-order";
 import { viewKind } from "@/app/lib/doc-view";
 import { loadMeetingConfig, bookingOpen } from "@/app/lib/meetings";
 import LocalTime from "@/app/components/LocalTime";
+import DocThumb from "@/app/components/DocThumb";
 import NdaSignForm from "./NdaSignForm";
 
 export const metadata: Metadata = {
@@ -142,9 +143,10 @@ export default async function DataroomPage() {
           </p>
         ) : (
           <div className="overflow-x-auto mt-10">
-            <table className="clean min-w-[560px]">
+            <table className="clean min-w-[640px]">
               <thead>
                 <tr>
+                  <th className="w-28" aria-label="Preview"></th>
                   <th>Document</th>
                   <th>Size</th>
                   <th>Updated</th>
@@ -154,6 +156,17 @@ export default async function DataroomPage() {
               <tbody>
                 {docs.map((d) => (
                   <tr key={d.id}>
+                    <td>
+                      <DocThumb
+                        src={
+                          d.thumbnailKey
+                            ? `/dataroom/thumb/${d.id}?t=${d.updatedAt.getTime()}`
+                            : null
+                        }
+                        kind={d.kind}
+                        filename={d.filename}
+                      />
+                    </td>
                     <td className="text-fg">
                       {d.kind === "url" && (
                         <i

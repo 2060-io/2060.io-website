@@ -46,6 +46,35 @@ export function viewKind(doc: {
   return BY_CONTENT_TYPE[ct] ?? null;
 }
 
+/** File types the repository can render a preview thumbnail from. */
+export type ThumbnailSource = "pdf" | "markdown" | "image";
+
+const IMAGE_EXTENSIONS = new Set([
+  "png", "jpg", "jpeg", "webp", "gif", "avif", "tif", "tiff", "svg",
+]);
+
+/**
+ * Whether (and from what) an automatic thumbnail can be rendered: page 1 of a
+ * PDF, page 1 of a Markdown file (via the PDF renderer), or the image itself.
+ * Null for everything else — HTML decks included (no browser on the server),
+ * those take an admin-uploaded cover instead.
+ */
+export function thumbnailSource(doc: {
+  kind?: string;
+  filename: string;
+  contentType: string;
+}): ThumbnailSource | null {
+  if (doc.kind && doc.kind !== "file") return null;
+  const vk = viewKind(doc);
+  if (vk === "pdf" || vk === "markdown") return vk;
+  const ext = doc.filename.toLowerCase().match(/\.([a-z0-9]+)$/)?.[1] ?? "";
+  const ct = doc.contentType.split(";")[0].trim().toLowerCase();
+  if (IMAGE_EXTENSIONS.has(ext) || (ct.startsWith("image/") && ct !== "image/x-icon")) {
+    return "image";
+  }
+  return null;
+}
+
 export function escapeHtml(s: string): string {
   return s
     .replace(/&/g, "&amp;")

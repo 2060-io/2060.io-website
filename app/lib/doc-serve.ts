@@ -48,3 +48,14 @@ export async function serveDocument(
       : new Uint8Array(bytes);
   return new Response(body, { headers: inlineHeaders(kind, doc.filename) });
 }
+
+/** A stored thumbnail (WebP). Private but cacheable: the URL carries the row's updatedAt as a buster. */
+export function thumbnailResponse(bytes: Buffer): Response {
+  return new Response(new Uint8Array(bytes), {
+    headers: {
+      "Content-Type": "image/webp",
+      "Cache-Control": "private, max-age=86400",
+      "X-Content-Type-Options": "nosniff",
+    },
+  });
+}
