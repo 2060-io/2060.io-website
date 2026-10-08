@@ -125,3 +125,14 @@ Versions follow SemVer. Commits on `main` must use [Conventional Commits](https:
 
 See [LICENSE](LICENSE).
 
+## MCP server (VC admin console for AI assistants)
+
+The data room's VC admin console is also a [Model Context Protocol](https://modelcontextprotocol.io) server, same design as the Verana Foundation site (its ADR-0005): Streamable HTTP at `/api/mcp`, stateless, built on `mcp-handler` and the official TypeScript SDK.
+
+- **Who**: VC admins and admins. The owner's role is resolved on every request, so removing a role cuts off their tokens at once.
+- **Tokens**: created in `/account/settings` (name, `read` or `write` scope, optional expiry). The secret (`dr_…`) is shown once; only its SHA-256 is stored. The page also prints the `claude mcp add` command and an `mcpServers` JSON snippet.
+- **Tools**: everything the console does — documents (add, replace, remove, order, visibility, covers, previews), invitations (invite, resend, revoke, per-email grants), the invitation email template, meeting booking settings and booked calls, plus read tools (lists, invite details, engagement summary). Uploads travel as base64 (15 MB max); bigger files use the web form.
+- **One service layer**: `app/lib/dataroom-service.ts` holds the operations; the server actions and the MCP tools both call it with an `Actor`. Changes made through the MCP are audited with `via: "mcp"`.
+- **Safeguards**: 120 requests per minute per token; write tools need a `write` token; the server's instructions ask the assistant to confirm before sending invitations, revoking, removing documents or cancelling calls.
+
+Locally, point a client at `http://localhost:3000/api/mcp` with a token created on the local settings page.

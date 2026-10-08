@@ -77,6 +77,26 @@ export async function replaceDocumentContent(opts: {
   });
 }
 
+/** Content type for a file that arrives without one (MCP uploads), by extension. */
+export function guessContentType(filename: string): string {
+  const ext = filename.toLowerCase().match(/\.([a-z0-9]+)$/)?.[1] ?? "";
+  const types: Record<string, string> = {
+    pdf: "application/pdf",
+    html: "text/html", htm: "text/html",
+    md: "text/markdown", markdown: "text/markdown", txt: "text/plain", csv: "text/csv",
+    json: "application/json", xml: "application/xml",
+    png: "image/png", jpg: "image/jpeg", jpeg: "image/jpeg", webp: "image/webp", gif: "image/gif", svg: "image/svg+xml",
+    doc: "application/msword",
+    docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    xls: "application/vnd.ms-excel",
+    xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    ppt: "application/vnd.ms-powerpoint",
+    pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    zip: "application/zip",
+  };
+  return types[ext] ?? "application/octet-stream";
+}
+
 export function formatSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
