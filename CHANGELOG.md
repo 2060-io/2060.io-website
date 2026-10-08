@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.16.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.15.0...2060-io-website-v2.16.0) (2026-10-08)
+
+
+### Features
+
+* **dataroom:** preview thumbnails in the document lists ([c9e14f2](https://github.com/2060-io/2060.io-website/commit/c9e14f2726f45456e15a61c3082be196b52169ad))
+* **dataroom:** preview thumbnails in the document lists ([605ebbf](https://github.com/2060-io/2060.io-website/commit/605ebbf3d0d1ed8920b5c056062e637754fbfcf8))
+* **dataroom:** VC admins order the document lists ([a39ecea](https://github.com/2060-io/2060.io-website/commit/a39ecea58e8ce8a7371ffe8d945eac34bc80cec7))
+* **dataroom:** VC admins order the document lists ([4e2b940](https://github.com/2060-io/2060.io-website/commit/4e2b9401f3218bc78d61c8ffea7470ff38648928))
+* **dataroom:** view PDF, HTML and Markdown documents in the browser ([1ddf7a2](https://github.com/2060-io/2060.io-website/commit/1ddf7a2a12849cc935407d6bac4c10ccfd16edfe))
+* **dataroom:** view PDF, HTML and Markdown documents in the browser ([12fdd10](https://github.com/2060-io/2060.io-website/commit/12fdd10a0dc8b7fe22391e89da9786116d5ab416))
+
 ## [2.15.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.14.0...2060-io-website-v2.15.0) (2026-09-15)
 
 
