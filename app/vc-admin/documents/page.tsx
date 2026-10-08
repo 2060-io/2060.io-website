@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
 import { formatSize } from "@/app/lib/documents";
+import { DOCUMENT_LIST_ORDER } from "@/app/lib/document-order";
 import DocumentManager from "./DocumentManager";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default async function VcAdminDocumentsPage() {
   if (!user || !(await isVcAdmin(user.email))) notFound();
 
   const docs = await db.document.findMany({
-    orderBy: { createdAt: "desc" },
+    orderBy: DOCUMENT_LIST_ORDER,
     include: { _count: { select: { grants: true, downloads: true } } },
   });
 
@@ -36,13 +37,16 @@ export default async function VcAdminDocumentsPage() {
           its content any time (versioned) without losing who it is shared with
           or its download history. New documents are visible to no one until
           granted per email — unless marked always visible, which shares them
-          with every invited email.
+          with every invited email. The Order column decides the position of
+          each entry in every list, lowest first; entries without an order come
+          after the ordered ones, newest first.
         </p>
         <DocumentManager
           docs={docs.map((d) => ({
             id: d.id,
             kind: d.kind === "url" ? ("url" as const) : ("file" as const),
             title: d.title,
+            sortOrder: d.sortOrder,
             filename: d.filename,
             url: d.url,
             size: formatSize(d.size),

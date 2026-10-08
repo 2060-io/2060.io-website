@@ -31,10 +31,12 @@ export async function createDocument(opts: {
   title: string;
   file: UploadedFile;
   updatedBy: string;
+  sortOrder?: number | null;
 }) {
   const doc = await db.document.create({
     data: {
       title: opts.title,
+      sortOrder: opts.sortOrder ?? null,
       filename: opts.file.filename,
       contentType: opts.file.contentType,
       size: opts.file.bytes.length,
