@@ -49,6 +49,9 @@ export async function GET() {
     }
   }
 
+  // Staff settings: MCP access tokens.
+  if (admin || vcAdmin) actions.push({ label: "Settings", href: "/account/settings", icon: "gear" });
+
   // An email that lost every role (e.g. a revoked invite) still has a session;
   // show nothing but the sign-out.
   return NextResponse.json({

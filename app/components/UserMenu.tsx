@@ -12,6 +12,7 @@ const ICONS: Record<string, string> = {
   users: "fa-users",
   folder: "fa-folder-open",
   calendar: "fa-calendar-days",
+  gear: "fa-gear",
 };
 
 /** Avatar label: name initials, else first-of-local + first-of-domain. */

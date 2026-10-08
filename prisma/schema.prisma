@@ -31,6 +31,7 @@ model User {
   accounts     Account[]
   sessions     Session[]
   adminActions AdminAction[]
+  apiTokens    ApiToken[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -300,4 +301,46 @@ model Meeting {
 
   invite VcInvite @relation(fields: [inviteId], references: [id], onDelete: Cascade)
   org    Org      @relation(fields: [orgId], references: [id], onDelete: Cascade)
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MCP server — bearer tokens for /api/mcp (see README, "MCP server")
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum ApiTokenScope {
+  read
+  write
+}
+
+enum ApiTokenKind {
+  personal // created by hand in /account/settings
+  access // OAuth connector access token (short-lived)
+  refresh // OAuth connector refresh token (never a bearer)
+}
+
+/// A bearer token for the MCP server. The secret (`dr_…`) is shown once and
+/// only its SHA-256 is stored; `prefix` lets the owner recognise it in the
+/// list. Tokens act as their user with the role the site grants at request
+/// time (VC admin or admin). `kind`, `clientId`, `grantId` and `resource` are
+/// for OAuth-issued tokens: one authorization = one grantId, so revoking a
+/// connected application revokes all of its tokens.
+model ApiToken {
+  id         String        @id @default(cuid())
+  userId     String
+  user       User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name       String
+  tokenHash  String        @unique // sha256 hex of the secret
+  prefix     String // first characters of the secret
+  scope      ApiTokenScope @default(read)
+  kind       ApiTokenKind  @default(personal)
+  clientId   String?
+  grantId    String?
+  resource   String? // RFC 8707 audience the token was minted for
+  lastUsedAt DateTime?
+  expiresAt  DateTime?
+  revokedAt  DateTime?
+  createdAt  DateTime      @default(now())
+
+  @@index([userId])
+  @@index([grantId])
 }
