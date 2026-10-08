@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
 import { formatSize } from "@/app/lib/documents";
+import { DOCUMENT_LIST_ORDER } from "@/app/lib/document-order";
 import GrantEditor from "./GrantEditor";
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default async function InviteGrantsPage({
   });
   if (!invite) notFound();
 
-  const docs = await db.document.findMany({ orderBy: { createdAt: "desc" } });
+  const docs = await db.document.findMany({ orderBy: DOCUMENT_LIST_ORDER });
   const granted = new Set(invite.documentGrants.map((g) => g.documentId));
 
   return (

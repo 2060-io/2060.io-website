@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
 import { createDocument, replaceDocumentContent, readUpload } from "@/app/lib/documents";
+import { parseSortOrder } from "@/app/lib/document-order";
 
 export type DocState = { error?: string; ok?: boolean };
 
@@ -30,6 +31,9 @@ export async function addDocument(
   const title = z.string().trim().min(1).max(200).safeParse(formData.get("title"));
   if (!title.success) return { error: "Enter a title." };
 
+  const order = parseSortOrder(formData.get("sortOrder"));
+  if (!order.ok) return { error: order.error };
+
   // URL entry: a labeled external link — always visible to every invited
   // email, opened in a new window from the data room (no file involved).
   if (formData.get("entryKind") === "url") {
@@ -46,6 +50,7 @@ export async function addDocument(
         kind: "url",
         title: title.data,
         url: url.data,
+        sortOrder: order.value,
         alwaysVisible: true,
         filename: "",
         contentType: "",
@@ -61,7 +66,7 @@ export async function addDocument(
         action: "document.add-url",
         targetType: "Document",
         targetId: doc.id,
-        after: { title: doc.title, url: doc.url },
+        after: { title: doc.title, url: doc.url, sortOrder: doc.sortOrder },
       },
     });
     revalidatePath("/vc-admin/documents");
@@ -78,6 +83,7 @@ export async function addDocument(
     title: title.data,
     file: await readUpload(file),
     updatedBy: user.email!.toLowerCase(),
+    sortOrder: order.value,
   });
   if (alwaysVisible) {
     await db.document.update({ where: { id: doc.id }, data: { alwaysVisible: true } });
@@ -89,11 +95,49 @@ export async function addDocument(
       action: "document.add",
       targetType: "Document",
       targetId: doc.id,
-      after: { title: doc.title, filename: doc.filename, size: doc.size, alwaysVisible },
+      after: {
+        title: doc.title,
+        filename: doc.filename,
+        size: doc.size,
+        alwaysVisible,
+        sortOrder: doc.sortOrder,
+      },
     },
   });
   revalidatePath("/vc-admin/documents");
+  revalidatePath("/dataroom");
   return { ok: true };
+}
+
+/**
+ * Set or clear a document's position in the lists (Order column). Blank
+ * clears it: the entry then follows the ordered ones, newest first.
+ */
+export async function setSortOrder(formData: FormData) {
+  const user = await guard();
+  if (!user) throw new Error("Forbidden");
+
+  const id = String(formData.get("id") ?? "");
+  const order = parseSortOrder(formData.get("sortOrder"));
+  if (!order.ok) return; // the field is numeric client-side; nothing to do with garbage
+
+  const doc = await db.document.findUnique({ where: { id } });
+  if (!doc || doc.sortOrder === order.value) return;
+
+  await db.document.update({ where: { id }, data: { sortOrder: order.value } });
+  await db.adminAction.create({
+    data: {
+      actorUserId: user.id!,
+      actorEmail: user.email!,
+      action: "document.reorder",
+      targetType: "Document",
+      targetId: id,
+      before: { sortOrder: doc.sortOrder },
+      after: { sortOrder: order.value, title: doc.title },
+    },
+  });
+  revalidatePath("/vc-admin/documents");
+  revalidatePath("/dataroom");
 }
 
 /** Flip a document between "visible to everyone" and "manually shared". */

@@ -148,6 +148,9 @@ model Document {
   /// false → visible only to emails granted individually. Forced true for
   /// URL entries.
   alwaysVisible Boolean @default(false)
+  /// Position in the lists VCs and staff see: ascending, with unordered
+  /// (null) entries after the ordered ones, newest first. Set by VC admins.
+  sortOrder   Int?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   updatedBy   String? // email of the VC admin who last uploaded

@@ -7,6 +7,7 @@ import { loadActiveNda } from "@/app/lib/nda-versions";
 import { resolveNdaTemplate } from "@/app/lib/nda-template";
 import { markdownToHtml } from "@/app/lib/doc-html";
 import { formatSize } from "@/app/lib/documents";
+import { DOCUMENT_LIST_ORDER } from "@/app/lib/document-order";
 import { loadMeetingConfig, bookingOpen } from "@/app/lib/meetings";
 import LocalTime from "@/app/components/LocalTime";
 import NdaSignForm from "./NdaSignForm";
@@ -102,7 +103,7 @@ export default async function DataroomPage() {
       where: {
         OR: [{ alwaysVisible: true }, { grants: { some: { inviteId: invite.id } } }],
       },
-      orderBy: { createdAt: "desc" },
+      orderBy: DOCUMENT_LIST_ORDER,
     }),
     db.meeting.findFirst({
       where: { inviteId: invite.id, startAt: { gte: new Date() } },

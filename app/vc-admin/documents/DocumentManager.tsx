@@ -6,14 +6,17 @@ import {
   addDocument,
   replaceDocument,
   removeDocument,
+  setSortOrder,
   toggleAlwaysVisible,
   type DocState,
 } from "./actions";
+import { SORT_ORDER_LIMIT } from "@/app/lib/document-order";
 
 export type DocRow = {
   id: string;
   kind: "file" | "url";
   title: string;
+  sortOrder: number | null;
   filename: string;
   url: string | null;
   size: string; // preformatted; "" for URL entries
@@ -63,6 +66,22 @@ function AddForm() {
         className="field text-sm"
         aria-label="Title"
       />
+      <div className="flex items-center gap-3">
+        <input
+          name="sortOrder"
+          type="number"
+          step="1"
+          min={-SORT_ORDER_LIMIT}
+          max={SORT_ORDER_LIMIT}
+          placeholder="Order"
+          className="field text-sm w-28"
+          aria-label="Order"
+        />
+        <p className="text-xs text-muted">
+          Position in the lists, lowest first. Leave blank to list it after the
+          ordered entries.
+        </p>
+      </div>
       {kind === "file" ? (
         <>
           <input name="file" type="file" required className="field text-sm" aria-label="File" />
@@ -95,6 +114,37 @@ function AddForm() {
         {state.error && <p className="text-sm text-red-500">{state.error}</p>}
         {state.ok && <p className="text-sm text-accent-hover">Added.</p>}
       </div>
+    </form>
+  );
+}
+
+/**
+ * Inline editor for a document's position in the lists. Saves on Enter or when
+ * the field loses focus with a changed value; blank clears the order.
+ */
+function OrderCell({ id, sortOrder }: { id: string; sortOrder: number | null }) {
+  const initial = sortOrder === null ? "" : String(sortOrder);
+  return (
+    <form action={setSortOrder}>
+      <input type="hidden" name="id" value={id} />
+      <input
+        key={initial}
+        name="sortOrder"
+        type="number"
+        step="1"
+        min={-SORT_ORDER_LIMIT}
+        max={SORT_ORDER_LIMIT}
+        defaultValue={initial}
+        placeholder="–"
+        aria-label="Order"
+        title="Position in the lists, lowest first; blank = after the ordered entries. Saves on Enter or when you leave the field."
+        className="field text-xs w-16 text-right"
+        onBlur={(e) => {
+          if (e.currentTarget.value.trim() !== initial) {
+            e.currentTarget.form?.requestSubmit();
+          }
+        }}
+      />
     </form>
   );
 }
@@ -150,6 +200,7 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
             <thead>
               <tr>
                 <th className="w-6" aria-label="Type"></th>
+                <th>Order</th>
                 <th>Title</th>
                 <th>File / URL</th>
                 <th>Size</th>
@@ -169,6 +220,9 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
                       title={d.kind === "url" ? "URL entry" : "Uploaded document"}
                       aria-label={d.kind === "url" ? "URL entry" : "Uploaded document"}
                     ></i>
+                  </td>
+                  <td>
+                    <OrderCell id={d.id} sortOrder={d.sortOrder} />
                   </td>
                   <td className="text-fg">{d.title}</td>
                   <td className="text-muted break-all">
@@ -262,7 +316,7 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
               ))}
               {docs.length === 0 && (
                 <tr>
-                  <td colSpan={9} className="text-muted">
+                  <td colSpan={10} className="text-muted">
                     Nothing yet.
                   </td>
                 </tr>
@@ -276,7 +330,10 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
           cell to toggle between <strong className="text-fg">everyone</strong>{" "}
           (all invited emails) and manual sharing, chosen per invited email on
           the Invitations page. URL entries are always visible and open in a
-          new window; the Opens column counts VC accesses for both kinds.
+          new window; the Opens column counts VC accesses for both kinds. The
+          Order column sets the position in every list (lowest first; blank
+          entries follow the ordered ones, newest first) and saves on Enter or
+          when you leave the field.
         </p>
       </section>
     </div>
