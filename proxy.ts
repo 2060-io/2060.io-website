@@ -10,6 +10,8 @@ const { auth } = NextAuth(authConfig);
 export default auth;
 
 export const config = {
-  // /api/mcp is NOT listed: it authenticates with bearer tokens, not the session.
-  matcher: ["/dataroom/:path*", "/vc-admin/:path*", "/admin/:path*", "/account/:path*"],
+  // /api/mcp and /api/oauth/* are NOT listed: they authenticate with bearer
+  // tokens / client credentials, not the session. /oauth/authorize (the consent
+  // page) is: anonymous visitors go to /login and come back with their request.
+  matcher: ["/dataroom/:path*", "/vc-admin/:path*", "/admin/:path*", "/account/:path*", "/oauth/:path*"],
 };

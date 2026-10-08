@@ -86,7 +86,8 @@ export default {
         pathname.startsWith("/dataroom") ||
         pathname.startsWith("/vc-admin") ||
         pathname.startsWith("/admin") ||
-        pathname.startsWith("/account");
+        pathname.startsWith("/account") ||
+        pathname.startsWith("/oauth");
       if (!isProtected) return true;
       // Coarse "is logged in?" gate; fine-grained role checks run server-side
       // in the pages, which can hit the DB.
