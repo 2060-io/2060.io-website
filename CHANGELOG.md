@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.17.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.16.0...2060-io-website-v2.17.0) (2026-10-08)
+
+
+### Features
+
+* **dataroom:** MCP server for the VC admin console, with access tokens ([3de9947](https://github.com/2060-io/2060.io-website/commit/3de99471ee7a0883da8d3777a0ce9fccb482b693))
+* **dataroom:** MCP server for the VC admin console, with access tokens ([02ca520](https://github.com/2060-io/2060.io-website/commit/02ca5208bacb7457464ce92ded8c1f13182a4c3c))
+* **dataroom:** OAuth 2.1 authorization server for the claude.ai connectors ([24e17c7](https://github.com/2060-io/2060.io-website/commit/24e17c7fef241b4994e7fd70f0e0a17d3955b438))
+* **dataroom:** OAuth 2.1 authorization server for the claude.ai connectors ([5514b94](https://github.com/2060-io/2060.io-website/commit/5514b944c627bce113a341dfa471d9b386a3d698))
+
 ## [2.16.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.15.0...2060-io-website-v2.16.0) (2026-10-08)
 
 
