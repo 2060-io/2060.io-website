@@ -18,6 +18,7 @@ export type DocRow = {
   title: string;
   sortOrder: number | null;
   filename: string;
+  viewable: boolean; // PDF / HTML / Markdown: can be opened in the browser
   url: string | null;
   size: string; // preformatted; "" for URL entries
   version: number;
@@ -235,6 +236,25 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
                       >
                         {d.url}
                       </a>
+                    ) : d.viewable ? (
+                      <span className="inline-flex flex-wrap items-baseline gap-x-2">
+                        <a
+                          href={`/vc-admin/documents/${d.id}/view`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="prose-link"
+                          title="View in a new tab — what VCs see"
+                        >
+                          {d.filename}
+                        </a>
+                        <a
+                          href={`/vc-admin/documents/${d.id}/file`}
+                          className="prose-link text-xs"
+                          download
+                        >
+                          download
+                        </a>
+                      </span>
                     ) : (
                       <a href={`/vc-admin/documents/${d.id}/file`} className="prose-link">
                         {d.filename}
@@ -330,10 +350,12 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
           cell to toggle between <strong className="text-fg">everyone</strong>{" "}
           (all invited emails) and manual sharing, chosen per invited email on
           the Invitations page. URL entries are always visible and open in a
-          new window; the Opens column counts VC accesses for both kinds. The
-          Order column sets the position in every list (lowest first; blank
-          entries follow the ordered ones, newest first) and saves on Enter or
-          when you leave the field.
+          new window; the Opens column counts VC accesses for both kinds. PDF,
+          HTML and Markdown files can be viewed in the browser — VCs get a View
+          button next to Download, and the file name here opens the same view —
+          everything else downloads. The Order column sets the position in
+          every list (lowest first; blank entries follow the ordered ones,
+          newest first) and saves on Enter or when you leave the field.
         </p>
       </section>
     </div>
