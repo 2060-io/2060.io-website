@@ -9,7 +9,7 @@ const H = 170;
 const PAD = { top: 12, right: 8, bottom: 22, left: 30 };
 
 /**
- * Downloads-per-day bar chart (single series — the title names it, no legend).
+ * Accesses-per-day bar chart (single series — the title names it, no legend).
  * Plain SVG: thin bars with rounded data-ends anchored to the baseline, a 2px
  * gap between bars, recessive gridlines, and a per-day hover tooltip with a
  * full-height hit target.
@@ -40,7 +40,7 @@ export default function DownloadsChart({ days }: { days: DayPoint[] }) {
       <svg
         viewBox={`0 0 ${W} ${H}`}
         role="img"
-        aria-label={`Downloads per day, ${days.length} days`}
+        aria-label={`Accesses per day, ${days.length} days`}
         className="w-full h-auto block"
         onMouseLeave={() => setHover(null)}
       >

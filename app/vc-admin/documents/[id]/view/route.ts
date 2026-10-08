@@ -5,8 +5,8 @@ import { serveDocument } from "@/app/lib/doc-serve";
 
 export const dynamic = "force-dynamic";
 
-/** Staff download of a repository document (latest version). Not recorded in
- *  the access trail — DownloadEvent tracks VCs only. */
+/** Staff view of a repository document in the browser — exactly what a VC gets
+ *  from /dataroom/view/[id] (same headers, same sandbox), minus the trail. */
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ id: string }> },
@@ -18,7 +18,7 @@ export async function GET(
   const doc = await db.document.findUnique({ where: { id } });
   if (!doc?.storageKey) notFound();
 
-  const res = await serveDocument(doc, "download");
+  const res = await serveDocument(doc, "view");
   if (!res) notFound();
   return res;
 }

@@ -5,6 +5,7 @@ import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
 import { formatSize } from "@/app/lib/documents";
 import { DOCUMENT_LIST_ORDER } from "@/app/lib/document-order";
+import { viewKind } from "@/app/lib/doc-view";
 import DocumentManager from "./DocumentManager";
 
 export const metadata: Metadata = {
@@ -48,6 +49,7 @@ export default async function VcAdminDocumentsPage() {
             title: d.title,
             sortOrder: d.sortOrder,
             filename: d.filename,
+            viewable: viewKind(d) !== null,
             url: d.url,
             size: formatSize(d.size),
             version: d.version,

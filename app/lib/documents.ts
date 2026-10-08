@@ -82,3 +82,43 @@ export function formatSize(bytes: number): string {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
+
+// ─── Access trail ────────────────────────────────────────────────────────────
+
+export type AccessAction = "download" | "view" | "open";
+
+/** Browser PDF viewers may fetch the same document twice within moments. */
+const VIEW_DEDUPE_MS = 60_000;
+
+/**
+ * Record a VC's access to a repository entry. The title is copied so the trail
+ * survives deletion. Repeated views of one document by one email within a
+ * minute count once.
+ */
+export async function recordAccess(opts: {
+  email: string;
+  documentId: string;
+  documentTitle: string;
+  action: AccessAction;
+}): Promise<void> {
+  if (opts.action === "view") {
+    const recent = await db.downloadEvent.findFirst({
+      where: {
+        email: opts.email,
+        documentId: opts.documentId,
+        action: "view",
+        at: { gte: new Date(Date.now() - VIEW_DEDUPE_MS) },
+      },
+      select: { id: true },
+    });
+    if (recent) return;
+  }
+  await db.downloadEvent.create({
+    data: {
+      email: opts.email,
+      documentId: opts.documentId,
+      documentTitle: opts.documentTitle,
+      action: opts.action,
+    },
+  });
+}

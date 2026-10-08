@@ -174,13 +174,16 @@ model DocumentGrant {
   @@unique([inviteId, documentId])
 }
 
-/// One row per download. `documentTitle` is copied at download time so the
-/// audit trail survives document deletion (the FK then nulls).
+/// One row per VC access to a repository entry. `documentTitle` is copied at
+/// access time so the audit trail survives document deletion (the FK then
+/// nulls). `action`: "download" (file saved), "view" (opened inline in the
+/// browser), "open" (URL entry followed).
 model DownloadEvent {
   id            String   @id @default(cuid())
   email         String // the downloader's (invite) email
   documentId    String?
   documentTitle String
+  action        String   @default("download")
   at            DateTime @default(now())
 
   document Document? @relation(fields: [documentId], references: [id], onDelete: SetNull)

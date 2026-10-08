@@ -8,6 +8,7 @@ import { resolveNdaTemplate } from "@/app/lib/nda-template";
 import { markdownToHtml } from "@/app/lib/doc-html";
 import { formatSize } from "@/app/lib/documents";
 import { DOCUMENT_LIST_ORDER } from "@/app/lib/document-order";
+import { viewKind } from "@/app/lib/doc-view";
 import { loadMeetingConfig, bookingOpen } from "@/app/lib/meetings";
 import LocalTime from "@/app/components/LocalTime";
 import NdaSignForm from "./NdaSignForm";
@@ -180,13 +181,26 @@ export default async function DataroomPage() {
                           Open
                         </a>
                       ) : (
-                        <a
-                          href={`/dataroom/doc/${d.id}`}
-                          className="btn text-xs"
-                          download
-                        >
-                          Download
-                        </a>
+                        <span className="inline-flex items-center gap-2">
+                          {viewKind(d) && (
+                            <a
+                              href={`/dataroom/view/${d.id}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn text-xs"
+                              title="Opens in a new tab"
+                            >
+                              View
+                            </a>
+                          )}
+                          <a
+                            href={`/dataroom/doc/${d.id}`}
+                            className="btn text-xs"
+                            download
+                          >
+                            Download
+                          </a>
+                        </span>
                       )}
                     </td>
                   </tr>

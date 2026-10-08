@@ -15,6 +15,18 @@ export const dynamic = "force-dynamic";
 const RANGES = [7, 30, 90] as const;
 type Range = (typeof RANGES)[number];
 
+/** DownloadEvent.action → how the feed and history phrase it. */
+const VERB: Record<string, string> = {
+  download: "downloaded",
+  view: "viewed",
+  open: "opened",
+};
+const ICON: Record<string, string> = {
+  download: "fa-file-arrow-down",
+  view: "fa-eye",
+  open: "fa-link",
+};
+
 function relative(d: Date): string {
   const s = (Date.now() - d.getTime()) / 1000;
   if (s < 60) return "just now";
@@ -48,9 +60,9 @@ function dayBuckets(range: Range, events: { at: Date }[]): DayPoint[] {
 }
 
 /**
- * Engagement dashboard: KPI tiles, downloads-per-day chart, top documents,
- * recent activity feed — with the per-email download detail kept below as the
- * accessible table view.
+ * Engagement dashboard: KPI tiles, accesses-per-day chart (downloads, views
+ * and URL opens alike), top documents, recent activity feed — with the
+ * per-email access history kept below as the accessible table view.
  */
 export default async function VcAdminActivityPage({
   searchParams,
@@ -81,7 +93,6 @@ export default async function VcAdminActivityPage({
       db.downloadEvent.findMany({
         orderBy: { at: "desc" },
         take: 10,
-        include: { document: { select: { kind: true } } },
       }),
       db.ndaSignature.findMany({
         orderBy: { signedAt: "desc" },
@@ -104,14 +115,12 @@ export default async function VcAdminActivityPage({
   const topDocs = [...byDoc.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6);
   const topMax = topDocs[0]?.[1] ?? 1;
 
-  // Merged feed: downloads + NDA signings, newest first.
+  // Merged feed: document accesses + NDA signings, newest first.
   const feed = [
     ...recentEvents.map((e) => ({
       at: e.at,
-      icon: e.document?.kind === "url" ? "fa-link" : "fa-file-arrow-down",
-      text: `${e.email} ${
-        e.document?.kind === "url" ? "opened" : "downloaded"
-      } "${e.documentTitle}"`,
+      icon: ICON[e.action] ?? ICON.download,
+      text: `${e.email} ${VERB[e.action] ?? VERB.download} "${e.documentTitle}"`,
     })),
     ...recentNdas.map((s) => ({
       at: s.signedAt,
@@ -132,7 +141,7 @@ export default async function VcAdminActivityPage({
   const tiles = [
     { value: String(invites.length), label: "invited emails", href: "/vc-admin/invites" },
     { value: `${connectedPct}%`, label: `connected (${connected}/${invites.length})`, href: "/vc-admin/invites" },
-    { value: String(windowEvents.length), label: `downloads · ${range}d`, href: null },
+    { value: String(windowEvents.length), label: `accesses · ${range}d`, href: null },
     { value: `${ndaCount}/${orgCount}`, label: "NDAs signed (orgs)", href: "/admin/nda" },
   ];
 
@@ -163,10 +172,10 @@ export default async function VcAdminActivityPage({
           )}
         </div>
 
-        {/* Downloads over time */}
+        {/* Accesses over time */}
         <div className="card mt-6">
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-            <h2 className="display text-lg">Downloads per day</h2>
+            <h2 className="display text-lg">Accesses per day</h2>
             <div className="flex items-center gap-2">
               {RANGES.map((r) => (
                 <Link
@@ -188,7 +197,7 @@ export default async function VcAdminActivityPage({
           <div className="card">
             <h2 className="display text-lg mb-4">Top documents · {range}d</h2>
             {topDocs.length === 0 ? (
-              <p className="text-sm text-muted">No downloads in this window.</p>
+              <p className="text-sm text-muted">No accesses in this window.</p>
             ) : (
               <ul className="flex flex-col gap-3">
                 {topDocs.map(([title, count]) => (
@@ -239,7 +248,8 @@ export default async function VcAdminActivityPage({
         {/* Per-email detail — the accessible table view of the same data */}
         <h2 className="display text-xl mt-12 mb-2">Per email</h2>
         <p className="text-sm text-muted mb-4">
-          Last connection and full download history per invited email.
+          Last connection and full access history (downloads, views, URL
+          opens) per invited email.
         </p>
         <div className="grid gap-2">
           {invites.map((i) => {
@@ -253,19 +263,20 @@ export default async function VcAdminActivityPage({
                   </span>
                   <span className="text-xs text-muted">
                     last connected {i.lastLoginAt ? relative(i.lastLoginAt) : "never"} ·{" "}
-                    {evts.length} download{evts.length === 1 ? "" : "s"}
+                    {evts.length} access{evts.length === 1 ? "" : "es"}
                   </span>
                 </summary>
                 <div className="px-5 pb-4">
                   {evts.length === 0 ? (
-                    <p className="text-sm text-muted">No downloads yet.</p>
+                    <p className="text-sm text-muted">No accesses yet.</p>
                   ) : (
                     <div className="overflow-x-auto">
                       <table className="clean min-w-[420px]">
                         <thead>
                           <tr>
                             <th>Document</th>
-                            <th>Downloaded at</th>
+                            <th>Action</th>
+                            <th>At</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -277,6 +288,7 @@ export default async function VcAdminActivityPage({
                                   <span className="text-muted text-xs"> (since removed)</span>
                                 )}
                               </td>
+                              <td className="text-muted">{VERB[e.action] ?? VERB.download}</td>
                               <td className="text-muted whitespace-nowrap">
                                 {e.at.toISOString().slice(0, 16).replace("T", " ")}
                               </td>

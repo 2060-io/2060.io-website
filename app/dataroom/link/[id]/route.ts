@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { NextResponse } from "next/server";
-import { db } from "@/app/lib/db";
-import { currentUser, vcInviteFor } from "@/app/lib/authz";
+import { vcDocumentAccess } from "@/app/lib/vc-access";
+import { recordAccess } from "@/app/lib/documents";
 
 export const dynamic = "force-dynamic";
 
@@ -14,33 +14,19 @@ export async function GET(
   _req: Request,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  const user = await currentUser();
-  if (!user?.email) notFound();
-  const invite = await vcInviteFor(user.email);
-  if (!invite) notFound();
-
   const { id } = await params;
-  const [doc, nda] = await Promise.all([
-    db.document.findFirst({
-      where: {
-        id,
-        kind: "url",
-        OR: [{ alwaysVisible: true }, { grants: { some: { inviteId: invite.id } } }],
-      },
-    }),
-    db.ndaSignature.findUnique({ where: { orgId: invite.orgId } }),
-  ]);
-  if (!doc?.url || !nda) notFound();
+  const access = await vcDocumentAccess(id, "url");
+  if (!access?.doc.url) notFound();
+  const { invite, doc } = access;
 
-  await db.downloadEvent.create({
-    data: {
-      email: invite.email,
-      documentId: doc.id,
-      documentTitle: doc.title,
-    },
+  await recordAccess({
+    email: invite.email,
+    documentId: doc.id,
+    documentTitle: doc.title,
+    action: "open",
   });
 
-  return NextResponse.redirect(doc.url, {
+  return NextResponse.redirect(doc.url!, {
     status: 302,
     headers: { "Cache-Control": "private, no-store" },
   });
