@@ -4,13 +4,18 @@ import { useRef, useState } from "react";
 import { useActionState } from "react";
 import {
   addDocument,
+  generateMissingThumbnails,
+  regenerateThumbnail,
+  removeThumbnail,
   replaceDocument,
   removeDocument,
   setSortOrder,
   toggleAlwaysVisible,
+  uploadThumbnail,
   type DocState,
 } from "./actions";
 import { SORT_ORDER_LIMIT } from "@/app/lib/document-order";
+import DocThumb from "@/app/components/DocThumb";
 
 export type DocRow = {
   id: string;
@@ -19,6 +24,9 @@ export type DocRow = {
   sortOrder: number | null;
   filename: string;
   viewable: boolean; // PDF / HTML / Markdown: can be opened in the browser
+  thumbSrc: string | null; // preview URL (staff route), null when none
+  thumbSource: "auto" | "custom" | null;
+  thumbAuto: boolean; // an automatic preview can be rendered for this type
   url: string | null;
   size: string; // preformatted; "" for URL entries
   version: number;
@@ -150,6 +158,106 @@ function OrderCell({ id, sortOrder }: { id: string; sortOrder: number | null }) 
   );
 }
 
+/**
+ * Preview controls for one entry: upload a cover image; remove it (back to the
+ * automatic preview); or re-render the automatic preview from the file.
+ */
+function ThumbControl({
+  id,
+  source,
+  auto,
+}: {
+  id: string;
+  source: "auto" | "custom" | null;
+  auto: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+  const [state, action, pending] = useActionState<DocState, FormData>(
+    async (prev, fd) => {
+      const res = await uploadThumbnail(prev, fd);
+      if (res.ok) setOpen(false);
+      return res;
+    },
+    {},
+  );
+  if (open) {
+    return (
+      <form action={action} className="flex items-center gap-2">
+        <input type="hidden" name="id" value={id} />
+        <input
+          name="image"
+          type="file"
+          accept="image/*"
+          required
+          className="field text-xs max-w-52"
+          aria-label="Cover image"
+        />
+        <button type="submit" className="btn text-xs" disabled={pending}>
+          {pending ? "Uploading…" : "Upload"}
+        </button>
+        <button type="button" className="text-xs text-muted" onClick={() => setOpen(false)}>
+          cancel
+        </button>
+        {state.error && <span className="text-xs text-red-500">{state.error}</span>}
+      </form>
+    );
+  }
+  return (
+    <>
+      <button
+        type="button"
+        className="prose-link text-fg text-sm"
+        onClick={() => setOpen(true)}
+        title="Upload an image to use as the preview"
+      >
+        cover
+      </button>
+      {source === "custom" ? (
+        <form action={removeThumbnail}>
+          <input type="hidden" name="id" value={id} />
+          <button
+            type="submit"
+            className="prose-link text-fg text-sm whitespace-nowrap"
+            title="Remove the uploaded cover; the automatic preview takes over where possible"
+          >
+            remove cover
+          </button>
+        </form>
+      ) : auto ? (
+        <form action={regenerateThumbnail}>
+          <input type="hidden" name="id" value={id} />
+          <button
+            type="submit"
+            className="prose-link text-fg text-sm whitespace-nowrap"
+            title="Render the preview again from the current file"
+          >
+            {source ? "re-render" : "render preview"}
+          </button>
+        </form>
+      ) : null}
+    </>
+  );
+}
+
+/** One-click backfill for documents that can have an automatic preview but lack one. */
+function GenerateMissing({ count }: { count: number }) {
+  const [state, action, pending] = useActionState<DocState, FormData>(
+    generateMissingThumbnails,
+    {},
+  );
+  return (
+    <form action={action} className="flex flex-wrap items-center gap-3 mb-4">
+      <button type="submit" className="btn text-xs" disabled={pending}>
+        {pending
+          ? "Rendering…"
+          : `Render ${count} missing preview${count === 1 ? "" : "s"}`}
+      </button>
+      {state.message && <span className="text-xs text-muted">{state.message}</span>}
+      {state.error && <span className="text-xs text-red-500">{state.error}</span>}
+    </form>
+  );
+}
+
 function ReplaceControl({ id }: { id: string }) {
   const [open, setOpen] = useState(false);
   const [state, action, pending] = useActionState<DocState, FormData>(
@@ -186,7 +294,13 @@ function ReplaceControl({ id }: { id: string }) {
   );
 }
 
-export default function DocumentManager({ docs }: { docs: DocRow[] }) {
+export default function DocumentManager({
+  docs,
+  missingThumbs,
+}: {
+  docs: DocRow[];
+  missingThumbs: number;
+}) {
   return (
     <div className="grid gap-12 mt-10">
       <section>
@@ -196,11 +310,12 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
 
       <section>
         <h2 className="display text-xl mb-4">Repository</h2>
+        {missingThumbs > 0 && <GenerateMissing count={missingThumbs} />}
         <div className="overflow-x-auto">
-          <table className="clean min-w-[820px]">
+          <table className="clean min-w-[920px]">
             <thead>
               <tr>
-                <th className="w-6" aria-label="Type"></th>
+                <th className="w-28" aria-label="Preview"></th>
                 <th>Order</th>
                 <th>Title</th>
                 <th>File / URL</th>
@@ -216,11 +331,22 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
               {docs.map((d) => (
                 <tr key={d.id}>
                   <td>
-                    <i
-                      className={`fa-solid ${d.kind === "url" ? "fa-link" : "fa-file"} text-muted text-xs`}
-                      title={d.kind === "url" ? "URL entry" : "Uploaded document"}
-                      aria-label={d.kind === "url" ? "URL entry" : "Uploaded document"}
-                    ></i>
+                    <DocThumb
+                      src={d.thumbSrc}
+                      kind={d.kind}
+                      filename={d.filename}
+                      title={
+                        d.thumbSource === "custom"
+                          ? "Uploaded cover"
+                          : d.thumbSource === "auto"
+                            ? "Automatic preview"
+                            : d.kind === "url"
+                              ? "URL entry — upload a cover to show a preview"
+                              : d.thumbAuto
+                                ? "No preview yet"
+                                : "No automatic preview for this type — upload a cover"
+                      }
+                    />
                   </td>
                   <td>
                     <OrderCell id={d.id} sortOrder={d.sortOrder} />
@@ -312,8 +438,9 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
                   </td>
                   <td className="text-muted">{d.downloads}</td>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                       {d.kind === "file" && <ReplaceControl id={d.id} />}
+                      <ThumbControl id={d.id} source={d.thumbSource} auto={d.thumbAuto} />
                       <form
                         action={removeDocument}
                         onSubmit={(e) => {
@@ -356,6 +483,9 @@ export default function DocumentManager({ docs }: { docs: DocRow[] }) {
           everything else downloads. The Order column sets the position in
           every list (lowest first; blank entries follow the ordered ones,
           newest first) and saves on Enter or when you leave the field.
+          Previews are rendered automatically from PDFs, Markdown and images
+          (page 1); HTML decks and Office files show a type icon until you
+          upload a cover image, which is kept when the file is replaced.
         </p>
       </section>
     </div>

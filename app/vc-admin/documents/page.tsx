@@ -5,7 +5,7 @@ import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
 import { formatSize } from "@/app/lib/documents";
 import { DOCUMENT_LIST_ORDER } from "@/app/lib/document-order";
-import { viewKind } from "@/app/lib/doc-view";
+import { thumbnailSource, viewKind } from "@/app/lib/doc-view";
 import DocumentManager from "./DocumentManager";
 
 export const metadata: Metadata = {
@@ -43,6 +43,9 @@ export default async function VcAdminDocumentsPage() {
           after the ordered ones, newest first.
         </p>
         <DocumentManager
+          missingThumbs={
+            docs.filter((d) => !d.thumbnailKey && thumbnailSource(d) !== null).length
+          }
           docs={docs.map((d) => ({
             id: d.id,
             kind: d.kind === "url" ? ("url" as const) : ("file" as const),
@@ -50,6 +53,14 @@ export default async function VcAdminDocumentsPage() {
             sortOrder: d.sortOrder,
             filename: d.filename,
             viewable: viewKind(d) !== null,
+            thumbSrc: d.thumbnailKey
+              ? `/vc-admin/documents/${d.id}/thumb?t=${d.updatedAt.getTime()}`
+              : null,
+            thumbSource:
+              d.thumbnailSource === "custom" || d.thumbnailSource === "auto"
+                ? d.thumbnailSource
+                : null,
+            thumbAuto: thumbnailSource(d) !== null,
             url: d.url,
             size: formatSize(d.size),
             version: d.version,
