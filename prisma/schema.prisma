@@ -334,6 +334,7 @@ model ApiToken {
   scope      ApiTokenScope @default(read)
   kind       ApiTokenKind  @default(personal)
   clientId   String?
+  client     OAuthClient?  @relation(fields: [clientId], references: [id], onDelete: Cascade)
   grantId    String?
   resource   String? // RFC 8707 audience the token was minted for
   lastUsedAt DateTime?
@@ -343,4 +344,46 @@ model ApiToken {
 
   @@index([userId])
   @@index([grantId])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// OAuth 2.1 authorization server — claude.ai connectors sign in with consent
+// instead of a pasted token (see README, "MCP server")
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// A registered MCP client (RFC 7591 dynamic registration, open to any
+/// client — the consent screen is what protects the user). The row id is the
+/// client_id. Confidential clients hold a hashed secret.
+model OAuthClient {
+  id                      String   @id @default(cuid())
+  name                    String
+  redirectUris            String[]
+  secretHash              String? // sha256 of the client_secret (confidential clients only)
+  tokenEndpointAuthMethod String   @default("none") // "none" | "client_secret_post" | "client_secret_basic"
+  clientUri               String?
+  logoUri                 String?
+  createdAt               DateTime @default(now())
+
+  codes  OAuthAuthorizationCode[]
+  tokens ApiToken[]
+}
+
+/// A single-use authorization code (10 minutes), bound to client, redirect
+/// URI, PKCE challenge (S256), scope and resource. Hashed like the tokens.
+model OAuthAuthorizationCode {
+  id                  String      @id @default(cuid())
+  codeHash            String      @unique
+  clientId            String
+  client              OAuthClient @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  userId              String
+  redirectUri         String
+  codeChallenge       String
+  codeChallengeMethod String      @default("S256")
+  scope               String // space-separated: "read" | "read write"
+  resource            String?
+  expiresAt           DateTime
+  usedAt              DateTime?
+  createdAt           DateTime    @default(now())
+
+  @@index([expiresAt])
 }

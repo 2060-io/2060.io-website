@@ -6,6 +6,7 @@ import { rateLimitAllow } from "@/app/lib/rate-limit";
 import { isVcAdmin } from "@/app/lib/authz";
 import { guessContentType } from "@/app/lib/documents";
 import * as svc from "@/app/lib/dataroom-service";
+import { mcpResourceUrl } from "@/app/lib/oauth";
 
 /**
  * The data room's MCP server (same design as the Verana Foundation site):
@@ -467,6 +468,8 @@ const authed = withMcpAuth(
     if (!bearer) return undefined;
     const v = await verifyApiToken(bearer);
     if (!v) return undefined;
+    // An OAuth token minted for another resource is not valid here (RFC 8707).
+    if (v.kind === "access" && v.resource && v.resource.replace(/\/+$/, "") !== mcpResourceUrl()) return undefined;
     // The role is resolved per request: a token outlives its owner's role only on paper.
     if (!(await isVcAdmin(v.user.email))) return undefined;
     return {
@@ -477,7 +480,7 @@ const authed = withMcpAuth(
       extra: { userId: v.user.id, email: v.user.email },
     };
   },
-  { required: true },
+  { required: true, resourceMetadataPath: "/.well-known/oauth-protected-resource" },
 );
 
 export { authed as GET, authed as POST, authed as DELETE };

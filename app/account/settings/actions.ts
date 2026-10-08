@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { db } from "@/app/lib/db";
 import { currentUser, isVcAdmin } from "@/app/lib/authz";
 import { createApiToken, revokeApiToken } from "@/app/lib/api-tokens";
+import { revokeGrant } from "@/app/lib/oauth";
 
 export type TokenState = { error?: string; ok?: boolean; secret?: string; name?: string };
 
@@ -62,6 +63,31 @@ export async function revokeToken(id: string): Promise<TokenState> {
       action: "token.revoke",
       targetType: "ApiToken",
       targetId: id,
+    },
+  });
+  revalidatePath("/account/settings");
+  return { ok: true };
+}
+
+// ── Connected apps (OAuth grants) ────────────────────────────────────────────
+
+export async function disconnectApp(grantId: string): Promise<TokenState> {
+  const user = await currentUser();
+  if (!user?.id || !user.email) return { error: "Not signed in." };
+  // Only the owner's tokens carry this grant id; the update is scoped to them.
+  const count = await db.apiToken.updateMany({
+    where: { grantId, userId: user.id, revokedAt: null },
+    data: { revokedAt: new Date() },
+  });
+  if (count.count === 0) return { error: "Nothing to disconnect." };
+  await revokeGrant(grantId); // belt and braces for any straggler
+  await db.adminAction.create({
+    data: {
+      actorUserId: user.id,
+      actorEmail: user.email,
+      action: "oauth.revoke",
+      targetType: "OAuthGrant",
+      targetId: grantId,
     },
   });
   revalidatePath("/account/settings");
