@@ -78,11 +78,6 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/investors" className="prose-link">
-                Investors
-              </Link>
-            </li>
-            <li>
               <Link href="/contact" className="prose-link">
                 Contact
               </Link>
