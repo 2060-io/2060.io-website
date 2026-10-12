@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.17.1](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.17.0...2060-io-website-v2.17.1) (2026-10-12)
+
+
+### Bug Fixes
+
+* **site:** remove the public Investors page ([20a330d](https://github.com/2060-io/2060.io-website/commit/20a330d8569e5c1157ac126afb19f47083436d12))
+* **site:** remove the public Investors page ([b1ebb89](https://github.com/2060-io/2060.io-website/commit/b1ebb8978a16721b1b6262696f8899339acdd116))
+
 ## [2.17.0](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.16.0...2060-io-website-v2.17.0) (2026-10-08)
 
 
