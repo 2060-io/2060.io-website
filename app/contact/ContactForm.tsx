@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const TOPICS = [
-  { value: "investor", label: "Investor: equity round, investor memo, data-room access" },
+  { value: "investor", label: "Investor relations" },
   { value: "enterprise", label: "Enterprise or consortium: Hologram deployment, trust-registry engagement" },
   { value: "press", label: "Press or analyst" },
   { value: "hiring", label: "Hiring: send work, not résumés" },

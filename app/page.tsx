@@ -195,7 +195,7 @@ export default function Page() {
         </p>
         <div className="flex flex-wrap justify-center gap-3 mt-10">
           <a href="/team" className="btn btn-primary">Meet the Team</a>
-          <a href="/investors" className="btn">Talk to Investors</a>
+          <a href="/contact" className="btn">Get in Touch</a>
         </div>
       </div>
     </section>
@@ -378,16 +378,7 @@ export default function Page() {
           Two Ways to Engage With 2060
         </h2>
         <div className="accent-line mx-auto mt-6"></div>
-        <div className="grid md:grid-cols-3 gap-6 mt-12 text-left">
-          <article className="card">
-            <p className="text-xs tracking-wider uppercase text-accent-hover">Investor</p>
-            <h3 className="display text-lg mt-3">Talk about the current round</h3>
-            <p className="text-muted mt-3 text-sm">Start with the Investors page or reach Fabrice Rochette (CEO) directly on LinkedIn. Round financials are shared one-to-one, not on the public site.</p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <a href="/investors" className="btn">Investors →</a>
-              <a href="https://www.linkedin.com/in/fabricerochette/" className="btn" rel="noopener">Reach Fabrice ↗</a>
-            </div>
-          </article>
+        <div className="grid md:grid-cols-2 gap-6 mt-12 text-left">
           <article className="card">
             <p className="text-xs tracking-wider uppercase text-muted">Enterprise / consortium</p>
             <h3 className="display text-lg mt-3">Evaluate Hologram</h3>

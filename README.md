@@ -2,7 +2,7 @@
 
 Source for [2060.io](https://2060.io) — the 2060 OÜ public website.
 
-Built with **Next.js 15** (App Router) + **React 19** + **Tailwind CSS v4** + **TypeScript**. Six hand-crafted pages (Home, Projects, Team, Investors, Contact, Privacy) share a theme-aware dark/light design driven by CSS custom properties.
+Built with **Next.js 15** (App Router) + **React 19** + **Tailwind CSS v4** + **TypeScript**. Five hand-crafted pages (Home, Projects, Team, Contact, Privacy) share a theme-aware dark/light design driven by CSS custom properties.
 
 Delivered as a container image (`io2060/website` on Docker Hub), built and published automatically by GitHub Actions.
 
@@ -29,7 +29,6 @@ Delivered as a container image (`io2060/website` on Docker Hub), built and publi
 │   ├── page.tsx                Home (/)
 │   ├── projects/page.tsx       /projects
 │   ├── team/page.tsx           /team
-│   ├── investors/page.tsx      /investors
 │   ├── contact/page.tsx        /contact
 │   ├── privacy/page.tsx        /privacy
 │   └── components/

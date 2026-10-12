@@ -27,8 +27,6 @@ const IMAGES: ReadonlyArray<string> = [
   "/assets/projects-bottom2.svg",
   "/assets/home.svg",
   "/assets/musiciens.svg",
-  "/assets/viaduc2.svg",
-  "/assets/blueprint.svg",
   "/assets/contact-us.svg",
   "/assets/enveloppe.svg",
   // Team portraits
