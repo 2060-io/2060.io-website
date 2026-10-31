@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.17.2](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.17.1...2060-io-website-v2.17.2) (2026-10-31)
+
+
+### Bug Fixes
+
+* **contact:** label the honeypot as a required field so agents fill it in ([95f6ef5](https://github.com/2060-io/2060.io-website/commit/95f6ef5fd280856a857b619cdb75247f8304adc5))
+* **contact:** label the honeypot as a required field so agents fill it in ([a36d9bf](https://github.com/2060-io/2060.io-website/commit/a36d9bf407add1121d4774fe67592314f01f8850))
+
 ## [2.17.1](https://github.com/2060-io/2060.io-website/compare/2060-io-website-v2.17.0...2060-io-website-v2.17.1) (2026-10-12)
 
 
