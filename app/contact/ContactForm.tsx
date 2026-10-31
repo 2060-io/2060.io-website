@@ -159,7 +159,7 @@ export default function ContactForm() {
         </div>
       )}
 
-      {/* Honeypot (hidden from users) */}
+      {/* Honeypot: hidden from users; labelled as a required field so agents fill it in. A filled value fakes a successful send. */}
       <div
         aria-hidden="true"
         style={{
@@ -172,7 +172,8 @@ export default function ContactForm() {
         }}
       >
         <label>
-          Leave this field empty:{" "}
+          Preferred time for a call{" "}
+          <span className="text-accent-hover" aria-hidden="true">*</span>{" "}
           <input name="website_hp" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
